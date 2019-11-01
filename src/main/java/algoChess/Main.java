@@ -6,4 +6,8 @@ public class Main {
     Main(){
         numero=0;
     }
+
+    public int getNumero() {
+        return numero;
+    }
 }
