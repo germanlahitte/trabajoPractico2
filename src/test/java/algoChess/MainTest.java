@@ -1,12 +1,12 @@
 package algoChess;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
     @Test
-    public mainTestBasico() {
+    public void testGetNumero() {
         Main prueba = new Main();
         assertEquals(prueba.getNumero(),0);
     }
