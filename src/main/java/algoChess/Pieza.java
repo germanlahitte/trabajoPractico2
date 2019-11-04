@@ -12,6 +12,13 @@ public class Pieza { //TODO :falta
         return Pieza.costo;
     }
 
+    public Pieza(int costo, float vida, Equipo equipo,int danio,int danioADistacia){
+        this.costo = costo;
+        this.vida = vida;
+        this.equipo = equipo;
+        this.arma = new Arma(danio,danioADistacia);
+    }
+
     protected void ocupar(Casillero esteCasillero){
         this.ubicacion = esteCasillero;
     }

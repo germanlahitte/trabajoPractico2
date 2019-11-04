@@ -7,9 +7,9 @@ public class Posicion {
     private int horizontal;
     private int vertical;
 
-    public Posicion(int posX, int posY) {
-        this.horizontal = posX;
-        this.vertical = posY;
+    public Posicion(int horizontal, int vertical) {
+        this.horizontal = horizontal;
+        this.vertical = vertical;
     }
 
     public Posicion siguiente(Direccion enDireccion) {
