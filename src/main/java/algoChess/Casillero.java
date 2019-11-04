@@ -7,12 +7,21 @@ public class Casillero { //TODO :falta
     private Disponibilidad estado;
     private Pieza ocupante;
 
-    public Casillero(Posicion ubicacion,Equipo bando){
+    //public Casillero(Posicion ubicacion,Equipo bando){
+    //    this.ubicacion = ubicacion;
+    //    this.bando = bando;
+    //    this.desocupar();
+    //}
+    public Casillero(Posicion ubicacion){
         this.ubicacion = ubicacion;
-        this.bando = bando;
+        this.bando = null;
         this.desocupar();
     }
 
+    public void setBando(Equipo bando){
+        this.bando = bando;
+
+    }
     public void desocupar(){
         this.ocupante = null;
         this.estado = new Libre();

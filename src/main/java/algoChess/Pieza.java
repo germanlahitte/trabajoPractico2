@@ -1,6 +1,6 @@
 package algoChess;
 
-public class Pieza { //TODO :falta
+public abstract class Pieza {
 
     private static int costo;
     private float vida;
@@ -8,8 +8,15 @@ public class Pieza { //TODO :falta
     private Casillero ubicacion;
     private Arma arma;
 
-    public static int costo(){
-        return Pieza.costo;
+    public Pieza(int costo, float vida, Equipo equipo,int danio,int danioADistacia){
+        this.costo = costo;
+        this.vida = vida;
+        this.equipo = equipo;
+        this.arma = new Arma(danio,danioADistacia);
+    }
+
+    public static int getCosto(){
+        return costo;
     }
 
     protected void ocupar(Casillero esteCasillero){
