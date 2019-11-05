@@ -11,12 +11,9 @@ class JugadorTest {
         Equipo bando = new Rojo();
         Tablero tablero = new Tablero();
         Jugador nuevoJugador = new Jugador("camila",bando,tablero);
-       nuevoJugador.comprarSoldado();
+        nuevoJugador.comprarSoldado();
         nuevoJugador.comprarJinete();
-        nuevoJugador.comprarJinete();
-        nuevoJugador.comprarCatapulta();
-        nuevoJugador.comprarCatapulta();
-        assertEquals(nuevoJugador.getCantidadDePiezas(),5);
+        assertEquals(nuevoJugador.getCantidadDePiezas(),2);
 
     }
 

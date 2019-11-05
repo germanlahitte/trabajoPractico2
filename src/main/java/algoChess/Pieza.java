@@ -59,6 +59,9 @@ public abstract class Pieza { //TODO :falta
             this.vida -= danio;
         };
     }
+    public float vidaRestante(){
+        return vida;
+    }
 
 
 }

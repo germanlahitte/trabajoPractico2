@@ -27,21 +27,21 @@ public class Jugador {
     }
 
     public void comprarSoldado()  {
-        Soldado soldadoNuevo = (Soldado) this.billetera.comprar(Soldado.class, this.bando);
+        Soldado soldadoNuevo = this.billetera.comprarSoldado(this.bando);
         this.agregarPieza(soldadoNuevo);
     }
 
     public void comprarJinete() {
-        Jinete jineteNuevo = (Jinete) this.billetera.comprar(Jinete.class, this.bando);
+        Jinete jineteNuevo = this.billetera.comprarJinete(this.bando);
         this.agregarPieza(jineteNuevo);
     }
 
     public void comprarCatapulta() {
-        Catapulta catapultaNueva = (Catapulta) this.billetera.comprar(Catapulta.class,this.bando);
+        Catapulta catapultaNueva = this.billetera.comprarCatapulta(this.bando);
         this.agregarPieza(catapultaNueva);
     }
     public void comprarCurandero() {
-        Curandero curanderoNuevo = (Curandero) this.billetera.comprar(Curandero.class,this.bando);
+        Curandero curanderoNuevo = this.billetera.comprarCurandero(this.bando);
        this.agregarPieza(curanderoNuevo);
     }
 
