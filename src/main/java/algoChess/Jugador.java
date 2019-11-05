@@ -26,7 +26,7 @@ public class Jugador {
         piezas.add(pieza);
     }
 
-    public void comprarSoldado() {
+    public void comprarSoldado()  {
         Soldado soldadoNuevo = (Soldado) this.billetera.comprar(Soldado.class, this.bando);
         this.agregarPieza(soldadoNuevo);
     }
@@ -36,11 +36,11 @@ public class Jugador {
         this.agregarPieza(jineteNuevo);
     }
 
-    public void comprarCatapulta(){
+    public void comprarCatapulta() {
         Catapulta catapultaNueva = (Catapulta) this.billetera.comprar(Catapulta.class,this.bando);
         this.agregarPieza(catapultaNueva);
     }
-    public void comprarCurandero(){
+    public void comprarCurandero() {
         Curandero curanderoNuevo = (Curandero) this.billetera.comprar(Curandero.class,this.bando);
        this.agregarPieza(curanderoNuevo);
     }

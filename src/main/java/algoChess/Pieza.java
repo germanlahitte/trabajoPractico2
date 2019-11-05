@@ -2,13 +2,13 @@ package algoChess;
 
 public abstract class Pieza { //TODO :falta
 
-    private static int costo;
+   private static int costo;
     private float vida;
     private Equipo equipo;
     private Casillero ubicacion;
     private Arma arma;
 
-    public static int costo(){
+    public static int getCosto(){
         return Pieza.costo;
     }
 

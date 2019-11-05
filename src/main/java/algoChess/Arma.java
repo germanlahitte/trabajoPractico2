@@ -10,7 +10,6 @@ public class Arma { //TODO :lo mínimo para compilar
     }
 
     public int atacar(Pieza unaPieza, int aUnaDistancia){
-
         return danio;
     }
 }
