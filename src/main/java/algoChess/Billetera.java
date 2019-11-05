@@ -22,6 +22,7 @@ public class Billetera {
         Soldado soldadoNuevo;
         if(costoPieza<=this.puntosDisponibles){
             soldadoNuevo = new Soldado(bando);
+            this.puntosDisponibles -= costoPieza;
         }else{
             throw new NoAlcanzanLasMonedasException("No alcanzan las monedas para realizar la compra");
         }
@@ -32,6 +33,7 @@ public class Billetera {
         Jinete jineteNuevo;
         if(costoPieza<=this.puntosDisponibles){
             jineteNuevo = new Jinete(bando);
+            this.puntosDisponibles -= costoPieza;
         }else{
             throw new NoAlcanzanLasMonedasException("No alcanzan las monedas para realizar la compra");
         }
@@ -43,6 +45,7 @@ public class Billetera {
         Curandero curanderoNuevo;
         if(costoPieza<=this.puntosDisponibles){
             curanderoNuevo = new Curandero(bando);
+            this.puntosDisponibles -= costoPieza;
         }else{
             throw new NoAlcanzanLasMonedasException("No alcanzan las monedas para realizar la compra");
         }
@@ -54,6 +57,7 @@ public class Billetera {
         Catapulta catapultaNueva;
         if(costoPieza<=this.puntosDisponibles){
             catapultaNueva = new Catapulta(bando);
+            this.puntosDisponibles -= costoPieza;
         }else{
             throw new NoAlcanzanLasMonedasException("No alcanzan las monedas para realizar la compra");
         }
