@@ -3,6 +3,7 @@ package algoChess;
 import java.util.ArrayList;
 
 public class Jugador {
+    private static int credito = 20;
     private String nombre;
     private Equipo bando;
     private Billetera billetera;
@@ -12,7 +13,7 @@ public class Jugador {
     public Jugador(String nombre, Equipo bando, Tablero tablero) {
         this.nombre = nombre;
         this.bando = bando;
-        this.billetera = new Billetera();
+        this.billetera = new Billetera(credito);
         this.tablero = tablero;
         this.piezas = new ArrayList<Pieza>();
     }
@@ -20,6 +21,7 @@ public class Jugador {
     public Equipo getEquipo() {
         return this.bando;
     }
+
     public void agregarPieza(Pieza pieza){
         piezas.add(pieza);
     }

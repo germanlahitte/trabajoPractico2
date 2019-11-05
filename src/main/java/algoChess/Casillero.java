@@ -13,6 +13,11 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
         this.desocupar();
     }
 
+    public void ubicar(Pieza estaPieza){
+        if(estaPieza.ubicar(bando))
+            this.estado.agregarPieza(estaPieza,this);
+    }
+
     public void desocupar(){
         this.ocupante = null;
         this.estado = new Libre();

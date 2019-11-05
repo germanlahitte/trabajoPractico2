@@ -30,6 +30,10 @@ public class Tablero {
         }
     }
 
+    public void ubicar(Pieza estaPieza, Casillero esteCasillero) {
+        esteCasillero.ubicar(estaPieza);
+    }
+
     public void mover(Pieza estaPieza, Casillero destino) {
         if (estaPieza.distanciaA(destino) == movimientoMaximo) {
             estaPieza.mover(destino);

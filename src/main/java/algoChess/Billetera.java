@@ -4,9 +4,10 @@ import excepciones.NoAlcanzanLasMonedasException;
 public class Billetera {
     private int puntosDisponibles;
 
-    public Billetera() {
-        this.puntosDisponibles = 20;
+    public Billetera(int credito) {
+        this.puntosDisponibles = credito;
     }
+
     public Object comprar(Class pieza, Equipo equipo) {
         int costoPieza;
         Object piezaNueva;

@@ -1,6 +1,6 @@
 package algoChess;
 
-public class Pieza { //TODO :falta
+public abstract class Pieza { //TODO :falta
 
     private static int costo;
     private float vida;
@@ -17,6 +17,10 @@ public class Pieza { //TODO :falta
         this.vida = vida;
         this.equipo = equipo;
         this.arma = new Arma(danio,danioADistacia);
+    }
+
+    protected boolean ubicar(Equipo bando){
+       return this.equipo.ubicar(bando);
     }
 
     protected void ocupar(Casillero esteCasillero){
