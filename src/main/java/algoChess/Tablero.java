@@ -36,4 +36,8 @@ public class Tablero {
         }
     }
 
+    public int getCantidadDeCasilleros(){
+        return 400;
+    }
+
 }
