@@ -12,11 +12,12 @@ public abstract class Pieza { //TODO :falta
         return Pieza.costo;
     }
 
-    public Pieza(int costo, float vida, Equipo equipo,int danio,int danioADistacia){
+    public Pieza(int costo, float vida, Equipo equipo){
         this.costo = costo;
         this.vida = vida;
         this.equipo = equipo;
-        this.arma = new Arma(danio,danioADistacia);
+        //this.arma = new Arma(danio,danioADistacia);
+       // this.arma = arma;
     }
 
     protected boolean ubicar(Equipo bando){
@@ -75,5 +76,7 @@ public abstract class Pieza { //TODO :falta
     protected Equipo getBando(){
         return this.equipo;
     }
+
+    protected abstract void agregarArma(int danio,int danioADistancia);
 
 }

@@ -19,7 +19,7 @@ class PiezaTest {
         curandero.atacar(soldado);
         assertEquals(115,soldado.vidaRestante());
     }
-   /* @Test No funciona la distancia, sigue curando aunque este a distancia lejana
+    @Test
     public void curanderoNoCuraSoldadoAliadoPorEstarLejosTest(){
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(5,5);
@@ -33,7 +33,7 @@ class PiezaTest {
         curandero.atacar(soldado);
         assertEquals(100,soldado.vidaRestante());
 
-    }*/
+    }
     @Test
     public void soldadoAliadoAtacaAJineteEnemigoADistanciaCercanaYSeLeRestaVidaTest(){
         Posicion posicion1 = new Posicion(1,1);
@@ -50,7 +50,7 @@ class PiezaTest {
         assertEquals(90,jinete.vidaRestante());
 
     }
-   /* @Test
+    @Test
     public void soldadoAliadoAtacaJineteADistanciaLejanaYNoSeLeRestaVidaTest(){
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(5,5);
@@ -64,6 +64,11 @@ class PiezaTest {
         casillero2.ubicar(soldado);
         soldado.atacar(jinete);
         assertEquals(100,jinete.vidaRestante());
-    }*/
+    }
+
+   /*@Test
+    public void soldadoPuedeMoverseEnTodasLasDireccionesTest(){
+
+   }*/
 
 }
