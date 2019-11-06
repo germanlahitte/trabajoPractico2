@@ -4,9 +4,9 @@ public abstract class Pieza { //TODO :falta
 
    private static int costo;
     private float vida;
-    private Equipo equipo;
-    private Casillero ubicacion;
-    private Arma arma;
+    protected Equipo equipo;
+    protected Casillero ubicacion;
+    protected Arma arma;
 
     public static int getCosto(){
         return Pieza.costo;
@@ -39,9 +39,10 @@ public abstract class Pieza { //TODO :falta
        destino.agregarPieza(this);
     }
 
-    protected void atacar(Pieza objetivo){
+   /* protected void atacar(Pieza objetivo){
         objetivo.atacadaDesde(this.ubicacion, this.arma);
-    }
+    }*/
+   protected abstract void  atacar(Pieza objetivo);
 
     protected void atacadaDesde(Casillero unCasillero, Arma unArma){
        quitarVida(unArma.atacar(this, unCasillero.distancia(this.ubicacion)));
@@ -63,5 +64,16 @@ public abstract class Pieza { //TODO :falta
         return vida;
     }
 
+    protected void curadaDesde(Casillero unCasillero, Arma unArma){
+        agregarVida(unArma.atacar(this,unCasillero.distancia(this.ubicacion)));
+    }
+
+    protected void agregarVida(float vida){
+        this.vida += vida;
+    }
+
+    protected Equipo getBando(){
+        return this.equipo;
+    }
 
 }

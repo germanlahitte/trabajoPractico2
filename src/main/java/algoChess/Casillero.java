@@ -50,8 +50,7 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
 
     //TODO
     public float calcularDanio(Equipo equipo){
-        float danio=0;
-        return danio;
+        return equipo.bajoAtaque(this.bando);
     }
 
 }

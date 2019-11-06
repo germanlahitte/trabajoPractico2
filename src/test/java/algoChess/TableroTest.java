@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TableroTest {
     @Test
-    public void testSeCreaCorrectamenteElTablero(){
+    public void seCreaCorrectamenteElTableroTest(){
         Tablero tablero = new Tablero();
         assertEquals(400,tablero.getCantidadDeCasilleros());
     }
