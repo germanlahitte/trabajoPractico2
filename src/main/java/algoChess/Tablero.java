@@ -6,10 +6,10 @@ public class Tablero {
 
     private static int lado = 20;
     private static int movimientoMaximo = 1;
-    private HashMap posiciones;
+    private HashMap<Posicion, Casillero> posiciones;
 
     public Tablero() {
-        this.posiciones = new HashMap();
+        this.posiciones = new HashMap<Posicion, Casillero>();
 
         for (int vertical = 1; vertical <= (lado / 2); vertical++) {
             Equipo bandoRojo = new Rojo();
@@ -38,6 +38,10 @@ public class Tablero {
         if (estaPieza.distanciaA(destino) == movimientoMaximo) {
             estaPieza.mover(destino);
         }
+    }
+
+    public Casillero buscar(Posicion enUnaPosicion){
+        return posiciones.get(enUnaPosicion);
     }
 
     public int getCantidadDeCasilleros(){
