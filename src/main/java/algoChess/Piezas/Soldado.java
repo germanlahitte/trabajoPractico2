@@ -1,9 +1,7 @@
 package algoChess.Piezas;
 
-import algoChess.Armas.Arma;
 import algoChess.Armas.ArmaSoldado;
 import algoChess.Equipos.Equipo;
-import algoChess.Ubicacion.Casillero;
 import algoChess.Ubicacion.Direccion;
 
 public class Soldado extends Pieza implements Movible{
@@ -14,20 +12,6 @@ public class Soldado extends Pieza implements Movible{
         super(1, 100, equipo);
         this.agregarArma(new ArmaSoldado());
 
-    }
-    /*
-    public void atacar(Pieza objetivo){
-        //objetivo.atacadaDesde(this.casillero, this.arma);
-        }*/
-
-
-    /*protected void agregarArma(int danio,int DanioADistancia){
-        this.arma = new ArmaSoldado();
-        }*/
-
-    @Override
-    public void puedoCurarme(Casillero ubicacion, Arma arma) {
-        //this.curadaDesde(ubicacion,arma);
     }
 
 

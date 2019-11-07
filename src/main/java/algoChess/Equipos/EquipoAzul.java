@@ -2,7 +2,7 @@ package algoChess.Equipos;
 
 import algoChess.Piezas.Pieza;
 import excepciones.CasilleroEnemigoException;
-import excepciones.CasilleroOcupadoException;
+
 
 public class EquipoAzul implements Equipo {
 
@@ -27,26 +27,6 @@ public class EquipoAzul implements Equipo {
     public Pieza ubicarCon(EquipoRojo equipo, Pieza pieza){
         throw new CasilleroEnemigoException("Casillero diferente equipo");}
 
-        /* Para Double Dispatch
-        public float vs(Equipo unEquipo){
-            return unEquipo.vs(this);
-        }
-        public float vs(Azul equipoAzul){
-            return 1.0f
-        }
-        public float vs(Rojo equipoRojo){
-            return 1.05f
-        }
 
-        public boolean ubicar(Equipo unEquipo){
-            return unEquipo.ubicar(this);
-        }
-        public boolean ubicar(Azul equipoAzul){
-            return true;
-        }
-        public boolean ubicar(Rojo equipoRojo){
-            return false;
-        }
-    }*/
 
 }

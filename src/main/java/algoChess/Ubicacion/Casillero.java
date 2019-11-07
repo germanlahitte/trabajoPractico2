@@ -28,19 +28,7 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
 
 
 
-/*
-    public void ocupar(Pieza aAsignar){
-        this.pieza = aAsignar;
-        this.disponibilidad = new StrategyOcupado();
-    }
 
-    */
-    /*
-    public void quitarPieza(){
-        this.disponibilidad.quitarPieza(this);
-    }*/
-
-    //TODO
     public double calcularDanio(Equipo equipo){
         return this.equipo.atacar(equipo);
     }
@@ -51,8 +39,6 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
 
     public void ubicar(Pieza pieza){
         this.agregarPieza(pieza.ubicarCon(this.equipo));
-        //if(estaPieza.ubicar(equipo))
-        //   this.disponibilidad.agregarPieza(estaPieza,this);
     }
 
     /// Agrega Pieza delega en strategyDisponibilidad
@@ -78,9 +64,6 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
 
     public void agregarTablero(Tablero tablero){
         this.tablero = tablero;
-    }
-    public void agregarEquipo(Equipo equipo){
-        this.equipo = equipo;
     }
 
     ///// Delegacion en posicion y direccion

@@ -9,10 +9,9 @@ public abstract class Pieza { //TODO :falta
 
    private static int costo;
    private Vida vida;
-    protected Equipo equipo;
-//    protected Casillero ubicacion;
-    protected Casillero casillero;
-    protected Arma arma;
+   protected Equipo equipo;
+   protected Casillero casillero;
+   protected Arma arma;
 
     public static int getCosto(){
         return Pieza.costo;
@@ -22,68 +21,12 @@ public abstract class Pieza { //TODO :falta
         this.costo = costo;
         this.vida = new Vida(vida);
         this.equipo = equipo;
-        //this.arma = new Arma(danio,danioADistacia);
-       // this.arma = arma;
     }
 
     public Pieza(Casillero casillero){
         this.casillero = casillero;
 
     }
-/*
-    public boolean ubicar(Equipo bando){
-       return this.equipo.ubicar(bando);
-    }
-
-    public void ocupar(Casillero esteCasillero){
-        this.ubicacion = esteCasillero;
-    }
-
-    protected void desocupar(){
-        this.ubicacion.desocupar();
-    } */
-
-   /* protected void atacar(Pieza objetivo){
-        objetivo.atacadaDesde(this.ubicacion, this.arma);
-    }*/
-
-
-   /*
-    public void atacadaDesde(Casillero unCasillero, Arma unArma){
-       quitarVida(unArma.atacarA(this, unCasillero.distanciaA(this.casillero)));
-    }*/
-
-
-
-    /*
-    public void curadaDesde(Casillero unCasillero, Arma unArma){
-        agregarVida(unArma.atacarA(this,unCasillero.distanciaA(this.casillero)));
-    }*/
-
-    /*
-    protected void agregarVida(float vida){
-        this.vida += vida;
-    }*/
-
-
-    // No usamos estos metodos
-    public int distanciaA(Casillero unCasillero){
-        return unCasillero.distanciaA(casillero);
-    }
-
-
-    public void mover(Casillero destino){
-        destino.agregarPieza(this);
-    }
-
-
-    protected Equipo getBando(){
-        return this.equipo;
-    }
-
-
-    public abstract void puedoCurarme(Casillero ubicacion,Arma arma);
-    //
 
 
     // Se ubica en el mapa

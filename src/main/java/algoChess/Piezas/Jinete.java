@@ -1,10 +1,8 @@
 package algoChess.Piezas;
 
-import algoChess.Armas.Arma;
 import algoChess.Armas.ArmaArcoJinete;
 import algoChess.Armas.ArmaEspadaJinete;
 import algoChess.Equipos.Equipo;
-import algoChess.Ubicacion.Casillero;
 import algoChess.Ubicacion.Direccion;
 
 public class Jinete extends Pieza implements Movible{
@@ -14,24 +12,6 @@ public class Jinete extends Pieza implements Movible{
         this.agregarArma(new ArmaArcoJinete());
     }
 
-    /*
-    @Override
-    public void atacar(Pieza objetivo) {
-        //objetivo.atacadaDesde(this.casillero, this.arma);
-    }*/
-
-    /*
-    @Override
-    protected void agregarArma(int danio, int danioADistancia) {
-        this.arma = new ArmaEspadaJinete();
-
-    }
-    */
-
-    @Override
-    public void puedoCurarme(Casillero ubicacion, Arma arma) {
-        //this.curadaDesde(ubicacion,arma);
-    }
 
     // Cambiar arma
 

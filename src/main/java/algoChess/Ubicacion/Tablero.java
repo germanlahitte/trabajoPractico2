@@ -38,46 +38,6 @@ public class Tablero {
         }
     }
 
-    public void ubicar(Pieza estaPieza, Casillero esteCasillero) {
-        esteCasillero.ubicar(estaPieza);
-    }
-
-
-    // No los usamos
-    /*
-    public void mover(Pieza estaPieza, Casillero destino) {
-        if (estaPieza.distanciaA(destino) == movimientoMaximo) {
-            estaPieza.mover(destino);
-        }
-    }*/
-
-    /*
-    public Casillero buscar(Posicion enUnaPosicion){
-        Casillero casilleroBuscado = null;
-        for(Posicion i:posiciones.keySet()){
-            if(i.equals(enUnaPosicion)){
-                casilleroBuscado=posiciones.get(i);
-            }
-        }
-        return casilleroBuscado;
-    }
-
-
-     */
-
-    /*
-    public int getCantidadDeCasilleros(){
-        return 400;
-    }*/
-
-    ///
-   /* public void hayAlgunGanador(Jugador jugador1, Jugador jugador2){
-        if(jugador1.esGanador() || jugador2.esGanador()){
-            throw  new ElJuegoTerminoPorqueHayUnGanadorException("El juego tiene un ganador");
-        }
-
-    }*/
-
 
    // Ubicar piezas
     public void ubicar(Pieza estaPieza, Posicion posicion) {
