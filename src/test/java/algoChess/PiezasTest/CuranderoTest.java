@@ -3,18 +3,17 @@ package algoChess.PiezasTest;
 import algoChess.Equipos.EquipoAzul;
 import algoChess.Equipos.Equipo;
 import algoChess.Equipos.EquipoRojo;
-import algoChess.Piezas.Catapulta;
-import algoChess.Piezas.Curandero;
-import algoChess.Piezas.Jinete;
-import algoChess.Piezas.Soldado;
+import algoChess.Piezas.*;
 import algoChess.Ubicacion.Casillero;
 import algoChess.Ubicacion.Posicion;
+import algoChess.Ubicacion.Tablero;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CuranderoTest {
 
+    /*
     @Test
     public void curanderoCuraSoldadoAliadoTest() {
         Posicion posicion1 = new Posicion(1, 1);
@@ -81,5 +80,54 @@ public class CuranderoTest {
         curandero.atacar(soldado);
         assertEquals(95, soldado.vida());
 
+    }*/
+
+    @Test
+    public void testCuranderoSeCreaConVidaCorrecta() {
+
+        Pieza pieza = new Curandero(new EquipoAzul());
+        assertEquals(75, pieza.vida());
+    }
+
+    @Test
+    public void testCuranderoCura15DeVidaAOtraPiezaEnRango() {
+
+        Tablero tablero = new Tablero();
+        Posicion posicion1 = new Posicion(1,1);
+        Posicion posicion2 = new Posicion(1,2);
+        Pieza pieza = new Curandero(new EquipoAzul());
+        Pieza pieza2 = new Curandero(new EquipoRojo());
+
+        Casillero casillero1 = tablero.casilleroEn(posicion1);
+        Casillero casillero2 = tablero.casilleroEn(posicion2);
+
+        pieza.asignarCasillero(casillero1);
+        pieza2.asignarCasillero(casillero2);
+
+        pieza2.hacerseDanio(30);
+
+        pieza.atacar(pieza2);
+        assertEquals(60,pieza2.vida());
+    }
+
+    @Test
+    public void testCuranderoNoCuraACatapultaEnRango() {
+
+        Tablero tablero = new Tablero();
+        Posicion posicion1 = new Posicion(1,1);
+        Posicion posicion2 = new Posicion(1,2);
+        Pieza pieza = new Curandero(new EquipoAzul());
+        Pieza pieza2 = new Catapulta(new EquipoAzul());
+
+        Casillero casillero1 = tablero.casilleroEn(posicion1);
+        Casillero casillero2 = tablero.casilleroEn(posicion2);
+
+        pieza.asignarCasillero(casillero1);
+        pieza2.asignarCasillero(casillero2);
+
+        pieza2.hacerseDanio(20);
+
+        pieza.atacar(pieza2);
+        assertEquals(30,pieza2.vida());
     }
 }

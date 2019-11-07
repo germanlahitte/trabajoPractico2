@@ -13,10 +13,13 @@ public class Curandero extends Pieza implements Movible {
     }
 
 
+    /*
     @Override
     public void atacar(Pieza objetivo) {
        // this.puedeCurar(objetivo);
     }
+
+     */
 
     /*
     @Override

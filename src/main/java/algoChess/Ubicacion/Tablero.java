@@ -44,12 +44,14 @@ public class Tablero {
 
 
     // No los usamos
+    /*
     public void mover(Pieza estaPieza, Casillero destino) {
         if (estaPieza.distanciaA(destino) == movimientoMaximo) {
             estaPieza.mover(destino);
         }
-    }
+    }*/
 
+    /*
     public Casillero buscar(Posicion enUnaPosicion){
         Casillero casilleroBuscado = null;
         for(Posicion i:posiciones.keySet()){
@@ -60,6 +62,8 @@ public class Tablero {
         return casilleroBuscado;
     }
 
+
+     */
 
     public int getCantidadDeCasilleros(){
         return 400;

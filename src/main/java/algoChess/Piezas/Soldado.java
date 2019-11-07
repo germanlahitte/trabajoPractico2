@@ -15,9 +15,10 @@ public class Soldado extends Pieza implements Movible{
         this.agregarArma(new ArmaSoldado());
 
     }
+    /*
     public void atacar(Pieza objetivo){
         //objetivo.atacadaDesde(this.casillero, this.arma);
-        }
+        }*/
 
 
     /*protected void agregarArma(int danio,int DanioADistancia){

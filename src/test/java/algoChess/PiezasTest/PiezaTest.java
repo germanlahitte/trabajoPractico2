@@ -1,8 +1,6 @@
 package algoChess.PiezasTest;
 
-import algoChess.Armas.Arma;
-import algoChess.Armas.ArmaCurandero;
-import algoChess.Armas.ArmaEspadaJinete;
+import algoChess.Armas.*;
 import algoChess.Equipos.EquipoAzul;
 import algoChess.Equipos.Equipo;
 import algoChess.Equipos.EquipoRojo;
@@ -17,6 +15,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PiezaTest {
+
+    /*
     @Test
     public void atacadaDesdeTest(){
         Equipo e1 = new EquipoRojo();
@@ -37,6 +37,10 @@ class PiezaTest {
         //soldado1.atacadaDesde(casillero2,armaJinete);
         assertEquals(95,soldado1.vida());
     }
+    */
+
+
+    /*
 
     @Test
     public void distanciaATest(){
@@ -54,7 +58,7 @@ class PiezaTest {
 
         casillero1.ubicar(soldado1);
         assertEquals(3,soldado1.distanciaA(casillero2));
-    }
+    }*/
 
 
 
@@ -73,6 +77,7 @@ class PiezaTest {
         //assertFalse(soldado1.ubicar(e2));
     }
 
+    /*
     @Test
     public void curadaDesdeTest(){
         Equipo e1 = new EquipoRojo();
@@ -92,8 +97,156 @@ class PiezaTest {
         //soldado1.curadaDesde(casillero2,armaCurandero);
         assertEquals(115,soldado1.vida());
 
+    }*/
+
+
+
+    // Atacarse
+
+    @Test
+    public void testPiezaRojoEsAtacadoConArmaDeSoldadoYDesdeUnCasilleroRojoPierdeVida(){
+        Tablero tablero = new Tablero();
+        Posicion posicion1 = new Posicion(1,1);
+        Posicion posicion2 = new Posicion(1,2);
+        Pieza pieza = new Soldado(new EquipoRojo());
+
+
+        Casillero casillero1 = tablero.casilleroEn(posicion1);
+        Casillero casillero2 = tablero.casilleroEn(posicion2);
+
+        pieza.asignarCasillero(casillero1);
+
+        Arma arma = new ArmaSoldado();
+        pieza.atacadaDesde(casillero2,arma);
+        assertEquals(90,pieza.vida());
     }
 
+    @Test
+    public void testPiezaAzulEsAtacadoConArmaDeSoldadoYDesdeUnCasilleroRojoPierdeVida(){
+        Tablero tablero = new Tablero();
+        Posicion posicion1 = new Posicion(1,1);
+        Posicion posicion2 = new Posicion(1,2);
+        Pieza pieza = new Soldado(new EquipoAzul());
+
+
+        Casillero casillero1 = tablero.casilleroEn(posicion1);
+        Casillero casillero2 = tablero.casilleroEn(posicion2);
+
+        pieza.asignarCasillero(casillero1);
+
+        Arma arma = new ArmaSoldado();
+        pieza.atacadaDesde(casillero2,arma);
+        assertEquals(89.5,pieza.vida());
+    }
+
+    @Test
+    public void testPiezaRojoEsAtacadoConArmaDeSoldadoYDesdeUnCasilleroLejanoRojoNoPierdeVida(){
+        Tablero tablero = new Tablero();
+        Posicion posicion1 = new Posicion(1,1);
+        Posicion posicion2 = new Posicion(1,6);
+        Pieza pieza = new Soldado(new EquipoRojo());
+
+
+        Casillero casillero1 = tablero.casilleroEn(posicion1);
+        Casillero casillero2 = tablero.casilleroEn(posicion2);
+
+        pieza.asignarCasillero(casillero1);
+
+        Arma arma = new ArmaSoldado();
+        pieza.atacadaDesde(casillero2,arma);
+        assertEquals(100,pieza.vida());
+    }
+
+    @Test
+    public void testPiezaRojoEsAtacadoConArmaDeSoldadoYDesdeUnCasilleroLejanoAzulNoPierdeVida(){
+        Tablero tablero = new Tablero();
+        Posicion posicion1 = new Posicion(1,1);
+        Posicion posicion2 = new Posicion(11,12);
+        Pieza pieza = new Soldado(new EquipoRojo());
+
+
+        Casillero casillero1 = tablero.casilleroEn(posicion1);
+        Casillero casillero2 = tablero.casilleroEn(posicion2);
+
+        pieza.asignarCasillero(casillero1);
+
+        Arma arma = new ArmaSoldado();
+        pieza.atacadaDesde(casillero2,arma);
+        assertEquals(100,pieza.vida());
+    }
+
+    @Test
+    public void testPiezaAzulEsAtacadoConArmaDeSoldadoYDesdeUnCasilleroAzulPierdeVida(){
+        Tablero tablero = new Tablero();
+        Posicion posicion1 = new Posicion(10,11);
+        Posicion posicion2 = new Posicion(11,12);
+        Pieza pieza = new Soldado(new EquipoAzul());
+
+
+        Casillero casillero1 = tablero.casilleroEn(posicion1);
+        Casillero casillero2 = tablero.casilleroEn(posicion2);
+
+        pieza.asignarCasillero(casillero1);
+
+        Arma arma = new ArmaSoldado();
+        pieza.atacadaDesde(casillero2,arma);
+        assertEquals(90,pieza.vida());
+    }
+
+
+    @Test
+    public void testPiezaRojoEsAtacadoConArmaArcoDeJineteYDesdeUnCasilleroRojoPierdeVida(){
+        Tablero tablero = new Tablero();
+        Posicion posicion1 = new Posicion(1,1);
+        Posicion posicion2 = new Posicion(1,4);
+        Pieza pieza = new Soldado(new EquipoRojo());
+
+
+        Casillero casillero1 = tablero.casilleroEn(posicion1);
+        Casillero casillero2 = tablero.casilleroEn(posicion2);
+
+        pieza.asignarCasillero(casillero1);
+
+        Arma arma = new ArmaArcoJinete();
+        pieza.atacadaDesde(casillero2,arma);
+        assertEquals(85,pieza.vida());
+    }
+
+    @Test
+    public void testPiezaRojoEsAtacadoConArmaArcoDeJineteYDesdeUnCasilleroCercanoRojoNoPierdeVida(){
+        Tablero tablero = new Tablero();
+        Posicion posicion1 = new Posicion(1,1);
+        Posicion posicion2 = new Posicion(1,2);
+        Pieza pieza = new Soldado(new EquipoRojo());
+
+
+        Casillero casillero1 = tablero.casilleroEn(posicion1);
+        Casillero casillero2 = tablero.casilleroEn(posicion2);
+
+        pieza.asignarCasillero(casillero1);
+
+        Arma arma = new ArmaArcoJinete();
+        pieza.atacadaDesde(casillero2,arma);
+        assertEquals(100,pieza.vida());
+    }
+
+    @Test
+    public void testPiezaRojoEsAtacadoConArmaArcoDeJineteYDesdeUnCasilleroLejanoRojoNoPierdeVida(){
+        Tablero tablero = new Tablero();
+        Posicion posicion1 = new Posicion(1,1);
+        Posicion posicion2 = new Posicion(1,10);
+        Pieza pieza = new Soldado(new EquipoRojo());
+
+
+        Casillero casillero1 = tablero.casilleroEn(posicion1);
+        Casillero casillero2 = tablero.casilleroEn(posicion2);
+
+        pieza.asignarCasillero(casillero1);
+
+        Arma arma = new ArmaArcoJinete();
+        pieza.atacadaDesde(casillero2,arma);
+        assertEquals(100,pieza.vida());
+    }
 
     // Quitarse vida (Hacerse daño)
 

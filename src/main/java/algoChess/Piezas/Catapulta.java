@@ -11,10 +11,11 @@ public class Catapulta extends Pieza {
         super(5, 50, equipo);
         this.agregarArma(new ArmaCatapulta());
     }
+    /*
     @Override
     public void atacar(Pieza objetivo) {
         //objetivo.atacadaDesde(this.casillero, this.arma);
-    }
+    }*/
 
     /*
     @Override
@@ -27,5 +28,10 @@ public class Catapulta extends Pieza {
 
     }
 
+
+    @Override
+    public void curarse(float vida){
+
+    }
 }
 

@@ -76,7 +76,6 @@ public abstract class Pieza { //TODO :falta
         destino.agregarPieza(this);
     }
 
-    protected abstract void  atacar(Pieza objetivo);
 
     protected Equipo getBando(){
         return this.equipo;
@@ -92,10 +91,16 @@ public abstract class Pieza { //TODO :falta
         this.arma=arma;
     }
 
+
+
     // Ataque
 
     public void atacadaDesde(Casillero casillero, Arma arma) {
-        this.arma.atacarA(this, casillero.distanciaA(this.casillero));
+        arma.atacarA(this, casillero.distanciaA(this.casillero));
+    }
+
+    public void atacar(Pieza pieza){
+        pieza.atacadaDesde(this.casillero,this.arma);
     }
 
     //  Vida

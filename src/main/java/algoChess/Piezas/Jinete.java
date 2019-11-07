@@ -14,10 +14,11 @@ public class Jinete extends Pieza implements Movible{
         this.agregarArma(new ArmaArcoJinete());
     }
 
+    /*
     @Override
     public void atacar(Pieza objetivo) {
         //objetivo.atacadaDesde(this.casillero, this.arma);
-    }
+    }*/
 
     /*
     @Override
