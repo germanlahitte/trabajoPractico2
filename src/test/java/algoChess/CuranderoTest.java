@@ -2,6 +2,7 @@ package algoChess;
 
 import algoChess.Equipos.Equipo;
 import algoChess.Equipos.Rojo;
+import algoChess.Piezas.Catapulta;
 import algoChess.Piezas.Curandero;
 import algoChess.Piezas.Soldado;
 import algoChess.Ubicacion.Casillero;
@@ -40,6 +41,23 @@ public class CuranderoTest {
         casillero2.ubicar(soldado);
         curandero.atacar(soldado);
         assertEquals(100, soldado.vidaRestante());
+
+    }
+
+    @Test
+    public void curanderoNoCuraACatapultaTest(){
+        Posicion posicion1 = new Posicion(1, 1);
+        Posicion posicion2 = new Posicion(7, 5);
+        Equipo bando = new Rojo();
+        Curandero curandero = new Curandero(bando);
+        Catapulta catapulta = new Catapulta(bando);
+        Casillero casillero1 = new Casillero(posicion1, bando);
+        Casillero casillero2 = new Casillero(posicion2, bando);
+        casillero1.ubicar(curandero);
+        casillero2.ubicar(catapulta);
+        curandero.atacar(catapulta);
+        assertEquals(50, catapulta.vidaRestante());
+
 
     }
 }

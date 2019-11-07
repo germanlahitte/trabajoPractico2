@@ -1,7 +1,9 @@
 package algoChess.Piezas;
 
+import algoChess.Armas.Arma;
 import algoChess.Armas.ArmaCurandero;
 import algoChess.Equipos.Equipo;
+import algoChess.Ubicacion.Casillero;
 
 public class Curandero extends Pieza {
     public Curandero(Equipo equipo) {
@@ -20,11 +22,13 @@ public class Curandero extends Pieza {
 
     }
 
-    private void puedeCurar(Pieza objetivo){
-        if(objetivo.getBando() == this.equipo && objetivo.getClass()!=Catapulta.class){
-            objetivo.curadaDesde(this.ubicacion,this.arma);
-        }
+    @Override
+    public void puedoCurarme(Casillero ubicacion, Arma arma) {
+    this.curadaDesde(ubicacion,arma);
+    }
 
+    private void puedeCurar(Pieza objetivo){
+        objetivo.puedoCurarme(this.ubicacion,this.arma);
     }
 
 }

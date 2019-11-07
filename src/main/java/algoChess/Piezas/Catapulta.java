@@ -1,7 +1,9 @@
 package algoChess.Piezas;
 
+import algoChess.Armas.Arma;
 import algoChess.Armas.ArmaCatapulta;
 import algoChess.Equipos.Equipo;
+import algoChess.Ubicacion.Casillero;
 
 public class Catapulta extends Pieza {
 
@@ -18,5 +20,11 @@ public class Catapulta extends Pieza {
     protected void agregarArma(int danio, int danioADistancia) {
         this.arma = new ArmaCatapulta(danio,danioADistancia);
     }
+
+    @Override
+    public void puedoCurarme(Casillero ubicacion, Arma arma) {
+
+    }
+
 }
 
