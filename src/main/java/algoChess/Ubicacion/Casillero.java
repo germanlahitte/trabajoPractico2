@@ -1,4 +1,10 @@
-package algoChess;
+package algoChess.Ubicacion;
+
+import algoChess.Equipos.Equipo;
+import algoChess.Piezas.Pieza;
+import algoChess.Ubicacion.StrategyDisponibilidad.Disponibilidad;
+import algoChess.Ubicacion.StrategyDisponibilidad.Libre;
+import algoChess.Ubicacion.StrategyDisponibilidad.Ocupado;
 
 public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
 

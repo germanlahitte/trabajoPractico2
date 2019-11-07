@@ -1,4 +1,8 @@
-package algoChess;
+package algoChess.Piezas;
+
+import algoChess.Armas.*;
+import algoChess.Ubicacion.*;
+import algoChess.Equipos.*;
 
 public abstract class Pieza { //TODO :falta
 
@@ -20,11 +24,11 @@ public abstract class Pieza { //TODO :falta
        // this.arma = arma;
     }
 
-    protected boolean ubicar(Equipo bando){
+    public boolean ubicar(Equipo bando){
        return this.equipo.ubicar(bando);
     }
 
-    protected void ocupar(Casillero esteCasillero){
+    public void ocupar(Casillero esteCasillero){
         this.ubicacion = esteCasillero;
     }
 
@@ -32,11 +36,11 @@ public abstract class Pieza { //TODO :falta
         this.ubicacion.desocupar();
     }
 
-    protected int distanciaA(Casillero unCasillero){
+    public int distanciaA(Casillero unCasillero){
        return unCasillero.distancia(ubicacion);
     }
 
-    protected void mover(Casillero destino){
+    public void mover(Casillero destino){
        destino.agregarPieza(this);
     }
 

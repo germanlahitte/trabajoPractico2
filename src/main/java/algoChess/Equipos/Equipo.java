@@ -1,12 +1,12 @@
-package algoChess;
+package algoChess.Equipos;
 
 public abstract class Equipo { //2 implementaciones
 
-    protected boolean ubicar(Equipo bandoDelCasillero){
+    public boolean ubicar(Equipo bandoDelCasillero){
         return (bandoDelCasillero.getClass() == this.getClass());
     }
 
-    protected float bajoAtaque(Equipo bandoDelCasillero){
+    public float bajoAtaque(Equipo bandoDelCasillero){
         float multiplicador = 1.0f;
         if(!this.ubicar(bandoDelCasillero)){
             multiplicador = 1.05f;

@@ -1,8 +1,13 @@
 package algoChess;
 
+import algoChess.Equipos.Equipo;
+import algoChess.Equipos.Rojo;
+import algoChess.Piezas.Pieza;
+import algoChess.Piezas.Soldado;
+import algoChess.Ubicacion.Casillero;
+import algoChess.Ubicacion.StrategyDisponibilidad.Disponibilidad;
+import algoChess.Ubicacion.Posicion;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CasilleroTest {
     @Test

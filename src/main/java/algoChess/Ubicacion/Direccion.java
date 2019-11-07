@@ -1,4 +1,4 @@
-package algoChess;
+package algoChess.Ubicacion;
 
 public class Direccion {
     private static Direccion norte;

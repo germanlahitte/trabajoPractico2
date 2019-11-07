@@ -1,4 +1,7 @@
-package algoChess;
+package algoChess.Piezas;
+
+import algoChess.Armas.ArmaCatapulta;
+import algoChess.Equipos.Equipo;
 
 public class Catapulta extends Pieza {
 
@@ -7,7 +10,7 @@ public class Catapulta extends Pieza {
         this.agregarArma(0,20);
     }
     @Override
-    protected void atacar(Pieza objetivo) {
+    public void atacar(Pieza objetivo) {
         objetivo.atacadaDesde(this.ubicacion, this.arma);
     }
 

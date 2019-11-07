@@ -1,4 +1,6 @@
-package algoChess;
+package algoChess.Armas;
+
+import algoChess.Piezas.Pieza;
 
 public abstract class Arma { //TODO :lo mínimo para compilar
     protected int danio;
