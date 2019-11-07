@@ -2,16 +2,27 @@ package algoChess.Piezas;
 
 import algoChess.Armas.ArmaSoldado;
 import algoChess.Equipos.Equipo;
+import algoChess.Ubicacion.Casillero;
 
 public class Soldado extends Pieza {
     private static int costo = 1;
 
     public Soldado(Equipo equipo) {
 
-        super(1, 100, equipo);
+        super(costo, 100, equipo);
         this.agregarArma(10,0);
 
     }
+
+    public static int getCosto() {
+        return costo;
+    }
+
+    @Override
+    public void mover(Casillero destino) {
+        destino.agregarPieza(this);
+    }
+
     public void atacar(Pieza objetivo){
         objetivo.atacadaDesde(this.ubicacion, this.arma);}
         @Override

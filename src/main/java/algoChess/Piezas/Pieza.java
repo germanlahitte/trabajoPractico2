@@ -6,15 +6,11 @@ import algoChess.Equipos.*;
 
 public abstract class Pieza { //TODO :falta
 
-   private static int costo;
+    private int costo;
     private float vida;
     protected Equipo equipo;
     protected Casillero ubicacion;
     protected Arma arma;
-
-    public static int getCosto(){
-        return Pieza.costo;
-    }
 
     public Pieza(int costo, float vida, Equipo equipo){
         this.costo = costo;
@@ -40,9 +36,7 @@ public abstract class Pieza { //TODO :falta
        return unCasillero.distancia(ubicacion);
     }
 
-    public void mover(Casillero destino){
-       destino.agregarPieza(this);
-    }
+    public abstract void mover(Casillero destino);
 
    /* protected void atacar(Pieza objetivo){
         objetivo.atacadaDesde(this.ubicacion, this.arma);
@@ -64,7 +58,7 @@ public abstract class Pieza { //TODO :falta
 
         } else {
             this.vida -= danio;
-        };
+        }
     }
     public float vidaRestante(){
         return vida;

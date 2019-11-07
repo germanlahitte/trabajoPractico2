@@ -2,13 +2,25 @@ package algoChess.Piezas;
 
 import algoChess.Armas.ArmaCatapulta;
 import algoChess.Equipos.Equipo;
+import algoChess.Ubicacion.Casillero;
 
 public class Catapulta extends Pieza {
+    private static int costo = 5;
 
     public Catapulta(Equipo equipo) {
-        super(5, 50, equipo);
+        super(costo, 50, equipo);
         this.agregarArma(0,20);
     }
+
+    @Override
+    public void mover(Casillero destino) {
+
+    }
+
+    public static int getCosto() {
+        return costo;
+    }
+
     @Override
     public void atacar(Pieza objetivo) {
         objetivo.atacadaDesde(this.ubicacion, this.arma);

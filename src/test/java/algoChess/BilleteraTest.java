@@ -13,7 +13,6 @@ class BilleteraTest {
     void testNoSePuedeComprarUnaPiezaSinPuntosLanzaExcepcion() {
         Billetera billetera = new Billetera(2);
         Equipo equipo = new Rojo();
-        //assertThrows(NoAlcanzanLasMonedasException.class()->billetera.comprarJinete(equipo));
-        assertEquals(1 , 1);
+        assertThrows(NoAlcanzanLasMonedasException.class,()->billetera.comprarJinete(equipo));
     }
 }
