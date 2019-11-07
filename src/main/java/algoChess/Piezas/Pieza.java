@@ -81,4 +81,7 @@ public abstract class Pieza { //TODO :falta
 
     protected abstract void agregarArma(int danio,int danioADistancia);
 
+    public abstract void puedoCurarme(Casillero ubicacion,Arma arma);
 }
+
+
