@@ -11,7 +11,7 @@ public class Soldado extends Pieza implements Movible{
 
     public Soldado(Equipo equipo) {
 
-        super(costo, 100, equipo);
+        super(100, equipo);
         this.agregarArma(10,0);
 
     }
@@ -21,8 +21,8 @@ public class Soldado extends Pieza implements Movible{
     }
 
     @Override
-    public void mover(Casillero destino) {
-        destino.agregarPieza(this);
+    public void mover(Direccion direccion) {
+        this.casillero.siguiente(direccion).agregarPieza(this);
     }
 
     public void atacar(Pieza objetivo){
@@ -37,9 +37,4 @@ public class Soldado extends Pieza implements Movible{
         this.curadaDesde(ubicacion,arma);
     }
 
-
-    // Se mueve en X direccion
-    public void mover(Direccion direccion){
-        this.casillero.siguiente(direccion).agregarPieza(this);
-    }
 }

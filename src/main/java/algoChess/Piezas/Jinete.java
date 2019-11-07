@@ -10,7 +10,7 @@ public class Jinete extends Pieza implements Movible{
     private static int costo = 3;
 
     public Jinete(Equipo equipo) {
-        super(costo, 100, equipo);
+        super(100, equipo);
         this.agregarArma(5,15);
     }
 
@@ -39,9 +39,4 @@ public class Jinete extends Pieza implements Movible{
         this.curadaDesde(ubicacion,arma);
     }
 
-
-    // Se mueve en X direccion
-    public void mover(Direccion direccion){
-        this.casillero.siguiente(direccion).agregarPieza(this);
-    }
 }

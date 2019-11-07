@@ -4,17 +4,18 @@ import algoChess.Armas.Arma;
 import algoChess.Armas.ArmaCatapulta;
 import algoChess.Equipos.Equipo;
 import algoChess.Ubicacion.Casillero;
+import algoChess.Ubicacion.Direccion;
 
 public class Catapulta extends Pieza {
     private static int costo = 5;
 
     public Catapulta(Equipo equipo) {
-        super(costo, 50, equipo);
+        super(50, equipo);
         this.agregarArma(0,20);
     }
 
     @Override
-    public void mover(Casillero destino) {
+    public void mover(Direccion direccion) {
 
     }
 

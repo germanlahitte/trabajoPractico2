@@ -44,11 +44,6 @@ public class Tablero {
         esteCasillero.ubicar(estaPieza);
     }
 
-    public void mover(Pieza estaPieza, Casillero destino) {
-        if (estaPieza.distanciaA(destino) == movimientoMaximo) {
-            estaPieza.mover(destino);
-        }
-    }
 
     public Casillero buscar(Posicion enUnaPosicion){
         Casillero casilleroBuscado = null;
@@ -69,7 +64,6 @@ public class Tablero {
         if(jugador1.esGanador() || jugador2.esGanador()){
             throw  new ElJuegoTerminoPorqueHayUnGanadorException("El juego tiene un ganador");
         }
-
     }*/
 
 
@@ -78,11 +72,10 @@ public class Tablero {
         return posiciones.get(enPosicion);
     }
 
-   // Metodo que le pasa movible a tablero para que se mueva
+
+    // Metodo que le pasa movible a tablero para que se mueva
     public void mover(Movible movible, Direccion direccion) {
         movible.mover(direccion);
-        }
-
-
+    }
 
 }

@@ -9,7 +9,7 @@ import algoChess.Ubicacion.Direccion;
 public class Curandero extends Pieza implements Movible {
     private static int costo = 2;
     public Curandero(Equipo equipo) {
-        super(costo, 75, equipo);
+        super(75, equipo);
         this.agregarArma(15, 0);
     }
 
@@ -39,8 +39,7 @@ public class Curandero extends Pieza implements Movible {
         }
     }
 
-
-    // Se mueve en X direccion
+    @Override
     public void mover(Direccion direccion){
         this.casillero.siguiente(direccion).agregarPieza(this);
     }
