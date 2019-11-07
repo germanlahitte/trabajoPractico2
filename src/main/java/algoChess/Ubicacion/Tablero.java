@@ -3,6 +3,7 @@ package algoChess.Ubicacion;
 import algoChess.Equipos.Azul;
 import algoChess.Equipos.Equipo;
 import algoChess.Equipos.Rojo;
+import algoChess.Piezas.Movible;
 import algoChess.Piezas.Pieza;
 
 import excepciones.ElJuegoTerminoPorqueHayUnGanadorException;
@@ -59,10 +60,6 @@ public class Tablero {
         return casilleroBuscado;
     }
 
-    // Metodo para buscar casilleros
-    public Casillero casilleroEn(Posicion enPosicion){
-        return posiciones.get(enPosicion);
-    }
 
     public int getCantidadDeCasilleros(){
         return 400;
@@ -74,5 +71,18 @@ public class Tablero {
         }
 
     }*/
+
+
+    // Metodo para buscar casilleros
+    public Casillero casilleroEn(Posicion enPosicion){
+        return posiciones.get(enPosicion);
+    }
+
+   // Metodo que le pasa movible a tablero para que se mueva
+    public void mover(Movible movible, Direccion direccion) {
+        movible.mover(direccion);
+        }
+
+
 
 }
