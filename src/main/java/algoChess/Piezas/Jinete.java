@@ -1,4 +1,7 @@
-package algoChess;
+package algoChess.Piezas;
+
+import algoChess.Armas.ArmaJinete;
+import algoChess.Equipos.Equipo;
 
 public class Jinete extends Pieza {
 
@@ -8,7 +11,7 @@ public class Jinete extends Pieza {
     }
 
     @Override
-    protected void atacar(Pieza objetivo) {
+    public void atacar(Pieza objetivo) {
         objetivo.atacadaDesde(this.ubicacion, this.arma);
     }
 

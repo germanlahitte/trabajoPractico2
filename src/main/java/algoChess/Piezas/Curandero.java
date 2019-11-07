@@ -1,4 +1,7 @@
-package algoChess;
+package algoChess.Piezas;
+
+import algoChess.Armas.ArmaCurandero;
+import algoChess.Equipos.Equipo;
 
 public class Curandero extends Pieza {
     public Curandero(Equipo equipo) {

@@ -1,6 +1,8 @@
-package algoChess;
+package algoChess.Armas;
 
-public class ArmaCurandero extends Arma{
+import algoChess.Piezas.Pieza;
+
+public class ArmaCurandero extends Arma {
     public ArmaCurandero(int danio, int danioAdistancia) {
         super(danio, danioAdistancia);
     }

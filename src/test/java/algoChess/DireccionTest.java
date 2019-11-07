@@ -1,5 +1,7 @@
 package algoChess;
 
+import algoChess.Ubicacion.Direccion;
+import algoChess.Ubicacion.Posicion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,6 +1,8 @@
-package algoChess;
+package algoChess.Armas;
 
-public class ArmaJinete extends Arma{
+import algoChess.Piezas.Pieza;
+
+public class ArmaJinete extends Arma {
     public ArmaJinete(int danio, int danioAdistancia) {
         super(danio, danioAdistancia);
     }
@@ -11,7 +13,7 @@ public class ArmaJinete extends Arma{
         if(aUnaDistancia<=2){
             danio = this.danio;
         }else if(aUnaDistancia>=3 && aUnaDistancia<=5){
-            danio = this.danio;
+            danio = this. danio;
         }else{
             danio = this.danioAdistancia;
         }

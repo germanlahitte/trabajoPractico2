@@ -1,4 +1,9 @@
-package algoChess;
+package algoChess.Ubicacion;
+
+import algoChess.Equipos.Azul;
+import algoChess.Equipos.Equipo;
+import algoChess.Equipos.Rojo;
+import algoChess.Piezas.Pieza;
 
 import excepciones.ElJuegoTerminoPorqueHayUnGanadorException;
 

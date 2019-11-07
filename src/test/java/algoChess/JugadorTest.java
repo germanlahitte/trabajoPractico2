@@ -1,6 +1,8 @@
 package algoChess;
 
-import excepciones.NoAlcanzanLasMonedasException;
+import algoChess.Equipos.Equipo;
+import algoChess.Equipos.Rojo;
+import algoChess.Ubicacion.Tablero;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

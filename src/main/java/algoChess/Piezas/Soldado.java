@@ -1,4 +1,7 @@
-package algoChess;
+package algoChess.Piezas;
+
+import algoChess.Armas.ArmaSoldado;
+import algoChess.Equipos.Equipo;
 
 public class Soldado extends Pieza {
     private static int costo = 1;
@@ -9,7 +12,7 @@ public class Soldado extends Pieza {
         this.agregarArma(10,0);
 
     }
-    protected void atacar(Pieza objetivo){
+    public void atacar(Pieza objetivo){
         objetivo.atacadaDesde(this.ubicacion, this.arma);}
         @Override
     protected void agregarArma(int danio,int DanioADistancia){

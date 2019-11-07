@@ -1,4 +1,6 @@
-package algoChess;
+package algoChess.Armas;
+
+import algoChess.Piezas.Pieza;
 
 public class ArmaCatapulta extends Arma {
     public ArmaCatapulta(int danio, int danioAdistancia) {

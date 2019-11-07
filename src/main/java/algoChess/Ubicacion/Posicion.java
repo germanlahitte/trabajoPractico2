@@ -1,4 +1,4 @@
-package algoChess;
+package algoChess.Ubicacion;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.max;

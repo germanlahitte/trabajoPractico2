@@ -1,5 +1,9 @@
 package algoChess;
 
+import algoChess.Equipos.Equipo;
+import algoChess.Piezas.*;
+import algoChess.Ubicacion.Tablero;
+
 import java.util.ArrayList;
 
 public class Jugador {
