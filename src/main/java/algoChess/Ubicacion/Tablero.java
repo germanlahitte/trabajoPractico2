@@ -48,7 +48,13 @@ public class Tablero {
     }
 
     public Casillero buscar(Posicion enUnaPosicion){
-        return posiciones.get(enUnaPosicion);
+        Casillero casilleroBuscado = null;
+        for(Posicion i:posiciones.keySet()){
+            if(i.equals(enUnaPosicion)){
+                casilleroBuscado=posiciones.get(i);
+            }
+        }
+        return casilleroBuscado;
     }
 
     public int getCantidadDeCasilleros(){

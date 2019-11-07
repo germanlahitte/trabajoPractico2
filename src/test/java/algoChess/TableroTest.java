@@ -17,7 +17,7 @@ class TableroTest {
         assertEquals(400,tablero.getCantidadDeCasilleros());
     }
 
-    /*
+
     @Test
     public void seColocaUnaPiezaAliadaEnUnCasilleroAliadoVacioConExitoTest(){
         Tablero tablero = new Tablero();
@@ -26,9 +26,9 @@ class TableroTest {
         Posicion unaPosicion = new Posicion (1,3);
         Casillero unCasillero = tablero.buscar(unaPosicion);
 
-        //tablero.ubicar(piezaPrueba,unCasillero);
+        tablero.ubicar(piezaPrueba,unCasillero);
 
-        //assertEquals(piezaPrueba.distanciaA(unCasillero),0);
+        assertEquals(piezaPrueba.distanciaA(unCasillero),0);
 
-    }*/
+    }
 }
