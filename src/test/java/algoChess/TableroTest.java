@@ -56,7 +56,7 @@ class TableroTest { //TODO: necesito tocar otras clases para un método
         tablero.ubicar(piezaPrueba,unCasillero);
 
         Soldado otraPieza = new Soldado(bandoRojo);
-        //Necesito probar que piezaPrueba sigue en el casillero.
+
         assertThrows(CasilleroOcupadoException.class,()-> tablero.ubicar(otraPieza,unCasillero));
     }
 }
