@@ -8,50 +8,50 @@ import algoChess.Ubicacion.StrategyDisponibilidad.StrategyOcupado;
 
 public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
 
-    private Posicion ubicacion;
+    private Posicion posicion;
     private Equipo bando;
-    private StrategyDisponibilidad estado;
-    private Pieza ocupante;
+    private StrategyDisponibilidad disponibilidad;
+    private Pieza pieza;
 
-    public Casillero(Posicion ubicacion,Equipo bando){
-        this.ubicacion = ubicacion;
+    public Casillero(Posicion posicion,Equipo bando){
+        this.posicion = posicion;
         this.bando = bando;
         this.desocupar();
     }
 
     public void ubicar(Pieza estaPieza){
         if(estaPieza.ubicar(bando))
-            this.estado.agregarPieza(estaPieza,this);
+            this.disponibilidad.agregarPieza(estaPieza,this);
     }
 
     public void desocupar(){
-        this.ocupante = null;
-        this.estado = new StrategyLibre();
+        this.pieza = null;
+        this.disponibilidad = new StrategyLibre();
     }
 
     public void ocupar(Pieza aAsignar){
-        this.ocupante = aAsignar;
-        this.estado = new StrategyOcupado();
+        this.pieza = aAsignar;
+        this.disponibilidad = new StrategyOcupado();
     }
 
     public Posicion siguiente(Direccion enUnaDireccion){
-      return  ubicacion.siguiente(enUnaDireccion);
+      return  posicion.siguiente(enUnaDireccion);
     }
 
     public void agregarPieza(Pieza aAgregar){
-        this.estado.agregarPieza(aAgregar,this);
+        this.disponibilidad.agregarPieza(aAgregar,this);
     }
 
     public void quitarPieza(){
-        this.estado.quitarPieza(this);
+        this.disponibilidad.quitarPieza(this);
     }
 
-    public int distancia(Casillero otroCasillero){
-       return otroCasillero.distanciaA(this.ubicacion);
+    public int distanciaA(Casillero casillero){
+       return casillero.distanciaA(this.posicion);
     }
 
-    private int distanciaA(Posicion unaPosicion){
-        return unaPosicion.distanciaA(this.ubicacion);
+    public int distanciaA(Posicion posicion){
+        return posicion.distanciaA(this.posicion);
     }
 
     //TODO

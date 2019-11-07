@@ -4,7 +4,7 @@ import algoChess.Piezas.Pieza;
 import algoChess.Ubicacion.Casillero;
 import excepciones.CasilleroOcupadoException;
 
-public class StrategyOcupado extends StrategyDisponibilidad {
+public class StrategyOcupado implements StrategyDisponibilidad {
 
     public void agregarPieza(Pieza aAgregar, Casillero esteCasillero){
         throw new CasilleroOcupadoException("Casillero Ocupado");

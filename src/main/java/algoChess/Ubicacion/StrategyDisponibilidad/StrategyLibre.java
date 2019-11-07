@@ -3,7 +3,7 @@ package algoChess.Ubicacion.StrategyDisponibilidad;
 import algoChess.Piezas.Pieza;
 import algoChess.Ubicacion.Casillero;
 
-public class StrategyLibre extends StrategyDisponibilidad {
+public class StrategyLibre implements StrategyDisponibilidad {
 
     public void agregarPieza(Pieza aAgregar, Casillero esteCasillero){
         aAgregar.ocupar(esteCasillero);

@@ -37,7 +37,7 @@ public abstract class Pieza { //TODO :falta
     }
 
     public int distanciaA(Casillero unCasillero){
-       return unCasillero.distancia(ubicacion);
+       return unCasillero.distanciaA(ubicacion);
     }
 
     public void mover(Casillero destino){
@@ -50,7 +50,7 @@ public abstract class Pieza { //TODO :falta
    protected abstract void  atacar(Pieza objetivo);
 
     protected void atacadaDesde(Casillero unCasillero, Arma unArma){
-       quitarVida(unArma.atacar(this, unCasillero.distancia(this.ubicacion)));
+       quitarVida(unArma.atacar(this, unCasillero.distanciaA(this.ubicacion)));
     }
 
     protected void quitarVida(float danio){
@@ -71,7 +71,7 @@ public abstract class Pieza { //TODO :falta
     }
 
     protected void curadaDesde(Casillero unCasillero, Arma unArma){
-        agregarVida(unArma.atacar(this,unCasillero.distancia(this.ubicacion)));
+        agregarVida(unArma.atacar(this,unCasillero.distanciaA(this.ubicacion)));
     }
 
     protected void agregarVida(float vida){
