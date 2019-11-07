@@ -66,8 +66,13 @@ public abstract class Pieza { //TODO :falta
     public void curadaDesde(Casillero unCasillero, Arma unArma){
         agregarVida(unArma.atacar(this,unCasillero.distancia(this.ubicacion)));
     }
-    protected void agregarVida(float vida){
-        this.vida += vida;
+    protected void agregarVida(float vidaRecibida){
+        float vidaCurada = this.vida+vidaRecibida;
+        if(vidaCurada>this.vida){
+            this.vida += (vidaCurada - this.vida);
+        }else{
+            this.vida += vidaRecibida;
+        }
     }
 
     protected Equipo getBando(){
