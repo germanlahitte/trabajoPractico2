@@ -22,6 +22,19 @@ public class Posicion {
         return max(distanciaEnX,distanciaEnY);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Posicion)) {
+            return false;
+        }
+        if (obj == this) {
+            return true;
+        }
+        Posicion other = (Posicion) obj;
+
+        return (this.getHorizontal() == other.getHorizontal() && this.getVertical() == other.getVertical());
+    }
+
     public int getHorizontal() {
         return horizontal;
     }
