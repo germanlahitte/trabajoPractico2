@@ -77,7 +77,6 @@ public abstract class Pieza { //TODO :falta
     protected void agregarVida(float vida){
         this.vida += vida;
     }
-
     protected Equipo getBando(){
         return this.equipo;
     }
@@ -85,6 +84,7 @@ public abstract class Pieza { //TODO :falta
     protected abstract void agregarArma(int danio,int danioADistancia);
 
     public abstract void puedoCurarme(Casillero ubicacion,Arma arma);
+
 }
 
 
