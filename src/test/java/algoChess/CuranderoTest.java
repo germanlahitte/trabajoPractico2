@@ -1,10 +1,17 @@
 package algoChess;
 
+import algoChess.Equipos.Equipo;
+import algoChess.Equipos.Rojo;
+import algoChess.Piezas.Curandero;
+import algoChess.Piezas.Soldado;
+import algoChess.Ubicacion.Casillero;
+import algoChess.Ubicacion.Posicion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CuranderoTest {
+
     @Test
     public void curanderoCuraSoldadoAliadoTest() {
         Posicion posicion1 = new Posicion(1, 1);

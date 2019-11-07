@@ -1,5 +1,12 @@
 package algoChess;
 
+import algoChess.Equipos.Azul;
+import algoChess.Equipos.Equipo;
+import algoChess.Equipos.Rojo;
+import algoChess.Piezas.Jinete;
+import algoChess.Piezas.Soldado;
+import algoChess.Ubicacion.Casillero;
+import algoChess.Ubicacion.Posicion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -20,4 +20,5 @@ public class Jinete extends Pieza {
         this.arma = new ArmaJinete(danio,danioADistancia);
 
     }
+
 }

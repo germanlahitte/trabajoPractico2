@@ -19,3 +19,4 @@ public class Catapulta extends Pieza {
         this.arma = new ArmaCatapulta(danio,danioADistancia);
     }
 }
+

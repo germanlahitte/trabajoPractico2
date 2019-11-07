@@ -18,7 +18,4 @@ public class Soldado extends Pieza {
     protected void agregarArma(int danio,int DanioADistancia){
         this.arma = new ArmaSoldado(danio,DanioADistancia);
         }
-
-
 }
-
