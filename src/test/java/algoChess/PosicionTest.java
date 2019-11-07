@@ -1,5 +1,6 @@
 package algoChess;
 
+import algoChess.Ubicacion.Direccion;
 import algoChess.Ubicacion.Posicion;
 import org.junit.jupiter.api.Test;
 
@@ -50,11 +51,70 @@ class PosicionTest {
     }
 
     @Test
-    public void testPosicionADevuelveSiguientePosicionEnDireccionCorrecta() {
+    public void testPosicionADevuelveSiguientePosicionEnDireccionNorteCorrecta() {
         Posicion posicion1 = new Posicion(1, 1);
-        Posicion posicion2 = new Posicion(1, 7);
-        assertEquals(posicion2.distanciaA(posicion1), posicion1.distanciaA(posicion2));
+        Posicion posicion2 = posicion1.siguiente(Direccion.norte());
+        Posicion posicion3 = new Posicion(1, 2);
+        assertEquals(posicion2, posicion3);
     }
+
+    @Test
+    public void testPosicionADevuelveSiguientePosicionEnDireccionSurCorrecta() {
+        Posicion posicion1 = new Posicion(3, 3);
+        Posicion posicion2 = posicion1.siguiente(Direccion.sur());
+        Posicion posicion3 = new Posicion(3, 2);
+        assertEquals(posicion2, posicion3);
+    }
+
+    @Test
+    public void testPosicionADevuelveSiguientePosicionEnDireccionEsteCorrecta() {
+        Posicion posicion1 = new Posicion(3, 3);
+        Posicion posicion2 = posicion1.siguiente(Direccion.este());
+        Posicion posicion3 = new Posicion(4, 3);
+        assertEquals(posicion2, posicion3);
+    }
+
+    @Test
+    public void testPosicionADevuelveSiguientePosicionEnDireccionOesteCorrecta() {
+        Posicion posicion1 = new Posicion(3, 3);
+        Posicion posicion2 = posicion1.siguiente(Direccion.oeste());
+        Posicion posicion3 = new Posicion(2, 3);
+        assertEquals(posicion2, posicion3);
+    }
+
+    @Test
+    public void testPosicionADevuelveSiguientePosicionEnDireccionNoresteCorrecta() {
+        Posicion posicion1 = new Posicion(3, 3);
+        Posicion posicion2 = posicion1.siguiente(Direccion.norEste());
+        Posicion posicion3 = new Posicion(4, 4);
+        assertEquals(posicion2, posicion3);
+    }
+
+    @Test
+    public void testPosicionADevuelveSiguientePosicionEnDireccionNoroesteCorrecta() {
+        Posicion posicion1 = new Posicion(3, 3);
+        Posicion posicion2 = posicion1.siguiente(Direccion.norOeste());
+        Posicion posicion3 = new Posicion(2, 4);
+        assertEquals(posicion2, posicion3);
+    }
+
+
+    @Test
+    public void testPosicionADevuelveSiguientePosicionEnDireccionSuresteCorrecta() {
+        Posicion posicion1 = new Posicion(3, 3);
+        Posicion posicion2 = posicion1.siguiente(Direccion.surEste());
+        Posicion posicion3 = new Posicion(4, 2);
+        assertEquals(posicion2, posicion3);
+    }
+
+    @Test
+    public void testPosicionADevuelveSiguientePosicionEnDireccionSuroesteCorrecta() {
+        Posicion posicion1 = new Posicion(3, 3);
+        Posicion posicion2 = posicion1.siguiente(Direccion.surOeste());
+        Posicion posicion3 = new Posicion(2, 2);
+        assertEquals(posicion2, posicion3);
+    }
+
 
 
 

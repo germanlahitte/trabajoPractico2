@@ -9,19 +9,56 @@ import algoChess.Ubicacion.StrategyDisponibilidad.StrategyOcupado;
 public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
 
     private Posicion posicion;
-    private Equipo bando;
+    private Equipo equipo;
     private StrategyDisponibilidad disponibilidad;
     private Pieza pieza;
+    private Tablero tablero;
 
-    public Casillero(Posicion posicion,Equipo bando){
+    public Casillero(Posicion posicion,Equipo equipo  ){
         this.posicion = posicion;
-        this.bando = bando;
+        this.equipo = equipo;
         this.desocupar();
     }
 
     public void ubicar(Pieza estaPieza){
-        if(estaPieza.ubicar(bando))
+        if(estaPieza.ubicar(equipo))
             this.disponibilidad.agregarPieza(estaPieza,this);
+    }
+
+
+
+    public void ocupar(Pieza aAsignar){
+        this.pieza = aAsignar;
+        this.disponibilidad = new StrategyOcupado();
+    }
+
+    /*
+    public void quitarPieza(){
+        this.disponibilidad.quitarPieza(this);
+    }*/
+
+    //TODO
+    public float calcularDanio(Equipo equipo){
+        return equipo.bajoAtaque(this.equipo);
+    }
+
+
+
+
+
+
+
+    /// Agrega Pieza delega en strategyDisponibilidad
+
+    public void agregarPieza(Pieza pieza){
+        this.disponibilidad.agregarPieza(pieza,this);
+    }
+
+    public void asignarPieza(Pieza pieza){
+        this.pieza = pieza;
+        this.disponibilidad = new StrategyOcupado();
+        this.pieza.desocuparCasillero();
+        this.pieza.ocuparCasillero(this);
     }
 
     public void desocupar(){
@@ -29,21 +66,15 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
         this.disponibilidad = new StrategyLibre();
     }
 
-    public void ocupar(Pieza aAsignar){
-        this.pieza = aAsignar;
-        this.disponibilidad = new StrategyOcupado();
+    //// Agregar Tablero, ver si se hace en el constructor
+
+    public void agregarTablero(Tablero tablero){
+        this.tablero = tablero;
     }
 
-    public Posicion siguiente(Direccion enUnaDireccion){
-      return  posicion.siguiente(enUnaDireccion);
-    }
-
-    public void agregarPieza(Pieza aAgregar){
-        this.disponibilidad.agregarPieza(aAgregar,this);
-    }
-
-    public void quitarPieza(){
-        this.disponibilidad.quitarPieza(this);
+    ///// Delegacion en posicion y direccion
+    public Casillero siguiente(Direccion enDireccion){
+        return this.tablero.casilleroEn(this.posicion.siguiente(enDireccion));
     }
 
     public int distanciaA(Casillero casillero){
@@ -52,11 +83,6 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
 
     public int distanciaA(Posicion posicion){
         return posicion.distanciaA(this.posicion);
-    }
-
-    //TODO
-    public float calcularDanio(Equipo equipo){
-        return equipo.bajoAtaque(this.bando);
     }
 
 }

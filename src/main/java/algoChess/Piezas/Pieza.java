@@ -9,7 +9,8 @@ public abstract class Pieza { //TODO :falta
    private static int costo;
     private float vida;
     protected Equipo equipo;
-    protected Casillero ubicacion;
+//    protected Casillero ubicacion;
+    protected Casillero casillero;
     protected Arma arma;
 
     public static int getCosto(){
@@ -27,17 +28,17 @@ public abstract class Pieza { //TODO :falta
     public boolean ubicar(Equipo bando){
        return this.equipo.ubicar(bando);
     }
-
+/*
     public void ocupar(Casillero esteCasillero){
         this.ubicacion = esteCasillero;
     }
 
     protected void desocupar(){
         this.ubicacion.desocupar();
-    }
+    } */
 
     public int distanciaA(Casillero unCasillero){
-       return unCasillero.distanciaA(ubicacion);
+       return unCasillero.distanciaA(casillero);
     }
 
     public void mover(Casillero destino){
@@ -49,15 +50,15 @@ public abstract class Pieza { //TODO :falta
     }*/
    protected abstract void  atacar(Pieza objetivo);
 
-    protected void atacadaDesde(Casillero unCasillero, Arma unArma){
-       quitarVida(unArma.atacar(this, unCasillero.distanciaA(this.ubicacion)));
+    public void atacadaDesde(Casillero unCasillero, Arma unArma){
+       quitarVida(unArma.atacar(this, unCasillero.distanciaA(this.casillero)));
     }
 
-    protected void quitarVida(float danio){
-        this.hacerseDanio(this.ubicacion.calcularDanio(equipo) * danio);
+    public void quitarVida(float danio){
+        this.hacerseDanio(this.casillero.calcularDanio(equipo) * danio);
     }
 
-    protected void hacerseDanio(float danio){
+    public void hacerseDanio(float danio){
         if(this.vida < danio) {
             this.vida = 0;
 
@@ -70,8 +71,8 @@ public abstract class Pieza { //TODO :falta
         return vida;
     }
 
-    protected void curadaDesde(Casillero unCasillero, Arma unArma){
-        agregarVida(unArma.atacar(this,unCasillero.distanciaA(this.ubicacion)));
+    public void curadaDesde(Casillero unCasillero, Arma unArma){
+        agregarVida(unArma.atacar(this,unCasillero.distanciaA(this.casillero)));
     }
 
     protected void agregarVida(float vida){
@@ -84,6 +85,17 @@ public abstract class Pieza { //TODO :falta
     protected abstract void agregarArma(int danio,int danioADistancia);
 
     public abstract void puedoCurarme(Casillero ubicacion,Arma arma);
+
+
+    // Desocupa casillero
+    public void desocuparCasillero(){
+        this.casillero.desocupar();
+    }
+
+    // Ocupa casillero
+    public void ocuparCasillero(Casillero casillero){
+        this.casillero = casillero;
+    }
 
 }
 

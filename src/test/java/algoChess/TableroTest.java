@@ -21,6 +21,17 @@ class TableroTest { //TODO: necesito tocar otras clases para un método
 
 
     @Test
+    public void testTableroDevuelveCasilleroDeLaPosicionElegida(){
+        Tablero tablero = new Tablero();
+        Posicion posicion = new Posicion (3,3);
+        Casillero casillero = tablero.casilleroEn(posicion);
+        casillero.desocupar();
+
+        assertEquals(casillero.distanciaA(posicion),0);
+    }
+
+
+    @Test
     public void seColocaUnaPiezaAliadaEnUnCasilleroAliadoVacioConExitoTest(){
         Tablero tablero = new Tablero();
         Equipo bandoRojo = new Rojo();

@@ -5,7 +5,7 @@ import algoChess.Ubicacion.Casillero;
 
 public interface StrategyDisponibilidad {
 
-    public abstract void agregarPieza(Pieza aAgregar, Casillero enEsteCasillero);
+    void agregarPieza(Pieza pieza, Casillero casillero);
 
-    public abstract void quitarPieza(Casillero esteCasillero);
+//    void quitarPieza(Casillero casillero);
 }

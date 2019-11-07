@@ -22,7 +22,8 @@ public class Tablero {
             Equipo bandoRojo = new Rojo();
             for (int horizontal = 1; horizontal <= lado; horizontal++) {
                 Posicion nuevaPosicion = new Posicion(horizontal, vertical);
-                Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoRojo);
+                Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoRojo );
+                nuevoCasillero.agregarTablero(this);
                 posiciones.put(nuevaPosicion, nuevoCasillero);
             }
         }
@@ -32,6 +33,7 @@ public class Tablero {
             for (int horizontal = 1; horizontal <= lado; horizontal++) {
                 Posicion nuevaPosicion = new Posicion(horizontal, vertical);
                 Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoAzul);
+                nuevoCasillero.agregarTablero(this);
                 posiciones.put(nuevaPosicion, nuevoCasillero);
             }
         }
@@ -55,6 +57,11 @@ public class Tablero {
             }
         }
         return casilleroBuscado;
+    }
+
+    // Metodo para buscar casilleros
+    public Casillero casilleroEn(Posicion enPosicion){
+        return posiciones.get(enPosicion);
     }
 
     public int getCantidadDeCasilleros(){
