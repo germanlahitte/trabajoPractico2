@@ -2,7 +2,7 @@ package algoChess.PiezasTest;
 
 import algoChess.Armas.Arma;
 import algoChess.Armas.ArmaCurandero;
-import algoChess.Armas.EspadaJinete;
+import algoChess.Armas.ArmaEspadaJinete;
 import algoChess.Equipos.EquipoAzul;
 import algoChess.Equipos.Equipo;
 import algoChess.Equipos.EquipoRojo;
@@ -26,7 +26,7 @@ class PiezaTest {
         Casillero casillero1 = new Casillero(p1,e1);
         Casillero casillero2 = new Casillero(p2,e2);
         Soldado soldado1 = new Soldado(e1);
-        Arma armaJinete = new EspadaJinete();
+        Arma armaJinete = new ArmaEspadaJinete();
 
         Posicion p3 = new Posicion(1,19);
         Casillero casillero3 = new Casillero(p3,e2);

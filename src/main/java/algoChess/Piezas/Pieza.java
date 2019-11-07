@@ -3,11 +3,12 @@ package algoChess.Piezas;
 import algoChess.Armas.*;
 import algoChess.Ubicacion.*;
 import algoChess.Equipos.*;
+import algoChess.Vida;
 
 public abstract class Pieza { //TODO :falta
 
    private static int costo;
-    private float vida;
+   private Vida vida;
     protected Equipo equipo;
 //    protected Casillero ubicacion;
     protected Casillero casillero;
@@ -19,7 +20,7 @@ public abstract class Pieza { //TODO :falta
 
     public Pieza(int costo, float vida, Equipo equipo){
         this.costo = costo;
-        this.vida = vida;
+        this.vida = new Vida(vida);
         this.equipo = equipo;
         //this.arma = new Arma(danio,danioADistacia);
        // this.arma = arma;
@@ -42,20 +43,10 @@ public abstract class Pieza { //TODO :falta
         this.ubicacion.desocupar();
     } */
 
-// No usamos este metodo
-    public int distanciaA(Casillero unCasillero){
-       return unCasillero.distanciaA(casillero);
-    }
-
-
-    public void mover(Casillero destino){
-       destino.agregarPieza(this);
-    }
-
    /* protected void atacar(Pieza objetivo){
         objetivo.atacadaDesde(this.ubicacion, this.arma);
     }*/
-   protected abstract void  atacar(Pieza objetivo);
+
 
    /*
     public void atacadaDesde(Casillero unCasillero, Arma unArma){
@@ -69,19 +60,43 @@ public abstract class Pieza { //TODO :falta
         agregarVida(unArma.atacarA(this,unCasillero.distanciaA(this.casillero)));
     }*/
 
+    /*
     protected void agregarVida(float vida){
         this.vida += vida;
+    }*/
+
+
+    // No usamos este metodo
+    public int distanciaA(Casillero unCasillero){
+        return unCasillero.distanciaA(casillero);
     }
+
+
+    public void mover(Casillero destino){
+        destino.agregarPieza(this);
+    }
+
+    protected abstract void  atacar(Pieza objetivo);
+
     protected Equipo getBando(){
         return this.equipo;
     }
 
-    protected abstract void agregarArma(int danio,int danioADistancia);
 
     public abstract void puedoCurarme(Casillero ubicacion,Arma arma);
 
 
+    // Arma
 
+    protected void agregarArma(Arma arma){
+        this.arma=arma;
+    }
+
+    // Ataque
+
+    public void atacadaDesde(Casillero casillero, Arma arma) {
+        this.arma.atacarA(this, casillero.distanciaA(this.casillero));
+    }
 
     //  Vida
     public void quitarVida(double danio){
@@ -89,13 +104,16 @@ public abstract class Pieza { //TODO :falta
     }
 
     public void hacerseDanio(double  danio){
-        this.vida -= danio;
-        if(this.vida < 0) {
-            this.vida = 0;
+        this.vida.restarVida(danio);
         }
-    }
+
     public float vida(){
-        return vida;
+        return this.vida.vida();
+    }
+
+    public void curarse(float vida){
+
+        this.vida.curarVida(vida);
     }
 
 

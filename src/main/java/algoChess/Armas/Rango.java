@@ -36,6 +36,6 @@ public class Rango {
 
 
     public boolean enRango(int distancia){
-        return (this.minimo <= distancia || distancia <= this.maximo);
+        return (this.minimo <= distancia && distancia <= this.maximo);
     }
 }

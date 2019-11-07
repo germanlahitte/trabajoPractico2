@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SoldadoTest {
+
+    /*
     @Test
     public void soldadoAliadoAtacaAJineteEnemigoADistanciaCercanaYSeLeRestaVidaTest(){
         Posicion posicion1 = new Posicion(1,1);
@@ -42,6 +44,6 @@ public class SoldadoTest {
         casillero2.ubicar(soldado);
         soldado.atacar(jinete);
         assertEquals(100,jinete.vida());
-    }
+    }*/
 
 }
