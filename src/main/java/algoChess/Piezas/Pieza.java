@@ -94,6 +94,12 @@ public abstract class Pieza { //TODO :falta
     public abstract void puedoCurarme(Casillero ubicacion,Arma arma);
 
 
+
+
+
+
+
+
     // Desocupa casillero
     public void desocuparCasillero(){
         this.casillero.desocupado();
@@ -108,6 +114,13 @@ public abstract class Pieza { //TODO :falta
 
     public void asignarCasillero(Casillero casillero){
         this.casillero = casillero;
+    }
+
+
+    // Posicion
+
+    public Posicion posicion(){
+        return this.casillero.posicion();
     }
 
 }

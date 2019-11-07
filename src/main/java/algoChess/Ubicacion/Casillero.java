@@ -96,5 +96,6 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
     }
 
 
+    public Posicion posicion(){return this.posicion;}
 
 }
