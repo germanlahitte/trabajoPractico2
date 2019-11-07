@@ -10,7 +10,4 @@ public class StrategyOcupado implements StrategyDisponibilidad {
         throw new CasilleroOcupadoException("Casillero Ocupado");
     }
 
-/*    public void quitarPieza(Casillero esteCasillero) {
-        esteCasillero.desocupar();
-    }*/
 }

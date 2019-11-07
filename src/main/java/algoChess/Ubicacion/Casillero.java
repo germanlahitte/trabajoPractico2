@@ -26,33 +26,20 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
         this.desocupado();
     }
 
-    public void ubicar(Pieza estaPieza){
-        if(estaPieza.ubicar(equipo))
-            this.disponibilidad.agregarPieza(estaPieza,this);
+
+
+
+    public double calcularDanio(Equipo equipo){
+        return this.equipo.atacar(equipo);
     }
 
 
 
-    public void ocupar(Pieza aAsignar){
-        this.pieza = aAsignar;
-        this.disponibilidad = new StrategyOcupado();
+    // Ubicar pieza en casillero, chequea equipos
+
+    public void ubicar(Pieza pieza){
+        this.agregarPieza(pieza.ubicarCon(this.equipo));
     }
-
-    /*
-    public void quitarPieza(){
-        this.disponibilidad.quitarPieza(this);
-    }*/
-
-    //TODO
-    public float calcularDanio(Equipo equipo){
-        return equipo.bajoAtaque(this.equipo);
-    }
-
-
-
-
-
-
 
     /// Agrega Pieza delega en strategyDisponibilidad
 
@@ -77,9 +64,6 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
 
     public void agregarTablero(Tablero tablero){
         this.tablero = tablero;
-    }
-    public void agregarEquipo(Equipo equipo){
-        this.equipo = equipo;
     }
 
     ///// Delegacion en posicion y direccion

@@ -12,29 +12,13 @@ public class Soldado extends Pieza implements Movible{
     public Soldado(Equipo equipo) {
 
         super(100, equipo);
-        this.agregarArma(10,0);
+        this.agregarArma(new ArmaSoldado());
 
     }
 
-    public static int getCosto() {
-        return costo;
-    }
 
-    @Override
-    public void mover(Direccion direccion) {
+    // Se mueve en X direccion
+    public void mover(Direccion direccion){
         this.casillero.siguiente(direccion).agregarPieza(this);
     }
-
-    public void atacar(Pieza objetivo){
-        objetivo.atacadaDesde(this.casillero, this.arma);}
-        @Override
-    protected void agregarArma(int danio,int DanioADistancia){
-        this.arma = new ArmaSoldado(danio,DanioADistancia);
-        }
-
-    @Override
-    public void puedoCurarme(Casillero ubicacion, Arma arma) {
-        this.curadaDesde(ubicacion,arma);
-    }
-
 }

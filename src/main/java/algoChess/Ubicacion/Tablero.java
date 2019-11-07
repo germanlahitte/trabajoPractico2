@@ -1,8 +1,8 @@
 package algoChess.Ubicacion;
 
-import algoChess.Equipos.Azul;
+import algoChess.Equipos.EquipoAzul;
 import algoChess.Equipos.Equipo;
-import algoChess.Equipos.Rojo;
+import algoChess.Equipos.EquipoRojo;
 import algoChess.Piezas.Movible;
 import algoChess.Piezas.Pieza;
 
@@ -20,7 +20,7 @@ public class Tablero {
         this.posiciones = new HashMap<Posicion, Casillero>();
 
         for (int vertical = 1; vertical <= (lado / 2); vertical++) {
-            Equipo bandoRojo = new Rojo();
+            Equipo bandoRojo = new EquipoRojo();
             for (int horizontal = 1; horizontal <= lado; horizontal++) {
                 Posicion nuevaPosicion = new Posicion(horizontal, vertical);
                 Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoRojo );
@@ -30,7 +30,7 @@ public class Tablero {
         }
 
         for (int vertical = (lado / 2) + 1; vertical <= lado; vertical++) {
-            Equipo bandoAzul = new Azul();
+            Equipo bandoAzul = new EquipoAzul();
             for (int horizontal = 1; horizontal <= lado; horizontal++) {
                 Posicion nuevaPosicion = new Posicion(horizontal, vertical);
                 Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoAzul);
@@ -40,42 +40,22 @@ public class Tablero {
         }
     }
 
-    public void ubicar(Pieza estaPieza, Casillero esteCasillero) {
-        esteCasillero.ubicar(estaPieza);
+
+   // Ubicar piezas
+    public void ubicar(Pieza estaPieza, Posicion posicion) {
+        this.casilleroEn(posicion).ubicar(estaPieza);
     }
-
-
-    public Casillero buscar(Posicion enUnaPosicion){
-        Casillero casilleroBuscado = null;
-        for(Posicion i:posiciones.keySet()){
-            if(i.equals(enUnaPosicion)){
-                casilleroBuscado=posiciones.get(i);
-            }
-        }
-        return casilleroBuscado;
-    }
-
-
-    public int getCantidadDeCasilleros(){
-        return 400;
-    }
-
-   /* public void hayAlgunGanador(Jugador jugador1, Jugador jugador2){
-        if(jugador1.esGanador() || jugador2.esGanador()){
-            throw  new ElJuegoTerminoPorqueHayUnGanadorException("El juego tiene un ganador");
-        }
-    }*/
-
 
     // Metodo para buscar casilleros
     public Casillero casilleroEn(Posicion enPosicion){
         return posiciones.get(enPosicion);
     }
 
-
-    // Metodo que le pasa movible a tablero para que se mueva
+   // Metodo que le pasa movible a tablero para que se mueva
     public void mover(Movible movible, Direccion direccion) {
         movible.mover(direccion);
-    }
+        }
+
+
 
 }

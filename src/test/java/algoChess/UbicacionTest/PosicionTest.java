@@ -1,4 +1,4 @@
-package algoChess;
+package algoChess.UbicacionTest;
 
 import algoChess.Ubicacion.Direccion;
 import algoChess.Ubicacion.Posicion;

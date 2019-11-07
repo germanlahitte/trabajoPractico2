@@ -3,85 +3,82 @@ package algoChess.Piezas;
 import algoChess.Armas.*;
 import algoChess.Ubicacion.*;
 import algoChess.Equipos.*;
+import algoChess.Vida;
 
 public abstract class Pieza { //TODO :falta
-    private float vida;
-    protected Equipo equipo;
-    protected Casillero casillero;
-    protected Arma arma;
+
+   private Vida vida;
+   protected Equipo equipo;
+   protected Casillero casillero;
+   protected Arma arma;
 
     public Pieza(float vida, Equipo equipo){
         this.vida = vida;
         this.equipo = equipo;
     }
 
-    public boolean ubicar(Equipo bando){
-       return this.equipo.ubicar(bando);
+
+    // Se ubica en el mapa
+
+    public Pieza ubicarCon(Equipo equipo){
+        return this.equipo.ubicarCon(equipo,this);
     }
 
-// No usamos este metodo
-    public int distanciaA(Casillero unCasillero){
-       return unCasillero.distanciaA(casillero);
+    // Arma
+
+    protected void agregarArma(Arma arma){
+        this.arma=arma;
     }
 
-    public abstract void mover(Direccion direccion);
 
-   protected abstract void  atacar(Pieza objetivo);
 
-    public void atacadaDesde(Casillero unCasillero, Arma unArma){
-       quitarVida(unArma.atacar(this, unCasillero.distanciaA(this.casillero)));
+    // Ataque
+
+    public void atacadaDesde(Casillero casillero, Arma arma) {
+        arma.atacarA(this, casillero.distanciaA(this.casillero));
     }
 
-    public void quitarVida(float danio){
+    public void atacar(Pieza pieza){
+        pieza.atacadaDesde(this.casillero,this.arma);
+    }
+
+    //  Vida
+    public void quitarVida(double danio){
         this.hacerseDanio(this.casillero.calcularDanio(equipo) * danio);
     }
 
-    public void hacerseDanio(float danio){
-        if(this.vida < danio) {
-            this.vida = 0;
-        } else {
-            this.vida -= danio;
+    public void hacerseDanio(double  danio){
+        this.vida.restarVida(danio);
         }
+
+    public float vida(){
+        return this.vida.vida();
     }
 
-    public float vidaRestante(){
-        return vida;
+    public void curarse(float vida){
+
+        this.vida.curarVida(vida);
     }
 
-    public void curadaDesde(Casillero unCasillero, Arma unArma){
-        agregarVida(unArma.atacar(this,unCasillero.distanciaA(this.casillero)));
-    }
 
-    protected void agregarVida(float vidaRecibida){
-        float vidaCurada = this.vida+vidaRecibida;
-        if(vidaCurada>this.vida){
-            this.vida += (vidaCurada - this.vida);
-        }else{
-            this.vida += vidaRecibida;
-        }
-    }
-    protected Equipo getBando(){
-        return this.equipo;
-    }
-
-    protected abstract void agregarArma(int danio,int danioADistancia);
-
-    public abstract void puedoCurarme(Casillero ubicacion,Arma arma);
-
+    // Desocupa casillero
     public void desocuparCasillero(){
         this.casillero.desocupado();
     }
 
+    // Ocupa casillero
     public void ocuparCasillero(Casillero casillero){
-        if (this.casillero != null) {
-            this.desocuparCasillero();
-        }
+        this.desocuparCasillero();
         this.casillero = casillero;
     }
+
 
     public void asignarCasillero(Casillero casillero){
         this.casillero = casillero;
     }
+
+
+    // Posicion
 
     public Posicion posicion(){
         return this.casillero.posicion();

@@ -24,15 +24,15 @@ public class Billetera {
 
     public Soldado comprarSoldado(Equipo bando){
         int costoPieza = Soldado.getCosto();
-        Soldado soldadoNuevo;
-        if(costoPieza<=this.puntosDisponibles){
-            soldadoNuevo = new Soldado(bando);
-            this.puntosDisponibles -= costoPieza;
-        }else{
+        if(costoPieza > this.puntosDisponibles){
             throw new NoAlcanzanLasMonedasException("No alcanzan las monedas para realizar la compra");
         }
-        return soldadoNuevo;
+
+        this.puntosDisponibles -= costoPieza;
+
+        return new Soldado(bando);
     }
+
     public Jinete comprarJinete(Equipo bando){
         int costoPieza = Jinete.getCosto();
         Jinete jineteNuevo;

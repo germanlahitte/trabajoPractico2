@@ -1,18 +1,20 @@
 package algoChess.Armas;
 
+
 import algoChess.Piezas.Pieza;
 
 public class ArmaCurandero extends Arma {
-    public ArmaCurandero(int danio, int danioAdistancia) {
-        super(danio, danioAdistancia);
+
+    public ArmaCurandero() {
+        super(15, Rango.cercano());
     }
 
-    @Override
-    public int atacar(Pieza unaPieza, int aUnaDistancia) {
-        int danio = 0;
-        if(aUnaDistancia<=2) {
-            danio = this.danio;
+    public void atacarA(Pieza unaPieza, int distancia) {
+
+        if(rango.enRango(distancia)){
+            unaPieza.curarse(this.danio);
         }
-        return danio;
+
     }
+
 }
