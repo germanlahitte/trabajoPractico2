@@ -4,8 +4,9 @@ import algoChess.Armas.Arma;
 import algoChess.Armas.ArmaCurandero;
 import algoChess.Equipos.Equipo;
 import algoChess.Ubicacion.Casillero;
+import algoChess.Ubicacion.Direccion;
 
-public class Curandero extends Pieza {
+public class Curandero extends Pieza implements Movible {
     private static int costo = 2;
     public Curandero(Equipo equipo) {
         super(costo, 75, equipo);
@@ -17,18 +18,13 @@ public class Curandero extends Pieza {
     }
 
     @Override
-    public void mover(Casillero destino) {
-        destino.agregarPieza(this);
-    }
-
-    @Override
     public void atacar(Pieza objetivo) {
         this.puedeCurar(objetivo);
     }
 
     @Override
     protected void agregarArma(int danio, int danioADistancia) {
-        this.arma = new ArmaCurandero(danio, danioADistancia);
+        this.arma = new ArmaCurandero(danio,danioADistancia);
 
     }
 
@@ -39,8 +35,14 @@ public class Curandero extends Pieza {
 
     private void puedeCurar(Pieza objetivo){
         if(objetivo.ubicar(this.getBando())){
-        objetivo.puedoCurarme(this.ubicacion,this.arma);
+        objetivo.puedoCurarme(this.casillero,this.arma);
         }
+    }
+
+
+    // Se mueve en X direccion
+    public void mover(Direccion direccion){
+        this.casillero.siguiente(direccion).agregarPieza(this);
     }
 
 }

@@ -4,8 +4,8 @@ import static java.lang.Math.abs;
 import static java.lang.Math.max;
 
 public class Posicion {
-    private int horizontal;
-    private int vertical;
+    private final int horizontal;
+    private final int vertical;
 
     public Posicion(int horizontal, int vertical) {
         this.horizontal = horizontal;
@@ -33,6 +33,11 @@ public class Posicion {
         Posicion other = (Posicion) obj;
 
         return (this.getHorizontal() == other.getHorizontal() && this.getVertical() == other.getVertical());
+    }
+
+    @Override
+    public int hashCode() {
+        return this.getHorizontal()+this.getVertical();
     }
 
     public int getHorizontal() {

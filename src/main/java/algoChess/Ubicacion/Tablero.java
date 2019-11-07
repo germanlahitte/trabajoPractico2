@@ -3,6 +3,7 @@ package algoChess.Ubicacion;
 import algoChess.Equipos.Azul;
 import algoChess.Equipos.Equipo;
 import algoChess.Equipos.Rojo;
+import algoChess.Piezas.Movible;
 import algoChess.Piezas.Pieza;
 
 import excepciones.ElJuegoTerminoPorqueHayUnGanadorException;
@@ -22,7 +23,8 @@ public class Tablero {
             Equipo bandoRojo = new Rojo();
             for (int horizontal = 1; horizontal <= lado; horizontal++) {
                 Posicion nuevaPosicion = new Posicion(horizontal, vertical);
-                Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoRojo);
+                Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoRojo );
+                nuevoCasillero.agregarTablero(this);
                 posiciones.put(nuevaPosicion, nuevoCasillero);
             }
         }
@@ -32,6 +34,7 @@ public class Tablero {
             for (int horizontal = 1; horizontal <= lado; horizontal++) {
                 Posicion nuevaPosicion = new Posicion(horizontal, vertical);
                 Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoAzul);
+                nuevoCasillero.agregarTablero(this);
                 posiciones.put(nuevaPosicion, nuevoCasillero);
             }
         }
@@ -57,6 +60,7 @@ public class Tablero {
         return casilleroBuscado;
     }
 
+
     public int getCantidadDeCasilleros(){
         return 400;
     }
@@ -67,5 +71,18 @@ public class Tablero {
         }
 
     }*/
+
+
+    // Metodo para buscar casilleros
+    public Casillero casilleroEn(Posicion enPosicion){
+        return posiciones.get(enPosicion);
+    }
+
+   // Metodo que le pasa movible a tablero para que se mueva
+    public void mover(Movible movible, Direccion direccion) {
+        movible.mover(direccion);
+        }
+
+
 
 }

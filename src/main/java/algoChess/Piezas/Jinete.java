@@ -4,8 +4,9 @@ import algoChess.Armas.Arma;
 import algoChess.Armas.ArmaJinete;
 import algoChess.Equipos.Equipo;
 import algoChess.Ubicacion.Casillero;
+import algoChess.Ubicacion.Direccion;
 
-public class Jinete extends Pieza {
+public class Jinete extends Pieza implements Movible{
     private static int costo = 3;
 
     public Jinete(Equipo equipo) {
@@ -18,13 +19,13 @@ public class Jinete extends Pieza {
     }
 
     @Override
-    public void mover(Casillero destino) {
-        destino.agregarPieza(this);
+    public void mover(Direccion direccion) {
+        this.casillero.siguiente(direccion).agregarPieza(this);
     }
 
     @Override
     public void atacar(Pieza objetivo) {
-        objetivo.atacadaDesde(this.ubicacion, this.arma);
+        objetivo.atacadaDesde(this.casillero, this.arma);
     }
 
     @Override
@@ -38,4 +39,9 @@ public class Jinete extends Pieza {
         this.curadaDesde(ubicacion,arma);
     }
 
+
+    // Se mueve en X direccion
+    public void mover(Direccion direccion){
+        this.casillero.siguiente(direccion).agregarPieza(this);
+    }
 }

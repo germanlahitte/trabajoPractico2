@@ -4,8 +4,9 @@ import algoChess.Armas.Arma;
 import algoChess.Armas.ArmaSoldado;
 import algoChess.Equipos.Equipo;
 import algoChess.Ubicacion.Casillero;
+import algoChess.Ubicacion.Direccion;
 
-public class Soldado extends Pieza {
+public class Soldado extends Pieza implements Movible{
     private static int costo = 1;
 
     public Soldado(Equipo equipo) {
@@ -25,7 +26,7 @@ public class Soldado extends Pieza {
     }
 
     public void atacar(Pieza objetivo){
-        objetivo.atacadaDesde(this.ubicacion, this.arma);}
+        objetivo.atacadaDesde(this.casillero, this.arma);}
         @Override
     protected void agregarArma(int danio,int DanioADistancia){
         this.arma = new ArmaSoldado(danio,DanioADistancia);
@@ -34,5 +35,11 @@ public class Soldado extends Pieza {
     @Override
     public void puedoCurarme(Casillero ubicacion, Arma arma) {
         this.curadaDesde(ubicacion,arma);
+    }
+
+
+    // Se mueve en X direccion
+    public void mover(Direccion direccion){
+        this.casillero.siguiente(direccion).agregarPieza(this);
     }
 }
