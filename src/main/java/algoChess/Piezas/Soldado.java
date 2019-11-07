@@ -15,7 +15,7 @@ public class Soldado extends Pieza {
 
     }
     public void atacar(Pieza objetivo){
-        objetivo.atacadaDesde(this.ubicacion, this.arma);}
+        objetivo.atacadaDesde(this.casillero, this.arma);}
         @Override
     protected void agregarArma(int danio,int DanioADistancia){
         this.arma = new ArmaSoldado(danio,DanioADistancia);

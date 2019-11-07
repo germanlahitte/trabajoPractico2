@@ -25,7 +25,7 @@ class TableroTest { //TODO: necesito tocar otras clases para un método
         Tablero tablero = new Tablero();
         Posicion posicion = new Posicion (3,3);
         Casillero casillero = tablero.casilleroEn(posicion);
-        casillero.desocupar();
+        casillero.desocupado();
 
         assertEquals(casillero.distanciaA(posicion),0);
     }

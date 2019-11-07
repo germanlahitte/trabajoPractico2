@@ -29,7 +29,7 @@ public class Curandero extends Pieza {
 
     private void puedeCurar(Pieza objetivo){
         if(objetivo.ubicar(this.getBando())){
-        objetivo.puedoCurarme(this.ubicacion,this.arma);
+        objetivo.puedoCurarme(this.casillero,this.arma);
         }
     }
 

@@ -14,7 +14,7 @@ public class Jinete extends Pieza {
 
     @Override
     public void atacar(Pieza objetivo) {
-        objetivo.atacadaDesde(this.ubicacion, this.arma);
+        objetivo.atacadaDesde(this.casillero, this.arma);
     }
 
     @Override

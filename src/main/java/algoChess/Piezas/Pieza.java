@@ -25,6 +25,11 @@ public abstract class Pieza { //TODO :falta
        // this.arma = arma;
     }
 
+    public Pieza(Casillero casillero){
+        this.casillero = casillero;
+
+    }
+
     public boolean ubicar(Equipo bando){
        return this.equipo.ubicar(bando);
     }
@@ -37,9 +42,11 @@ public abstract class Pieza { //TODO :falta
         this.ubicacion.desocupar();
     } */
 
+// No usamos este metodo
     public int distanciaA(Casillero unCasillero){
        return unCasillero.distanciaA(casillero);
     }
+
 
     public void mover(Casillero destino){
        destino.agregarPieza(this);
@@ -89,11 +96,17 @@ public abstract class Pieza { //TODO :falta
 
     // Desocupa casillero
     public void desocuparCasillero(){
-        this.casillero.desocupar();
+        this.casillero.desocupado();
     }
 
     // Ocupa casillero
     public void ocuparCasillero(Casillero casillero){
+        this.desocuparCasillero();
+        this.casillero = casillero;
+    }
+
+
+    public void asignarCasillero(Casillero casillero){
         this.casillero = casillero;
     }
 

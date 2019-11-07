@@ -17,7 +17,13 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
     public Casillero(Posicion posicion,Equipo equipo  ){
         this.posicion = posicion;
         this.equipo = equipo;
-        this.desocupar();
+        this.desocupado();
+    }
+
+    public Casillero(Posicion posicion, Tablero tablero){
+        this.tablero = tablero;
+        this.posicion = posicion;
+        this.desocupado();
     }
 
     public void ubicar(Pieza estaPieza){
@@ -54,14 +60,15 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
         this.disponibilidad.agregarPieza(pieza,this);
     }
 
+    // asigna pieza y desocupa
+
     public void asignarPieza(Pieza pieza){
         this.pieza = pieza;
         this.disponibilidad = new StrategyOcupado();
-        this.pieza.desocuparCasillero();
         this.pieza.ocuparCasillero(this);
     }
 
-    public void desocupar(){
+    public void desocupado(){
         this.pieza = null;
         this.disponibilidad = new StrategyLibre();
     }
@@ -70,6 +77,9 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
 
     public void agregarTablero(Tablero tablero){
         this.tablero = tablero;
+    }
+    public void agregarEquipo(Equipo equipo){
+        this.equipo = equipo;
     }
 
     ///// Delegacion en posicion y direccion
@@ -84,5 +94,7 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
     public int distanciaA(Posicion posicion){
         return posicion.distanciaA(this.posicion);
     }
+
+
 
 }
