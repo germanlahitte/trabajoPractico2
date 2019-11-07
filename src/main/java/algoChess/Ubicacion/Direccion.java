@@ -36,6 +36,14 @@ public class Direccion {
         return new Posicion(siguienteHorizontal,siguienteVertical);
     }
 
+    public int getHorizontal() {
+        return sentidoHorizontal;
+    }
+
+    public int getVertical() {
+        return sentidoVertical;
+    }
+
     public static Direccion norte() {
         return norte;
     }
@@ -67,4 +75,5 @@ public class Direccion {
     public static Direccion surOeste() {
         return surOeste;
     }
+
 }

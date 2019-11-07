@@ -10,46 +10,52 @@ class PosicionTest {
 
 
     @Test
-    public void posicionSeCreaConPosicionCorrectaDesdeConstructorTest() {
+    public void testPosicionSeCreaConPosicionCorrectaEnXDesdeConstructor() {
         Posicion posicion1 = new Posicion(1, 6);
-
         assertEquals(posicion1.getHorizontal(), 1);
+    }
+
+    @Test
+    public void testPosicionSeCreaConPosicionCorrectaEnYDesdeConstructor() {
+        Posicion posicion1 = new Posicion(1, 6);
         assertEquals(posicion1.getVertical(), 6);
     }
 
-
     @Test
-    public void posicionDevuelveDistanciaCorrectaAOtraPosicionTest() {
-        Posicion posicion11 = new Posicion(1, 1);
-        Posicion posicion17 = new Posicion(1, 7);
-        Posicion posicion23 = new Posicion(2, 3);
-        Posicion posicion45 = new Posicion(4, 5);
-
-        assertEquals(posicion11.distanciaA(posicion17), 6);
-        assertEquals(posicion11.distanciaA(posicion11), 0);
-        assertEquals(posicion11.distanciaA(posicion23), 2);
-        assertEquals(posicion11.distanciaA(posicion45), 4);
-        assertEquals(posicion17.distanciaA(posicion11), 6);
-        assertEquals(posicion23.distanciaA(posicion45), 2);
-        assertEquals(posicion45.distanciaA(posicion17), 3);
-        assertEquals(posicion23.distanciaA(posicion17), 4);
+    public void testPosicionADevuelveDistanciaCorrectaAPosicionBCorridoSoloEnPosicionY() {
+        Posicion posicion1 = new Posicion(1, 1);
+        Posicion posicion2 = new Posicion(1, 7);
+        assertEquals(posicion1.distanciaA(posicion2), 6);
     }
 
     @Test
-    public void posicionDevuelveDistanciaCorrectaAOtraPosicionTest2() {
-        Posicion posicion11 = new Posicion(1, 1);
-        Posicion posicion17 = new Posicion(1, 7);
-        Posicion posicion23 = new Posicion(2, 3);
-        Posicion posicion45 = new Posicion(4, 5);
-
-        assertEquals(posicion11.distanciaA(posicion17), 6);
-        assertEquals(posicion11.distanciaA(posicion11), 0);
-        assertEquals(posicion11.distanciaA(posicion23), 2);
-        assertEquals(posicion11.distanciaA(posicion45), 4);
-        assertEquals(posicion17.distanciaA(posicion11), 6);
-        assertEquals(posicion23.distanciaA(posicion45), 2);
-        assertEquals(posicion45.distanciaA(posicion17), 3);
-        assertEquals(posicion23.distanciaA(posicion17), 4);
+    public void testPosicionADevuelveDistanciaCorrectaAPosicionBCorridoSoloEnPosicionX() {
+        Posicion posicion1 = new Posicion(7, 1);
+        Posicion posicion2 = new Posicion(1, 1);
+        assertEquals(posicion1.distanciaA(posicion2), 6);
     }
+
+    @Test
+    public void testPosicionADevuelveDistanciaCorrectaAPosicionBCorridoEnAmbasPosiciones() {
+        Posicion posicion1 = new Posicion(4, 1);
+        Posicion posicion2 = new Posicion(2, 8);
+        assertEquals(posicion1.distanciaA(posicion2), 7);
+    }
+
+    @Test
+    public void testPosicionADevuelveMismaDistanciaAPosicionBQuePosicionBDistanciaAPosicionA() {
+        Posicion posicion1 = new Posicion(1, 1);
+        Posicion posicion2 = new Posicion(1, 7);
+        assertEquals(posicion2.distanciaA(posicion1), posicion1.distanciaA(posicion2));
+    }
+
+    @Test
+    public void testPosicionADevuelveSiguientePosicionEnDireccionCorrecta() {
+        Posicion posicion1 = new Posicion(1, 1);
+        Posicion posicion2 = new Posicion(1, 7);
+        assertEquals(posicion2.distanciaA(posicion1), posicion1.distanciaA(posicion2));
+    }
+
+
 
 }

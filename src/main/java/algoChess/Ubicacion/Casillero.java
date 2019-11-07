@@ -2,15 +2,15 @@ package algoChess.Ubicacion;
 
 import algoChess.Equipos.Equipo;
 import algoChess.Piezas.Pieza;
-import algoChess.Ubicacion.StrategyDisponibilidad.Disponibilidad;
-import algoChess.Ubicacion.StrategyDisponibilidad.Libre;
-import algoChess.Ubicacion.StrategyDisponibilidad.Ocupado;
+import algoChess.Ubicacion.StrategyDisponibilidad.StrategyDisponibilidad;
+import algoChess.Ubicacion.StrategyDisponibilidad.StrategyLibre;
+import algoChess.Ubicacion.StrategyDisponibilidad.StrategyOcupado;
 
 public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
 
     private Posicion ubicacion;
     private Equipo bando;
-    private Disponibilidad estado;
+    private StrategyDisponibilidad estado;
     private Pieza ocupante;
 
     public Casillero(Posicion ubicacion,Equipo bando){
@@ -26,12 +26,12 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
 
     public void desocupar(){
         this.ocupante = null;
-        this.estado = new Libre();
+        this.estado = new StrategyLibre();
     }
 
     public void ocupar(Pieza aAsignar){
         this.ocupante = aAsignar;
-        this.estado = new Ocupado();
+        this.estado = new StrategyOcupado();
     }
 
     public Posicion siguiente(Direccion enUnaDireccion){
