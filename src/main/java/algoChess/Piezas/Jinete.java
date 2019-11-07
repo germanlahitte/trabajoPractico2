@@ -15,18 +15,18 @@ public class Jinete extends Pieza implements Movible{
 
     @Override
     public void atacar(Pieza objetivo) {
-        objetivo.atacadaDesde(this.casillero, this.arma);
+        //objetivo.atacadaDesde(this.casillero, this.arma);
     }
 
     @Override
     protected void agregarArma(int danio, int danioADistancia) {
-        this.arma = new EspadaJinete(danio,danioADistancia);
+        this.arma = new EspadaJinete();
 
     }
 
     @Override
     public void puedoCurarme(Casillero ubicacion, Arma arma) {
-        this.curadaDesde(ubicacion,arma);
+        //this.curadaDesde(ubicacion,arma);
     }
 
 

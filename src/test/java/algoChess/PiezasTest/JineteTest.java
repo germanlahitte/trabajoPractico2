@@ -25,7 +25,7 @@ public class JineteTest {
         casillero1.ubicar(jinete);
         casillero2.ubicar(soldado);
         jinete.atacar(soldado);
-        assertEquals(85,soldado.vidaRestante());
+        assertEquals(85,soldado.vida());
 
     }
 }

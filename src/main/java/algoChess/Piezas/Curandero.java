@@ -12,28 +12,28 @@ public class Curandero extends Pieza implements Movible {
         this.agregarArma(15,0);
     }
 
+
     @Override
     public void atacar(Pieza objetivo) {
-        this.puedeCurar(objetivo);
+       // this.puedeCurar(objetivo);
     }
 
     @Override
     protected void agregarArma(int danio, int danioADistancia) {
-        this.arma = new ArmaCurandero(danio,danioADistancia);
+        //this.arma = new ArmaCurandero(danio,danioADistancia);
 
     }
 
     @Override
     public void puedoCurarme(Casillero ubicacion, Arma arma) {
-    this.curadaDesde(ubicacion,arma);
+    //this.curadaDesde(ubicacion,arma);
     }
 
     private void puedeCurar(Pieza objetivo){
-        if(objetivo.ubicar(this.getBando())){
-        objetivo.puedoCurarme(this.casillero,this.arma);
-        }
+        //if(objetivo.ubicar(this.getBando())){
+        //objetivo.puedoCurarme(this.casillero,this.arma);
+        //}
     }
-
 
     // Se mueve en X direccion
     public void mover(Direccion direccion){

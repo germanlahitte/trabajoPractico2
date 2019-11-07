@@ -1,7 +1,19 @@
 package algoChess.Equipos;
 
-public class EquipoRojo extends Equipo {
+public class EquipoRojo implements Equipo {
 
+
+    public double  atacar(Equipo equipo){
+        return equipo.atacar(this);
+    }
+
+    public double  atacar(EquipoRojo equipo){
+        return 1.00;
+    }
+
+    public double  atacar(EquipoAzul equipo){
+        return 1.05;
+    }
             /* Para Double Dispatch
         public float vs(Equipo unEquipo){
             return unEquipo.vs(this);

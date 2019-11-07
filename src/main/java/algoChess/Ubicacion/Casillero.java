@@ -27,8 +27,8 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
     }
 
     public void ubicar(Pieza estaPieza){
-        if(estaPieza.ubicar(equipo))
-            this.disponibilidad.agregarPieza(estaPieza,this);
+        //if(estaPieza.ubicar(equipo))
+         //   this.disponibilidad.agregarPieza(estaPieza,this);
     }
 
 
@@ -44,8 +44,8 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
     }*/
 
     //TODO
-    public float calcularDanio(Equipo equipo){
-        return equipo.bajoAtaque(this.equipo);
+    public double calcularDanio(Equipo equipo){
+        return this.equipo.atacar(equipo);
     }
 
 

@@ -29,11 +29,11 @@ public abstract class Pieza { //TODO :falta
         this.casillero = casillero;
 
     }
-
+/*
     public boolean ubicar(Equipo bando){
        return this.equipo.ubicar(bando);
     }
-/*
+
     public void ocupar(Casillero esteCasillero){
         this.ubicacion = esteCasillero;
     }
@@ -57,30 +57,17 @@ public abstract class Pieza { //TODO :falta
     }*/
    protected abstract void  atacar(Pieza objetivo);
 
+   /*
     public void atacadaDesde(Casillero unCasillero, Arma unArma){
        quitarVida(unArma.atacarA(this, unCasillero.distanciaA(this.casillero)));
-    }
-
-    public void quitarVida(float danio){
-        this.hacerseDanio(this.casillero.calcularDanio(equipo) * danio);
-    }
-
-    public void hacerseDanio(float danio){
-        if(this.vida < danio) {
-            this.vida = 0;
+    }*/
 
 
-        } else {
-            this.vida -= danio;
-        };
-    }
-    public float vidaRestante(){
-        return vida;
-    }
 
+    /*
     public void curadaDesde(Casillero unCasillero, Arma unArma){
         agregarVida(unArma.atacarA(this,unCasillero.distanciaA(this.casillero)));
-    }
+    }*/
 
     protected void agregarVida(float vida){
         this.vida += vida;
@@ -96,8 +83,20 @@ public abstract class Pieza { //TODO :falta
 
 
 
+    //  Vida
+    public void quitarVida(double danio){
+        this.hacerseDanio(this.casillero.calcularDanio(equipo) * danio);
+    }
 
-
+    public void hacerseDanio(double  danio){
+        this.vida -= danio;
+        if(this.vida < 0) {
+            this.vida = 0;
+        }
+    }
+    public float vida(){
+        return vida;
+    }
 
 
     // Desocupa casillero
@@ -117,7 +116,7 @@ public abstract class Pieza { //TODO :falta
     }
 
 
-    // Posicion
+    // Posicion para tests
 
     public Posicion posicion(){
         return this.casillero.posicion();

@@ -205,6 +205,7 @@ class CasilleroTest {
         assertEquals(casillero2.distanciaA(posicion2),0);
     }
 
+    // Test casillero es ocupado por pieza
     @Test
     public void testCasilleroLanzaExcepcionDeOcupadoSiSeQuiereAgregarOtraPieza(){
         Tablero tablero = new Tablero();
@@ -250,6 +251,29 @@ class CasilleroTest {
         assertThrows(CasilleroOcupadoException.class, ()-> casillero.agregarPieza(pieza3));
 
     }
+
+    // Test casillero calcula daño a equipo
+
+    @Test
+    public void testCasilleroDevuelveMultiplicadoDeDañoPorCincoAEquipoDiferente(){
+        Tablero tablero = new Tablero();
+        Posicion posicionRojo = new Posicion(3,3);
+        Casillero casillero = tablero.casilleroEn(posicionRojo);
+
+        Equipo azul = new EquipoAzul();
+        assertEquals(1.05,casillero.calcularDanio(azul));
+    }
+
+    @Test
+    public void testCasilleroDevuelveMultiplicadoDeDañoPorUnoAMismoEquipo(){
+        Tablero tablero = new Tablero();
+        Posicion posicionRojo = new Posicion(3,3);
+        Casillero casillero = tablero.casilleroEn(posicionRojo);
+
+        Equipo rojo = new EquipoRojo();
+        assertEquals(1.00,casillero.calcularDanio(rojo));
+    }
+
 
 
 }

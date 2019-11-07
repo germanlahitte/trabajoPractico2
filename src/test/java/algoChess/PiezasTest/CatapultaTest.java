@@ -25,7 +25,7 @@ public class CatapultaTest {
         casillero1.ubicar(catapulta);
         casillero2.ubicar(soldado);
         catapulta.atacar(soldado);
-        assertEquals(100,soldado.vidaRestante());
+        assertEquals(100,soldado.vida());
     }
 
     @Test
@@ -41,7 +41,7 @@ public class CatapultaTest {
         casillero1.ubicar(catapulta);
         casillero2.ubicar(soldado);
         catapulta.atacar(soldado);
-        assertEquals(80,soldado.vidaRestante());
+        assertEquals(80,soldado.vida());
 
     }
 }

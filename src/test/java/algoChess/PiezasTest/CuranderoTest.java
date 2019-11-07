@@ -27,7 +27,7 @@ public class CuranderoTest {
         casillero1.ubicar(curandero);
         casillero2.ubicar(soldado);
         curandero.atacar(soldado);
-        assertEquals(115, soldado.vidaRestante());
+        assertEquals(115, soldado.vida());
     }
 
     @Test
@@ -42,7 +42,7 @@ public class CuranderoTest {
         casillero1.ubicar(curandero);
         casillero2.ubicar(soldado);
         curandero.atacar(soldado);
-        assertEquals(100, soldado.vidaRestante());
+        assertEquals(100, soldado.vida());
 
     }
 
@@ -58,7 +58,7 @@ public class CuranderoTest {
         casillero1.ubicar(curandero);
         casillero2.ubicar(catapulta);
         curandero.atacar(catapulta);
-        assertEquals(50, catapulta.vidaRestante());
+        assertEquals(50, catapulta.vida());
 
     }
     @Test
@@ -79,7 +79,7 @@ public class CuranderoTest {
         casillero3.ubicar(jinete);
         jinete.atacar(soldado);
         curandero.atacar(soldado);
-        assertEquals(95, soldado.vidaRestante());
+        assertEquals(95, soldado.vida());
 
     }
 }

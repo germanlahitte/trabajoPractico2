@@ -13,12 +13,12 @@ public class Catapulta extends Pieza {
     }
     @Override
     public void atacar(Pieza objetivo) {
-        objetivo.atacadaDesde(this.casillero, this.arma);
+        //objetivo.atacadaDesde(this.casillero, this.arma);
     }
 
     @Override
     protected void agregarArma(int danio, int danioADistancia) {
-        this.arma = new ArmaCatapulta(danio,danioADistancia);
+        this.arma = new ArmaCatapulta();
     }
 
     @Override

@@ -16,15 +16,16 @@ public class Soldado extends Pieza implements Movible{
 
     }
     public void atacar(Pieza objetivo){
-        objetivo.atacadaDesde(this.casillero, this.arma);}
+        //objetivo.atacadaDesde(this.casillero, this.arma);
+        }
         @Override
     protected void agregarArma(int danio,int DanioADistancia){
-        this.arma = new ArmaSoldado(danio,DanioADistancia);
+        this.arma = new ArmaSoldado();
         }
 
     @Override
     public void puedoCurarme(Casillero ubicacion, Arma arma) {
-        this.curadaDesde(ubicacion,arma);
+        //this.curadaDesde(ubicacion,arma);
     }
 
 
