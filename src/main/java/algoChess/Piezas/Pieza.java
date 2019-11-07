@@ -20,8 +20,6 @@ public abstract class Pieza { //TODO :falta
         this.costo = costo;
         this.vida = vida;
         this.equipo = equipo;
-        //this.arma = new Arma(danio,danioADistacia);
-       // this.arma = arma;
     }
 
     public boolean ubicar(Equipo bando){
@@ -44,24 +42,19 @@ public abstract class Pieza { //TODO :falta
        destino.agregarPieza(this);
     }
 
-   /* protected void atacar(Pieza objetivo){
-        objetivo.atacadaDesde(this.ubicacion, this.arma);
-    }*/
    protected abstract void  atacar(Pieza objetivo);
 
-    protected void atacadaDesde(Casillero unCasillero, Arma unArma){
+    public void atacadaDesde(Casillero unCasillero, Arma unArma){
        quitarVida(unArma.atacar(this, unCasillero.distancia(this.ubicacion)));
     }
 
-    protected void quitarVida(float danio){
+    public void quitarVida(float danio){
         this.hacerseDanio(this.ubicacion.calcularDanio(equipo) * danio);
     }
 
-    protected void hacerseDanio(float danio){
+    public void hacerseDanio(float danio){
         if(this.vida < danio) {
             this.vida = 0;
-
-
         } else {
             this.vida -= danio;
         };
@@ -70,10 +63,9 @@ public abstract class Pieza { //TODO :falta
         return vida;
     }
 
-    protected void curadaDesde(Casillero unCasillero, Arma unArma){
+    public void curadaDesde(Casillero unCasillero, Arma unArma){
         agregarVida(unArma.atacar(this,unCasillero.distancia(this.ubicacion)));
     }
-
     protected void agregarVida(float vida){
         this.vida += vida;
     }
