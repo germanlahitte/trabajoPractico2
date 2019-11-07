@@ -1,8 +1,8 @@
-package algoChess;
+package algoChess.PiezasTest;
 
-import algoChess.Equipos.Azul;
+import algoChess.Equipos.EquipoAzul;
 import algoChess.Equipos.Equipo;
-import algoChess.Equipos.Rojo;
+import algoChess.Equipos.EquipoRojo;
 import algoChess.Piezas.Jinete;
 import algoChess.Piezas.Soldado;
 import algoChess.Ubicacion.Casillero;
@@ -16,8 +16,8 @@ public class JineteTest {
     public void jineteAtacaADistanciaLejanaYSeLeRestaLaVidaCorrespondienteTest(){
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(7,7);
-        Equipo bando1 = new Rojo();
-        Equipo bando2 = new Azul();
+        Equipo bando1 = new EquipoRojo();
+        Equipo bando2 = new EquipoAzul();
         Jinete jinete = new Jinete(bando1);
         Soldado soldado = new Soldado(bando2);
         Casillero casillero1 = new Casillero(posicion1,bando1);

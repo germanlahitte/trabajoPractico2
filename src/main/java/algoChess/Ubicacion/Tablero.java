@@ -1,12 +1,10 @@
 package algoChess.Ubicacion;
 
-import algoChess.Equipos.Azul;
+import algoChess.Equipos.EquipoAzul;
 import algoChess.Equipos.Equipo;
-import algoChess.Equipos.Rojo;
+import algoChess.Equipos.EquipoRojo;
 import algoChess.Piezas.Movible;
 import algoChess.Piezas.Pieza;
-
-import excepciones.ElJuegoTerminoPorqueHayUnGanadorException;
 
 import java.util.HashMap;
 
@@ -20,7 +18,7 @@ public class Tablero {
         this.posiciones = new HashMap<Posicion, Casillero>();
 
         for (int vertical = 1; vertical <= (lado / 2); vertical++) {
-            Equipo bandoRojo = new Rojo();
+            Equipo bandoRojo = new EquipoRojo();
             for (int horizontal = 1; horizontal <= lado; horizontal++) {
                 Posicion nuevaPosicion = new Posicion(horizontal, vertical);
                 Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoRojo );
@@ -30,7 +28,7 @@ public class Tablero {
         }
 
         for (int vertical = (lado / 2) + 1; vertical <= lado; vertical++) {
-            Equipo bandoAzul = new Azul();
+            Equipo bandoAzul = new EquipoAzul();
             for (int horizontal = 1; horizontal <= lado; horizontal++) {
                 Posicion nuevaPosicion = new Posicion(horizontal, vertical);
                 Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoAzul);
@@ -44,6 +42,8 @@ public class Tablero {
         esteCasillero.ubicar(estaPieza);
     }
 
+
+    // No los usamos
     public void mover(Pieza estaPieza, Casillero destino) {
         if (estaPieza.distanciaA(destino) == movimientoMaximo) {
             estaPieza.mover(destino);
@@ -65,6 +65,7 @@ public class Tablero {
         return 400;
     }
 
+    ///
    /* public void hayAlgunGanador(Jugador jugador1, Jugador jugador2){
         if(jugador1.esGanador() || jugador2.esGanador()){
             throw  new ElJuegoTerminoPorqueHayUnGanadorException("El juego tiene un ganador");

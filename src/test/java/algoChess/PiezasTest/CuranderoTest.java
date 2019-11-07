@@ -1,8 +1,8 @@
-package algoChess;
+package algoChess.PiezasTest;
 
-import algoChess.Equipos.Azul;
+import algoChess.Equipos.EquipoAzul;
 import algoChess.Equipos.Equipo;
-import algoChess.Equipos.Rojo;
+import algoChess.Equipos.EquipoRojo;
 import algoChess.Piezas.Catapulta;
 import algoChess.Piezas.Curandero;
 import algoChess.Piezas.Jinete;
@@ -19,7 +19,7 @@ public class CuranderoTest {
     public void curanderoCuraSoldadoAliadoTest() {
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);
-        Equipo bando = new Rojo();
+        Equipo bando = new EquipoRojo();
         Curandero curandero = new Curandero(bando);
         Soldado soldado = new Soldado(bando);
         Casillero casillero1 = new Casillero(posicion1, bando);
@@ -34,7 +34,7 @@ public class CuranderoTest {
     public void curanderoNoCuraSoldadoAliadoPorEstarLejosTest() {
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(5, 5);
-        Equipo bando = new Rojo();
+        Equipo bando = new EquipoRojo();
         Curandero curandero = new Curandero(bando);
         Soldado soldado = new Soldado(bando);
         Casillero casillero1 = new Casillero(posicion1, bando);
@@ -50,7 +50,7 @@ public class CuranderoTest {
     public void curanderoNoCuraACatapultaTest(){
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(7, 5);
-        Equipo bando = new Rojo();
+        Equipo bando = new EquipoRojo();
         Curandero curandero = new Curandero(bando);
         Catapulta catapulta = new Catapulta(bando);
         Casillero casillero1 = new Casillero(posicion1, bando);
@@ -66,8 +66,8 @@ public class CuranderoTest {
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 3);
         Posicion posicion3 = new Posicion(1,2);
-        Equipo bando = new Rojo();
-        Equipo bando2 = new Azul();
+        Equipo bando = new EquipoRojo();
+        Equipo bando2 = new EquipoAzul();
         Curandero curandero = new Curandero(bando);
         Soldado soldado = new Soldado(bando2);
         Jinete jinete = new Jinete (bando);

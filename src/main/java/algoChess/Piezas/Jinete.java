@@ -1,7 +1,7 @@
 package algoChess.Piezas;
 
 import algoChess.Armas.Arma;
-import algoChess.Armas.ArmaJinete;
+import algoChess.Armas.EspadaJinete;
 import algoChess.Equipos.Equipo;
 import algoChess.Ubicacion.Casillero;
 import algoChess.Ubicacion.Direccion;
@@ -20,7 +20,7 @@ public class Jinete extends Pieza implements Movible{
 
     @Override
     protected void agregarArma(int danio, int danioADistancia) {
-        this.arma = new ArmaJinete(danio,danioADistancia);
+        this.arma = new EspadaJinete(danio,danioADistancia);
 
     }
 

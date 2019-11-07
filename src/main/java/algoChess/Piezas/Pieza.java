@@ -58,7 +58,7 @@ public abstract class Pieza { //TODO :falta
    protected abstract void  atacar(Pieza objetivo);
 
     public void atacadaDesde(Casillero unCasillero, Arma unArma){
-       quitarVida(unArma.atacar(this, unCasillero.distanciaA(this.casillero)));
+       quitarVida(unArma.atacarA(this, unCasillero.distanciaA(this.casillero)));
     }
 
     public void quitarVida(float danio){
@@ -79,7 +79,7 @@ public abstract class Pieza { //TODO :falta
     }
 
     public void curadaDesde(Casillero unCasillero, Arma unArma){
-        agregarVida(unArma.atacar(this,unCasillero.distanciaA(this.casillero)));
+        agregarVida(unArma.atacarA(this,unCasillero.distanciaA(this.casillero)));
     }
 
     protected void agregarVida(float vida){

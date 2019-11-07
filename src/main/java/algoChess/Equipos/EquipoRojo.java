@@ -1,6 +1,6 @@
 package algoChess.Equipos;
 
-public class Rojo extends Equipo {
+public class EquipoRojo extends Equipo {
 
             /* Para Double Dispatch
         public float vs(Equipo unEquipo){

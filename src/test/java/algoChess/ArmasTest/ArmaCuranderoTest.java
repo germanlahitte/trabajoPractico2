@@ -1,8 +1,8 @@
-package algoChess;
+package algoChess.ArmasTest;
 
 import algoChess.Armas.ArmaCurandero;
 import algoChess.Equipos.Equipo;
-import algoChess.Equipos.Rojo;
+import algoChess.Equipos.EquipoRojo;
 import algoChess.Piezas.Soldado;
 import org.junit.jupiter.api.Test;
 
@@ -11,10 +11,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ArmaCuranderoTest {
     @Test
     public void curarDesdeUnaDistanciaCercanaDevuelveLaCuracionTest(){
-        Equipo e1 = new Rojo();
+        Equipo e1 = new EquipoRojo();
         ArmaCurandero armaCurandero = new ArmaCurandero(15,0);
         Soldado soldado = new Soldado(e1);
-        assertEquals(15,armaCurandero.atacar(soldado,2));
+        assertEquals(15,armaCurandero.atacarA(soldado,2));
 
     }
 

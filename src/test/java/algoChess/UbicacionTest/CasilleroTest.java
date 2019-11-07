@@ -1,13 +1,12 @@
-package algoChess;
+package algoChess.UbicacionTest;
 
-import algoChess.Equipos.Azul;
+import algoChess.Equipos.EquipoAzul;
 import algoChess.Equipos.Equipo;
-import algoChess.Equipos.Rojo;
+import algoChess.Equipos.EquipoRojo;
 import algoChess.Piezas.Pieza;
 import algoChess.Piezas.Soldado;
 import algoChess.Ubicacion.Casillero;
 import algoChess.Ubicacion.Direccion;
-import algoChess.Ubicacion.StrategyDisponibilidad.StrategyDisponibilidad;
 import algoChess.Ubicacion.Posicion;
 import algoChess.Ubicacion.Tablero;
 import excepciones.CasilleroOcupadoException;
@@ -35,7 +34,7 @@ class CasilleroTest {
 // Test en relacion a una posicion
     @Test
     public void testCasilleroDevuelveDistanciaAPosicionCorrectaEnX(){
-        Equipo equipo = new Rojo();
+        Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(4,1);
         Casillero casillero = new Casillero(posicion1,equipo);
@@ -46,7 +45,7 @@ class CasilleroTest {
 
     @Test
     public void testCasilleroDevuelveDistanciaAPosicionCorrectaEnY(){
-        Equipo equipo = new Rojo();
+        Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,4);
         Casillero casillero = new Casillero(posicion1,equipo);
@@ -57,7 +56,7 @@ class CasilleroTest {
 
     @Test
     public void testCasilleroDevuelveDistanciaAPosicionCorrectaEnAmbasDirecciones(){
-        Equipo equipo = new Rojo();
+        Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(2,6);
         Casillero casillero = new Casillero(posicion1,equipo);
@@ -69,7 +68,7 @@ class CasilleroTest {
     // Test en relacion a un casillero
     @Test
     public void testCasilleroDevuelveDistanciaACasilleroCorrectaEnY(){
-        Equipo equipo = new Rojo();
+        Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,6);
         Casillero casillero = new Casillero(posicion1,equipo);
@@ -80,7 +79,7 @@ class CasilleroTest {
 
     @Test
     public void testCasilleroDevuelveDistanciaACasilleroCorrectaEnX(){
-        Equipo equipo = new Rojo();
+        Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(6,1);
         Casillero casillero = new Casillero(posicion1,equipo);
@@ -92,7 +91,7 @@ class CasilleroTest {
 
     @Test
     public void testCasilleroDevuelveDistanciaACasilleroCorrectaEnAmbasDirecciones(){
-        Equipo equipo = new Rojo();
+        Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(6,8);
         Casillero casillero = new Casillero(posicion1,equipo);
@@ -104,7 +103,7 @@ class CasilleroTest {
     // Test casillero devuelve casillero en direccion correcta
     @Test
     public void testCasilleroDevuelveCasilleroEnDireccionNorte(){
-        Equipo equipo = new Rojo();
+        Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(10,11);
         Casillero casillero = new Casillero(posicion1,equipo);
@@ -117,7 +116,7 @@ class CasilleroTest {
 
     @Test
     public void testCasilleroDevuelveCasilleroEnDireccionSur(){
-        Equipo equipo = new Rojo();
+        Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(10,9);
         Casillero casillero = new Casillero(posicion1,equipo);
@@ -130,7 +129,7 @@ class CasilleroTest {
 
     @Test
     public void testCasilleroDevuelveCasilleroEnDireccionEste(){
-        Equipo equipo = new Rojo();
+        Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(11,10);
         Casillero casillero = new Casillero(posicion1,equipo);
@@ -143,7 +142,7 @@ class CasilleroTest {
 
     @Test
     public void testCasilleroDevuelveCasilleroEnDireccionOeste(){
-        Equipo equipo = new Rojo();
+        Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(9,10);
         Casillero casillero = new Casillero(posicion1,equipo);
@@ -156,7 +155,7 @@ class CasilleroTest {
 
     @Test
     public void testCasilleroDevuelveCasilleroEnDireccionNoreste(){
-        Equipo equipo = new Rojo();
+        Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(11,11);
         Casillero casillero = new Casillero(posicion1,equipo);
@@ -169,7 +168,7 @@ class CasilleroTest {
 
     @Test
     public void testCasilleroDevuelveCasilleroEnDireccionNoroeste(){
-        Equipo equipo = new Rojo();
+        Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(9,11);
         Casillero casillero = new Casillero(posicion1,equipo);
@@ -182,7 +181,7 @@ class CasilleroTest {
 
     @Test
     public void testCasilleroDevuelveCasilleroEnDireccionSurEste(){
-        Equipo equipo = new Rojo();
+        Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(11,9);
         Casillero casillero = new Casillero(posicion1,equipo);
@@ -195,7 +194,7 @@ class CasilleroTest {
 
     @Test
     public void testCasilleroDevuelveCasilleroEnDireccionSurOeste(){
-        Equipo equipo = new Rojo();
+        Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(9,9);
         Casillero casillero = new Casillero(posicion1,equipo);
@@ -215,8 +214,8 @@ class CasilleroTest {
         Casillero casillero = new Casillero(posicion1,tablero);
         Casillero casillero2 = new Casillero(posicion2,tablero);
 
-        Pieza pieza = new Soldado(new Azul()) ;
-        Pieza pieza2 = new Soldado(new Azul()) ;
+        Pieza pieza = new Soldado(new EquipoAzul()) ;
+        Pieza pieza2 = new Soldado(new EquipoAzul()) ;
         pieza.asignarCasillero(casillero2);
 
         casillero.agregarPieza(pieza);
@@ -238,9 +237,9 @@ class CasilleroTest {
         Casillero casillero2 = new Casillero(posicion2,tablero);
         Casillero casillero3 = new Casillero(posicion2,tablero);
 
-        Pieza pieza = new Soldado(new Azul()) ;
-        Pieza pieza2 = new Soldado(new Azul()) ;
-        Pieza pieza3 = new Soldado(new Azul()) ;
+        Pieza pieza = new Soldado(new EquipoAzul()) ;
+        Pieza pieza2 = new Soldado(new EquipoAzul()) ;
+        Pieza pieza3 = new Soldado(new EquipoAzul()) ;
         pieza.asignarCasillero(casillero2);
         pieza2.asignarCasillero(casillero3);
 
