@@ -23,32 +23,20 @@ public abstract class Pieza { //TODO :falta
         this.equipo = equipo;
     }
 
-    public Pieza(Casillero casillero){
-        this.casillero = casillero;
-
-    }
-
-
     // Se ubica en el mapa
-
     public Pieza ubicarCon(Equipo equipo){
         return this.equipo.ubicarCon(equipo,this);
     }
 
     // Arma
-
     protected void agregarArma(Arma arma){
         this.arma=arma;
     }
 
-
-
     // Ataque
-
     public void atacadaDesde(Casillero casillero, Arma arma) {
         arma.atacarA(this, casillero.distanciaA(this.casillero));
     }
-
     public void atacar(Pieza pieza){
         pieza.atacadaDesde(this.casillero,this.arma);
     }
@@ -57,17 +45,13 @@ public abstract class Pieza { //TODO :falta
     public void quitarVida(double danio){
         this.hacerseDanio(this.casillero.calcularDanio(equipo) * danio);
     }
-
     public void hacerseDanio(double  danio){
         this.vida.restarVida(danio);
         }
-
     public float vida(){
         return this.vida.vida();
     }
-
     public void curarse(float vida){
-
         this.vida.curarVida(vida);
     }
 
@@ -82,15 +66,12 @@ public abstract class Pieza { //TODO :falta
         this.desocuparCasillero();
         this.casillero = casillero;
     }
-
-
     public void asignarCasillero(Casillero casillero){
         this.casillero = casillero;
     }
 
 
     // Posicion para tests
-
     public Posicion posicion(){
         return this.casillero.posicion();
     }

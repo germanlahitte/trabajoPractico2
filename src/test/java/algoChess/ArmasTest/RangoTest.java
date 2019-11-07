@@ -31,7 +31,6 @@ public class RangoTest {
     }
 
     // Rango mediano
-
     @Test
     public void testRangoMedianoDevuelveTrueSiLaDistanciaEsTres() {
 
@@ -74,7 +73,6 @@ public class RangoTest {
     }
 
     // Rango lejano
-
     @Test
     public void testRangoLeganoDevuelveTrueSiLaDistanciaEsSeis() {
 

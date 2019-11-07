@@ -5,7 +5,6 @@ public class Vida {
     protected float vida;
     protected float vidaMaxima;
 
-
     public Vida(float vida) {
         this.vidaMaxima = vida;
         this.vida = vida;
@@ -19,10 +18,7 @@ public class Vida {
     }
 
     public void curarVida(double vida){
-        if(this.vida == 0) {  // chequeo que no esté muerta la pieza
-            return;
-        }
-
+        if(this.vida == 0) {  return;    }
         this.vida += vida;
         if(this.vida > this.vidaMaxima) {
             this.vida = this.vidaMaxima;

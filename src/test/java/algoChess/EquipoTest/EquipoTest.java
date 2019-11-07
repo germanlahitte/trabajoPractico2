@@ -12,23 +12,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EquipoTest {
 
-
-    /*
-    @Test
-    void ubicarDevuelveFalseEnCasoDeNoSerDelMismoEquipo() {
-        Equipo rojo = new EquipoRojo();
-        Equipo azul = new EquipoAzul();
-        boolean noSonDelMismoEquipo = rojo.ubicar(azul);
-        assertEquals(1,1);
-        //assertFalse(noSonDelMismoEquipo);
-    } */
-
     @Test
     void testEquipoAzulAtacarEquipoRojoDevuelveMultiplicadorPor5() {
         Equipo rojo = new EquipoRojo();
         Equipo azul = new EquipoAzul();
         assertEquals(1.05,azul.atacar(rojo));
-        //assertFalse(noSonDelMismoEquipo);
     }
 
     @Test
@@ -52,8 +40,6 @@ class EquipoTest {
         assertEquals(1.00,rojo.atacar(rojo2));
     }
 
-
-
     // Ubicacion
     @Test
     void testEquipoDevuelvePiezaSiPerteneceAlMismoEquipo() {
@@ -70,8 +56,6 @@ class EquipoTest {
         Equipo azul = new EquipoAzul();
         Pieza pieza = new Soldado(new EquipoAzul()) ;
 
-
         assertThrows(CasilleroEnemigoException.class, ()-> rojo.ubicarCon(azul, pieza));
-
     }
 }

@@ -3,17 +3,14 @@ package algoChess.Equipos;
 import algoChess.Piezas.Pieza;
 import excepciones.CasilleroEnemigoException;
 
-
 public class EquipoAzul implements Equipo {
 
     public double atacar(Equipo equipo){
         return equipo.atacar(this);
     }
-
     public double atacar(EquipoRojo equipo){
         return 1.05;
     }
-
     public double atacar(EquipoAzul equipo){
         return 1.00;
     }

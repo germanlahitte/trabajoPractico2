@@ -10,10 +10,7 @@ public class Catapulta extends Pieza {
         this.agregarArma(new ArmaCatapulta());
     }
 
-
     @Override
-    public void curarse(float vida){
-
-    }
+    public void curarse(float vida){    }
 }
 

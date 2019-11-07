@@ -53,7 +53,4 @@ public class Tablero {
     public void mover(Movible movible, Direccion direccion) {
         movible.mover(direccion);
         }
-
-
-
 }

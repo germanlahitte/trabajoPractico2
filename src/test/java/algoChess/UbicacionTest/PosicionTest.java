@@ -3,12 +3,9 @@ package algoChess.UbicacionTest;
 import algoChess.Ubicacion.Direccion;
 import algoChess.Ubicacion.Posicion;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PosicionTest {
-
 
     @Test
     public void testPosicionSeCreaConPosicionCorrectaEnXDesdeConstructor() {
@@ -114,8 +111,4 @@ class PosicionTest {
         Posicion posicion3 = new Posicion(2, 2);
         assertEquals(posicion2, posicion3);
     }
-
-
-
-
 }

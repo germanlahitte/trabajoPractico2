@@ -3,16 +3,12 @@ package algoChess.UbicacionTest;
 import algoChess.Ubicacion.Direccion;
 import algoChess.Ubicacion.Posicion;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class DireccionTest {
 
-
-
     @Test
     public void testDireccionDevuelveDireccionNorte() {
-
         Direccion norte = Direccion.norte();
         assertEquals(norte.getHorizontal(), 0);
         assertEquals(norte.getVertical(), 1);
@@ -20,7 +16,6 @@ class DireccionTest {
 
     @Test
     public void direccionDevuelveDireccionSur() {
-
         Direccion norte = Direccion.sur();
         assertEquals(norte.getHorizontal(), 0);
         assertEquals(norte.getVertical(), -1);
@@ -28,14 +23,12 @@ class DireccionTest {
 
     @Test
     public void direccionDevuelveDireccionEste() {
-
         Direccion norte = Direccion.este();
         assertEquals(norte.getHorizontal(), 1);
         assertEquals(norte.getVertical(), 0);
     }
     @Test
     public void direccionDevuelveDireccionOeste() {
-
         Direccion norte = Direccion.oeste();
         assertEquals(norte.getHorizontal(), -1);
         assertEquals(norte.getVertical(), 0);
@@ -43,7 +36,6 @@ class DireccionTest {
 
     @Test
     public void direccionDevuelveDireccionNoreste() {
-
         Direccion norte = Direccion.norEste();
         assertEquals(norte.getHorizontal(), 1);
         assertEquals(norte.getVertical(), 1);
@@ -51,7 +43,6 @@ class DireccionTest {
 
     @Test
     public void direccionDevuelveDireccionNoroeste() {
-
         Direccion norte = Direccion.norOeste();
         assertEquals(norte.getHorizontal(), -1);
         assertEquals(norte.getVertical(), 1);
@@ -59,7 +50,6 @@ class DireccionTest {
 
     @Test
     public void direccionDevuelveDireccionSureste() {
-
         Direccion norte = Direccion.surEste();
         assertEquals(norte.getHorizontal(), 1);
         assertEquals(norte.getVertical(), -1);
@@ -67,7 +57,6 @@ class DireccionTest {
 
     @Test
     public void direccionDevuelveDireccionSuroeste() {
-
         Direccion norte = Direccion.surOeste();
         assertEquals(norte.getHorizontal(), -1);
         assertEquals(norte.getVertical(), -1);
