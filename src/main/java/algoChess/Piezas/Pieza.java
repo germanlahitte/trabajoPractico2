@@ -66,7 +66,7 @@ public abstract class Pieza { //TODO :falta
     }*/
 
 
-    // No usamos este metodo
+    // No usamos estos metodos
     public int distanciaA(Casillero unCasillero){
         return unCasillero.distanciaA(casillero);
     }
@@ -83,7 +83,14 @@ public abstract class Pieza { //TODO :falta
 
 
     public abstract void puedoCurarme(Casillero ubicacion,Arma arma);
+    //
 
+
+    // Se ubica en el mapa
+
+    public Pieza ubicarCon(Equipo equipo){
+        return this.equipo.ubicarCon(equipo,this);
+    }
 
     // Arma
 

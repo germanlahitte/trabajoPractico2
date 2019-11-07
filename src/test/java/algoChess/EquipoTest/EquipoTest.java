@@ -3,6 +3,9 @@ package algoChess.EquipoTest;
 import algoChess.Equipos.EquipoAzul;
 import algoChess.Equipos.Equipo;
 import algoChess.Equipos.EquipoRojo;
+import algoChess.Piezas.Pieza;
+import algoChess.Piezas.Soldado;
+import excepciones.CasilleroEnemigoException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -47,5 +50,28 @@ class EquipoTest {
         Equipo rojo = new EquipoRojo();
         Equipo rojo2 = new EquipoRojo();
         assertEquals(1.00,rojo.atacar(rojo2));
+    }
+
+
+
+    // Ubicacion
+    @Test
+    void testEquipoDevuelvePiezaSiPerteneceAlMismoEquipo() {
+        Equipo rojo = new EquipoRojo();
+        Equipo rojo2 = new EquipoRojo();
+        Pieza pieza = new Soldado(new EquipoAzul()) ;
+        rojo.ubicarCon(rojo2, pieza);
+        assertEquals(pieza, rojo.ubicarCon(rojo2, pieza));
+    }
+
+    @Test
+    void testEquipoNoDevuelvePiezaSiPerteneceADiferenteEquipo() {
+        Equipo rojo = new EquipoRojo();
+        Equipo azul = new EquipoAzul();
+        Pieza pieza = new Soldado(new EquipoAzul()) ;
+
+
+        assertThrows(CasilleroEnemigoException.class, ()-> rojo.ubicarCon(azul, pieza));
+
     }
 }

@@ -26,18 +26,15 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
         this.desocupado();
     }
 
-    public void ubicar(Pieza estaPieza){
-        //if(estaPieza.ubicar(equipo))
-         //   this.disponibilidad.agregarPieza(estaPieza,this);
-    }
 
 
-
+/*
     public void ocupar(Pieza aAsignar){
         this.pieza = aAsignar;
         this.disponibilidad = new StrategyOcupado();
     }
 
+    */
     /*
     public void quitarPieza(){
         this.disponibilidad.quitarPieza(this);
@@ -50,9 +47,13 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
 
 
 
+    // Ubicar pieza en casillero, chequea equipos
 
-
-
+    public void ubicar(Pieza pieza){
+        this.agregarPieza(pieza.ubicarCon(this.equipo));
+        //if(estaPieza.ubicar(equipo))
+        //   this.disponibilidad.agregarPieza(estaPieza,this);
+    }
 
     /// Agrega Pieza delega en strategyDisponibilidad
 

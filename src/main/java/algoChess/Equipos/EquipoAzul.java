@@ -1,5 +1,9 @@
 package algoChess.Equipos;
 
+import algoChess.Piezas.Pieza;
+import excepciones.CasilleroEnemigoException;
+import excepciones.CasilleroOcupadoException;
+
 public class EquipoAzul implements Equipo {
 
     public double atacar(Equipo equipo){
@@ -13,6 +17,15 @@ public class EquipoAzul implements Equipo {
     public double atacar(EquipoAzul equipo){
         return 1.00;
     }
+
+    public Pieza ubicarCon(Equipo equipo, Pieza pieza){
+        return equipo.ubicarCon(this,pieza);
+    }
+    public Pieza ubicarCon(EquipoAzul equipo, Pieza pieza){
+        return pieza;
+    }
+    public Pieza ubicarCon(EquipoRojo equipo, Pieza pieza){
+        throw new CasilleroEnemigoException("Casillero diferente equipo");}
 
         /* Para Double Dispatch
         public float vs(Equipo unEquipo){

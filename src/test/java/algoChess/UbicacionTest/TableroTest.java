@@ -5,24 +5,124 @@ import algoChess.Equipos.Equipo;
 import algoChess.Equipos.EquipoRojo;
 import algoChess.Piezas.Curandero;
 import algoChess.Piezas.Jinete;
+import algoChess.Piezas.Pieza;
 import algoChess.Piezas.Soldado;
 import algoChess.Ubicacion.Casillero;
 import algoChess.Ubicacion.Direccion;
 import algoChess.Ubicacion.Posicion;
 import algoChess.Ubicacion.Tablero;
+import excepciones.CasilleroEnemigoException;
 import excepciones.CasilleroOcupadoException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TableroTest { //TODO: necesito tocar otras clases para un método
+
+    /*
     @Test
     public void seCreaCorrectamenteElTableroTest(){
         Tablero tablero = new Tablero();
         assertEquals(400,tablero.getCantidadDeCasilleros());
+    }*/
+
+
+
+/*
+
+    @Test
+    public void seColocaUnaPiezaAliadaEnUnCasilleroAliadoVacioConExitoTest(){
+        Tablero tablero = new Tablero();
+        Equipo bandoRojo = new EquipoRojo();
+        Soldado piezaPrueba = new Soldado(bandoRojo);
+        Posicion unaPosicion = new Posicion (1,3);
+        Casillero unCasillero = tablero.casilleroEn(unaPosicion);
+
+        Posicion p3 = new Posicion(1,19);
+        Casillero casillero3 = new Casillero(p3,bandoRojo);
+        piezaPrueba.asignarCasillero(casillero3);
+
+        tablero.ubicar(piezaPrueba,unCasillero);
+
+        assertEquals(piezaPrueba.distanciaA(unCasillero),0);
+    }
+
+    @Test
+    public void noSePuedeColocarPiezaEnCasilleroEnemigo(){
+        Tablero tablero = new Tablero();
+        Equipo bandoRojo = new EquipoRojo();
+        Soldado piezaPrueba = new Soldado(bandoRojo);
+        Posicion unaPosicion = new Posicion (15,15);
+        Casillero unCasillero = tablero.casilleroEn(unaPosicion);
+
+        tablero.ubicar(piezaPrueba,unCasillero);
+        //Necesito probar que el casillero está vacío
+        assertEquals(1,1);
+    }
+
+    @Test
+    public void noSePuedeColocarPiezaEnCasilleroOcupado(){
+        Tablero tablero = new Tablero();
+        Equipo bandoRojo = new EquipoRojo();
+        Soldado piezaPrueba = new Soldado(bandoRojo);
+        Posicion unaPosicion = new Posicion (1,3);
+        Casillero unCasillero = tablero.casilleroEn(unaPosicion);
+
+        Posicion p3 = new Posicion(1,19);
+        Casillero casillero3 = new Casillero(p3,bandoRojo);
+        piezaPrueba.asignarCasillero(casillero3);
+
+        tablero.ubicar(piezaPrueba,unCasillero);
+
+        Soldado otraPieza = new Soldado(bandoRojo);
+
+        assertThrows(CasilleroOcupadoException.class,()-> tablero.ubicar(otraPieza,unCasillero));
     }
 
 
+*/
+
+
+    // Test ubicacion de pieza
+
+    @Test
+    public void TestTableroAceptaPiezaEnCasilleroDesocupadoYDeMismoEquipo(){
+        Tablero tablero = new Tablero();
+        Pieza pieza = new Soldado(new EquipoRojo());
+        pieza.asignarCasillero(new Casillero(new Posicion(1,1), new EquipoAzul()));
+
+        tablero.ubicar(pieza, new Posicion (2,2));
+
+
+        assertEquals(pieza.posicion(),new Posicion (2,2));
+    }
+
+    @Test
+    public void TestTableroNoAceptaPiezaEnCasilleroDesocupadoYDeDiferenteEquipo(){
+        Tablero tablero = new Tablero();
+        Pieza pieza = new Soldado(new EquipoRojo());
+        pieza.asignarCasillero(new Casillero(new Posicion(1,1), new EquipoAzul()));
+
+        Posicion posicion = new Posicion (12,12);
+
+        assertThrows(CasilleroEnemigoException.class, ()-> tablero.ubicar(pieza, posicion));
+
+    }
+
+    @Test
+    public void TestTableroNoAceptaPiezaEnCasilleroSiYaEstaOcupado(){
+        Tablero tablero = new Tablero();
+        Pieza pieza = new Soldado(new EquipoRojo());
+        Pieza pieza2 = new Soldado(new EquipoRojo());
+        pieza.asignarCasillero(new Casillero(new Posicion(1,1), new EquipoAzul()));
+        pieza2.asignarCasillero(new Casillero(new Posicion(1,1), new EquipoAzul()));
+
+        Posicion posicion = new Posicion (2,2);
+        tablero.ubicar(pieza, posicion);
+
+
+        assertThrows(CasilleroOcupadoException.class, ()-> tablero.ubicar(pieza2, posicion));
+    }
 
     // Obtener casillero en X posicion
     @Test
@@ -42,57 +142,6 @@ class TableroTest { //TODO: necesito tocar otras clases para un método
 
     }
 
-    // Test ubicacion de pieza
-
-
-    @Test
-    public void seColocaUnaPiezaAliadaEnUnCasilleroAliadoVacioConExitoTest(){
-        Tablero tablero = new Tablero();
-        Equipo bandoRojo = new EquipoRojo();
-        Soldado piezaPrueba = new Soldado(bandoRojo);
-        Posicion unaPosicion = new Posicion (1,3);
-        Casillero unCasillero = tablero.buscar(unaPosicion);
-
-        Posicion p3 = new Posicion(1,19);
-        Casillero casillero3 = new Casillero(p3,bandoRojo);
-        piezaPrueba.asignarCasillero(casillero3);
-
-        tablero.ubicar(piezaPrueba,unCasillero);
-
-        assertEquals(piezaPrueba.distanciaA(unCasillero),0);
-    }
-
-    @Test
-    public void noSePuedeColocarPiezaEnCasilleroEnemigo(){
-        Tablero tablero = new Tablero();
-        Equipo bandoRojo = new EquipoRojo();
-        Soldado piezaPrueba = new Soldado(bandoRojo);
-        Posicion unaPosicion = new Posicion (15,15);
-        Casillero unCasillero = tablero.buscar(unaPosicion);
-
-        tablero.ubicar(piezaPrueba,unCasillero);
-        //Necesito probar que el casillero está vacío
-        assertEquals(1,1);
-    }
-
-    @Test
-    public void noSePuedeColocarPiezaEnCasilleroOcupado(){
-        Tablero tablero = new Tablero();
-        Equipo bandoRojo = new EquipoRojo();
-        Soldado piezaPrueba = new Soldado(bandoRojo);
-        Posicion unaPosicion = new Posicion (1,3);
-        Casillero unCasillero = tablero.buscar(unaPosicion);
-
-        Posicion p3 = new Posicion(1,19);
-        Casillero casillero3 = new Casillero(p3,bandoRojo);
-        piezaPrueba.asignarCasillero(casillero3);
-
-        tablero.ubicar(piezaPrueba,unCasillero);
-
-        Soldado otraPieza = new Soldado(bandoRojo);
-
-        assertThrows(CasilleroOcupadoException.class,()-> tablero.ubicar(otraPieza,unCasillero));
-    }
 
 
    // Test Movimientos de pieza

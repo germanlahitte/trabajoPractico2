@@ -9,6 +9,7 @@ import algoChess.Ubicacion.Casillero;
 import algoChess.Ubicacion.Direccion;
 import algoChess.Ubicacion.Posicion;
 import algoChess.Ubicacion.Tablero;
+import excepciones.CasilleroEnemigoException;
 import excepciones.CasilleroOcupadoException;
 import org.junit.jupiter.api.Test;
 
@@ -31,7 +32,55 @@ class CasilleroTest {
     }*/
 
 
-// Test en relacion a una posicion
+
+    // Ubicar pieza en casillero (al iniciar, medio mapa azul y medio rojo)
+    @Test
+    public void testCasilleroUbicaPiezaSiEstaVacioYSiEsDelMismoColor(){
+
+        Tablero tablero = new Tablero();
+        Pieza pieza = new Soldado(new EquipoRojo());
+        pieza.asignarCasillero(new Casillero(new Posicion(3,3), new EquipoAzul()));
+        Casillero casillero = tablero.casilleroEn(new Posicion(1,1)); // Casillero rojo
+
+        casillero.ubicar(pieza);
+
+        assertEquals(pieza.posicion(),casillero.posicion());
+
+    }
+
+    @Test
+    public void testCasilleroNoUbicaPiezaSiEsDeDiferenteColor(){
+
+        Tablero tablero = new Tablero();
+        Pieza pieza = new Soldado(new EquipoAzul());
+        pieza.asignarCasillero(new Casillero(new Posicion(11,11), new EquipoAzul()));
+        Casillero casillero = tablero.casilleroEn(new Posicion(1,1)); // Casillero rojo
+
+        assertThrows(CasilleroEnemigoException.class, ()-> casillero.ubicar(pieza));
+
+
+    }
+
+    @Test
+    public void testCasilleroNoUbicaPiezaSiEsDelMismoColorPeroEstaOcupado(){
+
+        Tablero tablero = new Tablero();
+        Pieza pieza = new Soldado(new EquipoRojo());
+        Pieza pieza2 = new Soldado(new EquipoRojo());
+        pieza.asignarCasillero(new Casillero(new Posicion(11,11), new EquipoAzul()));
+        pieza2.asignarCasillero(new Casillero(new Posicion(12,12), new EquipoAzul()));
+        Casillero casillero = tablero.casilleroEn(new Posicion(1,1)); // Casillero rojo
+
+        casillero.ubicar(pieza);
+
+
+        assertThrows(CasilleroOcupadoException.class, ()-> casillero.ubicar(pieza2));
+
+
+    }
+
+
+    // Test en relacion a una posicion
     @Test
     public void testCasilleroDevuelveDistanciaAPosicionCorrectaEnX(){
         Equipo equipo = new EquipoRojo();

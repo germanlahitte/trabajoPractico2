@@ -65,9 +65,10 @@ public class Tablero {
 
      */
 
+    /*
     public int getCantidadDeCasilleros(){
         return 400;
-    }
+    }*/
 
     ///
    /* public void hayAlgunGanador(Jugador jugador1, Jugador jugador2){
@@ -77,6 +78,11 @@ public class Tablero {
 
     }*/
 
+
+   // Ubicar piezas
+    public void ubicar(Pieza estaPieza, Posicion posicion) {
+        this.casilleroEn(posicion).ubicar(estaPieza);
+    }
 
     // Metodo para buscar casilleros
     public Casillero casilleroEn(Posicion enPosicion){
