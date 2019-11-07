@@ -9,6 +9,7 @@ public class Jugador {
     private Billetera billetera;
     private Tablero tablero;
     private ArrayList<Pieza> piezas;
+    private Boolean ganador;
 
     public Jugador(String nombre, Equipo bando, Tablero tablero) {
         this.nombre = nombre;
@@ -16,6 +17,7 @@ public class Jugador {
         this.billetera = new Billetera(credito);
         this.tablero = tablero;
         this.piezas = new ArrayList<Pieza>();
+        this.ganador = false;
     }
 
     public Equipo getEquipo() {
@@ -48,4 +50,8 @@ public class Jugador {
     public int getCantidadDePiezas() {
         return this.piezas.size();
     }
+
+    /*public boolean esGanador(){
+        return this.ganador;
+    }*/
 }

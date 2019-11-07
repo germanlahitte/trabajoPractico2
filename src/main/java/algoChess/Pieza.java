@@ -54,9 +54,10 @@ public abstract class Pieza { //TODO :falta
     }
 
     protected void hacerseDanio(float danio){
-
         if(this.vida < danio) {
             this.vida = 0;
+
+
         } else {
             this.vida -= danio;
         };

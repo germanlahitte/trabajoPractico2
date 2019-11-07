@@ -1,5 +1,7 @@
 package algoChess;
 
+import excepciones.ElJuegoTerminoPorqueHayUnGanadorException;
+
 import java.util.HashMap;
 
 public class Tablero {
@@ -47,5 +49,12 @@ public class Tablero {
     public int getCantidadDeCasilleros(){
         return 400;
     }
+
+   /* public void hayAlgunGanador(Jugador jugador1, Jugador jugador2){
+        if(jugador1.esGanador() || jugador2.esGanador()){
+            throw  new ElJuegoTerminoPorqueHayUnGanadorException("El juego tiene un ganador");
+        }
+
+    }*/
 
 }
