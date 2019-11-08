@@ -32,14 +32,12 @@ public class Direccion {
     public Posicion proximaPosicion(Posicion actual){
         int siguienteHorizontal = actual.getHorizontal()+this.sentidoHorizontal;
         int siguienteVertical = actual.getVertical()+this.sentidoVertical;
-
         return new Posicion(siguienteHorizontal,siguienteVertical);
     }
 
     public int getHorizontal() {
         return sentidoHorizontal;
     }
-
     public int getVertical() {
         return sentidoVertical;
     }
@@ -47,31 +45,24 @@ public class Direccion {
     public static Direccion norte() {
         return norte;
     }
-
     public static Direccion sur() {
         return sur;
     }
-
     public static Direccion este() {
         return este;
     }
-
     public static Direccion norEste() {
         return norEste;
     }
-
     public static Direccion surEste() {
         return surEste;
     }
-
     public static Direccion oeste() {
         return oeste;
     }
-
     public static Direccion norOeste() {
         return norOeste;
     }
-
     public static Direccion surOeste() {
         return surOeste;
     }

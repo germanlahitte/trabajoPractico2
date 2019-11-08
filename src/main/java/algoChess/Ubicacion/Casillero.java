@@ -26,29 +26,21 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
         this.desocupado();
     }
 
-
-
-
     public double calcularDanio(Equipo equipo){
         return this.equipo.atacar(equipo);
     }
 
-
-
     // Ubicar pieza en casillero, chequea equipos
-
     public void ubicar(Pieza pieza){
         this.agregarPieza(pieza.ubicarCon(this.equipo));
     }
 
     /// Agrega Pieza delega en strategyDisponibilidad
-
     public void agregarPieza(Pieza pieza){
         this.disponibilidad.agregarPieza(pieza,this);
     }
 
     // asigna pieza y desocupa
-
     public void asignarPieza(Pieza pieza){
         this.pieza = pieza;
         this.disponibilidad = new StrategyOcupado();
@@ -61,7 +53,6 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
     }
 
     //// Agregar Tablero, ver si se hace en el constructor
-
     public void agregarTablero(Tablero tablero){
         this.tablero = tablero;
     }
@@ -70,16 +61,12 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
     public Casillero siguiente(Direccion enDireccion){
         return this.tablero.casilleroEn(this.posicion.siguiente(enDireccion));
     }
-
     public int distanciaA(Casillero casillero){
        return casillero.distanciaA(this.posicion);
     }
-
     public int distanciaA(Posicion posicion){
         return posicion.distanciaA(this.posicion);
     }
-
-
     public Posicion posicion(){return this.posicion;}
 
 }

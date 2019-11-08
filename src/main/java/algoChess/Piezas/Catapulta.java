@@ -16,6 +16,5 @@ public class Catapulta extends Pieza {
     public void curarse(float vida){
 
     }
-
 }
 

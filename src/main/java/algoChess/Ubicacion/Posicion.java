@@ -15,11 +15,16 @@ public class Posicion {
     public Posicion siguiente(Direccion enDireccion) {
         return (enDireccion.proximaPosicion(this));
     }
-
     public int distanciaA(Posicion otraPosicion){
         int distanciaEnX=abs(this.horizontal - otraPosicion.horizontal);
         int distanciaEnY=abs(this.vertical - otraPosicion.vertical);
         return max(distanciaEnX,distanciaEnY);
+    }
+    public int getHorizontal() {
+        return horizontal;
+    }
+    public int getVertical() {
+        return vertical;
     }
 
     @Override
@@ -31,7 +36,6 @@ public class Posicion {
             return true;
         }
         Posicion other = (Posicion) obj;
-
         return (this.getHorizontal() == other.getHorizontal() && this.getVertical() == other.getVertical());
     }
 
@@ -40,11 +44,5 @@ public class Posicion {
         return this.getHorizontal()+this.getVertical();
     }
 
-    public int getHorizontal() {
-        return horizontal;
-    }
 
-    public int getVertical() {
-        return vertical;
-    }
 }

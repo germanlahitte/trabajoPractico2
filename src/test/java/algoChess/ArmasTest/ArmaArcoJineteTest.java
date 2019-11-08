@@ -1,5 +1,4 @@
 package algoChess.ArmasTest;
-
 import algoChess.Armas.Arma;
 import algoChess.Armas.ArmaArcoJinete;
 import algoChess.Equipos.EquipoRojo;
@@ -9,7 +8,6 @@ import algoChess.Ubicacion.Casillero;
 import algoChess.Ubicacion.Posicion;
 import algoChess.Ubicacion.Tablero;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ArmaArcoJineteTest {
@@ -23,7 +21,6 @@ public class ArmaArcoJineteTest {
 
         Pieza soldado = new Soldado(new EquipoRojo());
         soldado.asignarCasillero(casillero);
-
 
         Arma arma = new ArmaArcoJinete();
         arma.atacarA(soldado,6);
@@ -39,7 +36,6 @@ public class ArmaArcoJineteTest {
         Pieza soldado = new Soldado(new EquipoRojo());
         soldado.asignarCasillero(casillero);
 
-
         Arma arma = new ArmaArcoJinete();
         arma.atacarA(soldado,1);
         assertEquals(100,soldado.vida());
@@ -53,7 +49,6 @@ public class ArmaArcoJineteTest {
 
         Pieza soldado = new Soldado(new EquipoRojo());
         soldado.asignarCasillero(casillero);
-
 
         Arma arma = new ArmaArcoJinete();
         arma.atacarA(soldado,3);
@@ -69,7 +64,6 @@ public class ArmaArcoJineteTest {
         Pieza soldado = new Soldado(new EquipoRojo());
         soldado.asignarCasillero(casillero);
 
-
         Arma arma = new ArmaArcoJinete();
         arma.atacarA(soldado,3);
         arma.atacarA(soldado,3);
@@ -78,7 +72,6 @@ public class ArmaArcoJineteTest {
         arma.atacarA(soldado,3);
         arma.atacarA(soldado,3);
         arma.atacarA(soldado,3);
-
 
         assertEquals(0,soldado.vida());
     }

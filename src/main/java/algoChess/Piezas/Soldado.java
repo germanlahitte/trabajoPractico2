@@ -1,9 +1,7 @@
 package algoChess.Piezas;
 
-import algoChess.Armas.Arma;
 import algoChess.Armas.ArmaSoldado;
 import algoChess.Equipos.Equipo;
-import algoChess.Ubicacion.Casillero;
 import algoChess.Ubicacion.Direccion;
 
 public class Soldado extends Pieza implements Movible{
