@@ -13,14 +13,6 @@ public class Billetera {
 
         this.puntosDisponibles = credito;
     }
-    //public Object comprar(Class pieza,  Equipo equipo) {
-    //    Object piezaNueva = new Soldado(equipo);
-        //int costoPieza = piezaNueva.getCosto();
-        //if (costoPieza >= this.puntosDisponibles) {
-        //} else {
-        //    throw new NoAlcanzanLasMonedasException("No alcanzan las monedas para realizar la compra");
-        //}
-     //   return piezaNueva;
 
     public Soldado comprarSoldado(Equipo bando){
         int costoPieza = Soldado.getCosto();

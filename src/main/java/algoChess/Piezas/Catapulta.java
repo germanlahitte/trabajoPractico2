@@ -11,6 +11,8 @@ public class Catapulta extends Pieza {
         this.agregarArma(new ArmaCatapulta());
     }
 
+    public static int getCosto() { return costo; }
+
 
     @Override
     public void curarse(float vida){

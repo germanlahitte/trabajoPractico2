@@ -14,6 +14,7 @@ public class Soldado extends Pieza implements Movible{
 
     }
 
+    public static int getCosto() { return costo; }
 
     // Se mueve en X direccion
     public void mover(Direccion direccion){

@@ -11,6 +11,8 @@ public class Curandero extends Pieza implements Movible {
         this.agregarArma(new ArmaCurandero());
     }
 
+    public static int getCosto() { return costo; }
+
 
     // Se mueve en X direccion
     public void mover(Direccion direccion){

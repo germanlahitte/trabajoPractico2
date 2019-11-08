@@ -14,6 +14,8 @@ public class Jinete extends Pieza implements Movible{
         this.agregarArma(new ArmaArcoJinete());
     }
 
+    public static int getCosto() { return costo; }
+
     // Cambiar arma
     public void equiparArco(){
         this.agregarArma(new ArmaArcoJinete());
