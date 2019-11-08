@@ -7,7 +7,6 @@ import algoChess.Vida;
 
 public abstract class Pieza { //TODO :falta
 
-   private static int costo;
    private Vida vida;
    protected Equipo equipo;
    protected Casillero casillero;
