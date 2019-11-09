@@ -7,7 +7,6 @@ import algoChess.Vida;
 
 public abstract class Pieza { //TODO :falta
 
-   private static int costo;
    private Vida vida;
    protected Equipo equipo;
    protected Casillero casillero;
@@ -54,7 +53,7 @@ public abstract class Pieza { //TODO :falta
 
     // Desocupa casillero
     public void desocuparCasillero(){
-        this.casillero.desocupado();
+        this.casillero.desocupar();
     }
 
     // Ocupa casillero

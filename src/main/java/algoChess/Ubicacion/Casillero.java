@@ -17,13 +17,13 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
     public Casillero(Posicion posicion,Equipo equipo  ){
         this.posicion = posicion;
         this.equipo = equipo;
-        this.desocupado();
+        this.desocupar();
     }
 
     public Casillero(Posicion posicion, Tablero tablero){
         this.tablero = tablero;
         this.posicion = posicion;
-        this.desocupado();
+        this.desocupar();
     }
 
     public double calcularDanio(Equipo equipo){
@@ -47,7 +47,7 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
         this.pieza.ocuparCasillero(this);
     }
 
-    public void desocupado(){
+    public void desocupar(){
         this.pieza = null;
         this.disponibilidad = new StrategyLibre();
     }
