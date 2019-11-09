@@ -255,7 +255,7 @@ class CasilleroTest {
         pieza.asignarCasillero(casillero2);
         pieza2.asignarCasillero(casillero3);
         casillero.agregarPieza(pieza);
-        casillero.desocupado();
+        casillero.desocupar();
         casillero.agregarPieza(pieza2);
 
         assertThrows(CasilleroOcupadoException.class, ()-> casillero.agregarPieza(pieza3));
@@ -263,7 +263,7 @@ class CasilleroTest {
 
     // Test casillero calcula daño a equipo
     @Test
-    public void testCasilleroDevuelveMultiplicadoDeDañoPorCincoAEquipoDiferente(){
+    public void testCasilleroDevuelveMultiplicadoDeDanioPorCincoAEquipoDiferente(){
         Tablero tablero = new Tablero();
         Posicion posicionRojo = new Posicion(3,3);
         Casillero casillero = tablero.casilleroEn(posicionRojo);
@@ -273,7 +273,7 @@ class CasilleroTest {
     }
 
     @Test
-    public void testCasilleroDevuelveMultiplicadoDeDañoPorUnoAMismoEquipo(){
+    public void testCasilleroDevuelveMultiplicadoDeDanioPorUnoAMismoEquipo(){
         Tablero tablero = new Tablero();
         Posicion posicionRojo = new Posicion(3,3);
         Casillero casillero = tablero.casilleroEn(posicionRojo);
