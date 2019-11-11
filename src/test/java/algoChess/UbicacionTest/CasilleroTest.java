@@ -248,7 +248,7 @@ class CasilleroTest {
         Posicion posicion3 = new Posicion(15,15);
         Casillero casillero = new Casillero(posicion1,tablero);
         Casillero casillero2 = new Casillero(posicion2,tablero);
-        Casillero casillero3 = new Casillero(posicion2,tablero);
+        Casillero casillero3 = new Casillero(posicion3,tablero);
         Pieza pieza = new Soldado(new EquipoAzul()) ;
         Pieza pieza2 = new Soldado(new EquipoAzul()) ;
         Pieza pieza3 = new Soldado(new EquipoAzul()) ;

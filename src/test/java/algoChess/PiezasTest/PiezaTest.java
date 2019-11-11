@@ -16,21 +16,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PiezaTest {
 
-    @Test
-    public void ubicarDevuelveTrueCuandoPiezaYCasilleroSonDelMismoEquipoTest(){
-        Equipo e1 = new EquipoRojo();
-        Soldado soldado1 = new Soldado(e1);
-        //assertTrue(soldado1.ubicar(e1));
-    }
-
-    @Test
-    public void ubicarDevuelveFalseCuandoPiezaYCasilleroSonDeDiferenteEquipoTest(){
-        Equipo e1 = new EquipoRojo();
-        Equipo e2 = new EquipoAzul();
-        Soldado soldado1 = new Soldado(e1);
-        //assertFalse(soldado1.ubicar(e2));
-    }
-
     // Ubicar pieza
     @Test
     public void testPiezaSeUbicaEnCasilleroSiPerteneAlMismoEquipo() {
