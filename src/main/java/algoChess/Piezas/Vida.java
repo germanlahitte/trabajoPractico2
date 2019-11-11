@@ -1,4 +1,4 @@
-package algoChess;
+package algoChess.Piezas;
 
 public class Vida {
 

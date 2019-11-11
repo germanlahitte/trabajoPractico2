@@ -3,6 +3,7 @@ package algoChess.Piezas;
 import algoChess.Armas.ArmaArcoJinete;
 import algoChess.Armas.ArmaEspadaJinete;
 import algoChess.Equipos.Equipo;
+import algoChess.FactoryConstantes;
 import algoChess.Ubicacion.Casillero;
 import algoChess.Ubicacion.Direccion;
 
@@ -10,7 +11,7 @@ public class Jinete extends Pieza implements Movible{
     private static int costo = 3;
 
     public Jinete(Equipo equipo) {
-        super(100, equipo);
+        super(FactoryConstantes.vidaJinete(), equipo);
         this.agregarArma(new ArmaArcoJinete());
     }
 

@@ -2,6 +2,7 @@ package algoChess.Piezas;
 
 import algoChess.Armas.ArmaSoldado;
 import algoChess.Equipos.Equipo;
+import algoChess.FactoryConstantes;
 import algoChess.Ubicacion.Direccion;
 
 public class Soldado extends Pieza implements Movible{
@@ -9,7 +10,7 @@ public class Soldado extends Pieza implements Movible{
 
     public Soldado(Equipo equipo) {
 
-        super(100, equipo);
+        super(FactoryConstantes.vidaSoldado(), equipo);
         this.agregarArma(new ArmaSoldado());
 
     }

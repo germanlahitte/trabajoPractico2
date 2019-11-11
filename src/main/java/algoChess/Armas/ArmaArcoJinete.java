@@ -1,8 +1,10 @@
 package algoChess.Armas;
 
+import algoChess.FactoryConstantes;
+
 public class ArmaArcoJinete extends Arma {
 
     public ArmaArcoJinete() {
-        super(15, Rango.mediano());
+        super(FactoryConstantes.armaArcoJinete(), Rango.mediano());
     }
 }

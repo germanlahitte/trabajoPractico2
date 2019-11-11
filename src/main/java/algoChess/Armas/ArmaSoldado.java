@@ -1,8 +1,10 @@
 package algoChess.Armas;
 
+import algoChess.FactoryConstantes;
+
 public class ArmaSoldado extends Arma {
 
     public ArmaSoldado() {
-        super(10, Rango.cercano());
+        super(FactoryConstantes.armaSoldado(), Rango.cercano());
     }
 }

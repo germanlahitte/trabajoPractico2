@@ -3,7 +3,6 @@ package algoChess.Piezas;
 import algoChess.Armas.*;
 import algoChess.Ubicacion.*;
 import algoChess.Equipos.*;
-import algoChess.Vida;
 
 public abstract class Pieza { //TODO :falta
 

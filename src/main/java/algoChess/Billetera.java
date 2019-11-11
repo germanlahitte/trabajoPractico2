@@ -1,9 +1,7 @@
 package algoChess;
 import algoChess.Equipos.Equipo;
-import algoChess.Piezas.Catapulta;
-import algoChess.Piezas.Curandero;
-import algoChess.Piezas.Jinete;
-import algoChess.Piezas.Soldado;
+import algoChess.Piezas.*;
+
 import excepciones.NoAlcanzanLasMonedasException;
 
 public class Billetera {
