@@ -8,50 +8,42 @@ import algoChess.Piezas.Soldado;
 import algoChess.Ubicacion.Casillero;
 import algoChess.Ubicacion.Posicion;
 import algoChess.Ubicacion.Tablero;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ArmaCatapultaTest {
+    private Tablero tablero;
+    private Posicion posicionRojo;
+    private Casillero casillero;
+    private Pieza soldado;
+    private Arma armaCatapulta;
+
+    @BeforeEach
+    public void init() {
+        tablero = new Tablero();
+        posicionRojo = new Posicion(1, 1); // Posicion de equipo rojo.
+        casillero = tablero.casilleroEn(posicionRojo);
+        soldado = new Soldado(new EquipoRojo());
+        soldado.asignarCasillero(casillero);
+        armaCatapulta = new ArmaCatapulta();
+    }
 
     // Atacar Piezas
     @Test
     public void testAtacarAPiezaADistanciaMenorNoDisminuyeVida(){
-        Tablero tablero = new Tablero();
-        Posicion posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
-        Casillero casillero = tablero.casilleroEn(posicionRojo);
-
-        Pieza soldado = new Soldado(new EquipoRojo());
-        soldado.asignarCasillero(casillero);
-
-        Arma armaCatapulta = new ArmaCatapulta();
         armaCatapulta.atacarA(soldado,1);
         assertEquals(100,soldado.vida());
     }
 
     @Test
     public void testAtacarAPiezaADistanciaMayorDisminuyeVida(){
-        Tablero tablero = new Tablero();
-        Posicion posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
-        Casillero casillero = tablero.casilleroEn(posicionRojo);
-
-        Pieza soldado = new Soldado(new EquipoRojo());
-        soldado.asignarCasillero(casillero);
-
-        Arma armaCatapulta = new ArmaCatapulta();
         armaCatapulta.atacarA(soldado,6);
         assertEquals(80,soldado.vida());
     }
 
     @Test
     public void testAtacarAPiezaADistanciaCorrectaNoDisminuyeVidaMenorACero(){
-        Tablero tablero = new Tablero();
-        Posicion posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
-        Casillero casillero = tablero.casilleroEn(posicionRojo);
-
-        Pieza soldado = new Soldado(new EquipoRojo());
-        soldado.asignarCasillero(casillero);
-
-        Arma armaCatapulta = new ArmaCatapulta();
         armaCatapulta.atacarA(soldado,6);
         armaCatapulta.atacarA(soldado,6);
         armaCatapulta.atacarA(soldado,6);

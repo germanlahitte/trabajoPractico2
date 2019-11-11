@@ -2,7 +2,9 @@ package algoChess.Armas;
 
 public class ArmaSoldado extends Arma {
 
+    private static int danio = 10;
+
     public ArmaSoldado() {
-        super(10, Rango.cercano());
+        super(danio, Rango.cercano());
     }
 }
