@@ -8,88 +8,63 @@ import algoChess.Piezas.Soldado;
 import algoChess.Ubicacion.Casillero;
 import algoChess.Ubicacion.Posicion;
 import algoChess.Ubicacion.Tablero;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ArmaCuranderoTest {
+    private Tablero tablero;
+    private Posicion posicionRojo;
+    private Casillero casillero;
+    private Pieza soldado;
+    private Arma armaCurandero;
+
+    @BeforeEach
+    public void init() {
+        tablero = new Tablero();
+        posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
+        casillero = tablero.casilleroEn(posicionRojo);
+        soldado = new Soldado(new EquipoRojo());
+        soldado.asignarCasillero(casillero);
+        armaCurandero = new ArmaCurandero();
+    }
 
     @Test
     public void testAtacarAPiezaADistanciaMayorNoAumentaVida(){
-        Tablero tablero = new Tablero();
-        Posicion posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
-        Casillero casillero = tablero.casilleroEn(posicionRojo);
-        Pieza soldado = new Soldado(new EquipoRojo());
-        soldado.asignarCasillero(casillero);
-        Arma arma = new ArmaCurandero();
         soldado.hacerseDanio(30);
 
-        arma.atacarA(soldado,3);
+        armaCurandero.atacarA(soldado,3);
         assertEquals(70,soldado.vida());
     }
 
     @Test
     public void testAtacarAPiezaADistanciaCorrectaConTodaLaVidaNoAumentaVida(){
-        Tablero tablero = new Tablero();
-        Posicion posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
-        Casillero casillero = tablero.casilleroEn(posicionRojo);
-        Pieza soldado = new Soldado(new EquipoRojo());
-        soldado.asignarCasillero(casillero);
-        Arma arma = new ArmaCurandero();
-
-        arma.atacarA(soldado,1);
+        armaCurandero.atacarA(soldado,1);
         assertEquals(100,soldado.vida());
     }
 
     @Test
     public void testAtacarAPiezaADistanciaCorrectaSinVidaNoAumentaVida(){
-        Tablero tablero = new Tablero();
-        Posicion posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
-        Casillero casillero = tablero.casilleroEn(posicionRojo);
-        Pieza soldado = new Soldado(new EquipoRojo());
-        soldado.asignarCasillero(casillero);
         soldado.hacerseDanio(200);
-        Arma arma = new ArmaCurandero();
 
-        arma.atacarA(soldado,1);
+        armaCurandero.atacarA(soldado,1);
         assertEquals(0,soldado.vida());
     }
 
     @Test
     public void testAtacarAPiezaConPocaVidaADistanciaCorrectaAumentaVida(){
-        Tablero tablero = new Tablero();
-        Posicion posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
-        Casillero casillero = tablero.casilleroEn(posicionRojo);
-        Pieza soldado = new Soldado(new EquipoRojo());
-        soldado.asignarCasillero(casillero);
         soldado.hacerseDanio(70);
-        Arma arma = new ArmaCurandero();
 
-        arma.atacarA(soldado,1);
+        armaCurandero.atacarA(soldado,1);
         assertEquals(45,soldado.vida());
     }
 
     @Test
     public void testAtacarAPiezaADistanciaCorrectaAumentaVidaComoMaximo100(){
-        Tablero tablero = new Tablero();
-        Posicion posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
-        Casillero casillero = tablero.casilleroEn(posicionRojo);
-        Pieza soldado = new Soldado(new EquipoRojo());
-        soldado.asignarCasillero(casillero);
-        soldado.hacerseDanio(70);
+        soldado.hacerseDanio(20);
 
-        Arma arma = new ArmaCurandero();
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
+        armaCurandero.atacarA(soldado,1);
+        armaCurandero.atacarA(soldado,1);
         assertEquals(100,soldado.vida());
     }
 }

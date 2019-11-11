@@ -11,7 +11,7 @@ public abstract class Arma {
         this.rango = rango;
     }
     public void atacarA(Pieza unaPieza, int distancia) {
-        if(rango.enRango(distancia)){
+        if(this.rango.enRango(distancia)){
             unaPieza.quitarVida(this.danio);
         }
     }
