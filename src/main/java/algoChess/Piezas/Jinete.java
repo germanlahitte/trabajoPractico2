@@ -8,9 +8,10 @@ import algoChess.Ubicacion.Direccion;
 
 public class Jinete extends Pieza implements Movible{
     private static int costo = 3;
+    private static int vida = 100;
 
     public Jinete(Equipo equipo) {
-        super(100, equipo);
+        super(vida, equipo);
         this.agregarArma(new ArmaArcoJinete());
     }
 

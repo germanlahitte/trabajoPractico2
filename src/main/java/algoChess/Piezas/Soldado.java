@@ -6,10 +6,11 @@ import algoChess.Ubicacion.Direccion;
 
 public class Soldado extends Pieza implements Movible{
     private static int costo = 1;
+    private static int vida = 100;
 
     public Soldado(Equipo equipo) {
 
-        super(100, equipo);
+        super(vida, equipo);
         this.agregarArma(new ArmaSoldado());
 
     }
