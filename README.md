@@ -8,12 +8,13 @@ de su nivel).
 El objetivo del juego es vencer al ejército enemigo (son entidades preestablecidas en el tablero
 que no pueden ser modificadas) acomodando las entidades aliadas en el tablero.
 
-##Integrantes
+# Integrantes
 Dabat, Martin
 Meza Boeykens, Damián
 Lahitte, German
 Fernandez Marchitelli, Camila
 
-###Documentacion
+
+# Documentacion
 *[Informe]: (https://www.overleaf.com/7747192111vqphgtssvrzn) 
 *[Travis]: (https://travis-ci.org/germanlahitte/trabajoPractico2?utm_medium=notification&utm_source=email)
