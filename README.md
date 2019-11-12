@@ -16,5 +16,5 @@ que no pueden ser modificadas) acomodando las entidades aliadas en el tablero.
 
 
 # Documentacion
-*[Informe]: (https://www.overleaf.com/7747192111vqphgtssvrzn) 
-*[Travis]: (https://travis-ci.org/germanlahitte/trabajoPractico2?utm_medium=notification&utm_source=email)
+* [Informe]: (https://www.overleaf.com/7747192111vqphgtssvrzn) 
+* [Travis]: (https://travis-ci.org/germanlahitte/trabajoPractico2?utm_medium=notification&utm_source=email)
