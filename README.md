@@ -9,10 +9,10 @@ El objetivo del juego es vencer al ejército enemigo (son entidades preestableci
 que no pueden ser modificadas) acomodando las entidades aliadas en el tablero.
 
 # Integrantes
-Dabat, Martin
-Meza Boeykens, Damián
-Lahitte, German
-Fernandez Marchitelli, Camila
+* **Dabat, Martin**
+* **Meza Boeykens, Damián**
+* **Lahitte, German**
+* **Fernandez Marchitelli, Camila**
 
 
 # Documentacion
