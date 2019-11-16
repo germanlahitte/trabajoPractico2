@@ -21,7 +21,7 @@ que no pueden ser modificadas) acomodando las entidades aliadas en el tablero.
 * [Travis](https://travis-ci.org/germanlahitte/trabajoPractico2?utm_medium=notification&utm_source=email) - status de integración continua
 
 ### Diagramas actualizados
-* [Google Drive](https://drive.google.com/open?id=1q09BaZLyS4UzuqHOjrtZgVnKU4CYP3BI) - Enlace al Drive con Diagramas del trabajo
+* [Google Drive](https://drive.google.com/drive/folders/1skl4mfy2TDpcdNdEAwnTMJcO8OGJgb7i?usp=sharing) - Enlace al Drive con Diagramas del trabajo
 
 
 
