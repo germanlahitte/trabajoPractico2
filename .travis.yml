@@ -20,5 +20,8 @@ jdk:
 
 # This is to enable CodeCov's coverage
 # If a build is successful, the code is submitted for coverage analysis
+
+script:
+  - mvn test
 after_success:
   - bash <(curl -s https://codecov.io/bash)
