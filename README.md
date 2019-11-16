@@ -1,5 +1,7 @@
 # AlgoChess - Trabajo práctico 2
+[![Build Status](https://travis-ci.org/germanlahitte/trabajoPractico2.svg?branch=master)](https://travis-ci.org/germanlahitte/trabajoPractico2)
 [![codecov](https://codecov.io/gh/germanlahitte/trabajoPractico2/branch/master/graph/badge.svg)](https://codecov.io/gh/germanlahitte/trabajoPractico2)
+
 AlgoChess es un videojuego por turnos, de dos jugadores conformado de un tablero
 y distintas unidades sobre él. El objetivo del juego es destruir todas las unidades enemigas y
 gana el jugador que lo consigue primero.
