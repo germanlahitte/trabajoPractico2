@@ -2,6 +2,9 @@ package algoChess;
 
 public class FactoryConstantes {
 
+    private static int LADO_DEL_TABLERO = 20;
+    private static int DESPLAZAMIENTO_MAXIMO = 1;
+
     private static int DANIO_ARMA_SOLADO = 10;
     private static int DANIO_ARMA_JINETE_ESPADA = 5;
     private static int DANIO_ARMA_JINETE_ARCO = 15;
@@ -13,6 +16,8 @@ public class FactoryConstantes {
     private static int VIDA_CATAPULTA = 50;
     private static int VIDA_CURANDERO = 75;
 
+    public static int ladoDelTablero() { return LADO_DEL_TABLERO; }
+    public static int desplazamientoMaximo() { return DESPLAZAMIENTO_MAXIMO; }
 
     public static int armaSoldado() {
         return DANIO_ARMA_SOLADO;

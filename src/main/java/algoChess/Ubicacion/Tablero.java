@@ -3,6 +3,7 @@ package algoChess.Ubicacion;
 import algoChess.Equipos.EquipoAzul;
 import algoChess.Equipos.Equipo;
 import algoChess.Equipos.EquipoRojo;
+import algoChess.FactoryConstantes;
 import algoChess.Piezas.Movible;
 import algoChess.Piezas.Pieza;
 
@@ -12,8 +13,8 @@ import java.util.HashMap;
 
 public class Tablero {
 
-    private static int lado = 20;
-    private static int movimientoMaximo = 1;
+    private static int lado = FactoryConstantes.ladoDelTablero();
+    private static int desplazamientoMaximo = FactoryConstantes.desplazamientoMaximo();
     private HashMap<Posicion, Casillero> posiciones;
 
     public Tablero() {
