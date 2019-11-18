@@ -58,4 +58,5 @@ class EquipoTest {
 
         assertThrows(CasilleroEnemigoException.class, ()-> rojo.ubicarCon(azul, pieza));
     }
+
 }

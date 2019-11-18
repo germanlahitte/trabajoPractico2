@@ -4,7 +4,7 @@ import algochess.Armas.*;
 import algochess.Ubicacion.*;
 import algochess.Equipos.*;
 
-public abstract class Pieza { //TODO :falta
+public abstract class Pieza {
 
    private Vida vida;
    protected Equipo equipo;
@@ -57,8 +57,9 @@ public abstract class Pieza { //TODO :falta
 
     // Ocupa casillero
     public void ocuparCasillero(Casillero casillero){
-        this.desocuparCasillero();
-        this.casillero = casillero;
+        if(this.casillero!=null)
+            this.desocuparCasillero();
+        asignarCasillero(casillero);
     }
     public void asignarCasillero(Casillero casillero){
         this.casillero = casillero;
@@ -70,6 +71,12 @@ public abstract class Pieza { //TODO :falta
         return this.casillero.posicion();
     }
 
+    // Implementar o lanzar NoSoyUnSoldadoExcepcion
+    public void enlistarse(Equipo equipoDeUnSoldado, Soldado capitan) { }
+
+    public void enlistar(Pieza pieza) { }
+
+    public Casillero casillero() { return this.casillero; }
 }
 
 

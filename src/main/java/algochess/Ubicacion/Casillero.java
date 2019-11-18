@@ -1,12 +1,14 @@
 package algochess.Ubicacion;
 
 import algochess.Equipos.Equipo;
+import algochess.Piezas.Batallon;
 import algochess.Piezas.Pieza;
 import algochess.Ubicacion.StrategyDisponibilidad.StrategyDisponibilidad;
 import algochess.Ubicacion.StrategyDisponibilidad.StrategyLibre;
 import algochess.Ubicacion.StrategyDisponibilidad.StrategyOcupado;
+import excepciones.CasilleroOcupadoException;
 
-public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
+public class Casillero {
 
     private Posicion posicion;
     private Equipo equipo;
@@ -69,4 +71,11 @@ public class Casillero { //TODO :falta  --- incompatibilidad posicion-casillero
     }
     public Posicion posicion(){return this.posicion;}
 
+    public void agregarPieza(Pieza soldado, Batallon batallon, Direccion direccion) {
+        try {
+            this.disponibilidad.agregarPieza(soldado, this);
+        } catch (CasilleroOcupadoException ocupado) {
+            batallon.moverOtra(this.pieza,soldado,direccion);
+        }
+    }
 }
