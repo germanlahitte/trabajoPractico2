@@ -12,8 +12,8 @@ import algochess.Ubicacion.Tablero;
 import excepciones.CasilleroEnemigoException;
 import excepciones.CasilleroOcupadoException;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class CasilleroTest {
 
@@ -227,38 +227,31 @@ class CasilleroTest {
     @Test
     public void testCasilleroLanzaExcepcionDeOcupadoSiSeQuiereAgregarOtraPieza(){
         Tablero tablero = new Tablero();
-        Posicion posicion1 = new Posicion(10,10);
-        Posicion posicion2 = new Posicion(20,20);
-        Casillero casillero = new Casillero(posicion1,tablero);
-        Casillero casillero2 = new Casillero(posicion2,tablero);
-        Pieza pieza = new Soldado(new EquipoAzul()) ;
-        Pieza pieza2 = new Soldado(new EquipoAzul()) ;
-        pieza.asignarCasillero(casillero2);
-        casillero.agregarPieza(pieza);
+        Posicion posicionAzul = new Posicion(20,20);
+        Casillero casilleroAzul = tablero.casilleroEn(posicionAzul);
+        Pieza piezaAzul = new Soldado(new EquipoAzul()) ;
+        Pieza piezaAzul2 = new Soldado(new EquipoAzul()) ;
+        tablero.ubicar(piezaAzul,posicionAzul);
 
-        assertThrows(CasilleroOcupadoException.class, ()-> casillero.agregarPieza(pieza2));
+        assertThrows(CasilleroOcupadoException.class, ()-> casilleroAzul.agregarPieza(piezaAzul2));
     }
 
 
     @Test
     public void testCasilleroSeDesocupaDePiezaYPuedeAgregarOtraSinProblemas(){
         Tablero tablero = new Tablero();
-        Posicion posicion1 = new Posicion(10,10);
-        Posicion posicion2 = new Posicion(20,20);
-        Posicion posicion3 = new Posicion(15,15);
-        Casillero casillero = new Casillero(posicion1,tablero);
-        Casillero casillero2 = new Casillero(posicion2,tablero);
-        Casillero casillero3 = new Casillero(posicion3,tablero);
-        Pieza pieza = new Soldado(new EquipoAzul()) ;
-        Pieza pieza2 = new Soldado(new EquipoAzul()) ;
-        Pieza pieza3 = new Soldado(new EquipoAzul()) ;
-        pieza.asignarCasillero(casillero2);
-        pieza2.asignarCasillero(casillero3);
-        casillero.agregarPieza(pieza);
-        casillero.desocupar();
-        casillero.agregarPieza(pieza2);
+        Posicion posicionAzul = new Posicion(20,20);
+        Posicion posicionAzulCercana = new Posicion(20,19);
+        Casillero casilleroAzul = tablero.casilleroEn(posicionAzul);
 
-        assertThrows(CasilleroOcupadoException.class, ()-> casillero.agregarPieza(pieza3));
+        Pieza soldadoAzul = new Soldado(new EquipoAzul());
+        tablero.ubicar(soldadoAzul,posicionAzul);
+        casilleroAzul.desocupar();
+
+        Pieza soldadoRojo = new Soldado(new EquipoRojo());
+
+        assertDoesNotThrow(()-> casilleroAzul.agregarPieza(soldadoRojo));
+        assertEquals(soldadoRojo,casilleroAzul.getPieza());
     }
 
     // Test casillero calcula daño a equipo

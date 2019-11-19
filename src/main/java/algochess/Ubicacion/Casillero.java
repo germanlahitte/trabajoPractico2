@@ -24,7 +24,7 @@ public class Casillero {
         this.desocupar();
     }
 
-    public Casillero(Posicion posicion, Tablero tablero){
+   public Casillero(Posicion posicion, Tablero tablero){
         this.tablero = tablero;
         this.posicion = posicion;
         this.desocupar();

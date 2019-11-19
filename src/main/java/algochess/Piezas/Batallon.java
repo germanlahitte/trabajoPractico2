@@ -11,6 +11,7 @@ public class Batallon implements Movible {
     private Soldado capitan;
     private ArrayList<Pieza> tropa;
     private ArrayList<Pieza> esperanOrden;
+    private ArrayList<Pieza> yaMovieron;
 
     public Batallon(Soldado soldado){
         this.capitan = soldado;
@@ -40,17 +41,22 @@ public class Batallon implements Movible {
         }
         ((Soldado) pieza).mover(direccion, this);
         ((Soldado) soldado).mover(direccion,this);
+        yaMovieron.add(pieza);
     }
 
     private void moverRestantes(Direccion enDireccion){
         Iterator<Pieza> iterador = esperanOrden.iterator();
 
         while(iterador.hasNext()) {
+            Soldado soldado = (Soldado)iterador.next();
             try {
-                ((Soldado)iterador.next()).mover(enDireccion,this);
                 iterador.remove();
+                if(!yaMovieron.contains(soldado)) {
+                    soldado.mover(enDireccion, this);
+                    yaMovieron.add(soldado);
+                }
             } catch (CasilleroOcupadoException ocupado) {
-                iterador.remove();
+                yaMovieron.add(soldado);
             }
 
         }
@@ -66,6 +72,6 @@ public class Batallon implements Movible {
         this.tropa = new ArrayList<>();
         enlistar(capitan);
         this.esperanOrden = tropa;
+        this.yaMovieron = new ArrayList<>();
     }
-
 }

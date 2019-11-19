@@ -36,24 +36,21 @@ public abstract class Pieza {
     }
 
     //  Vida
+    public float vida(){
+        return this.vida.vida();
+    }
     public void quitarVida(double danio){
         this.hacerseDanio(this.casillero.calcularDanio(equipo) * danio);
     }
     public void hacerseDanio(double  danio){
         this.vida.restarVida(danio);
         }
-    public float vida(){
-        return this.vida.vida();
-    }
     public void curarse(float vida){
         this.vida.curarVida(vida);
     }
 
 
-    // Desocupa casillero
-    public void desocuparCasillero(){
-        this.casillero.desocupar();
-    }
+    public void desocuparCasillero(){ this.casillero.desocupar(); }
 
     // Ocupa casillero
     public void ocuparCasillero(Casillero casillero){
@@ -61,10 +58,10 @@ public abstract class Pieza {
             this.desocuparCasillero();
         asignarCasillero(casillero);
     }
+
     public void asignarCasillero(Casillero casillero){
         this.casillero = casillero;
     }
-
 
     // Posicion para tests
     public Posicion posicion(){
