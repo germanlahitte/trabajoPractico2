@@ -40,11 +40,9 @@ public class Jinete extends Pieza implements Movible{
         ArrayList<Pieza> piezasVecinas = this.casillero.piezasVecinas();
         ArrayList<Pieza> piezasVecinasAliadas = new ArrayList<>();
         ArrayList<Pieza> piezasVecinasEnemigas = new ArrayList<>();
-        Iterator<Pieza> iterador = piezasVecinas.iterator();
 
-        while(iterador.hasNext()) {
-            Pieza pieza=iterador.next();
-            if(pieza.soyAliado(this.equipo)) {
+        for(Pieza pieza:piezasVecinas){
+            if(pieza.soyAliado(this.equipo)){
                 piezasVecinasAliadas.add(pieza);
             } else {
                 piezasVecinasEnemigas.add(pieza);
