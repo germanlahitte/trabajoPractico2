@@ -34,7 +34,6 @@ class TableroTest { //TODO: necesito tocar otras clases para un método
     public void TestTableroNoAceptaPiezaEnCasilleroDesocupadoYDeDiferenteEquipo(){
         Tablero tablero = new Tablero();
         Pieza pieza = new Soldado(new EquipoRojo());
-        pieza.asignarCasillero(new Casillero(new Posicion(1,1), new EquipoAzul()));
         Posicion posicion = new Posicion (12,12);
 
         assertThrows(CasilleroEnemigoException.class, ()-> tablero.ubicar(pieza, posicion));
@@ -45,8 +44,6 @@ class TableroTest { //TODO: necesito tocar otras clases para un método
         Tablero tablero = new Tablero();
         Pieza pieza = new Soldado(new EquipoRojo());
         Pieza pieza2 = new Soldado(new EquipoRojo());
-        pieza.asignarCasillero(new Casillero(new Posicion(1,1), new EquipoAzul()));
-        pieza2.asignarCasillero(new Casillero(new Posicion(1,1), new EquipoAzul()));
         Posicion posicion = new Posicion (2,2);
         tablero.ubicar(pieza, posicion);
 
@@ -78,9 +75,8 @@ class TableroTest { //TODO: necesito tocar otras clases para un método
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(5,6);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
         tablero.mover(soldado, Direccion.norte());
 
         assertEquals(p2,soldado.posicion());
@@ -90,22 +86,20 @@ class TableroTest { //TODO: necesito tocar otras clases para un método
     public void testTableroRecibeSoldadoYLoMueveEnDireccionSur(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
-        Posicion p2 = new Posicion(5,4);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Posicion p2 = new Posicion(5,6);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p2);
         tablero.mover(soldado, Direccion.sur());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p1,soldado.posicion());
     }
     @Test
     public void testTableroRecibeSoldadoYLoMueveEnDireccionEste(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(6,5);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
         tablero.mover(soldado, Direccion.este());
 
         assertEquals(p2,soldado.posicion());
@@ -116,9 +110,8 @@ class TableroTest { //TODO: necesito tocar otras clases para un método
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,5);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
         tablero.mover(soldado, Direccion.oeste());
 
         assertEquals(p2,soldado.posicion());
@@ -129,9 +122,8 @@ class TableroTest { //TODO: necesito tocar otras clases para un método
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(6,6);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
         tablero.mover(soldado, Direccion.norEste());
 
         assertEquals(p2,soldado.posicion());
@@ -142,9 +134,8 @@ class TableroTest { //TODO: necesito tocar otras clases para un método
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,6);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
         tablero.mover(soldado, Direccion.norOeste());
 
         assertEquals(p2,soldado.posicion());
@@ -155,9 +146,8 @@ class TableroTest { //TODO: necesito tocar otras clases para un método
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(6,4);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
         tablero.mover(soldado, Direccion.surEste());
 
         assertEquals(p2,soldado.posicion());
@@ -168,9 +158,8 @@ class TableroTest { //TODO: necesito tocar otras clases para un método
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,4);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
         tablero.mover(soldado, Direccion.surOeste());
 
         assertEquals(p2,soldado.posicion());
@@ -181,9 +170,8 @@ class TableroTest { //TODO: necesito tocar otras clases para un método
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,4);
-        Casillero casillero = new Casillero(p1,tablero);
-        Curandero curandero = new Curandero(new EquipoAzul()) ;
-        curandero.asignarCasillero(casillero);
+        Curandero curandero = new Curandero(new EquipoRojo()) ;
+        tablero.ubicar(curandero,p1);
         tablero.mover(curandero, Direccion.surOeste());
 
         assertEquals(p2,curandero.posicion());
@@ -194,9 +182,8 @@ class TableroTest { //TODO: necesito tocar otras clases para un método
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,4);
-        Casillero casillero = new Casillero(p1,tablero);
-        Jinete jinete = new Jinete(new EquipoAzul()) ;
-        jinete.asignarCasillero(casillero);
+        Jinete jinete = new Jinete(new EquipoRojo()) ;
+        tablero.ubicar(jinete,p1);
         tablero.mover(jinete, Direccion.surOeste());
 
         assertEquals(p2,jinete.posicion());
