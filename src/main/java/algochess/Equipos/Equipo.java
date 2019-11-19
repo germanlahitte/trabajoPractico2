@@ -14,5 +14,8 @@ public interface  Equipo { //2 implementaciones
     void enlistarse(Equipo equipo, Pieza pieza1, Pieza pieza2);
     void enlistarse(EquipoAzul equipo, Pieza pieza1, Pieza pieza2);
     void enlistarse(EquipoRojo equipo, Pieza pieza1, Pieza pieza2);
+    boolean soyAliado(Equipo equipo);
+    boolean soyAliado(EquipoRojo equipo);
+    boolean soyAliado(EquipoAzul equipo);
 }
 

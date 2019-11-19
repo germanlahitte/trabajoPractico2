@@ -77,6 +77,10 @@ public abstract class Pieza {
     public void enlistar(Pieza pieza) { }
 
     public Casillero casillero() { return this.casillero; }
+
+    public boolean soyAliado(Equipo equipo) {return equipo.soyAliado(this.equipo);}
+
+    public void escoltar(Jinete unJinete) { }
 }
 
 

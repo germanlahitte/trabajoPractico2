@@ -28,4 +28,13 @@ public class EquipoAzul implements Equipo {
     public void enlistarse(EquipoAzul equipo, Pieza pieza1, Pieza pieza2) { pieza1.enlistar(pieza2); }
     public void enlistarse(EquipoRojo equipo, Pieza pieza1, Pieza pieza2) { }
 
+    public boolean soyAliado(Equipo equipo){
+        return equipo.soyAliado(this);
+    }
+    public boolean soyAliado(EquipoRojo equipo){
+        return false;
+    }
+    public boolean soyAliado(EquipoAzul equipo){
+        return true;
+    }
 }

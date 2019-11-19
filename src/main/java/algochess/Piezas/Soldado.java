@@ -39,4 +39,5 @@ public class Soldado extends Pieza implements Movible{
         this.casillero.siguiente(direccion).agregarPieza(this, batallon,direccion);
     }
 
+    public void escoltar(Jinete unJinete){ unJinete.equiparArco(); }
 }
