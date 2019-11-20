@@ -4,7 +4,6 @@ import algochess.Ubicacion.Direccion;
 import excepciones.CasilleroOcupadoException;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Batallon implements Movible {
 

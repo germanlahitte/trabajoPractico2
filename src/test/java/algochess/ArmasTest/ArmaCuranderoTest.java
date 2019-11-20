@@ -5,7 +5,6 @@ import algochess.Armas.ArmaCurandero;
 import algochess.Equipos.EquipoRojo;
 import algochess.Piezas.Pieza;
 import algochess.Piezas.Soldado;
-import algochess.Ubicacion.Casillero;
 import algochess.Ubicacion.Posicion;
 import algochess.Ubicacion.Tablero;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ArmaCuranderoTest {
     private Tablero tablero;
     private Posicion posicionRojo;
-    private Casillero casillero;
     private Pieza soldado;
     private Arma armaCurandero;
 
@@ -23,9 +21,8 @@ class ArmaCuranderoTest {
     public void init() {
         tablero = new Tablero();
         posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
-        casillero = tablero.casilleroEn(posicionRojo);
         soldado = new Soldado(new EquipoRojo());
-        soldado.asignarCasillero(casillero);
+        tablero.ubicar(soldado,posicionRojo);
         armaCurandero = new ArmaCurandero();
     }
 
