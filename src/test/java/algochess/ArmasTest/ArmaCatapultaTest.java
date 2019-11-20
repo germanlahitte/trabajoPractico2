@@ -34,14 +34,12 @@ class ArmaCatapultaTest {
     @Test
     public void testAtacarAPiezaADistanciaMenorNoDisminuyeVida(){
         arma.atacarA(soldado,1);
-
         assertEquals(100,soldado.vida());
     }
 
     @Test
     public void testAtacarAPiezaADistanciaMayorDisminuyeVida(){
         arma.atacarA(soldado,6);
-
         assertEquals(80,soldado.vida());
     }
 
