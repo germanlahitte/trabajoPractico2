@@ -1,14 +1,14 @@
 package algochess.UbicacionTest;
 
-import algochess.Equipos.EquipoAzul;
-import algochess.Equipos.Equipo;
-import algochess.Equipos.EquipoRojo;
-import algochess.Piezas.Pieza;
-import algochess.Piezas.Soldado;
-import algochess.Ubicacion.Casillero;
-import algochess.Ubicacion.Direccion;
-import algochess.Ubicacion.Posicion;
-import algochess.Ubicacion.Tablero;
+import algochess.equipos.EquipoAzul;
+import algochess.equipos.Equipo;
+import algochess.equipos.EquipoRojo;
+import algochess.piezas.Pieza;
+import algochess.piezas.Soldado;
+import algochess.ubicacion.Casillero;
+import algochess.ubicacion.Direccion;
+import algochess.ubicacion.Posicion;
+import algochess.ubicacion.Tablero;
 import excepciones.CasilleroEnemigoException;
 import excepciones.CasilleroOcupadoException;
 import org.junit.jupiter.api.Test;
@@ -19,7 +19,7 @@ class CasilleroTest {
 
     // Ubicar pieza en casillero (al iniciar, medio mapa azul y medio rojo)
     @Test
-    public void testCasilleroUbicaPiezaSiEstaVacioYSiEsDelMismoColor(){
+     void testCasilleroUbicaPiezaSiEstaVacioYSiEsDelMismoColor(){
         Tablero tablero = new Tablero();
         Pieza pieza = new Soldado(new EquipoRojo());
         pieza.asignarCasillero(new Casillero(new Posicion(3,3), new EquipoAzul()));
@@ -30,7 +30,7 @@ class CasilleroTest {
     }
 
     @Test
-    public void testCasilleroNoUbicaPiezaSiEsDeDiferenteColor(){
+     void testCasilleroNoUbicaPiezaSiEsDeDiferenteColor(){
         Tablero tablero = new Tablero();
         Pieza pieza = new Soldado(new EquipoAzul());
         pieza.asignarCasillero(new Casillero(new Posicion(11,11), new EquipoAzul()));
@@ -40,7 +40,7 @@ class CasilleroTest {
     }
 
     @Test
-    public void testCasilleroNoUbicaPiezaSiEsDelMismoColorPeroEstaOcupado(){
+     void testCasilleroNoUbicaPiezaSiEsDelMismoColorPeroEstaOcupado(){
         Tablero tablero = new Tablero();
         Pieza pieza = new Soldado(new EquipoRojo());
         Pieza pieza2 = new Soldado(new EquipoRojo());
@@ -54,7 +54,7 @@ class CasilleroTest {
 
     // Test en relacion a una posicion
     @Test
-    public void testCasilleroDevuelveDistanciaAPosicionCorrectaEnX(){
+     void testCasilleroDevuelveDistanciaAPosicionCorrectaEnX(){
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(4,1);
@@ -64,7 +64,7 @@ class CasilleroTest {
     }
 
     @Test
-    public void testCasilleroDevuelveDistanciaAPosicionCorrectaEnY(){
+     void testCasilleroDevuelveDistanciaAPosicionCorrectaEnY(){
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,4);
@@ -74,7 +74,7 @@ class CasilleroTest {
     }
 
     @Test
-    public void testCasilleroDevuelveDistanciaAPosicionCorrectaEnAmbasDirecciones(){
+     void testCasilleroDevuelveDistanciaAPosicionCorrectaEnAmbasDirecciones(){
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(2,6);
@@ -85,7 +85,7 @@ class CasilleroTest {
 
     // Test en relacion a un casillero
     @Test
-    public void testCasilleroDevuelveDistanciaACasilleroCorrectaEnY(){
+     void testCasilleroDevuelveDistanciaACasilleroCorrectaEnY(){
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,6);
@@ -96,7 +96,7 @@ class CasilleroTest {
     }
 
     @Test
-    public void testCasilleroDevuelveDistanciaACasilleroCorrectaEnX(){
+     void testCasilleroDevuelveDistanciaACasilleroCorrectaEnX(){
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(6,1);
@@ -108,7 +108,7 @@ class CasilleroTest {
 
 
     @Test
-    public void testCasilleroDevuelveDistanciaACasilleroCorrectaEnAmbasDirecciones(){
+     void testCasilleroDevuelveDistanciaACasilleroCorrectaEnAmbasDirecciones(){
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(6,8);
@@ -120,7 +120,7 @@ class CasilleroTest {
 
     // Test casillero devuelve casillero en direccion correcta
     @Test
-    public void testCasilleroDevuelveCasilleroEnDireccionNorte(){
+     void testCasilleroDevuelveCasilleroEnDireccionNorte(){
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(10,11);
@@ -133,7 +133,7 @@ class CasilleroTest {
     }
 
     @Test
-    public void testCasilleroDevuelveCasilleroEnDireccionSur(){
+     void testCasilleroDevuelveCasilleroEnDireccionSur(){
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(10,9);
@@ -146,7 +146,7 @@ class CasilleroTest {
     }
 
     @Test
-    public void testCasilleroDevuelveCasilleroEnDireccionEste(){
+     void testCasilleroDevuelveCasilleroEnDireccionEste(){
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(11,10);
@@ -159,7 +159,7 @@ class CasilleroTest {
     }
 
     @Test
-    public void testCasilleroDevuelveCasilleroEnDireccionOeste(){
+     void testCasilleroDevuelveCasilleroEnDireccionOeste(){
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(9,10);
@@ -172,7 +172,7 @@ class CasilleroTest {
     }
 
     @Test
-    public void testCasilleroDevuelveCasilleroEnDireccionNoreste(){
+     void testCasilleroDevuelveCasilleroEnDireccionNoreste(){
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(11,11);
@@ -185,7 +185,7 @@ class CasilleroTest {
     }
 
     @Test
-    public void testCasilleroDevuelveCasilleroEnDireccionNoroeste(){
+     void testCasilleroDevuelveCasilleroEnDireccionNoroeste(){
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(9,11);
@@ -198,7 +198,7 @@ class CasilleroTest {
     }
 
     @Test
-    public void testCasilleroDevuelveCasilleroEnDireccionSurEste(){
+     void testCasilleroDevuelveCasilleroEnDireccionSurEste(){
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(11,9);
@@ -211,7 +211,7 @@ class CasilleroTest {
     }
 
     @Test
-    public void testCasilleroDevuelveCasilleroEnDireccionSurOeste(){
+     void testCasilleroDevuelveCasilleroEnDireccionSurOeste(){
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(9,9);
@@ -225,7 +225,7 @@ class CasilleroTest {
 
     // Test casillero es ocupado por pieza
     @Test
-    public void testCasilleroLanzaExcepcionDeOcupadoSiSeQuiereAgregarOtraPieza(){
+     void testCasilleroLanzaExcepcionDeOcupadoSiSeQuiereAgregarOtraPieza(){
         Tablero tablero = new Tablero();
         Posicion posicionAzul = new Posicion(20,20);
         Casillero casilleroAzul = tablero.casilleroEn(posicionAzul);
@@ -238,10 +238,9 @@ class CasilleroTest {
 
 
     @Test
-    public void testCasilleroSeDesocupaDePiezaYPuedeAgregarOtraSinProblemas(){
+     void testCasilleroSeDesocupaDePiezaYPuedeAgregarOtraSinProblemas(){
         Tablero tablero = new Tablero();
         Posicion posicionAzul = new Posicion(20,20);
-        Posicion posicionAzulCercana = new Posicion(20,19);
         Casillero casilleroAzul = tablero.casilleroEn(posicionAzul);
 
         Pieza soldadoAzul = new Soldado(new EquipoAzul());
@@ -256,7 +255,7 @@ class CasilleroTest {
 
     // Test casillero calcula daño a equipo
     @Test
-    public void testCasilleroDevuelveMultiplicadoDeDanioPorCincoAEquipoDiferente(){
+     void testCasilleroDevuelveMultiplicadoDeDanioPorCincoAEquipoDiferente(){
         Tablero tablero = new Tablero();
         Posicion posicionRojo = new Posicion(3,3);
         Casillero casillero = tablero.casilleroEn(posicionRojo);
@@ -266,7 +265,7 @@ class CasilleroTest {
     }
 
     @Test
-    public void testCasilleroDevuelveMultiplicadoDeDanioPorUnoAMismoEquipo(){
+     void testCasilleroDevuelveMultiplicadoDeDanioPorUnoAMismoEquipo(){
         Tablero tablero = new Tablero();
         Posicion posicionRojo = new Posicion(3,3);
         Casillero casillero = tablero.casilleroEn(posicionRojo);

@@ -1,14 +1,14 @@
 package algochess.PiezasTest;
 
-import algochess.Armas.*;
-import algochess.Equipos.EquipoAzul;
-import algochess.Equipos.EquipoRojo;
-import algochess.Piezas.Pieza;
-import algochess.Piezas.Soldado;
-import algochess.Ubicacion.Casillero;
-import algochess.Ubicacion.Direccion;
-import algochess.Ubicacion.Posicion;
-import algochess.Ubicacion.Tablero;
+import algochess.armas.*;
+import algochess.equipos.EquipoAzul;
+import algochess.equipos.EquipoRojo;
+import algochess.piezas.Pieza;
+import algochess.piezas.Soldado;
+import algochess.ubicacion.Casillero;
+import algochess.ubicacion.Direccion;
+import algochess.ubicacion.Posicion;
+import algochess.ubicacion.Tablero;
 import excepciones.CasilleroEnemigoException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,21 +17,21 @@ class PiezaTest {
 
     // Ubicar pieza
     @Test
-    public void testPiezaSeUbicaEnCasilleroSiPerteneAlMismoEquipo() {
+    void testPiezaSeUbicaEnCasilleroSiPerteneAlMismoEquipo() {
         Pieza pieza = new Soldado(new EquipoRojo());
         assertEquals(pieza, pieza.ubicarCon(new EquipoRojo()));
 
     }
 
     @Test
-    public void testPiezaNoSeUbicaEnCasilleroSiNoPerteneAlMismoEquipo() {
+    void testPiezaNoSeUbicaEnCasilleroSiNoPerteneAlMismoEquipo() {
         Pieza pieza = new Soldado(new EquipoRojo());
         assertThrows(CasilleroEnemigoException.class, ()-> pieza.ubicarCon(new EquipoAzul()));
     }
 
     // Atacarse
     @Test
-    public void testPiezaRojoEsAtacadoConArmaDeSoldadoYDesdeUnCasilleroRojoPierdeVida(){
+     void testPiezaRojoEsAtacadoConArmaDeSoldadoYDesdeUnCasilleroRojoPierdeVida(){
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,2);
@@ -46,7 +46,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testPiezaAzulEsAtacadoConArmaDeSoldadoYDesdeUnCasilleroRojoPierdeVida(){
+     void testPiezaAzulEsAtacadoConArmaDeSoldadoYDesdeUnCasilleroRojoPierdeVida(){
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,2);
@@ -61,7 +61,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testPiezaRojoEsAtacadoConArmaDeSoldadoYDesdeUnCasilleroLejanoRojoNoPierdeVida(){
+     void testPiezaRojoEsAtacadoConArmaDeSoldadoYDesdeUnCasilleroLejanoRojoNoPierdeVida(){
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,6);
@@ -76,7 +76,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testPiezaRojoEsAtacadoConArmaDeSoldadoYDesdeUnCasilleroLejanoAzulNoPierdeVida(){
+     void testPiezaRojoEsAtacadoConArmaDeSoldadoYDesdeUnCasilleroLejanoAzulNoPierdeVida(){
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(11,12);
@@ -91,7 +91,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testPiezaAzulEsAtacadoConArmaDeSoldadoYDesdeUnCasilleroAzulPierdeVida(){
+     void testPiezaAzulEsAtacadoConArmaDeSoldadoYDesdeUnCasilleroAzulPierdeVida(){
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(10,11);
         Posicion posicion2 = new Posicion(11,12);
@@ -107,7 +107,7 @@ class PiezaTest {
 
 
     @Test
-    public void testPiezaRojoEsAtacadoConArmaArcoDeJineteYDesdeUnCasilleroRojoPierdeVida(){
+     void testPiezaRojoEsAtacadoConArmaArcoDeJineteYDesdeUnCasilleroRojoPierdeVida(){
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,4);
@@ -122,7 +122,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testPiezaRojoEsAtacadoConArmaArcoDeJineteYDesdeUnCasilleroCercanoRojoNoPierdeVida(){
+     void testPiezaRojoEsAtacadoConArmaArcoDeJineteYDesdeUnCasilleroCercanoRojoNoPierdeVida(){
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,2);
@@ -137,7 +137,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testPiezaRojoEsAtacadoConArmaArcoDeJineteYDesdeUnCasilleroLejanoRojoNoPierdeVida(){
+     void testPiezaRojoEsAtacadoConArmaArcoDeJineteYDesdeUnCasilleroLejanoRojoNoPierdeVida(){
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,10);
@@ -152,7 +152,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testPiezaAtacaOtraPiezaRestaVidaSiEstaEnRango(){
+     void testPiezaAtacaOtraPiezaRestaVidaSiEstaEnRango(){
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,2);
@@ -168,7 +168,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testPiezaNoAtacaOtraPiezaSiNoEstaEnRango(){
+     void testPiezaNoAtacaOtraPiezaSiNoEstaEnRango(){
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,10);
@@ -185,7 +185,7 @@ class PiezaTest {
 
     // Quitarse vida (Hacerse daño)
     @Test
-    public void testPiezaRojaQuitarVidaQuitaDañoMultiplicadoPorUnoEnCasilleroRojo(){
+     void testPiezaRojaQuitarVidaQuitaDaniooMultiplicadoPorUnoEnCasilleroRojo(){
         Tablero tablero = new Tablero();
         Posicion posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
         Casillero casillero = tablero.casilleroEn(posicionRojo);
@@ -197,7 +197,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testPiezaRojaQuitarVidaHastaLlegarACeroEnCasilleroRojo(){
+     void testPiezaRojaQuitarVidaHastaLlegarACeroEnCasilleroRojo(){
         Tablero tablero = new Tablero();
         Posicion posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
         Casillero casillero = tablero.casilleroEn(posicionRojo);
@@ -212,7 +212,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testPiezaRojaQuitarVidaHastaLlegarACeroEnCasilleroAzul(){
+     void testPiezaRojaQuitarVidaHastaLlegarACeroEnCasilleroAzul(){
         Tablero tablero = new Tablero();
         Posicion posicionRojo = new Posicion(11,11); // Posicion de equipo azul.
         Casillero casillero = tablero.casilleroEn(posicionRojo);
@@ -227,7 +227,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testPiezaRojaQuitarVidaQuitaDañoMultiplicadoPorCincoEnCasilleroAzul(){
+     void testPiezaRojaQuitarVidaQuitaDanioMultiplicadoPorCincoEnCasilleroAzul(){
         Tablero tablero = new Tablero();
         Posicion posicionRojo = new Posicion(11,11); // Posicion de equipo azul.
         Casillero casillero = tablero.casilleroEn(posicionRojo);
@@ -239,7 +239,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testPiezaAzulQuitaVidaMultiplicandoDañoPorCincoCuandoEstaEnCasilleroDeMismoEquipo(){
+     void testPiezaAzulQuitaVidaMultiplicandoDanioPorCincoCuandoEstaEnCasilleroDeMismoEquipo(){
         Tablero tablero = new Tablero();
         Posicion posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
         Casillero casillero = tablero.casilleroEn(posicionRojo);
@@ -251,14 +251,14 @@ class PiezaTest {
     }
 
     @Test
-    public void testPiezaRestaVidaEn40(){
+     void testPiezaRestaVidaEn40(){
         Soldado soldado1 = new Soldado(new EquipoRojo());
         soldado1.hacerseDanio(40);
         assertEquals(60,soldado1.vida());
     }
 
     @Test
-    public void testPiezaRestaVidaEn60(){
+     void testPiezaRestaVidaEn60(){
         Soldado soldado1 = new Soldado(new EquipoRojo());
         soldado1.hacerseDanio(60);
 
@@ -266,7 +266,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testPiezaLlegaA0DeVida(){
+     void testPiezaLlegaA0DeVida(){
         Soldado soldado1 = new Soldado(new EquipoRojo());
         soldado1.hacerseDanio(100);
 
@@ -274,7 +274,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testPiezaAlQuitarleVidaDeMasNoBajaDe0(){
+     void testPiezaAlQuitarleVidaDeMasNoBajaDe0(){
         Soldado soldado1 = new Soldado(new EquipoRojo());
         soldado1.hacerseDanio(100);
         soldado1.hacerseDanio(100);
@@ -285,7 +285,7 @@ class PiezaTest {
 
     // Mover
     @Test
-    public void testMovibleSeMueveEnDireccionNorte(){
+     void testMovibleSeMueveEnDireccionNorte(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(5,6);
@@ -297,7 +297,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testMovibleSeMueveEnDireccionSur(){
+     void testMovibleSeMueveEnDireccionSur(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(5,4);
@@ -308,7 +308,7 @@ class PiezaTest {
         assertEquals(p2,soldado.posicion());
     }
     @Test
-    public void testMovibleSeMueveEnDireccionEste(){
+     void testMovibleSeMueveEnDireccionEste(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(6,5);
@@ -320,7 +320,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testMovibleSeMueveEnDireccionOeste(){
+     void testMovibleSeMueveEnDireccionOeste(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,5);
@@ -332,7 +332,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testMovibleSeMueveEnDireccionNoreste(){
+     void testMovibleSeMueveEnDireccionNoreste(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(6,6);
@@ -344,7 +344,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testMovibleSeMueveEnDireccionNoroeste(){
+     void testMovibleSeMueveEnDireccionNoroeste(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,6);
@@ -356,7 +356,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testMovibleSeMueveEnDireccionSureste(){
+     void testMovibleSeMueveEnDireccionSureste(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(6,4);
@@ -368,7 +368,7 @@ class PiezaTest {
     }
 
     @Test
-    public void testMovibleSeMueveEnDireccionSuroeste(){
+     void testMovibleSeMueveEnDireccionSuroeste(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,4);

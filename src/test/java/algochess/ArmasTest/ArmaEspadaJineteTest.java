@@ -1,49 +1,44 @@
 package algochess.ArmasTest;
 
-import algochess.Armas.Arma;
-import algochess.Armas.ArmaEspadaJinete;
-import algochess.Equipos.EquipoRojo;
-import algochess.Piezas.Pieza;
-import algochess.Piezas.Soldado;
-import algochess.Ubicacion.Casillero;
-import algochess.Ubicacion.Posicion;
-import algochess.Ubicacion.Tablero;
+import algochess.armas.Arma;
+import algochess.armas.ArmaEspadaJinete;
+import algochess.equipos.EquipoRojo;
+import algochess.piezas.Pieza;
+import algochess.piezas.Soldado;
+import algochess.ubicacion.Posicion;
+import algochess.ubicacion.Tablero;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ArmaEspadaJineteTest {
-    private Tablero tablero;
-    private Posicion posicionRojo;
-    private Casillero casillero;
     private Pieza soldado;
     private Arma arma;
 
     @BeforeEach
-    public void init() {
-        tablero = new Tablero();
-        posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
-        casillero = tablero.casilleroEn(posicionRojo);
+    void init() {
+        Tablero tablero = new Tablero();
+        Posicion posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
         soldado = new Soldado(new EquipoRojo());
-        soldado.asignarCasillero(casillero);
+        tablero.ubicar(soldado,posicionRojo);
         arma = new ArmaEspadaJinete();
     }
 
     @Test
-    public void testAtacarAPiezaADistanciaMayorNoDisminuyeVida(){
+    void testAtacarAPiezaADistanciaMayorNoDisminuyeVida(){
         arma.atacarA(soldado,3);
         assertEquals(100,soldado.vida());
     }
 
     @Test
-    public void testAtacarAPiezaADistanciaMenorDisminuyeVida(){
+    void testAtacarAPiezaADistanciaMenorDisminuyeVida(){
         arma.atacarA(soldado,1);
         assertEquals(95,soldado.vida());
     }
 
     @Test
-    public void testAtacarAPiezaADistanciaCorrectaNoDisminuyeVidaMenorACero(){
+    void testAtacarAPiezaADistanciaCorrectaNoDisminuyeVidaMenorACero(){
         arma.atacarA(soldado,1);
         arma.atacarA(soldado,1); //90
         arma.atacarA(soldado,1);

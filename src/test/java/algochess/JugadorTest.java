@@ -1,19 +1,18 @@
 package algochess;
 
-import algochess.Equipos.Equipo;
-import algochess.Equipos.EquipoAzul;
-import algochess.Equipos.EquipoRojo;
-import algochess.Piezas.Catapulta;
-import algochess.Piezas.Jinete;
-import algochess.Piezas.Soldado;
-import algochess.Ubicacion.Tablero;
+import algochess.equipos.Equipo;
+import algochess.equipos.EquipoRojo;
+import algochess.piezas.Catapulta;
+import algochess.piezas.Jinete;
+import algochess.piezas.Soldado;
+import algochess.ubicacion.Tablero;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class JugadorTest {
 
     @Test
-    public void comprarSoldadoSeCompraCorrectamente()  {
+     void comprarSoldadoSeCompraCorrectamente()  {
         Equipo bando = new EquipoRojo();
         Tablero tablero = new Tablero();
         Jugador nuevoJugador = new Jugador("camila",bando,tablero);
@@ -22,7 +21,7 @@ class JugadorTest {
     }
 
     @Test
-    public void comprarJineteSeCompraCorrectamente(){
+     void comprarJineteSeCompraCorrectamente(){
         Equipo bando = new EquipoRojo();
         Tablero tablero = new Tablero();
         Jugador nuevoJugador = new Jugador("camila",bando,tablero);
@@ -31,7 +30,7 @@ class JugadorTest {
 
     }
     @Test
-    public void comprarCatapultaSeCompraCorrectamente(){
+     void comprarCatapultaSeCompraCorrectamente(){
         Equipo bando = new EquipoRojo();
         Tablero tablero = new Tablero();
         Jugador nuevoJugador = new Jugador("camila",bando,tablero);
@@ -41,7 +40,7 @@ class JugadorTest {
     }
 
     @Test
-    public void comprarCuranderoSeCompraCorrectamente(){
+     void comprarCuranderoSeCompraCorrectamente(){
         Equipo bando = new EquipoRojo();
         Tablero tablero = new Tablero();
         Jugador nuevoJugador = new Jugador("camila",bando,tablero);
@@ -52,7 +51,7 @@ class JugadorTest {
 
 
     @Test
-    public void testJugadorNoEsPerdedorSiTienePiezasConVida(){
+     void testJugadorNoEsPerdedorSiTienePiezasConVida(){
         Equipo bando = new EquipoRojo();
         Tablero tablero = new Tablero();
         Jugador jugador = new Jugador("juan",bando,tablero);
@@ -68,7 +67,7 @@ class JugadorTest {
     }
 
     @Test
-    public void testJugadorEsPerdedorCuandoTodasSusPiezasSeQuedaronSinVida(){
+     void testJugadorEsPerdedorCuandoTodasSusPiezasSeQuedaronSinVida(){
         Equipo bando = new EquipoRojo();
         Tablero tablero = new Tablero();
         Jugador jugador = new Jugador("juan",bando,tablero);

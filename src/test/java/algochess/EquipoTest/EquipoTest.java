@@ -1,10 +1,10 @@
 package algochess.EquipoTest;
 
-import algochess.Equipos.EquipoAzul;
-import algochess.Equipos.Equipo;
-import algochess.Equipos.EquipoRojo;
-import algochess.Piezas.Pieza;
-import algochess.Piezas.Soldado;
+import algochess.equipos.EquipoAzul;
+import algochess.equipos.Equipo;
+import algochess.equipos.EquipoRojo;
+import algochess.piezas.Pieza;
+import algochess.piezas.Soldado;
 import excepciones.CasilleroEnemigoException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -55,27 +55,22 @@ class EquipoTest {
     @Test
     void testEquipoNoDevuelvePiezaSiPerteneceADiferenteEquipo() {
         Pieza pieza = new Soldado(new EquipoAzul()) ;
-
         assertThrows(CasilleroEnemigoException.class, ()-> rojo.ubicarCon(azul, pieza));
     }
 
     @Test
     void testEquipoRojoNoEsAliadoDeEquipoAzul(){
-        assertEquals(false,rojo.soyAliado(azul));
+        assertFalse(rojo.soyAliado(azul));
     }
 
     @Test
     void testEquipoAzulNoEsAliadoDeEquipoRojo(){
-        assertEquals(false,azul.soyAliado(rojo));
+        assertFalse(azul.soyAliado(rojo));
     }
 
     @Test
-    void testEquipoAzulEsAliadoDeEquipoAzul(){
-        assertEquals(true,azul.soyAliado(azul));
-    }
+    void testEquipoAzulEsAliadoDeEquipoAzul(){ assertTrue(azul.soyAliado(azul)); }
 
     @Test
-    void testEquipoRojoEsAliadoDeEquipoRojo(){
-        assertEquals(true,rojo.soyAliado(rojo));
-    }
+    void testEquipoRojoEsAliadoDeEquipoRojo(){ assertTrue(rojo.soyAliado(rojo)); }
 }

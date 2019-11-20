@@ -1,22 +1,22 @@
 package algochess.PiezasTest;
 
-import algochess.Equipos.EquipoAzul;
-import algochess.Equipos.EquipoRojo;
-import algochess.Piezas.Batallon;
-import algochess.Piezas.Jinete;
-import algochess.Piezas.Pieza;
-import algochess.Piezas.Soldado;
-import algochess.Ubicacion.Direccion;
-import algochess.Ubicacion.Posicion;
-import algochess.Ubicacion.Tablero;
+import algochess.equipos.EquipoAzul;
+import algochess.equipos.EquipoRojo;
+import algochess.piezas.Batallon;
+import algochess.piezas.Jinete;
+import algochess.piezas.Pieza;
+import algochess.piezas.Soldado;
+import algochess.ubicacion.Direccion;
+import algochess.ubicacion.Posicion;
+import algochess.ubicacion.Tablero;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BatallonTest {
+class BatallonTest {
 
     @Test
-    public void testCrearBatallon(){
+    void testCrearBatallon(){
         Soldado capitan = new Soldado(new EquipoAzul());
         Batallon batallon = new Batallon(capitan);
 
@@ -24,7 +24,7 @@ public class BatallonTest {
     }
 
     @Test
-    public void testEnlistar(){
+    void testEnlistar(){
         Soldado capitan = new Soldado(new EquipoAzul());
         Batallon batallon = new Batallon(capitan);
         Soldado soldado = new Soldado(new EquipoAzul());
@@ -34,7 +34,7 @@ public class BatallonTest {
     }
 
     @Test
-    public void testMoverNoSeEjecutaSiElBatallonNoEsSuficientementeGrande() {
+    void testMoverNoSeEjecutaSiElBatallonNoEsSuficientementeGrande() {
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Soldado capitan = new Soldado(new EquipoRojo());
@@ -55,7 +55,7 @@ public class BatallonTest {
     }
 
     @Test
-    public void testMoverNoSeEjecutaSiUnSoldadoSeAlejo() {
+    void testMoverNoSeEjecutaSiUnSoldadoSeAlejo() {
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Soldado capitan = new Soldado(new EquipoRojo());
@@ -77,7 +77,7 @@ public class BatallonTest {
     }
 
     @Test
-    public void testMoverBatallonSinObstaculos() {
+    void testMoverBatallonSinObstaculos() {
         Tablero tablero = new Tablero();
         Posicion posicionInicial1 = new Posicion(1, 1);
         Posicion posicionFinal1 = new Posicion(1, 2);
@@ -105,7 +105,7 @@ public class BatallonTest {
     }
 
     @Test
-    public void testMoverBatallonSeObstaculizanEntre2deEllos() {
+    void testMoverBatallonSeObstaculizanEntre2deEllos() {
         Tablero tablero = new Tablero();
         Posicion posicionInicial1 = new Posicion(1, 1);
         Posicion posicionFinal1 = new Posicion(1, 2);
@@ -132,7 +132,7 @@ public class BatallonTest {
     }
 
     @Test
-    public void testMoverBatallonSeObstaculizanEntre3deEllos() {
+    void testMoverBatallonSeObstaculizanEntre3deEllos() {
         Tablero tablero = new Tablero();
         Posicion posicionInicial1 = new Posicion(1, 1);
         Soldado soldado1 = new Soldado(new EquipoRojo());
@@ -159,7 +159,7 @@ public class BatallonTest {
     }
 
     @Test
-    public void testMoverBatallonConUnObstaculoExterno() {
+    void testMoverBatallonConUnObstaculoExterno() {
         Tablero tablero = new Tablero();
         Posicion posicionInicial1 = new Posicion(1, 1);
         Posicion posicionFinal1 = new Posicion(1, 2);
@@ -192,7 +192,7 @@ public class BatallonTest {
     }
 
     @Test
-    public void testMoverBatallonConObstaculoInternoYExterno() {
+    void testMoverBatallonConObstaculoInternoYExterno() {
         Tablero tablero = new Tablero();
         Posicion posicionInicial1 = new Posicion(1, 1);
         Posicion posicionFinal1 = new Posicion(1, 2);

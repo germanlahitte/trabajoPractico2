@@ -1,7 +1,7 @@
 package algochess;
 
-import algochess.Equipos.Equipo;
-import algochess.Equipos.EquipoRojo;
+import algochess.equipos.Equipo;
+import algochess.equipos.EquipoRojo;
 import excepciones.NoAlcanzanLasMonedasException;
 import org.junit.jupiter.api.Test;
 

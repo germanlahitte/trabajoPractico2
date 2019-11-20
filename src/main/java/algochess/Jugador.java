@@ -1,8 +1,8 @@
 package algochess;
 
-import algochess.Equipos.Equipo;
-import algochess.Piezas.*;
-import algochess.Ubicacion.Tablero;
+import algochess.equipos.Equipo;
+import algochess.piezas.*;
+import algochess.ubicacion.Tablero;
 
 import java.util.ArrayList;
 import java.util.Iterator;

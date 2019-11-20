@@ -1,30 +1,30 @@
 package algochess.ArmasTest;
 
-import algochess.Armas.Rango;
+import algochess.armas.Rango;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class RangoTest {
+class RangoTest {
 
 
     // Rango cercano
     @Test
-    public void testRangoCercanoDevuelveTrueSiLaDistanciaEsUno() {
+    void testRangoCercanoDevuelveTrueSiLaDistanciaEsUno() {
 
         Rango rango = Rango.cercano();
         assertTrue(rango.enRango(1));
     }
 
     @Test
-    public void testRangoCercanoDevuelveTrueSiLaDistanciaEsDos() {
+    void testRangoCercanoDevuelveTrueSiLaDistanciaEsDos() {
 
         Rango rango = Rango.cercano();
         assertTrue(rango.enRango(2));
     }
     @Test
-    public void testRangoCercanoDevuelveFalseSiLaDistanciaEsTresOMas() {
+    void testRangoCercanoDevuelveFalseSiLaDistanciaEsTresOMas() {
 
         Rango rango = Rango.cercano();
         assertFalse(rango.enRango(3));
@@ -32,41 +32,41 @@ public class RangoTest {
 
     // Rango mediano
     @Test
-    public void testRangoMedianoDevuelveTrueSiLaDistanciaEsTres() {
+    void testRangoMedianoDevuelveTrueSiLaDistanciaEsTres() {
 
         Rango rango = Rango.mediano();
         assertTrue(rango.enRango(3));
     }
     @Test
-    public void testRangoMedianoDevuelveTrueSiLaDistanciaEsCuatro() {
+    void testRangoMedianoDevuelveTrueSiLaDistanciaEsCuatro() {
 
         Rango rango = Rango.mediano();
         assertTrue(rango.enRango(4));
     }
 
     @Test
-    public void testRangoMedianoDevuelveTrueSiLaDistanciaEsCinco() {
+    void testRangoMedianoDevuelveTrueSiLaDistanciaEsCinco() {
 
         Rango rango = Rango.mediano();
         assertTrue(rango.enRango(5));
     }
 
     @Test
-    public void testRangoMedianoDevuelveFalseSiLaDistanciaEsUno() {
+    void testRangoMedianoDevuelveFalseSiLaDistanciaEsUno() {
 
         Rango rango = Rango.mediano();
         assertFalse(rango.enRango(1));
     }
 
     @Test
-    public void testRangoMedianoDevuelveFalseSiLaDistanciaEsDos() {
+    void testRangoMedianoDevuelveFalseSiLaDistanciaEsDos() {
 
         Rango rango = Rango.mediano();
         assertFalse(rango.enRango(2));
     }
 
     @Test
-    public void testRangoMedianoDevuelveFalseSiLaDistanciaEsSeis() {
+    void testRangoMedianoDevuelveFalseSiLaDistanciaEsSeis() {
 
         Rango rango = Rango.mediano();
         assertFalse(rango.enRango(6));
@@ -74,28 +74,28 @@ public class RangoTest {
 
     // Rango lejano
     @Test
-    public void testRangoLeganoDevuelveTrueSiLaDistanciaEsSeis() {
+    void testRangoLeganoDevuelveTrueSiLaDistanciaEsSeis() {
 
         Rango rango = Rango.lejano();
         assertTrue(rango.enRango(6));
     }
 
     @Test
-    public void testRangoLeganoDevuelveTrueSiLaDistanciaEsOcho() {
+    void testRangoLeganoDevuelveTrueSiLaDistanciaEsOcho() {
 
         Rango rango = Rango.lejano();
         assertTrue(rango.enRango(8));
     }
 
     @Test
-    public void testRangoLeganoDevuelveFalseSiLaDistanciaEsUno() {
+    void testRangoLeganoDevuelveFalseSiLaDistanciaEsUno() {
 
         Rango rango = Rango.lejano();
         assertFalse(rango.enRango(1));
     }
 
     @Test
-    public void testRangoLeganoDevuelveFalseSiLaDistanciaEsMenorASeis() {
+    void testRangoLeganoDevuelveFalseSiLaDistanciaEsMenorASeis() {
 
         Rango rango = Rango.lejano();
         assertFalse(rango.enRango(4));

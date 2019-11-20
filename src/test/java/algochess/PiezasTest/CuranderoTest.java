@@ -1,24 +1,23 @@
 package algochess.PiezasTest;
 
-import algochess.Equipos.EquipoAzul;
-import algochess.Equipos.EquipoRojo;
-import algochess.Piezas.*;
-import algochess.Ubicacion.Casillero;
-import algochess.Ubicacion.Posicion;
-import algochess.Ubicacion.Tablero;
+import algochess.equipos.EquipoAzul;
+import algochess.equipos.EquipoRojo;
+import algochess.piezas.*;
+import algochess.ubicacion.Posicion;
+import algochess.ubicacion.Tablero;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CuranderoTest {
+class CuranderoTest {
 
     @Test
-    public void testCuranderoSeCreaConVidaCorrecta() {
+    void testCuranderoSeCreaConVidaCorrecta() {
         Pieza pieza = new Curandero(new EquipoAzul());
         assertEquals(75, pieza.vida());
     }
 
     @Test
-    public void testCuranderoCura15DeVidaAOtraPiezaEnRango() {
+    void testCuranderoCura15DeVidaAOtraPiezaEnRango() {
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,2);
@@ -34,7 +33,7 @@ public class CuranderoTest {
     }
 
     @Test
-    public void testCuranderoNoCuraACatapultaEnRango() {
+    void testCuranderoNoCuraACatapultaEnRango() {
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,2);
@@ -49,7 +48,7 @@ public class CuranderoTest {
     }
 
     @Test
-    public void testCuranderoNoCuraAUnEnemigo(){
+    void testCuranderoNoCuraAUnEnemigo(){
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(10,11);

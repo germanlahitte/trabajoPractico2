@@ -1,125 +1,125 @@
 package algochess.UbicacionTest;
 
-import algochess.Ubicacion.Direccion;
-import algochess.Ubicacion.Posicion;
+import algochess.ubicacion.Direccion;
+import algochess.ubicacion.Posicion;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DireccionTest {
 
     @Test
-    public void testDireccionDevuelveDireccionNorte() {
+     void testDireccionDevuelveDireccionNorte() {
         Direccion norte = Direccion.norte();
         assertEquals(norte.getHorizontal(), 0);
         assertEquals(norte.getVertical(), 1);
     }
 
     @Test
-    public void direccionDevuelveDireccionSur() {
+     void direccionDevuelveDireccionSur() {
         Direccion norte = Direccion.sur();
         assertEquals(norte.getHorizontal(), 0);
         assertEquals(norte.getVertical(), -1);
     }
 
     @Test
-    public void direccionDevuelveDireccionEste() {
+     void direccionDevuelveDireccionEste() {
         Direccion norte = Direccion.este();
         assertEquals(norte.getHorizontal(), 1);
         assertEquals(norte.getVertical(), 0);
     }
     @Test
-    public void direccionDevuelveDireccionOeste() {
+     void direccionDevuelveDireccionOeste() {
         Direccion norte = Direccion.oeste();
         assertEquals(norte.getHorizontal(), -1);
         assertEquals(norte.getVertical(), 0);
     }
 
     @Test
-    public void direccionDevuelveDireccionNoreste() {
+     void direccionDevuelveDireccionNoreste() {
         Direccion norte = Direccion.norEste();
         assertEquals(norte.getHorizontal(), 1);
         assertEquals(norte.getVertical(), 1);
     }
 
     @Test
-    public void direccionDevuelveDireccionNoroeste() {
+     void direccionDevuelveDireccionNoroeste() {
         Direccion norte = Direccion.norOeste();
         assertEquals(norte.getHorizontal(), -1);
         assertEquals(norte.getVertical(), 1);
     }
 
     @Test
-    public void direccionDevuelveDireccionSureste() {
+     void direccionDevuelveDireccionSureste() {
         Direccion norte = Direccion.surEste();
         assertEquals(norte.getHorizontal(), 1);
         assertEquals(norte.getVertical(), -1);
     }
 
     @Test
-    public void direccionDevuelveDireccionSuroeste() {
+     void direccionDevuelveDireccionSuroeste() {
         Direccion norte = Direccion.surOeste();
         assertEquals(norte.getHorizontal(), -1);
         assertEquals(norte.getVertical(), -1);
     }
 
     @Test
-    public void testProximaPosicionEnNorteTieneDistanciaUnoALaPrimera() {
+     void testProximaPosicionEnNorteTieneDistanciaUnoALaPrimera() {
         Posicion posicion = new Posicion(1, 1);
         Posicion nuevaPosicion = Direccion.norte().proximaPosicion(posicion);
         assertEquals(nuevaPosicion.distanciaA(posicion), 1);
     }
 
     @Test
-    public void testProximaPosicionEnSurTieneDistanciaUnoALaPrimera() {
+     void testProximaPosicionEnSurTieneDistanciaUnoALaPrimera() {
         Posicion posicion = new Posicion(1, 1);
         Posicion nuevaPosicion = Direccion.sur().proximaPosicion(posicion);
         assertEquals(nuevaPosicion.distanciaA(posicion), 1);
     }
 
     @Test
-    public void testProximaPosicionEnEsteTieneDistanciaUnoALaPrimera() {
+     void testProximaPosicionEnEsteTieneDistanciaUnoALaPrimera() {
         Posicion posicion = new Posicion(1, 1);
         Posicion nuevaPosicion = Direccion.este().proximaPosicion(posicion);
         assertEquals(nuevaPosicion.distanciaA(posicion), 1);
     }
 
     @Test
-    public void testProximaPosicionEnOesteTieneDistanciaUnoALaPrimera() {
+     void testProximaPosicionEnOesteTieneDistanciaUnoALaPrimera() {
         Posicion posicion = new Posicion(1, 1);
         Posicion nuevaPosicion = Direccion.oeste().proximaPosicion(posicion);
         assertEquals(nuevaPosicion.distanciaA(posicion), 1);
     }
 
     @Test
-    public void testProximaPosicionEnNoresteTieneDistanciaUnoALaPrimera() {
+     void testProximaPosicionEnNoresteTieneDistanciaUnoALaPrimera() {
         Posicion posicion = new Posicion(1, 1);
         Posicion nuevaPosicion = Direccion.norEste().proximaPosicion(posicion);
         assertEquals(nuevaPosicion.distanciaA(posicion), 1);
     }
 
     @Test
-    public void testProximaPosicionEnNoroesteTieneDistanciaUnoALaPrimera() {
+     void testProximaPosicionEnNoroesteTieneDistanciaUnoALaPrimera() {
         Posicion posicion = new Posicion(1, 1);
         Posicion nuevaPosicion = Direccion.norOeste().proximaPosicion(posicion);
         assertEquals(nuevaPosicion.distanciaA(posicion), 1);
     }
 
     @Test
-    public void testProximaPosicionEnSuroesteTieneDistanciaUnoALaPrimera() {
+     void testProximaPosicionEnSuroesteTieneDistanciaUnoALaPrimera() {
         Posicion posicion = new Posicion(1, 1);
         Posicion nuevaPosicion = Direccion.surOeste().proximaPosicion(posicion);
         assertEquals(nuevaPosicion.distanciaA(posicion), 1);
     }
 
     @Test
-    public void testProximaPosicionEnSuresteTieneDistanciaUnoALaPrimera() {
+     void testProximaPosicionEnSuresteTieneDistanciaUnoALaPrimera() {
         Posicion posicion = new Posicion(1, 1);
         Posicion nuevaPosicion = Direccion.surEste().proximaPosicion(posicion);
         assertEquals(nuevaPosicion.distanciaA(posicion), 1);
     }
 
     @Test
-    public void testProximaPosicionEnNorteDevuelvePosicionCorrecta() {
+     void testProximaPosicionEnNorteDevuelvePosicionCorrecta() {
         Posicion posicion = new Posicion(1, 1);
         Posicion posicionNorte = Direccion.norte().proximaPosicion(posicion);
         assertEquals(posicionNorte.getVertical(),posicion.getVertical()+1);
@@ -128,7 +128,7 @@ class DireccionTest {
     }
 
     @Test
-    public void testProximaPosicionEnSurDevuelvePosicionCorrecta() {
+     void testProximaPosicionEnSurDevuelvePosicionCorrecta() {
         Posicion posicion = new Posicion(1, 1);
         Posicion posicionNorte = Direccion.sur().proximaPosicion(posicion);
         assertEquals(posicionNorte.getVertical(),posicion.getVertical()-1);
@@ -137,7 +137,7 @@ class DireccionTest {
     }
 
     @Test
-    public void testProximaPosicionEnEsteDevuelvePosicionCorrecta() {
+     void testProximaPosicionEnEsteDevuelvePosicionCorrecta() {
         Posicion posicion = new Posicion(1, 1);
         Posicion posicionNorte = Direccion.este().proximaPosicion(posicion);
         assertEquals(posicionNorte.getVertical(),posicion.getVertical());
@@ -146,7 +146,7 @@ class DireccionTest {
     }
 
     @Test
-    public void testProximaPosicionEnOesteDevuelvePosicionCorrecta() {
+     void testProximaPosicionEnOesteDevuelvePosicionCorrecta() {
         Posicion posicion = new Posicion(1, 1);
         Posicion posicionNorte = Direccion.oeste().proximaPosicion(posicion);
         assertEquals(posicionNorte.getVertical(),posicion.getVertical());
@@ -154,7 +154,7 @@ class DireccionTest {
     }
 
     @Test
-    public void testProximaPosicionEnNoresteDevuelvePosicionCorrecta() {
+     void testProximaPosicionEnNoresteDevuelvePosicionCorrecta() {
         Posicion posicion = new Posicion(1, 1);
         Posicion posicionNorte = Direccion.norEste().proximaPosicion(posicion);
         assertEquals(posicionNorte.getVertical(),posicion.getVertical()+1);
@@ -162,7 +162,7 @@ class DireccionTest {
     }
 
     @Test
-    public void testProximaPosicionEnNoroesteDevuelvePosicionCorrecta() {
+     void testProximaPosicionEnNoroesteDevuelvePosicionCorrecta() {
         Posicion posicion = new Posicion(1, 1);
         Posicion posicionNorte = Direccion.norOeste().proximaPosicion(posicion);
         assertEquals(posicionNorte.getVertical(),posicion.getVertical()+1);
@@ -170,7 +170,7 @@ class DireccionTest {
     }
 
     @Test
-    public void testProximaPosicionEnSuresteDevuelvePosicionCorrecta() {
+     void testProximaPosicionEnSuresteDevuelvePosicionCorrecta() {
         Posicion posicion = new Posicion(1, 1);
         Posicion posicionNorte = Direccion.surEste().proximaPosicion(posicion);
         assertEquals(posicionNorte.getVertical(),posicion.getVertical()-1);
@@ -178,7 +178,7 @@ class DireccionTest {
     }
 
     @Test
-    public void testProximaPosicionEnSuroesteDevuelvePosicionCorrecta() {
+     void testProximaPosicionEnSuroesteDevuelvePosicionCorrecta() {
         Posicion posicion = new Posicion(1, 1);
         Posicion posicionNorte = Direccion.surOeste().proximaPosicion(posicion);
         assertEquals(posicionNorte.getVertical(),posicion.getVertical()-1);

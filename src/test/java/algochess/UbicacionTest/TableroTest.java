@@ -1,15 +1,15 @@
 package algochess.UbicacionTest;
 
-import algochess.Equipos.EquipoAzul;
-import algochess.Equipos.EquipoRojo;
-import algochess.Piezas.Curandero;
-import algochess.Piezas.Jinete;
-import algochess.Piezas.Pieza;
-import algochess.Piezas.Soldado;
-import algochess.Ubicacion.Casillero;
-import algochess.Ubicacion.Direccion;
-import algochess.Ubicacion.Posicion;
-import algochess.Ubicacion.Tablero;
+import algochess.equipos.EquipoAzul;
+import algochess.equipos.EquipoRojo;
+import algochess.piezas.Curandero;
+import algochess.piezas.Jinete;
+import algochess.piezas.Pieza;
+import algochess.piezas.Soldado;
+import algochess.ubicacion.Casillero;
+import algochess.ubicacion.Direccion;
+import algochess.ubicacion.Posicion;
+import algochess.ubicacion.Tablero;
 import excepciones.CasilleroEnemigoException;
 import excepciones.CasilleroOcupadoException;
 import org.junit.jupiter.api.Test;
@@ -21,7 +21,7 @@ class TableroTest {
 
     // Test ubicacion de pieza
     @Test
-    public void TestTableroAceptaPiezaEnCasilleroDesocupadoYDeMismoEquipo(){
+    void TestTableroAceptaPiezaEnCasilleroDesocupadoYDeMismoEquipo(){
         Tablero tablero = new Tablero();
         Pieza pieza = new Soldado(new EquipoRojo());
         pieza.asignarCasillero(new Casillero(new Posicion(1,1), new EquipoAzul()));
@@ -31,7 +31,7 @@ class TableroTest {
     }
 
     @Test
-    public void TestTableroNoAceptaPiezaEnCasilleroDesocupadoYDeDiferenteEquipo(){
+    void TestTableroNoAceptaPiezaEnCasilleroDesocupadoYDeDiferenteEquipo(){
         Tablero tablero = new Tablero();
         Pieza pieza = new Soldado(new EquipoRojo());
         Posicion posicion = new Posicion (12,12);
@@ -40,7 +40,7 @@ class TableroTest {
     }
 
     @Test
-    public void TestTableroNoAceptaPiezaEnCasilleroSiYaEstaOcupado(){
+    void TestTableroNoAceptaPiezaEnCasilleroSiYaEstaOcupado(){
         Tablero tablero = new Tablero();
         Pieza pieza = new Soldado(new EquipoRojo());
         Pieza pieza2 = new Soldado(new EquipoRojo());
@@ -52,7 +52,7 @@ class TableroTest {
 
     // Obtener casillero en X posicion
     @Test
-    public void testTableroDevuelveCasilleroDeLaPosicionElegida(){
+    void testTableroDevuelveCasilleroDeLaPosicionElegida(){
         Tablero tablero = new Tablero();
         Posicion posicion = new Posicion (3,3);
         Casillero casillero = tablero.casilleroEn(posicion);
@@ -61,17 +61,17 @@ class TableroTest {
     }
 
     @Test
-    public void testTableroDevuelveNullSiLaPosicionEsIncorrecta(){
+    void testTableroDevuelveNullSiLaPosicionEsIncorrecta(){
         Tablero tablero = new Tablero();
         Posicion posicion = new Posicion (30,30);
 
-        assertEquals(null,tablero.casilleroEn(posicion));
+        assertNull(tablero.casilleroEn(posicion));
     }
 
     // Test Movimientos de pieza
     // Mover
     @Test
-    public void testTableroRecibeSoldadoYLoMueveEnDireccionNorte(){
+    void testTableroRecibeSoldadoYLoMueveEnDireccionNorte(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(5,6);
@@ -83,7 +83,7 @@ class TableroTest {
     }
 
     @Test
-    public void testTableroRecibeSoldadoYLoMueveEnDireccionSur(){
+    void testTableroRecibeSoldadoYLoMueveEnDireccionSur(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(5,6);
@@ -94,7 +94,7 @@ class TableroTest {
         assertEquals(p1,soldado.posicion());
     }
     @Test
-    public void testTableroRecibeSoldadoYLoMueveEnDireccionEste(){
+    void testTableroRecibeSoldadoYLoMueveEnDireccionEste(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(6,5);
@@ -106,7 +106,7 @@ class TableroTest {
     }
 
     @Test
-    public void testTableroRecibeSoldadoYLoMueveEnDireccionOeste(){
+    void testTableroRecibeSoldadoYLoMueveEnDireccionOeste(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,5);
@@ -118,7 +118,7 @@ class TableroTest {
     }
 
     @Test
-    public void testTableroRecibeSoldadoYLoMueveEnDireccionNoreste(){
+    void testTableroRecibeSoldadoYLoMueveEnDireccionNoreste(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(6,6);
@@ -130,7 +130,7 @@ class TableroTest {
     }
 
     @Test
-    public void testTableroRecibeSoldadoYLoMueveEnDireccionNoroeste(){
+    void testTableroRecibeSoldadoYLoMueveEnDireccionNoroeste(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,6);
@@ -142,7 +142,7 @@ class TableroTest {
     }
 
     @Test
-    public void testTableroRecibeSoldadoYLoMueveEnDireccionSureste(){
+    void testTableroRecibeSoldadoYLoMueveEnDireccionSureste(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(6,4);
@@ -154,7 +154,7 @@ class TableroTest {
     }
 
     @Test
-    public void testTableroRecibeSoldadoYLoMueveEnDireccionSuroeste(){
+    void testTableroRecibeSoldadoYLoMueveEnDireccionSuroeste(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,4);
@@ -166,7 +166,7 @@ class TableroTest {
     }
 
     @Test
-    public void testTableroRecibeCuranderoYLoMueve(){
+    void testTableroRecibeCuranderoYLoMueve(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,4);
@@ -178,7 +178,7 @@ class TableroTest {
     }
 
     @Test
-    public void testTableroRecibeJineteYLoMueve(){
+    void testTableroRecibeJineteYLoMueve(){
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,4);

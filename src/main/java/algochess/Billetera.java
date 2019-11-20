@@ -1,6 +1,6 @@
 package algochess;
-import algochess.Equipos.Equipo;
-import algochess.Piezas.*;
+import algochess.equipos.Equipo;
+import algochess.piezas.*;
 
 import excepciones.NoAlcanzanLasMonedasException;
 
@@ -13,7 +13,7 @@ public class Billetera {
     }
 
     public Soldado comprarSoldado(Equipo bando){
-        int costoPieza = Soldado.getCosto();
+        int costoPieza = ProveedorConstantes.costoSoldado();
 
         if(costoPieza > this.puntosDisponibles){
             throw new NoAlcanzanLasMonedasException("No alcanzan las monedas para realizar la compra");
@@ -25,7 +25,7 @@ public class Billetera {
     }
 
     public Jinete comprarJinete(Equipo bando){
-        int costoPieza = Jinete.getCosto();
+        int costoPieza = ProveedorConstantes.costoJinete();
 
         if(costoPieza > this.puntosDisponibles){
             throw new NoAlcanzanLasMonedasException("No alcanzan las monedas para realizar la compra");
@@ -37,7 +37,7 @@ public class Billetera {
     }
 
     public Curandero comprarCurandero(Equipo bando){
-        int costoPieza = Curandero.getCosto();
+        int costoPieza = ProveedorConstantes.costoCurandero();
 
         if(costoPieza > this.puntosDisponibles){
             throw new NoAlcanzanLasMonedasException("No alcanzan las monedas para realizar la compra");
@@ -49,7 +49,7 @@ public class Billetera {
     }
 
     public Catapulta comprarCatapulta(Equipo bando){
-        int costoPieza = Catapulta.getCosto();
+        int costoPieza = ProveedorConstantes.costoCatapulta();
 
         if(costoPieza > this.puntosDisponibles){
             throw new NoAlcanzanLasMonedasException("No alcanzan las monedas para realizar la compra");

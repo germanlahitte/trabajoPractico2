@@ -1,33 +1,31 @@
 package algochess.ArmasTest;
 
-import algochess.Armas.Arma;
-import algochess.Armas.ArmaCurandero;
-import algochess.Equipos.EquipoRojo;
-import algochess.Piezas.Pieza;
-import algochess.Piezas.Soldado;
-import algochess.Ubicacion.Posicion;
-import algochess.Ubicacion.Tablero;
+import algochess.armas.Arma;
+import algochess.armas.ArmaCurandero;
+import algochess.equipos.EquipoRojo;
+import algochess.piezas.Pieza;
+import algochess.piezas.Soldado;
+import algochess.ubicacion.Posicion;
+import algochess.ubicacion.Tablero;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ArmaCuranderoTest {
-    private Tablero tablero;
-    private Posicion posicionRojo;
     private Pieza soldado;
     private Arma armaCurandero;
 
     @BeforeEach
-    public void init() {
-        tablero = new Tablero();
-        posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
+    void init() {
+        Tablero tablero = new Tablero();
+        Posicion posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
         soldado = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado,posicionRojo);
         armaCurandero = new ArmaCurandero();
     }
 
     @Test
-    public void testAtacarAPiezaADistanciaMayorNoAumentaVida(){
+    void testAtacarAPiezaADistanciaMayorNoAumentaVida(){
         soldado.hacerseDanio(30);
 
         armaCurandero.atacarA(soldado,3);
@@ -35,13 +33,13 @@ class ArmaCuranderoTest {
     }
 
     @Test
-    public void testAtacarAPiezaADistanciaCorrectaConTodaLaVidaNoAumentaVida(){
+    void testAtacarAPiezaADistanciaCorrectaConTodaLaVidaNoAumentaVida(){
         armaCurandero.atacarA(soldado,1);
         assertEquals(100,soldado.vida());
     }
 
     @Test
-    public void testAtacarAPiezaADistanciaCorrectaSinVidaNoAumentaVida(){
+    void testAtacarAPiezaADistanciaCorrectaSinVidaNoAumentaVida(){
         soldado.hacerseDanio(200);
 
         armaCurandero.atacarA(soldado,1);
@@ -49,7 +47,7 @@ class ArmaCuranderoTest {
     }
 
     @Test
-    public void testAtacarAPiezaConPocaVidaADistanciaCorrectaAumentaVida(){
+    void testAtacarAPiezaConPocaVidaADistanciaCorrectaAumentaVida(){
         soldado.hacerseDanio(70);
 
         armaCurandero.atacarA(soldado,1);
@@ -57,7 +55,7 @@ class ArmaCuranderoTest {
     }
 
     @Test
-    public void testAtacarAPiezaADistanciaCorrectaAumentaVidaComoMaximo100(){
+    void testAtacarAPiezaADistanciaCorrectaAumentaVidaComoMaximo100(){
         soldado.hacerseDanio(20);
 
         armaCurandero.atacarA(soldado,1);

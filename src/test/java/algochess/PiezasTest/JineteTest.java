@@ -1,26 +1,25 @@
 package algochess.PiezasTest;
 
-import algochess.Equipos.EquipoAzul;
-import algochess.Equipos.EquipoRojo;
-import algochess.Piezas.Jinete;
-import algochess.Piezas.Pieza;
-import algochess.Ubicacion.Casillero;
-import algochess.Ubicacion.Posicion;
-import algochess.Ubicacion.Tablero;
+import algochess.equipos.EquipoAzul;
+import algochess.equipos.EquipoRojo;
+import algochess.piezas.Jinete;
+import algochess.piezas.Pieza;
+import algochess.ubicacion.Posicion;
+import algochess.ubicacion.Tablero;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class JineteTest {
+class JineteTest {
 
     @Test
-    public void testJineteSeCreaConVidaCorrecta() {
+    void testJineteSeCreaConVidaCorrecta() {
         Pieza pieza = new Jinete(new EquipoAzul());
         assertEquals(100, pieza.vida());
     }
 
     @Test
-    public void testJineteHace15DeDañoAOtraPiezaEnRangoConArco() {
+    void testJineteHace15DeDanioAOtraPiezaEnRangoConArco() {
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(10,14);
@@ -34,7 +33,7 @@ public class JineteTest {
     }
 
     @Test
-    public void testJineteHace5DeDañoAOtraPiezaEnRangoConEspada() {
+    void testJineteHace5DeDanioAOtraPiezaEnRangoConEspada() {
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(10,11);
@@ -48,7 +47,7 @@ public class JineteTest {
     }
 
     @Test
-    public void testUnJineteSinAliadosCercaYUnEnemigoCercaAtacaConEspada(){
+    void testUnJineteSinAliadosCercaYUnEnemigoCercaAtacaConEspada(){
         Tablero tablero = new Tablero();
         Posicion posicionRoja = new Posicion(10,10);
         Posicion posicionAzul = new Posicion(10,11);
@@ -62,7 +61,7 @@ public class JineteTest {
     }
 
     @Test //EXPRESAMENTE SOLICITADO PARA LA ENTREGA
-    public void testUnJineteSinAliadosCercaYUnEnemigoEnDistanciaCortaYUnoEnLargoNoPuedeAtacarAlLejano(){
+    void testUnJineteSinAliadosCercaYUnEnemigoEnDistanciaCortaYUnoEnLargoNoPuedeAtacarAlLejano(){
         Tablero tablero = new Tablero();
         Posicion posicionRoja = new Posicion(10,10);
         Posicion posicionAzulCercana = new Posicion(10,11);
@@ -79,7 +78,7 @@ public class JineteTest {
     }
 
     @Test //EXPRESAMENTE SOLICITADO PARA LA ENTREGA
-    public void testUnJineteSinAliadosCercaYUnEnemigoEnDistanciaCortaYUnoEnLargoPuedeAtacarAlCercano(){
+    void testUnJineteSinAliadosCercaYUnEnemigoEnDistanciaCortaYUnoEnLargoPuedeAtacarAlCercano(){
         Tablero tablero = new Tablero();
         Posicion posicionRoja = new Posicion(10,10);
         Posicion posicionAzulCercana = new Posicion(10,11);
@@ -96,7 +95,7 @@ public class JineteTest {
     }
 
     @Test
-    public void testUnJineteConAliadosCercaYUnEnemigoEnDistanciaCortaYUnoEnLargoNoPuedeAtacarAlCercano(){
+    void testUnJineteConAliadosCercaYUnEnemigoEnDistanciaCortaYUnoEnLargoNoPuedeAtacarAlCercano(){
         Tablero tablero = new Tablero();
         Posicion posicionRoja = new Posicion(10,10);
         Posicion posicionRojaCercana = new Posicion(9,10);
@@ -116,7 +115,7 @@ public class JineteTest {
     }
 
     @Test
-    public void testUnJineteConAliadosCercaYUnEnemigoEnDistanciaCortaYUnoEnLargoPuedeAtacarAlLejano(){
+    void testUnJineteConAliadosCercaYUnEnemigoEnDistanciaCortaYUnoEnLargoPuedeAtacarAlLejano(){
         Tablero tablero = new Tablero();
         Posicion posicionRoja = new Posicion(10,10);
         Posicion posicionRojaCercana = new Posicion(9,10);

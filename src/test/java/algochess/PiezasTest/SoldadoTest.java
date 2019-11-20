@@ -1,25 +1,25 @@
 package algochess.PiezasTest;
 
-import algochess.Equipos.EquipoAzul;
-import algochess.Equipos.EquipoRojo;
-import algochess.Piezas.Pieza;
-import algochess.Piezas.Soldado;
-import algochess.Ubicacion.Casillero;
-import algochess.Ubicacion.Posicion;
-import algochess.Ubicacion.Tablero;
+import algochess.equipos.EquipoAzul;
+import algochess.equipos.EquipoRojo;
+import algochess.piezas.Pieza;
+import algochess.piezas.Soldado;
+import algochess.ubicacion.Casillero;
+import algochess.ubicacion.Posicion;
+import algochess.ubicacion.Tablero;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SoldadoTest {
+ class SoldadoTest {
 
     @Test
-    public void testSoldadoSeCreaConVidaCorrecta() {
+     void testSoldadoSeCreaConVidaCorrecta() {
         Pieza pieza = new Soldado(new EquipoAzul());
         assertEquals(100, pieza.vida());
     }
 
     @Test
-    public void testSoldadoHace10DeDañoAOtraPiezaEnRango() {
+     void testSoldadoHace10DeDanioAOtraPiezaEnRango() {
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,2);

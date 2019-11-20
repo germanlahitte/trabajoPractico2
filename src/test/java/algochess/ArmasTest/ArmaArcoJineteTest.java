@@ -1,26 +1,26 @@
 package algochess.ArmasTest;
-import algochess.Armas.Arma;
-import algochess.Armas.ArmaArcoJinete;
-import algochess.Equipos.EquipoRojo;
-import algochess.Piezas.Pieza;
-import algochess.Piezas.Soldado;
-import algochess.Ubicacion.Casillero;
-import algochess.Ubicacion.Posicion;
-import algochess.Ubicacion.Tablero;
+import algochess.armas.Arma;
+import algochess.armas.ArmaArcoJinete;
+import algochess.equipos.EquipoRojo;
+import algochess.piezas.Pieza;
+import algochess.piezas.Soldado;
+import algochess.ubicacion.Casillero;
+import algochess.ubicacion.Posicion;
+import algochess.ubicacion.Tablero;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ArmaArcoJineteTest {
+class ArmaArcoJineteTest {
 
 
     private Pieza soldado;
     private Arma arma;
 
     @BeforeEach
-    private void executedBeforeEach() {
+    void executedBeforeEach() {
 
         Tablero tablero = new Tablero();
         Posicion posicionRojo = new Posicion(1,1); // Posicion de equipo rojo.
@@ -31,7 +31,7 @@ public class ArmaArcoJineteTest {
     }
 
     @Test
-    public void testAtacarAPiezaADistanciaMayorNoDisminuyeVida(){
+    void testAtacarAPiezaADistanciaMayorNoDisminuyeVida(){
         arma = new ArmaArcoJinete();
         arma.atacarA(soldado,6);
 
@@ -40,7 +40,7 @@ public class ArmaArcoJineteTest {
     }
 
     @Test
-    public void testAtacarAPiezaADistanciaMenorNoDisminuyeVida(){
+    void testAtacarAPiezaADistanciaMenorNoDisminuyeVida(){
         arma = new ArmaArcoJinete();
         arma.atacarA(soldado,1);
 
@@ -50,7 +50,7 @@ public class ArmaArcoJineteTest {
 
 
     @Test
-    public void testAtacarAPiezaADistanciaCorrectaDisminuyeVida(){
+    void testAtacarAPiezaADistanciaCorrectaDisminuyeVida(){
         arma = new ArmaArcoJinete();
         arma.atacarA(soldado,3);
 
@@ -58,7 +58,7 @@ public class ArmaArcoJineteTest {
     }
 
     @Test
-    public void testAtacarAPiezaADistanciaCorrectaNoDisminuyeVidaMenorACero(){
+    void testAtacarAPiezaADistanciaCorrectaNoDisminuyeVidaMenorACero(){
         arma = new ArmaArcoJinete();
         arma.atacarA(soldado,3);
         arma.atacarA(soldado,3);
