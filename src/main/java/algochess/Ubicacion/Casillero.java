@@ -3,6 +3,9 @@ package algochess.Ubicacion;
 import algochess.Equipos.Equipo;
 import algochess.Piezas.Batallon;
 import algochess.Piezas.Pieza;
+import algochess.Ubicacion.StrategyAlcanzado.StrategyAlcanzado;
+import algochess.Ubicacion.StrategyAlcanzado.StrategyNoQuemado;
+import algochess.Ubicacion.StrategyAlcanzado.StrategyQuemado;
 import algochess.Ubicacion.StrategyDisponibilidad.StrategyDisponibilidad;
 import algochess.Ubicacion.StrategyDisponibilidad.StrategyLibre;
 import algochess.Ubicacion.StrategyDisponibilidad.StrategyOcupado;
@@ -15,12 +18,14 @@ public class Casillero {
     private Posicion posicion;
     private Equipo equipo;
     private StrategyDisponibilidad disponibilidad;
+    private StrategyAlcanzado alcanzado;
     private Pieza pieza;
     private Tablero tablero;
 
     public Casillero(Posicion posicion,Equipo equipo  ){
         this.posicion = posicion;
         this.equipo = equipo;
+        this.noQuemado();
         this.desocupar();
     }
 
@@ -83,7 +88,7 @@ public class Casillero {
 
     public Pieza getPieza() { return this.pieza; }
 
-    public ArrayList<Casillero> vecinos(){
+    private ArrayList<Casillero> vecinos(){
         ArrayList<Casillero> vecinos = new ArrayList<>();
         ArrayList<Direccion> direcciones = new ArrayList<>();
         direcciones.add(Direccion.norte());
@@ -108,5 +113,47 @@ public class Casillero {
                 piezasVecinas.add(vecino.getPieza());
             }
         return piezasVecinas;
+    }
+
+    public ArrayList<Casillero> casilleroVecinosOcupados(){
+        ArrayList<Pieza> piezasVecinas = this.piezasVecinas();
+        ArrayList<Casillero> casillerosVecinos = new ArrayList<>();
+        for(Pieza pieza:piezasVecinas){
+            casillerosVecinos.add(pieza.casillero());
+        }
+        return casillerosVecinos;
+    }
+
+    public void bombardeo(int danio) {
+        this.alcanzado.quemar(danio,this);
+    }
+
+    public void quemar(int danio) {
+        this.disponibilidad.quemar(danio,this);
+    }
+
+    public void propagar(int danio) {
+        this.quemado();
+        ArrayList<Casillero> vecinos = this.casilleroVecinosOcupados();
+        for(Casillero vecino:vecinos){
+            vecino.bombardeo(danio);
+        }
+    }
+
+    public void altoElFuego() {
+       this.tablero.altoElFuego();
+        /*this.alcanzado.altoElFuego(this);
+        ArrayList<Casillero> vecinos = this.casilleroVecinosOcupados();
+        for(Casillero vecino:vecinos){
+           vecino.altoElFuego();
+        }*/
+    }
+
+    public void noQuemado() {
+        this.alcanzado = new StrategyNoQuemado();
+    }
+
+    public void quemado(){
+        this.alcanzado = new StrategyQuemado();
     }
 }

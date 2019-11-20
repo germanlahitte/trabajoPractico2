@@ -21,7 +21,7 @@ public class CatapultaTest {
     @Test
     public void testCatapultaHace20DeDañoAOtraPiezaEnRango() {
         Tablero tablero = new Tablero();
-        Posicion posicion1 = new Posicion(1,1);
+        Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(1,12);
         Catapulta catapultaRoja = new Catapulta(new EquipoRojo());
         Catapulta catapultaAzul = new Catapulta(new EquipoAzul());
