@@ -58,4 +58,24 @@ class EquipoTest {
 
         assertThrows(CasilleroEnemigoException.class, ()-> rojo.ubicarCon(azul, pieza));
     }
+
+    @Test
+    void testEquipoRojoNoEsAliadoDeEquipoAzul(){
+        assertEquals(false,rojo.soyAliado(azul));
+    }
+
+    @Test
+    void testEquipoAzulNoEsAliadoDeEquipoRojo(){
+        assertEquals(false,azul.soyAliado(rojo));
+    }
+
+    @Test
+    void testEquipoAzulEsAliadoDeEquipoAzul(){
+        assertEquals(true,azul.soyAliado(azul));
+    }
+
+    @Test
+    void testEquipoRojoEsAliadoDeEquipoRojo(){
+        assertEquals(true,rojo.soyAliado(rojo));
+    }
 }

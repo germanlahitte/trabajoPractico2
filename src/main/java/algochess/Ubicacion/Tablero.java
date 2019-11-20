@@ -4,6 +4,7 @@ import algochess.Equipos.EquipoAzul;
 import algochess.Equipos.Equipo;
 import algochess.Equipos.EquipoRojo;
 import algochess.FactoryConstantes;
+import algochess.Piezas.Alambrado;
 import algochess.Piezas.Movible;
 import algochess.Piezas.Pieza;
 
@@ -14,12 +15,13 @@ public class Tablero {
     private static int lado = FactoryConstantes.ladoDelTablero();
     private static int desplazamientoMaximo = FactoryConstantes.desplazamientoMaximo();
     private HashMap<Posicion, Casillero> posiciones;
+    private Equipo bandoRojo = new EquipoRojo();
+    private Equipo bandoAzul = new EquipoAzul();
 
     public Tablero() {
         this.posiciones = new HashMap<Posicion, Casillero>();
 
         for (int vertical = 1; vertical <= (lado / 2); vertical++) {
-            Equipo bandoRojo = new EquipoRojo();
             for (int horizontal = 1; horizontal <= lado; horizontal++) {
                 Posicion nuevaPosicion = new Posicion(horizontal, vertical);
                 Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoRojo );
@@ -29,7 +31,6 @@ public class Tablero {
         }
 
         for (int vertical = (lado / 2) + 1; vertical <= lado; vertical++) {
-            Equipo bandoAzul = new EquipoAzul();
             for (int horizontal = 1; horizontal <= lado; horizontal++) {
                 Posicion nuevaPosicion = new Posicion(horizontal, vertical);
                 Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoAzul);
@@ -37,10 +38,43 @@ public class Tablero {
                 posiciones.put(nuevaPosicion, nuevoCasillero);
             }
         }
+
+        this.limitar();
+
+    }
+
+    private void limitar() {
+        for (int horizontal = 0; horizontal <= lado; horizontal++){
+            Posicion nuevoLimiteSur = new Posicion(horizontal,0);
+            Casillero casilleroLimiteSur = new Casillero(nuevoLimiteSur,bandoRojo);
+            casilleroLimiteSur.agregarTablero(this);
+            posiciones.put(nuevoLimiteSur,casilleroLimiteSur);
+            casilleroLimiteSur.asignarPieza(new Alambrado(casilleroLimiteSur,bandoRojo));
+
+            Posicion nuevoLimiteNorte = new Posicion(horizontal,21);
+            Casillero casilleroLimiteNorte = new Casillero(nuevoLimiteNorte,bandoRojo);
+            casilleroLimiteNorte.agregarTablero(this);
+            posiciones.put(nuevoLimiteNorte,casilleroLimiteNorte);
+            casilleroLimiteNorte.asignarPieza(new Alambrado(casilleroLimiteNorte,bandoRojo));
+        }
+        for (int vertical = 1; vertical <= lado; vertical++){
+            Posicion nuevoLimiteOeste = new Posicion(0,vertical);
+            Casillero casilleroLimiteOeste = new Casillero(nuevoLimiteOeste,bandoAzul);
+            casilleroLimiteOeste.agregarTablero(this);
+            posiciones.put(nuevoLimiteOeste,casilleroLimiteOeste);
+            casilleroLimiteOeste.asignarPieza(new Alambrado(casilleroLimiteOeste,bandoAzul));
+
+            Posicion nuevoLimiteEste = new Posicion(21,vertical);
+            Casillero casilleroLimiteEste = new Casillero(nuevoLimiteEste,bandoAzul);
+            casilleroLimiteEste.agregarTablero(this);
+            posiciones.put(nuevoLimiteEste,casilleroLimiteEste);
+            casilleroLimiteEste.asignarPieza(new Alambrado(casilleroLimiteEste,bandoAzul));
+        }
+
     }
 
 
-   // Ubicar piezas
+    // Ubicar piezas
     public void ubicar(Pieza estaPieza, Posicion posicion) {
         this.casilleroEn(posicion).ubicar(estaPieza);
     }
@@ -54,4 +88,9 @@ public class Tablero {
     public void mover(Movible movible, Direccion direccion) {
         movible.mover(direccion);
         }
+
+    public void altoElFuego() {
+        posiciones.forEach((k,v) -> v.noQuemado());
+        this.limitar();
+    }
 }

@@ -5,6 +5,7 @@ import algochess.Piezas.*;
 import algochess.Ubicacion.Tablero;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Jugador {
     private static int credito = 20;
@@ -13,7 +14,7 @@ public class Jugador {
     private Billetera billetera;
     private Tablero tablero;
     private ArrayList<Pieza> piezas;
-    private Boolean ganador;
+    //private Boolean perdedor;
 
     public Jugador(String nombre, Equipo bando, Tablero tablero) {
         this.nombre = nombre;
@@ -21,7 +22,7 @@ public class Jugador {
         this.billetera = new Billetera(credito);
         this.tablero = tablero;
         this.piezas = new ArrayList<Pieza>();
-        this.ganador = false;
+        //this.perdedor = false;
     }
 
     public Equipo getEquipo() {
@@ -51,11 +52,19 @@ public class Jugador {
        this.agregarPieza(curanderoNuevo);
     }
 
+    //metodo usado para test
     public int getCantidadDePiezas() {
         return this.piezas.size();
     }
 
-    /*public boolean esGanador(){
-        return this.ganador;
-    }*/
+    //Si un jugador se quedo sin piezas es perdedor
+    public boolean esPerdedor(){
+        Iterator<Pieza> iteradorPiezas = piezas.iterator();
+        while(iteradorPiezas.hasNext()){
+            if(iteradorPiezas.next().vida()==0){
+                iteradorPiezas.remove();
+            }
+        }
+        return (piezas.size() ==0);
+    }
 }

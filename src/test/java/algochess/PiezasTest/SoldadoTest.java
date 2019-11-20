@@ -33,4 +33,5 @@ public class SoldadoTest {
 
         assertEquals(90,pieza2.vida());
     }
+
 }

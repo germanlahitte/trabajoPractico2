@@ -22,33 +22,45 @@ public class CuranderoTest {
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,2);
-        Pieza pieza = new Curandero(new EquipoAzul());
-        Pieza pieza2 = new Curandero(new EquipoRojo());
-        Casillero casillero1 = tablero.casilleroEn(posicion1);
-        Casillero casillero2 = tablero.casilleroEn(posicion2);
-        pieza.asignarCasillero(casillero1);
-        pieza2.asignarCasillero(casillero2);
-        pieza2.hacerseDanio(30);
+        Curandero curanderoRojo = new Curandero(new EquipoRojo());
+        Pieza piezaRoja = new Soldado(new EquipoRojo());
+        tablero.ubicar(curanderoRojo,posicion1);
+        tablero.ubicar(piezaRoja,posicion2);
 
-        pieza.atacar(pieza2);
-        assertEquals(60,pieza2.vida());
+        piezaRoja.hacerseDanio(30);
+
+        curanderoRojo.atacar(piezaRoja);
+        assertEquals(85,piezaRoja.vida());
     }
 
     @Test
     public void testCuranderoNoCuraACatapultaEnRango() {
-
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,2);
-        Pieza pieza = new Curandero(new EquipoAzul());
-        Pieza pieza2 = new Catapulta(new EquipoAzul());
-        Casillero casillero1 = tablero.casilleroEn(posicion1);
-        Casillero casillero2 = tablero.casilleroEn(posicion2);
-        pieza.asignarCasillero(casillero1);
-        pieza2.asignarCasillero(casillero2);
-        pieza2.hacerseDanio(20);
+        Curandero curandero = new Curandero(new EquipoRojo());
+        Catapulta catapulta = new Catapulta(new EquipoRojo());
+        tablero.ubicar(curandero,posicion1);
+        tablero.ubicar(catapulta,posicion2);
+        catapulta.hacerseDanio(20);
 
-        pieza.atacar(pieza2);
-        assertEquals(30,pieza2.vida());
+        curandero.atacar(catapulta);
+        assertEquals(30,catapulta.vida());
+    }
+
+    @Test
+    public void testCuranderoNoCuraAUnEnemigo(){
+        Tablero tablero = new Tablero();
+        Posicion posicion1 = new Posicion(10,10);
+        Posicion posicion2 = new Posicion(10,11);
+        Curandero curanderoRojo = new Curandero(new EquipoRojo());
+        Pieza piezaAzul = new Soldado(new EquipoAzul());
+        tablero.ubicar(curanderoRojo,posicion1);
+        tablero.ubicar(piezaAzul,posicion2);
+
+        piezaAzul.hacerseDanio(70);
+
+        curanderoRojo.atacar(piezaAzul);
+        assertEquals(30,piezaAzul.vida());
     }
 }

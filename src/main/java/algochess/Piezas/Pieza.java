@@ -4,7 +4,7 @@ import algochess.Armas.*;
 import algochess.Ubicacion.*;
 import algochess.Equipos.*;
 
-public abstract class Pieza { //TODO :falta
+public abstract class Pieza {
 
    private Vida vida;
    protected Equipo equipo;
@@ -32,44 +32,53 @@ public abstract class Pieza { //TODO :falta
         arma.atacarA(this, casillero.distanciaA(this.casillero));
     }
     public void atacar(Pieza pieza){
-        pieza.atacadaDesde(this.casillero,this.arma);
+        if(!pieza.soyAliado(this.equipo))
+            pieza.atacadaDesde(this.casillero,this.arma);
     }
 
     //  Vida
+    public float vida(){
+        return this.vida.vida();
+    }
     public void quitarVida(double danio){
         this.hacerseDanio(this.casillero.calcularDanio(equipo) * danio);
     }
     public void hacerseDanio(double  danio){
         this.vida.restarVida(danio);
         }
-    public float vida(){
-        return this.vida.vida();
-    }
     public void curarse(float vida){
         this.vida.curarVida(vida);
     }
 
 
-    // Desocupa casillero
-    public void desocuparCasillero(){
-        this.casillero.desocupar();
-    }
+    public void desocuparCasillero(){ this.casillero.desocupar(); }
 
     // Ocupa casillero
     public void ocuparCasillero(Casillero casillero){
-        this.desocuparCasillero();
-        this.casillero = casillero;
+        if(this.casillero!=null)
+            this.desocuparCasillero();
+        asignarCasillero(casillero);
     }
+
     public void asignarCasillero(Casillero casillero){
         this.casillero = casillero;
     }
-
 
     // Posicion para tests
     public Posicion posicion(){
         return this.casillero.posicion();
     }
 
+    // Implementar o lanzar NoSoyUnSoldadoExcepcion
+    public void enlistarse(Equipo equipoDeUnSoldado, Soldado capitan) { }
+
+    public void enlistar(Pieza pieza) { }
+
+    public Casillero casillero() { return this.casillero; }
+
+    public boolean soyAliado(Equipo equipo) {return equipo.soyAliado(this.equipo);}
+
+    public void escoltar(Jinete unJinete) { }
 }
 
 

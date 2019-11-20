@@ -289,9 +289,8 @@ class PiezaTest {
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(5,6);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.norte());
 
         assertEquals(p2,soldado.posicion());
@@ -302,9 +301,8 @@ class PiezaTest {
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(5,4);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.sur());
 
         assertEquals(p2,soldado.posicion());
@@ -314,9 +312,8 @@ class PiezaTest {
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(6,5);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.este());
 
         assertEquals(p2,soldado.posicion());
@@ -327,9 +324,8 @@ class PiezaTest {
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,5);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.oeste());
 
         assertEquals(p2,soldado.posicion());
@@ -340,9 +336,8 @@ class PiezaTest {
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(6,6);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.norEste());
 
         assertEquals(p2,soldado.posicion());
@@ -353,9 +348,8 @@ class PiezaTest {
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,6);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.norOeste());
 
         assertEquals(p2,soldado.posicion());
@@ -366,9 +360,8 @@ class PiezaTest {
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(6,4);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.surEste());
 
         assertEquals(p2,soldado.posicion());
@@ -379,9 +372,8 @@ class PiezaTest {
         Tablero tablero = new Tablero();
         Posicion p1 = new Posicion(5,5);
         Posicion p2 = new Posicion(4,4);
-        Casillero casillero = new Casillero(p1,tablero);
-        Soldado soldado = new Soldado(new EquipoAzul()) ;
-        soldado.asignarCasillero(casillero);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.surOeste());
 
         assertEquals(p2,soldado.posicion());

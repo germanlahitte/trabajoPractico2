@@ -9,4 +9,5 @@ public class StrategyLibre implements StrategyDisponibilidad {
         casillero.asignarPieza(pieza);
     }
 
+    public void quemar(int danio, Casillero unCasillero) { }
 }

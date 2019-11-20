@@ -15,6 +15,7 @@ public class FactoryConstantes {
     private static int VIDA_JINETE = 100;
     private static int VIDA_CATAPULTA = 50;
     private static int VIDA_CURANDERO = 75;
+    private static int VIDA_ALAMBRADO = 0;
 
     public static int ladoDelTablero() { return LADO_DEL_TABLERO; }
     public static int desplazamientoMaximo() { return DESPLAZAMIENTO_MAXIMO; }
@@ -48,6 +49,7 @@ public class FactoryConstantes {
     public static int vidaCurandero() {
         return VIDA_CURANDERO;
     }
+    public static int vidaAlambrado() { return VIDA_ALAMBRADO; }
 
 }
 

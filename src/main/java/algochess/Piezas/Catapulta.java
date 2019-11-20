@@ -14,10 +14,8 @@ public class Catapulta extends Pieza {
 
     public static int getCosto() { return costo; }
 
-
     @Override
-    public void curarse(float vida){
+    public void curarse(float vida){ }
 
-    }
 }
 
