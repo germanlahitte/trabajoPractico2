@@ -10,7 +10,6 @@ public class Batallon implements Movible {
 
     private Soldado capitan;
     private ArrayList<Pieza> tropa;
-    private ArrayList<Pieza> esperanOrden;
     private ArrayList<Pieza> yaMovieron;
 
     public Batallon(Soldado soldado){
@@ -30,8 +29,7 @@ public class Batallon implements Movible {
         if(!enMarcha()) {
             romperFilas();
         } else {
-           this.esperanOrden = tropa;
-           moverRestantes(enDireccion);
+            moverRestantes(enDireccion);
         }
     }
 
@@ -45,14 +43,10 @@ public class Batallon implements Movible {
     }
 
     private void moverRestantes(Direccion enDireccion){
-        Iterator<Pieza> iterador = esperanOrden.iterator();
-
-        while(iterador.hasNext()) {
-            Soldado soldado = (Soldado)iterador.next();
+        for(Pieza soldado:tropa){
             try {
-                iterador.remove();
                 if(!yaMovieron.contains(soldado)) {
-                    soldado.mover(enDireccion, this);
+                    ((Soldado)soldado).mover(enDireccion,this);
                     yaMovieron.add(soldado);
                 }
             } catch (CasilleroOcupadoException ocupado) {
@@ -71,7 +65,6 @@ public class Batallon implements Movible {
     private void romperFilas(){
         this.tropa = new ArrayList<>();
         enlistar(capitan);
-        this.esperanOrden = tropa;
         this.yaMovieron = new ArrayList<>();
     }
 }
