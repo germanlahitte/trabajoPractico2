@@ -47,4 +47,20 @@ public class CuranderoTest {
         curandero.atacar(catapulta);
         assertEquals(30,catapulta.vida());
     }
+
+    @Test
+    public void testCuranderoNoCuraAUnEnemigo(){
+        Tablero tablero = new Tablero();
+        Posicion posicion1 = new Posicion(10,10);
+        Posicion posicion2 = new Posicion(10,11);
+        Curandero curanderoRojo = new Curandero(new EquipoRojo());
+        Pieza piezaAzul = new Soldado(new EquipoAzul());
+        tablero.ubicar(curanderoRojo,posicion1);
+        tablero.ubicar(piezaAzul,posicion2);
+
+        piezaAzul.hacerseDanio(70);
+
+        curanderoRojo.atacar(piezaAzul);
+        assertEquals(30,piezaAzul.vida());
+    }
 }

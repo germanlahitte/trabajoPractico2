@@ -32,7 +32,8 @@ public abstract class Pieza {
         arma.atacarA(this, casillero.distanciaA(this.casillero));
     }
     public void atacar(Pieza pieza){
-        pieza.atacadaDesde(this.casillero,this.arma);
+        if(!pieza.soyAliado(this.equipo))
+            pieza.atacadaDesde(this.casillero,this.arma);
     }
 
     //  Vida
