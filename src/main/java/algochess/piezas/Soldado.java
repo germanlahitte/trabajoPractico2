@@ -33,8 +33,8 @@ public class Soldado extends Pieza implements Movible{
         this.batallon.enlistar(soldado);
     }
 
-    void mover(Direccion direccion, Batallon batallon) {
-        this.casillero.siguiente(direccion).agregarPieza(this, batallon,direccion);
+    void mover(Direccion enDireccion, Batallon enBatallon) {
+        this.casillero.siguiente(enDireccion).agregarPieza(this, enBatallon,enDireccion);
     }
 
     public void escoltar(Jinete unJinete){ unJinete.equiparArco(); }

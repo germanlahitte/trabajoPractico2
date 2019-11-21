@@ -16,7 +16,6 @@ public abstract class Pieza {
         this.equipo = equipo;
     }
 
-
     // Se ubica en el mapa
     public Pieza ubicarCon(Equipo equipo){
         return this.equipo.ubicarCon(equipo,this);

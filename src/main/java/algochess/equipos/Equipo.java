@@ -2,8 +2,7 @@ package algochess.equipos;
 
 import algochess.piezas.Pieza;
 
-public interface  Equipo { //2 implementaciones
-
+public interface  Equipo {
 
     double  atacar(Equipo equipo);
     double  atacar(EquipoRojo equipo);

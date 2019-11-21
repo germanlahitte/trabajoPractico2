@@ -44,6 +44,14 @@ public class Casillero {
         this.disponibilidad.agregarPieza(pieza,this);
     }
 
+    public void agregarPieza(Pieza soldado, Batallon batallon, Direccion direccion) {
+        try {
+            this.disponibilidad.agregarPieza(soldado, this);
+        } catch (CasilleroOcupadoException ocupado) {
+            batallon.moverOtra(this.pieza,soldado,direccion);
+        }
+    }
+
     // asigna pieza y desocupa
     public void asignarPieza(Pieza pieza){
         this.pieza = pieza;
@@ -60,6 +68,7 @@ public class Casillero {
     public Casillero siguiente(Direccion enDireccion){
         return this.tablero.casilleroEn(this.posicion.siguiente(enDireccion));
     }
+
     public int distanciaA(Casillero casillero){
        return casillero.distanciaA(this.posicion);
     }
@@ -67,15 +76,6 @@ public class Casillero {
         return posicion.distanciaA(this.posicion);
     }
     public Posicion posicion(){return this.posicion;}
-
-    public void agregarPieza(Pieza soldado, Batallon batallon, Direccion direccion) {
-        try {
-            this.disponibilidad.agregarPieza(soldado, this);
-        } catch (CasilleroOcupadoException ocupado) {
-            batallon.moverOtra(this.pieza,soldado,direccion);
-        }
-    }
-
     public Pieza getPieza() { return this.pieza; }
 
     private ArrayList<Casillero> vecinos(){
