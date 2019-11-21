@@ -184,4 +184,44 @@ class TableroTest {
         assertEquals(p2,jinete.posicion());
     }
 
+    @Test
+    void testTableroTieneLimiteSur() {
+        Tablero tablero = new Tablero();
+
+        for (int i = 0; i <= 21; i++) {
+            Posicion p0 = new Posicion(i, 0);
+            assertEquals(Alambrado.class, tablero.casilleroEn(p0).getPieza().getClass());
+        }
+    }
+
+    @Test
+    void testTableroTieneLimiteOeste() {
+        Tablero tablero = new Tablero();
+
+        for (int i = 0; i <= 21; i++) {
+            Posicion p0 = new Posicion(0, i);
+            assertEquals(Alambrado.class, tablero.casilleroEn(p0).getPieza().getClass());
+        }
+    }
+
+    @Test
+    void testTableroTieneLimiteNorte() {
+        Tablero tablero = new Tablero();
+
+        for (int i = 0; i <= 21; i++) {
+            Posicion p0 = new Posicion(i, 21);
+            assertEquals(Alambrado.class, tablero.casilleroEn(p0).getPieza().getClass());
+        }
+    }
+
+    @Test
+    void testTableroTieneLimiteEste() {
+        Tablero tablero = new Tablero();
+
+        for(int i=0;i<=21;i++) {
+            Posicion p0 = new Posicion(21, i);
+            assertEquals(Alambrado.class, tablero.casilleroEn(p0).getPieza().getClass());
+        }
+    }
+
 }
