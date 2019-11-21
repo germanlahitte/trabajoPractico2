@@ -57,7 +57,7 @@ class ArmaCatapultaTest {
     }
 
     @Test
-    void testPropagarDanio(){
+    void testAtaquePropagaDanioAPiezasContiguas(){
         Soldado soldadoRojo = new Soldado (new EquipoRojo());
         Posicion posicionRojo = new Posicion(11,10); // Posicion de equipo rojo.
         Soldado soldadoAzul = new Soldado(new EquipoAzul());
