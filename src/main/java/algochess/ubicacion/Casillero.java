@@ -99,7 +99,7 @@ public class Casillero {
         ArrayList<Casillero> vecinos = this.vecinos();
         ArrayList<Pieza> piezasVecinas = new ArrayList<>();
         for(Casillero vecino:vecinos)
-            if (!(null == vecino.getPieza())) {
+            if (null != vecino.getPieza()) {
                 piezasVecinas.add(vecino.getPieza());
             }
         return piezasVecinas;
