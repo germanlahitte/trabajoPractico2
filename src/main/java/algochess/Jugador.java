@@ -14,15 +14,15 @@ public class Jugador {
     private Billetera billetera;
     private Tablero tablero;
     private ArrayList<Pieza> piezas;
-    //private Boolean perdedor;
+
 
     public Jugador(String nombre, Equipo bando, Tablero tablero) {
         this.nombre = nombre;
         this.bando = bando;
         this.billetera = new Billetera(credito);
         this.tablero = tablero;
-        this.piezas = new ArrayList<Pieza>();
-        //this.perdedor = false;
+        this.piezas = new ArrayList<>();
+
     }
 
     public Equipo getEquipo() {
@@ -59,12 +59,7 @@ public class Jugador {
 
     //Si un jugador se quedo sin piezas es perdedor
     public boolean esPerdedor(){
-        Iterator<Pieza> iteradorPiezas = piezas.iterator();
-        while(iteradorPiezas.hasNext()){
-            if(iteradorPiezas.next().vida()==0){
-                iteradorPiezas.remove();
-            }
-        }
+        piezas.removeIf(pieza -> pieza.vida() == 0);
         return (piezas.size() ==0);
     }
 }

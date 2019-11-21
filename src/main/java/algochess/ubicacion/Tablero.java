@@ -83,7 +83,7 @@ public class Tablero {
         }
 
     void altoElFuego() {
-        posiciones.forEach((k,v) -> v.noQuemado());
+        posiciones.forEach((posicion,casillero) -> casillero.noQuemado());
         this.limitar();
     }
 }

@@ -105,7 +105,7 @@ public class Casillero {
         return piezasVecinas;
     }
 
-    private ArrayList<Casillero> casilleroVecinosOcupados(){
+    private ArrayList<Casillero> casillerosVecinosOcupados(){
         ArrayList<Pieza> piezasVecinas = this.piezasVecinas();
         ArrayList<Casillero> casillerosVecinos = new ArrayList<>();
         for(Pieza pieza:piezasVecinas){
@@ -124,7 +124,7 @@ public class Casillero {
 
     public void propagar(int danio) {
         this.quemado();
-        ArrayList<Casillero> vecinos = this.casilleroVecinosOcupados();
+        ArrayList<Casillero> vecinos = this.casillerosVecinosOcupados();
         for(Casillero vecino:vecinos){
             vecino.bombardeo(danio);
         }
@@ -132,11 +132,6 @@ public class Casillero {
 
     public void altoElFuego() {
        this.tablero.altoElFuego();
-        /*this.alcanzado.altoElFuego(this);
-        ArrayList<Casillero> vecinos = this.casilleroVecinosOcupados();
-        for(Casillero vecino:vecinos){
-           vecino.altoElFuego();
-        }*/
     }
 
     void noQuemado() {
