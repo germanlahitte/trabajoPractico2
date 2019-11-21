@@ -134,7 +134,7 @@ public class Casillero {
        this.tablero.altoElFuego();
     }
 
-    void noQuemado() {
+    public void noQuemado() {
         this.alcanzado = new StrategyNoQuemado();
     }
 
