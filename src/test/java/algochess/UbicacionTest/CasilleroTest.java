@@ -11,18 +11,24 @@ import algochess.ubicacion.Posicion;
 import algochess.ubicacion.Tablero;
 import excepciones.CasilleroEnemigoException;
 import excepciones.CasilleroOcupadoException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CasilleroTest {
 
+    private Tablero tablero;
+
+    @BeforeEach
+    void iniciar(){
+        tablero = new Tablero();
+    }
     // Ubicar pieza en casillero (al iniciar, medio mapa azul y medio rojo)
     @Test
      void testCasilleroUbicaPiezaSiEstaVacioYSiEsDelMismoColor(){
-        Tablero tablero = new Tablero();
         Pieza pieza = new Soldado(new EquipoRojo());
-        pieza.asignarCasillero(new Casillero(new Posicion(3,3), new EquipoAzul()));
+        pieza.asignarCasillero(new Casillero(new Posicion(3,3), new EquipoAzul(),tablero));
         Casillero casillero = tablero.casilleroEn(new Posicion(1,1)); // Casillero rojo
         casillero.ubicar(pieza);
 
@@ -31,9 +37,9 @@ class CasilleroTest {
 
     @Test
      void testCasilleroNoUbicaPiezaSiEsDeDiferenteColor(){
-        Tablero tablero = new Tablero();
+
         Pieza pieza = new Soldado(new EquipoAzul());
-        pieza.asignarCasillero(new Casillero(new Posicion(11,11), new EquipoAzul()));
+        pieza.asignarCasillero(new Casillero(new Posicion(11,11), new EquipoAzul(),tablero));
         Casillero casillero = tablero.casilleroEn(new Posicion(1,1)); // Casillero rojo
 
         assertThrows(CasilleroEnemigoException.class, ()-> casillero.ubicar(pieza));
@@ -41,11 +47,11 @@ class CasilleroTest {
 
     @Test
      void testCasilleroNoUbicaPiezaSiEsDelMismoColorPeroEstaOcupado(){
-        Tablero tablero = new Tablero();
+
         Pieza pieza = new Soldado(new EquipoRojo());
         Pieza pieza2 = new Soldado(new EquipoRojo());
-        pieza.asignarCasillero(new Casillero(new Posicion(11,11), new EquipoAzul()));
-        pieza2.asignarCasillero(new Casillero(new Posicion(12,12), new EquipoAzul()));
+        pieza.asignarCasillero(new Casillero(new Posicion(11,11), new EquipoAzul(),tablero));
+        pieza2.asignarCasillero(new Casillero(new Posicion(12,12), new EquipoAzul(),tablero));
         Casillero casillero = tablero.casilleroEn(new Posicion(1,1)); // Casillero rojo
         casillero.ubicar(pieza);
 
@@ -58,7 +64,7 @@ class CasilleroTest {
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(4,1);
-        Casillero casillero = new Casillero(posicion1,equipo);
+        Casillero casillero = new Casillero(posicion1,equipo,tablero);
 
         assertEquals(casillero.distanciaA(posicion2),3);
     }
@@ -68,7 +74,7 @@ class CasilleroTest {
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,4);
-        Casillero casillero = new Casillero(posicion1,equipo);
+        Casillero casillero = new Casillero(posicion1,equipo,tablero);
 
         assertEquals(casillero.distanciaA(posicion2),3);
     }
@@ -78,7 +84,7 @@ class CasilleroTest {
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(2,6);
-        Casillero casillero = new Casillero(posicion1,equipo);
+        Casillero casillero = new Casillero(posicion1,equipo,tablero);
 
         assertEquals(casillero.distanciaA(posicion2),5);
     }
@@ -89,8 +95,8 @@ class CasilleroTest {
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(1,6);
-        Casillero casillero = new Casillero(posicion1,equipo);
-        Casillero casillero2 = new Casillero(posicion2,equipo);
+        Casillero casillero = new Casillero(posicion1,equipo,tablero);
+        Casillero casillero2 = new Casillero(posicion2,equipo,tablero);
 
         assertEquals(casillero.distanciaA(casillero2),5);
     }
@@ -100,8 +106,8 @@ class CasilleroTest {
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(6,1);
-        Casillero casillero = new Casillero(posicion1,equipo);
-        Casillero casillero2 = new Casillero(posicion2,equipo);
+        Casillero casillero = new Casillero(posicion1,equipo,tablero);
+        Casillero casillero2 = new Casillero(posicion2,equipo,tablero);
 
         assertEquals(casillero.distanciaA(casillero2),5);
     }
@@ -112,8 +118,8 @@ class CasilleroTest {
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(1,1);
         Posicion posicion2 = new Posicion(6,8);
-        Casillero casillero = new Casillero(posicion1,equipo);
-        Casillero casillero2 = new Casillero(posicion2,equipo);
+        Casillero casillero = new Casillero(posicion1,equipo,tablero);
+        Casillero casillero2 = new Casillero(posicion2,equipo,tablero);
 
         assertEquals(casillero.distanciaA(casillero2),7);
     }
@@ -124,9 +130,7 @@ class CasilleroTest {
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(10,11);
-        Casillero casillero = new Casillero(posicion1,equipo);
-        Tablero tablero = new Tablero();
-        casillero.agregarTablero(tablero);
+        Casillero casillero = new Casillero(posicion1,equipo,tablero);
 
         Casillero casillero2 = casillero.siguiente(Direccion.norte());
         assertEquals(casillero2.distanciaA(posicion2),0);
@@ -137,9 +141,7 @@ class CasilleroTest {
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(10,9);
-        Casillero casillero = new Casillero(posicion1,equipo);
-        Tablero tablero = new Tablero();
-        casillero.agregarTablero(tablero);
+        Casillero casillero = new Casillero(posicion1,equipo,tablero);
 
         Casillero casillero2 = casillero.siguiente(Direccion.sur());
         assertEquals(casillero2.distanciaA(posicion2),0);
@@ -150,9 +152,7 @@ class CasilleroTest {
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(11,10);
-        Casillero casillero = new Casillero(posicion1,equipo);
-        Tablero tablero = new Tablero();
-        casillero.agregarTablero(tablero);
+        Casillero casillero = new Casillero(posicion1,equipo,tablero);
 
         Casillero casillero2 = casillero.siguiente(Direccion.este());
         assertEquals(casillero2.distanciaA(posicion2),0);
@@ -163,9 +163,7 @@ class CasilleroTest {
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(9,10);
-        Casillero casillero = new Casillero(posicion1,equipo);
-        Tablero tablero = new Tablero();
-        casillero.agregarTablero(tablero);
+        Casillero casillero = new Casillero(posicion1,equipo,tablero);
 
         Casillero casillero2 = casillero.siguiente(Direccion.oeste());
         assertEquals(casillero2.distanciaA(posicion2),0);
@@ -176,9 +174,7 @@ class CasilleroTest {
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(11,11);
-        Casillero casillero = new Casillero(posicion1,equipo);
-        Tablero tablero = new Tablero();
-        casillero.agregarTablero(tablero);
+        Casillero casillero = new Casillero(posicion1,equipo,tablero);
 
         Casillero casillero2 = casillero.siguiente(Direccion.norEste());
         assertEquals(casillero2.distanciaA(posicion2),0);
@@ -189,9 +185,7 @@ class CasilleroTest {
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(9,11);
-        Casillero casillero = new Casillero(posicion1,equipo);
-        Tablero tablero = new Tablero();
-        casillero.agregarTablero(tablero);
+        Casillero casillero = new Casillero(posicion1,equipo,tablero);
 
         Casillero casillero2 = casillero.siguiente(Direccion.norOeste());
         assertEquals(casillero2.distanciaA(posicion2),0);
@@ -202,9 +196,7 @@ class CasilleroTest {
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(11,9);
-        Casillero casillero = new Casillero(posicion1,equipo);
-        Tablero tablero = new Tablero();
-        casillero.agregarTablero(tablero);
+        Casillero casillero = new Casillero(posicion1,equipo,tablero);
 
         Casillero casillero2 = casillero.siguiente(Direccion.surEste());
         assertEquals(casillero2.distanciaA(posicion2),0);
@@ -215,9 +207,7 @@ class CasilleroTest {
         Equipo equipo = new EquipoRojo();
         Posicion posicion1 = new Posicion(10,10);
         Posicion posicion2 = new Posicion(9,9);
-        Casillero casillero = new Casillero(posicion1,equipo);
-        Tablero tablero = new Tablero();
-        casillero.agregarTablero(tablero);
+        Casillero casillero = new Casillero(posicion1,equipo,tablero);
 
         Casillero casillero2 = casillero.siguiente(Direccion.surOeste());
         assertEquals(casillero2.distanciaA(posicion2),0);
@@ -226,7 +216,7 @@ class CasilleroTest {
     // Test casillero es ocupado por pieza
     @Test
      void testCasilleroLanzaExcepcionDeOcupadoSiSeQuiereAgregarOtraPieza(){
-        Tablero tablero = new Tablero();
+
         Posicion posicionAzul = new Posicion(20,20);
         Casillero casilleroAzul = tablero.casilleroEn(posicionAzul);
         Pieza piezaAzul = new Soldado(new EquipoAzul()) ;
@@ -239,7 +229,7 @@ class CasilleroTest {
 
     @Test
      void testCasilleroSeDesocupaDePiezaYPuedeAgregarOtraSinProblemas(){
-        Tablero tablero = new Tablero();
+
         Posicion posicionAzul = new Posicion(20,20);
         Casillero casilleroAzul = tablero.casilleroEn(posicionAzul);
 
@@ -256,7 +246,7 @@ class CasilleroTest {
     // Test casillero calcula daño a equipo
     @Test
      void testCasilleroDevuelveMultiplicadoDeDanioPorCincoAEquipoDiferente(){
-        Tablero tablero = new Tablero();
+
         Posicion posicionRojo = new Posicion(3,3);
         Casillero casillero = tablero.casilleroEn(posicionRojo);
         Equipo azul = new EquipoAzul();
@@ -266,7 +256,7 @@ class CasilleroTest {
 
     @Test
      void testCasilleroDevuelveMultiplicadoDeDanioPorUnoAMismoEquipo(){
-        Tablero tablero = new Tablero();
+
         Posicion posicionRojo = new Posicion(3,3);
         Casillero casillero = tablero.casilleroEn(posicionRojo);
         Equipo rojo = new EquipoRojo();

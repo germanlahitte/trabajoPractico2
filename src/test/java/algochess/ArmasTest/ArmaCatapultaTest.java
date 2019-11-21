@@ -70,4 +70,34 @@ class ArmaCatapultaTest {
         assertEquals(80,soldadoAzul.vida());
         assertEquals(80,soldadoRojo.vida());
     }
+
+    @Test
+    void testNoPropagaDanioEnLosLimitesDelTablero(){
+        Soldado soldadoRojo1 = new Soldado (new EquipoRojo());
+        Posicion posicionRojo1 = new Posicion(1,1); // Posicion de equipo rojo.
+        Soldado soldadoRojo2 = new Soldado(new EquipoRojo());
+        Posicion posicionRojo2 = new Posicion(1,2);
+        Soldado soldadoRojo3 = new Soldado(new EquipoRojo());
+        Posicion posicionRojo3 = new Posicion(1,3);
+        Soldado soldadoRojo4 = new Soldado(new EquipoRojo());
+        Posicion posicionRojo4 = new Posicion(1,4);
+        Soldado soldadoRojo5 = new Soldado(new EquipoRojo());
+        Posicion posicionRojo5 = new Posicion(1,5);
+
+
+        tablero.ubicar(soldadoRojo1,posicionRojo1);
+        tablero.ubicar(soldadoRojo2,posicionRojo2);
+        tablero.ubicar(soldadoRojo3,posicionRojo3);
+        tablero.ubicar(soldadoRojo4,posicionRojo4);
+        tablero.ubicar(soldadoRojo5,posicionRojo5);
+
+        arma.atacarA(soldadoRojo1,7);
+
+        assertEquals(80,soldadoRojo1.vida());
+        assertEquals(80,soldadoRojo2.vida());
+        assertEquals(80,soldadoRojo3.vida());
+        assertEquals(80,soldadoRojo4.vida());
+        assertEquals(80,soldadoRojo5.vida());
+    }
+
 }

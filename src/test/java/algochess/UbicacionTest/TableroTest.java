@@ -1,11 +1,7 @@
 package algochess.UbicacionTest;
 
-import algochess.equipos.EquipoAzul;
 import algochess.equipos.EquipoRojo;
-import algochess.piezas.Curandero;
-import algochess.piezas.Jinete;
-import algochess.piezas.Pieza;
-import algochess.piezas.Soldado;
+import algochess.piezas.*;
 import algochess.ubicacion.Casillero;
 import algochess.ubicacion.Direccion;
 import algochess.ubicacion.Posicion;
@@ -24,7 +20,6 @@ class TableroTest {
     void TestTableroAceptaPiezaEnCasilleroDesocupadoYDeMismoEquipo(){
         Tablero tablero = new Tablero();
         Pieza pieza = new Soldado(new EquipoRojo());
-        pieza.asignarCasillero(new Casillero(new Posicion(1,1), new EquipoAzul()));
         tablero.ubicar(pieza, new Posicion (2,2));
 
         assertEquals(pieza.posicion(),new Posicion (2,2));
@@ -188,4 +183,5 @@ class TableroTest {
 
         assertEquals(p2,jinete.posicion());
     }
+
 }

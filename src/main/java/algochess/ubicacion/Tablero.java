@@ -23,8 +23,7 @@ public class Tablero {
         for (int vertical = 1; vertical <= (lado / 2); vertical++) {
             for (int horizontal = 1; horizontal <= lado; horizontal++) {
                 Posicion nuevaPosicion = new Posicion(horizontal, vertical);
-                Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoRojo );
-                nuevoCasillero.agregarTablero(this);
+                Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoRojo,this);
                 posiciones.put(nuevaPosicion, nuevoCasillero);
             }
         }
@@ -32,8 +31,7 @@ public class Tablero {
         for (int vertical = (lado / 2) + 1; vertical <= lado; vertical++) {
             for (int horizontal = 1; horizontal <= lado; horizontal++) {
                 Posicion nuevaPosicion = new Posicion(horizontal, vertical);
-                Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoAzul);
-                nuevoCasillero.agregarTablero(this);
+                Casillero nuevoCasillero = new Casillero(nuevaPosicion, bandoAzul,this);
                 posiciones.put(nuevaPosicion, nuevoCasillero);
             }
         }
@@ -43,31 +41,27 @@ public class Tablero {
     }
 
     private void limitar() {
-        for (int horizontal = 0; horizontal <= lado; horizontal++){
+        for (int horizontal = 0; horizontal <= lado+1; horizontal++){
             Posicion nuevoLimiteSur = new Posicion(horizontal,0);
-            Casillero casilleroLimiteSur = new Casillero(nuevoLimiteSur,bandoRojo);
-            casilleroLimiteSur.agregarTablero(this);
+            Casillero casilleroLimiteSur = new Casillero(nuevoLimiteSur,bandoRojo,this);
             posiciones.put(nuevoLimiteSur,casilleroLimiteSur);
-            casilleroLimiteSur.asignarPieza(new Alambrado(casilleroLimiteSur,bandoRojo));
+            new Alambrado(casilleroLimiteSur,bandoRojo);
 
             Posicion nuevoLimiteNorte = new Posicion(horizontal,21);
-            Casillero casilleroLimiteNorte = new Casillero(nuevoLimiteNorte,bandoRojo);
-            casilleroLimiteNorte.agregarTablero(this);
+            Casillero casilleroLimiteNorte = new Casillero(nuevoLimiteNorte,bandoRojo,this);
             posiciones.put(nuevoLimiteNorte,casilleroLimiteNorte);
-            casilleroLimiteNorte.asignarPieza(new Alambrado(casilleroLimiteNorte,bandoRojo));
+            new Alambrado(casilleroLimiteNorte,bandoRojo);
         }
         for (int vertical = 1; vertical <= lado; vertical++){
             Posicion nuevoLimiteOeste = new Posicion(0,vertical);
-            Casillero casilleroLimiteOeste = new Casillero(nuevoLimiteOeste,bandoAzul);
-            casilleroLimiteOeste.agregarTablero(this);
+            Casillero casilleroLimiteOeste = new Casillero(nuevoLimiteOeste,bandoAzul,this);
             posiciones.put(nuevoLimiteOeste,casilleroLimiteOeste);
-            casilleroLimiteOeste.asignarPieza(new Alambrado(casilleroLimiteOeste,bandoAzul));
+            new Alambrado(casilleroLimiteOeste,bandoAzul);
 
             Posicion nuevoLimiteEste = new Posicion(21,vertical);
-            Casillero casilleroLimiteEste = new Casillero(nuevoLimiteEste,bandoAzul);
-            casilleroLimiteEste.agregarTablero(this);
+            Casillero casilleroLimiteEste = new Casillero(nuevoLimiteEste,bandoAzul,this);
             posiciones.put(nuevoLimiteEste,casilleroLimiteEste);
-            casilleroLimiteEste.asignarPieza(new Alambrado(casilleroLimiteEste,bandoAzul));
+            new Alambrado(casilleroLimiteEste,bandoAzul);
         }
 
     }

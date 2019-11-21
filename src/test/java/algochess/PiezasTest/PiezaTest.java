@@ -10,6 +10,7 @@ import algochess.ubicacion.Direccion;
 import algochess.ubicacion.Posicion;
 import algochess.ubicacion.Tablero;
 import excepciones.CasilleroEnemigoException;
+import excepciones.CasilleroOcupadoException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -378,4 +379,55 @@ class PiezaTest {
 
         assertEquals(p2,soldado.posicion());
     }
+
+
+    @Test
+    void testMovibleNoSeMueveFueraDelTableroEsquinaInferiorIzquierda(){
+        Tablero tablero = new Tablero();
+        Posicion p1 = new Posicion(1,1);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
+
+        assertThrows(CasilleroOcupadoException.class,()->soldado.mover(Direccion.surOeste()));
+        assertThrows(CasilleroOcupadoException.class,()->soldado.mover(Direccion.oeste()));
+        assertThrows(CasilleroOcupadoException.class,()->soldado.mover(Direccion.sur()));
+    }
+
+    @Test
+    void testMovibleNoSeMueveFueraDelTableroEsquinaSuperiorIzquierda(){
+        Tablero tablero = new Tablero();
+        Posicion p1 = new Posicion(1,20);
+        Soldado soldado = new Soldado(new EquipoAzul()) ;
+        tablero.ubicar(soldado,p1);
+
+        assertThrows(CasilleroOcupadoException.class,()->soldado.mover(Direccion.norOeste()));
+        assertThrows(CasilleroOcupadoException.class,()->soldado.mover(Direccion.oeste()));
+        assertThrows(CasilleroOcupadoException.class,()->soldado.mover(Direccion.norte()));
+    }
+
+    @Test
+    void testMovibleNoSeMueveFueraDelTableroEsquinaSuperiorDerecha(){
+        Tablero tablero = new Tablero();
+        Posicion p1 = new Posicion(20,20);
+        Soldado soldado = new Soldado(new EquipoAzul()) ;
+        tablero.ubicar(soldado,p1);
+
+        assertThrows(CasilleroOcupadoException.class,()->soldado.mover(Direccion.norEste()));
+        assertThrows(CasilleroOcupadoException.class,()->soldado.mover(Direccion.norte()));
+        assertThrows(CasilleroOcupadoException.class,()->soldado.mover(Direccion.este()));
+    }
+
+    @Test
+    void testMovibleNoSeMueveFueraDelTableroEsquinaInferiorDerecha(){
+        Tablero tablero = new Tablero();
+        Posicion p1 = new Posicion(20,1);
+        Soldado soldado = new Soldado(new EquipoRojo()) ;
+        tablero.ubicar(soldado,p1);
+
+        assertThrows(CasilleroOcupadoException.class,()->soldado.mover(Direccion.surEste()));
+        assertThrows(CasilleroOcupadoException.class,()->soldado.mover(Direccion.este()));
+        assertThrows(CasilleroOcupadoException.class,()->soldado.mover(Direccion.sur()));
+    }
+
+
 }

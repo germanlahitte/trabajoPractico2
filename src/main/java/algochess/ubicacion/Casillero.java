@@ -22,16 +22,11 @@ public class Casillero {
     private Pieza pieza;
     private Tablero tablero;
 
-    public Casillero(Posicion posicion,Equipo equipo  ){
+    public Casillero(Posicion posicion,Equipo equipo,Tablero tablero){
+        this.tablero = tablero;
         this.posicion = posicion;
         this.equipo = equipo;
         this.noQuemado();
-        this.desocupar();
-    }
-
-   public Casillero(Posicion posicion, Tablero tablero){
-        this.tablero = tablero;
-        this.posicion = posicion;
         this.desocupar();
     }
 
@@ -59,11 +54,6 @@ public class Casillero {
     public void desocupar(){
         this.pieza = null;
         this.disponibilidad = new StrategyLibre();
-    }
-
-    //// Agregar Tablero, ver si se hace en el constructor
-    public void agregarTablero(Tablero tablero){
-        this.tablero = tablero;
     }
 
     ///// Delegacion en posicion y direccion

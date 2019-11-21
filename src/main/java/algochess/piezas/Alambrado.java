@@ -8,8 +8,7 @@ public class Alambrado extends Pieza {
 
     public Alambrado(Casillero casillero, Equipo equipo) {
         super(ProveedorConstantes.vidaAlambrado(), equipo);
-        this.casillero = casillero;
-        casillero.asignarPieza(this);
+        casillero.agregarPieza(this);
         casillero.quemado();
     }
 }
