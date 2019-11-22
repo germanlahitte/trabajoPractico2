@@ -3,6 +3,8 @@ package algochess.equipos;
 import algochess.piezas.Pieza;
 import excepciones.CasilleroEnemigoException;
 
+import java.util.ArrayList;
+
 public class EquipoAzul implements Equipo {
 
     public double atacar(Equipo equipo){
@@ -28,6 +30,21 @@ public class EquipoAzul implements Equipo {
     public void enlistarse(EquipoAzul equipo, Pieza pieza1, Pieza pieza2) { pieza1.enlistar(pieza2); }
     public void enlistarse(EquipoRojo equipo, Pieza pieza1, Pieza pieza2) { }
 
+    @Override
+    public void soyAliado(Equipo equipo, ArrayList<Pieza> aliadas, ArrayList<Pieza> enemigas,Pieza pieza) {
+        equipo.soyAliado(this,aliadas,enemigas,pieza);
+    }
+
+    @Override
+    public void soyAliado(EquipoRojo equipo, ArrayList<Pieza> aliadas, ArrayList<Pieza> enemigas,Pieza pieza) {
+        enemigas.add(pieza);
+    }
+
+    @Override
+    public void soyAliado(EquipoAzul equipo, ArrayList<Pieza> aliadas, ArrayList<Pieza> enemigas,Pieza pieza) {
+        aliadas.add(pieza);
+    }
+
     public boolean soyAliado(Equipo equipo){
         return equipo.soyAliado(this);
     }
@@ -37,4 +54,5 @@ public class EquipoAzul implements Equipo {
     public boolean soyAliado(EquipoAzul equipo){
         return true;
     }
+
 }

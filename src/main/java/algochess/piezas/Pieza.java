@@ -4,6 +4,8 @@ import algochess.armas.*;
 import algochess.ubicacion.*;
 import algochess.equipos.*;
 
+import java.util.ArrayList;
+
 public abstract class Pieza {
 
    private Vida vida;
@@ -75,7 +77,12 @@ public abstract class Pieza {
 
     public Casillero casillero() { return this.casillero; }
 
-    boolean soyAliado(Equipo equipo) {return equipo.soyAliado(this.equipo);}
+    void soyAliado(Equipo equipo, ArrayList<Pieza> aliadas, ArrayList<Pieza> enemigas) {
+        equipo.soyAliado(this.equipo,aliadas,enemigas,this);}
+
+     boolean soyAliado(Equipo equipo){
+        return equipo.soyAliado(this.equipo);
+     }
 
     public void escoltar(Jinete unJinete) { }
 }
