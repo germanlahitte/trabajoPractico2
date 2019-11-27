@@ -1,22 +1,20 @@
 package vista.contenedores;
-import controlador.botones.BotonComenzar;
+
+import controlador.botones.BotonAvanzar;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class PantallaInicial extends VBox {
-    Stage stage;
 
-    public PantallaInicial(Stage stage,Scene proximaEscena){
+    public PantallaInicial(Stage ventana, Scene menu){
         super();
-        this.stage = stage;
         this.setSpacing(20);
+
         Image imagen = new Image("file:src/main/java/vista/imagenes/algoChessV3.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
-        this.setBackground(new Background(imagenDeFondo));
 
         Button botonComenzarElJuego = new Button();
         botonComenzarElJuego.setMaxSize(287,41);
@@ -28,11 +26,11 @@ public class PantallaInicial extends VBox {
         Background backGround = new Background(bImage);
         botonComenzarElJuego.setBackground(backGround);
 
-        BotonComenzar botonComenzar = new BotonComenzar(stage,proximaEscena);
-        botonComenzarElJuego.setOnAction(botonComenzar);
+        this.setBackground(new Background(imagenDeFondo));
         this.getChildren().addAll(botonComenzarElJuego);
 
-
+        BotonAvanzar eventoClickEnComenzar = new BotonAvanzar(ventana, menu);
+        botonComenzarElJuego.setOnAction(eventoClickEnComenzar/*e->{ventana.setScene(menu);ventana.show();}*/);
     }
 
 }
