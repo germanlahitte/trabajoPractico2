@@ -4,12 +4,11 @@ package controlador.botones;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextField;
-import controlador.juego.*;
+import controlador.juego.Ronda;
 import modelo.Jugador;
 import modelo.equipos.Equipo;
 import modelo.ubicacion.Tablero;
 
-import java.util.ArrayList;
 
 public class BotonCrear implements EventHandler<ActionEvent> {
 
