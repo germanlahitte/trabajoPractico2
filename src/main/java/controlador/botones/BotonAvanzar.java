@@ -19,7 +19,6 @@ public class BotonAvanzar implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         ventana.setScene(proximaEscena);
         ventana.setFullScreen(false);
-//        ventana.show();
     }
 }
 

@@ -15,11 +15,11 @@ public class Jugador {
     private ArrayList<Pieza> piezas;
 
 
-    public Jugador(String nombre, Equipo bando, Tablero tablero) {
+    public Jugador(String nombre, Equipo bando/*, Tablero tablero*/) {
         this.nombre = nombre;
         this.bando = bando;
         this.billetera = new Billetera(credito);
-        this.tablero = tablero;
+       /* this.tablero = tablero;*/
         this.piezas = new ArrayList<>();
 
     }
