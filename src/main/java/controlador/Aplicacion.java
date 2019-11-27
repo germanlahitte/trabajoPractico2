@@ -1,5 +1,6 @@
 package controlador;
 
+import controlador.juego.Juego;
 import vista.contenedores.MenuPrincipal;
 import vista.contenedores.PantallaInicial;
 import javafx.application.Application;
@@ -11,6 +12,7 @@ public class Aplicacion extends Application {
 
     Stage ventana;
     Scene inicio,menu;
+    Juego batalla;
 
     public static void main(String[] args){
         launch(args);
@@ -21,7 +23,9 @@ public class Aplicacion extends Application {
         ventana = stage;
         ventana.setTitle("AlgoChess");
 
-        MenuPrincipal menuPrincipal = new MenuPrincipal(ventana);
+        this.batalla = new Juego();
+
+        MenuPrincipal menuPrincipal = new MenuPrincipal(ventana,batalla);
         this.menu = new Scene(menuPrincipal,1600,1000);
 
         PantallaInicial presentacion = new PantallaInicial(ventana, menu);

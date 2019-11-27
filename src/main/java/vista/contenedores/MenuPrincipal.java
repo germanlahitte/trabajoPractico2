@@ -1,6 +1,7 @@
 package vista.contenedores;
 
 import controlador.botones.BotonCrear;
+import controlador.juego.Juego;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -19,7 +20,7 @@ public class MenuPrincipal extends VBox {
     ContenedorHorizontal opcionesj1, opcionesJ2,espacioH;
     ArrayList<Jugador> jugadores;
 
-    public MenuPrincipal (Stage ventana) {
+    public MenuPrincipal (Stage ventana, Juego batalla) {
         super();
         this.ventana = ventana;
         this.setSpacing(60);
@@ -64,11 +65,11 @@ public class MenuPrincipal extends VBox {
         campoJugadorAzul.setAlignment(Pos.CENTER_LEFT);
         this.getChildren().addAll(espacioH, opcionesj1, opcionesJ2);
         this.jugadores=new ArrayList<>();
-        BotonCrear eventoCrearRojo = new BotonCrear(campoJugadorRojo, new EquipoRojo(),jugadores);
-        BotonCrear eventoCrearAzul = new BotonCrear(campoJugadorAzul, new EquipoAzul(),jugadores);
-
-        crearJugadorRojo.setOnAction(eventoCrearRojo);
-        crearJugadorAzul.setOnAction(eventoCrearAzul);
+//        BotonCrear eventoCrearRojo = new BotonCrear(campoJugadorRojo, new EquipoRojo(),jugadores);
+//        BotonCrear eventoCrearAzul = new BotonCrear(campoJugadorAzul, new EquipoAzul(),jugadores);
+//
+//        crearJugadorRojo.setOnAction(eventoCrearRojo);
+//        crearJugadorAzul.setOnAction(eventoCrearAzul);
 //
 //        if(jugadores.size()==2){
 //            Button comprar = new Button();
