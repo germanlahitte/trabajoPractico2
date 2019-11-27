@@ -28,6 +28,13 @@ public class Juego {
          */
         this.ronda.avanzar();
     }
-
+    
+    public Ronda getRonda(){
+        return this.ronda;
+    }
+    
+    public Tablero getTablero(){
+        return this.tablero;
+    }    
 
 }
