@@ -34,7 +34,7 @@ public class Juego {
     }
     
     public Tablero getTablero(){
-        return this.tablero;
+        return this.campoDeJuego;
     }    
 
 }
