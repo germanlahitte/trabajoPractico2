@@ -33,17 +33,10 @@ public class Jinete extends Pieza implements Movible{
     }
 
     private void equiparArma() {
-        ArrayList<Pieza> piezasVecinas = this.casillero.piezasVecinas();
+
         ArrayList<Pieza> piezasVecinasAliadas = new ArrayList<>();
         ArrayList<Pieza> piezasVecinasEnemigas = new ArrayList<>();
-
-        for(Pieza pieza:piezasVecinas){
-            if(pieza.soyAliado(this.equipo)){
-                piezasVecinasAliadas.add(pieza);
-            } else {
-                piezasVecinasEnemigas.add(pieza);
-            }
-        }
+        this.filtrarVecinos(piezasVecinasAliadas,piezasVecinasEnemigas);
 
         if ((piezasVecinasAliadas.size() == 0) && (piezasVecinasEnemigas.size() > 0))
             this.equiparEspada();
@@ -53,4 +46,25 @@ public class Jinete extends Pieza implements Movible{
             }
         }
     }
+
+//    private void filtrarVecinos(ArrayList<Pieza> aliadas,ArrayList<Pieza> enemigas){
+//        ArrayList<Pieza> vecinas = this.casillero.piezasVecinas();
+//
+//        for(Pieza pieza:vecinas){
+//            if(pieza.soyAliado(this.equipo)){
+//                aliadas.add(pieza);
+//            } else {
+//                enemigas.add(pieza);
+//            }
+//        }
+//    }
+
+    private void filtrarVecinos(ArrayList<Pieza> aliadas,ArrayList<Pieza> enemigas){
+        ArrayList<Pieza> vecinas = this.casillero.piezasVecinas();
+        for(Pieza pieza:vecinas){
+            pieza.soyAliado(this.equipo,aliadas,enemigas);
+        }
+    }
+
+
 }
