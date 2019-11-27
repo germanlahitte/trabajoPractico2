@@ -10,6 +10,7 @@ public class Juego {
 
     public Juego(){
         this.ronda = new Ronda();
+        this.tablero = new Tablero();
     }
 
     public void agregar(Jugador esteJugador) {
