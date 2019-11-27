@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Batallon implements Movible {
 
     private Soldado capitan;
-    private ArrayList<Pieza> tropa;
+    private ArrayList<Soldado> tropa;
     private ArrayList<Pieza> yaMovieron;
 
     public Batallon(Soldado soldado){

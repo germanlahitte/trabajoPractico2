@@ -39,26 +39,9 @@ class ArmaEspadaJineteTest {
 
     @Test
     void testAtacarAPiezaADistanciaCorrectaNoDisminuyeVidaMenorACero(){
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1); //90
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1); // 80
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1); // 70
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1); // 60
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1); // 50
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1); // 40
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1); // 30
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1); // 20
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1); // 10
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1); // 00
+        for(int i = 0;i<=20;i++){
+            arma.atacarA(soldado,1);
+        }
 
         assertEquals(0,soldado.vida());
     }

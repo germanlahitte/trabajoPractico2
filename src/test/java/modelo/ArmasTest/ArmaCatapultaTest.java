@@ -44,15 +44,9 @@ class ArmaCatapultaTest {
 
     @Test
     void testAtacarAPiezaADistanciaCorrectaNoDisminuyeVidaMenorACero(){
-        arma.atacarA(soldado,6);
-        arma.atacarA(soldado,6);
-        arma.atacarA(soldado,6);
-        arma.atacarA(soldado,6);
-        arma.atacarA(soldado,6);
-        arma.atacarA(soldado,6);
-        arma.atacarA(soldado,6);
-        arma.atacarA(soldado,6);
-
+        for(int i =0;i<=8;i++){
+            arma.atacarA(soldado,6);
+        }
         assertEquals(0,soldado.vida());
     }
 

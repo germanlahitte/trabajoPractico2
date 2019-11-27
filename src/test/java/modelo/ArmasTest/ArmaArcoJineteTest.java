@@ -60,13 +60,9 @@ class ArmaArcoJineteTest {
     @Test
     void testAtacarAPiezaADistanciaCorrectaNoDisminuyeVidaMenorACero(){
         arma = new ArmaArcoJinete();
-        arma.atacarA(soldado,3);
-        arma.atacarA(soldado,3);
-        arma.atacarA(soldado,3);
-        arma.atacarA(soldado,3);
-        arma.atacarA(soldado,3);
-        arma.atacarA(soldado,3);
-        arma.atacarA(soldado,3);
+        for(int i = 0;i<=7;i++){
+            arma.atacarA(soldado,3);
+        }
 
         assertEquals(0,soldado.vida());
     }

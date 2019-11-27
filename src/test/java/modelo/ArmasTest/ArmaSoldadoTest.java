@@ -38,19 +38,9 @@ class ArmaSoldadoTest {
 
     @Test
     void testAtacarAPiezaADistanciaCorrectaNoDisminuyeVidaMenorACero(){
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
-        arma.atacarA(soldado,1);
+        for(int i =0;i<=13;i++){
+            arma.atacarA(soldado,1);
+        }
 
         assertEquals(0,soldado.vida());
     }

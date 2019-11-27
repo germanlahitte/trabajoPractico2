@@ -1,6 +1,5 @@
 package modelo.PiezasTest;
 
-import modelo.equipos.EquipoAzul;
 import modelo.equipos.EquipoRojo;
 import modelo.piezas.Batallon;
 import modelo.piezas.Jinete;
@@ -9,26 +8,39 @@ import modelo.piezas.Soldado;
 import modelo.ubicacion.Direccion;
 import modelo.ubicacion.Posicion;
 import modelo.ubicacion.Tablero;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class BatallonTest {
+     private Soldado capitan;
+     private Batallon batallon;
+     private Soldado soldado;
+     private Soldado soldado1;
+     private Soldado soldado2;
+     private Soldado soldado3;
+
+    @BeforeEach
+    void inicializacionDeSoldadosYBatallon(){
+        this.capitan = new Soldado(new EquipoRojo());
+        this.batallon = new Batallon(capitan);
+        this.soldado = new Soldado(new EquipoRojo());
+        batallon.enlistar(soldado);
+        this.soldado1 = new Soldado(new EquipoRojo());
+        this.soldado2 = new Soldado(new EquipoRojo());
+        this.soldado3 = new Soldado(new EquipoRojo());
+
+    }
 
     @Test
     void testCrearBatallon(){
-        Soldado capitan = new Soldado(new EquipoAzul());
-        Batallon batallon = new Batallon(capitan);
 
         assertTrue(batallon.pertenece(capitan));
     }
 
     @Test
     void testEnlistar(){
-        Soldado capitan = new Soldado(new EquipoAzul());
-        Batallon batallon = new Batallon(capitan);
-        Soldado soldado = new Soldado(new EquipoAzul());
-        batallon.enlistar(soldado);
 
         assertTrue(batallon.pertenece(soldado));
     }
@@ -37,15 +49,10 @@ class BatallonTest {
     void testMoverNoSeEjecutaSiElBatallonNoEsSuficientementeGrande() {
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
-        Soldado capitan = new Soldado(new EquipoRojo());
         tablero.ubicar(capitan,posicion1);
 
         Posicion posicion2 = new Posicion(1,2);
-        Soldado soldado = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado,posicion2);
-
-        Batallon batallon = new Batallon(capitan);
-        batallon.enlistar(soldado);
 
         batallon.mover(Direccion.norte());
 
@@ -58,15 +65,10 @@ class BatallonTest {
     void testMoverNoSeEjecutaSiUnSoldadoSeAlejo() {
         Tablero tablero = new Tablero();
         Posicion posicion1 = new Posicion(1,1);
-        Soldado capitan = new Soldado(new EquipoRojo());
         tablero.ubicar(capitan,posicion1);
 
         Posicion posicion2 = new Posicion(3,5);
-        Soldado soldado = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado,posicion2);
-
-        Batallon batallon = new Batallon(capitan);
-        batallon.enlistar(soldado);
 
         batallon.mover(Direccion.norte());
 
@@ -81,17 +83,14 @@ class BatallonTest {
         Tablero tablero = new Tablero();
         Posicion posicionInicial1 = new Posicion(1, 1);
         Posicion posicionFinal1 = new Posicion(1, 2);
-        Soldado soldado1 = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado1,posicionInicial1);
 
         Posicion posicionInicial2 = new Posicion(2, 1);
         Posicion posicionFinal2 = new Posicion(2, 2);
-        Soldado soldado2 = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado2,posicionInicial2);
 
         Posicion posicionInicial3 = new Posicion(3, 1);
         Posicion posicionFinal3 = new Posicion(3, 2);
-        Soldado soldado3 = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado3,posicionInicial3);
 
         Batallon batallon = new Batallon(soldado2);
@@ -109,16 +108,13 @@ class BatallonTest {
         Tablero tablero = new Tablero();
         Posicion posicionInicial1 = new Posicion(1, 1);
         Posicion posicionFinal1 = new Posicion(1, 2);
-        Soldado soldado1 = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado1,posicionInicial1);
 
         Posicion posicionInicial2 = new Posicion(2, 1);
         Posicion posicionFinal2 = new Posicion(2, 2);
-        Soldado soldado2 = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado2,posicionInicial2);
 
         Posicion posicionFinal3 = new Posicion(2, 3);
-        Soldado soldado3 = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado3,posicionFinal2);
 
         Batallon batallon = new Batallon(soldado2);
@@ -135,15 +131,12 @@ class BatallonTest {
     void testMoverBatallonSeObstaculizanEntre3deEllos() {
         Tablero tablero = new Tablero();
         Posicion posicionInicial1 = new Posicion(1, 1);
-        Soldado soldado1 = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado1,posicionInicial1);
 
         Posicion posicionInicial2 = new Posicion(2, 1);
-        Soldado soldado2 = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado2,posicionInicial2);
 
         Posicion posicionInicial3 = new Posicion(3, 1);
-        Soldado soldado3 = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado3,posicionInicial3);
 
         Posicion posicionFinal3 = new Posicion(4, 1);
@@ -163,17 +156,14 @@ class BatallonTest {
         Tablero tablero = new Tablero();
         Posicion posicionInicial1 = new Posicion(1, 1);
         Posicion posicionFinal1 = new Posicion(1, 2);
-        Soldado soldado1 = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado1,posicionInicial1);
 
         Posicion posicionInicial2 = new Posicion(2, 1);
         Posicion posicionFinal2 = new Posicion(2, 2);
-        Soldado soldado2 = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado2,posicionInicial2);
 
         Posicion posicionInicial3 = new Posicion(3, 1);
         Posicion posicionFinal3 = new Posicion(3, 2);
-        Soldado soldado3 = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado3,posicionInicial3);
 
         Pieza pieza = new Jinete(new EquipoRojo());
@@ -196,15 +186,12 @@ class BatallonTest {
         Tablero tablero = new Tablero();
         Posicion posicionInicial1 = new Posicion(1, 1);
         Posicion posicionFinal1 = new Posicion(1, 2);
-        Soldado soldado1 = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado1,posicionInicial1);
 
         Posicion posicionInicial2 = new Posicion(2, 1);
-        Soldado soldado2 = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado2,posicionInicial2);
 
         Posicion posicionInicial3 = new Posicion(2, 2);
-        Soldado soldado3 = new Soldado(new EquipoRojo());
         tablero.ubicar(soldado3,posicionInicial3);
 
         Posicion posicionObstaculo = new Posicion(2, 3);
