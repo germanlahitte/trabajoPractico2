@@ -20,7 +20,7 @@ public class BotonCrear implements EventHandler<ActionEvent> {
     public BotonCrear(TextField nombre, Equipo bando, Juego batalla){
         this.bando = bando;
         this.nombre = nombre.getText();
-        this.lista = batalla.getRonda();
+        this.listaDeJugadores = batalla.getRonda();
         this.tablero = batalla.getTablero();
     }
 
