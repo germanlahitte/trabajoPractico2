@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextField;
 import controlador.juego.Ronda;
+import controlador.juego.Juego;
 import modelo.Jugador;
 import modelo.equipos.Equipo;
 import modelo.ubicacion.Tablero;
