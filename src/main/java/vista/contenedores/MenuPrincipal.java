@@ -45,6 +45,7 @@ public class MenuPrincipal extends VBox {
         campoJugadorAzul.setFocusTraversable(false);
         campoJugadorAzul.setMaxWidth(400);
 
+
         Button crearJugadorRojo = new Button();
         crearJugadorRojo.setMaxSize(200,40);
         crearJugadorRojo.setMinSize(200,40);
@@ -52,6 +53,8 @@ public class MenuPrincipal extends VBox {
         BackgroundImage bkgImgRojo = new BackgroundImage(crearRojo, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(crearJugadorRojo.getWidth(), crearJugadorRojo.getHeight(), true, true, true, false));
         Background bkgBotRojo = new Background(bkgImgRojo);
         crearJugadorRojo.setBackground(bkgBotRojo);
+
+        /*
         Button crearJugadorAzul = new Button();
         crearJugadorAzul.setMaxSize(200,40);
         crearJugadorAzul.setMinSize(200,40);
@@ -59,9 +62,10 @@ public class MenuPrincipal extends VBox {
         BackgroundImage bkgImgAzul = new BackgroundImage(crearAzul, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(crearJugadorAzul.getWidth(), crearJugadorAzul.getHeight(), true, true, true, false));
         Background bkgBotAzul = new Background(bkgImgAzul);
         crearJugadorAzul.setBackground(bkgBotAzul);
+        */
 
         this.opcionesj1.getChildren().addAll(espacioV1,campoJugadorRojo,crearJugadorRojo);
-        this.opcionesJ2.getChildren().addAll(espacioV2,campoJugadorAzul,crearJugadorAzul);
+        this.opcionesJ2.getChildren().addAll(espacioV2,campoJugadorAzul);
         campoJugadorRojo.setAlignment(Pos.CENTER_LEFT);
         campoJugadorAzul.setAlignment(Pos.CENTER_LEFT);
         this.getChildren().addAll(espacioH, opcionesj1, opcionesJ2);
