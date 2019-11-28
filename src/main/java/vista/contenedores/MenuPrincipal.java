@@ -1,6 +1,7 @@
 package vista.contenedores;
 
 import controlador.botones.BotonCrear;
+import controlador.botones.BotonJugar;
 import controlador.juego.Juego;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -65,6 +66,8 @@ public class MenuPrincipal extends VBox {
         campoJugadorAzul.setAlignment(Pos.CENTER_LEFT);
         this.getChildren().addAll(espacioH, opcionesj1, opcionesJ2);
         this.jugadores=new ArrayList<>();
+        BotonJugar eventoJugar = new BotonJugar(this.ventana, campoJugadorRojo, campoJugadorAzul);
+        crearJugadorRojo.setOnAction(eventoJugar);
 //        BotonCrear eventoCrearRojo = new BotonCrear(campoJugadorRojo, new EquipoRojo(),jugadores);
 //        BotonCrear eventoCrearAzul = new BotonCrear(campoJugadorAzul, new EquipoAzul(),jugadores);
 //
