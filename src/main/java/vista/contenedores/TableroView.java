@@ -20,36 +20,29 @@ public class TableroView extends Group {
 
     private Pane[][] panes;
 
-    public TableroView(Tablero map){
+    public TableroView(Tablero tablero){
         table = new GridPane();
         width = tileWidth * ProveedorConstantes.ladoDelTablero();
         heigth = tileHeigth * ProveedorConstantes.ladoDelTablero();
-        panes = new Pane[ (int)width][(int)heigth];
+        panes = new Pane[(int)width][(int)heigth];
         Background bi = new Background(new BackgroundImage(new Image("file:src/main/java/vista/imagenes/casillero.png"),
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
                 new BackgroundSize(tileWidth, tileHeigth, false, false, false, false)));
-            for (int i = 0; i < ProveedorConstantes.ladoDelTablero(); i++) {
-                for (int j = 0; j < ProveedorConstantes.ladoDelTablero(); j++) {
-                    Pane v = new Pane();
-                    v.setMinHeight(this.tileHeigth);
-                    v.setMinWidth(this.tileWidth);
-                    v.setBackground(bi);
-                    panes[i][j] = v;
 
-                    table.add(v , i, j);
+        for (int i = 0; i < ProveedorConstantes.ladoDelTablero(); i++) {
+            for (int j = 0; j < ProveedorConstantes.ladoDelTablero(); j++) {
+                Pane v = new Pane();
+                v.setMinHeight(this.tileHeigth);
+                v.setMinWidth(this.tileWidth);
+                v.setBackground(bi);
+                panes[i][j] = v;
 
-                }
+                table.add(v , i, j);
+
             }
-        /*
-        Background bi = new Background(new BackgroundImage(new Image("file:src/main/java/vista/imagenes/fondoMenu.png"),
-                BackgroundRepeat.NO_REPEAT,
-                BackgroundRepeat.NO_REPEAT,
-                BackgroundPosition.CENTER,
-                new BackgroundSize(this.width, this.heigth, false, false, false, false)));
-        table.setBackground(bi);
-        */
+        }
         this.addView(table);
 
     }
