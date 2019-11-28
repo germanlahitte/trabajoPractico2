@@ -2,8 +2,8 @@ package modelo;
 
 public class ProveedorConstantes {
 
-    private static int ANCHO_VENTANA = 640;
-    private static int ALTO_VENTANA = 480;
+    private static int ANCHO_VENTANA = 800;
+    private static int ALTO_VENTANA = 600;
 
     private static int LADO_DEL_TABLERO = 20;
     private static int DESPLAZAMIENTO_MAXIMO = 1;
