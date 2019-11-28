@@ -16,6 +16,10 @@ import modelo.equipos.EquipoRojo;
 import java.util.ArrayList;
 
 public class MenuPrincipal extends VBox {
+
+    static int anchoBoton = 200;
+    static int altoBoton = 40;
+
     Stage ventana;
     ContenedorVertical espacioV1,espacioV2;
     ContenedorHorizontal opcionesj1, opcionesJ2,espacioH;
@@ -45,8 +49,8 @@ public class MenuPrincipal extends VBox {
         campoJugadorAzul.setMaxWidth(400);
 
         Button botonJugar = new Button();
-        botonJugar.setMaxSize(200,40);
-        botonJugar.setMinSize(200,40);
+        botonJugar.setMaxSize(anchoBoton, altoBoton);
+        botonJugar.setMinSize(anchoBoton, altoBoton);
         Image crearRojo = new Image("file:src/main/java/vista/imagenes/crearRojo.png",botonJugar.getWidth(),botonJugar.getHeight(),false, true, true);
         BackgroundImage bkgImgRojo = new BackgroundImage(crearRojo, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(botonJugar.getWidth(), botonJugar.getHeight(), true, true, true, false));
         Background bkgBotRojo = new Background(bkgImgRojo);
