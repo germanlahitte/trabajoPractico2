@@ -1,6 +1,7 @@
 package controlador;
 
 import controlador.juego.Juego;
+import modelo.ProveedorConstantes;
 import vista.contenedores.MenuPrincipal;
 import vista.contenedores.PantallaInicial;
 import javafx.application.Application;
@@ -26,10 +27,10 @@ public class Aplicacion extends Application {
         this.batalla = new Juego();
 
         MenuPrincipal menuPrincipal = new MenuPrincipal(ventana,batalla);
-        this.menu = new Scene(menuPrincipal,1600,1000);
+        this.menu = new Scene(menuPrincipal, ProveedorConstantes.getAnchoVentana(), ProveedorConstantes.getAltoVentana());
 
         PantallaInicial presentacion = new PantallaInicial(ventana, menu);
-        this.inicio = new Scene(presentacion,1600,1000);
+        this.inicio = new Scene(presentacion, ProveedorConstantes.getAnchoVentana(), ProveedorConstantes.getAltoVentana());
 
         ventana.setScene(inicio);
         ventana.setFullScreen(false);
