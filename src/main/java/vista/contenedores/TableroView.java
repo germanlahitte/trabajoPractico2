@@ -13,8 +13,8 @@ import modelo.ubicacion.Tablero;
 public class TableroView extends Group {
     public double width;
     public double heigth;
-    private double tileWidth = 32;
-    private double tileHeigth = 32;
+    private double tileWidth = 50;
+    private double tileHeigth = 50;
 
     private GridPane table;
 
