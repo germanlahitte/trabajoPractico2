@@ -19,7 +19,6 @@ public class MenuPrincipal extends VBox {
     Stage ventana;
     ContenedorVertical espacioV1,espacioV2;
     ContenedorHorizontal opcionesj1, opcionesJ2,espacioH;
-    ArrayList<Jugador> jugadores;
 
     public MenuPrincipal (Stage ventana, Juego batalla) {
         super();
@@ -45,48 +44,21 @@ public class MenuPrincipal extends VBox {
         campoJugadorAzul.setFocusTraversable(false);
         campoJugadorAzul.setMaxWidth(400);
 
-
-        Button crearJugadorRojo = new Button();
-        crearJugadorRojo.setMaxSize(200,40);
-        crearJugadorRojo.setMinSize(200,40);
-        Image crearRojo = new Image("file:src/main/java/vista/imagenes/crearRojo.png",crearJugadorRojo.getWidth(),crearJugadorRojo.getHeight(),false, true, true);
-        BackgroundImage bkgImgRojo = new BackgroundImage(crearRojo, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(crearJugadorRojo.getWidth(), crearJugadorRojo.getHeight(), true, true, true, false));
+        Button botonJugar = new Button();
+        botonJugar.setMaxSize(200,40);
+        botonJugar.setMinSize(200,40);
+        Image crearRojo = new Image("file:src/main/java/vista/imagenes/crearRojo.png",botonJugar.getWidth(),botonJugar.getHeight(),false, true, true);
+        BackgroundImage bkgImgRojo = new BackgroundImage(crearRojo, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(botonJugar.getWidth(), botonJugar.getHeight(), true, true, true, false));
         Background bkgBotRojo = new Background(bkgImgRojo);
-        crearJugadorRojo.setBackground(bkgBotRojo);
+        botonJugar.setBackground(bkgBotRojo);
 
-        /*
-        Button crearJugadorAzul = new Button();
-        crearJugadorAzul.setMaxSize(200,40);
-        crearJugadorAzul.setMinSize(200,40);
-        Image crearAzul = new Image("file:src/main/java/vista/imagenes/crearAzul.png",crearJugadorAzul.getWidth(),crearJugadorAzul.getHeight(),false, true, true);
-        BackgroundImage bkgImgAzul = new BackgroundImage(crearAzul, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(crearJugadorAzul.getWidth(), crearJugadorAzul.getHeight(), true, true, true, false));
-        Background bkgBotAzul = new Background(bkgImgAzul);
-        crearJugadorAzul.setBackground(bkgBotAzul);
-        */
-
-        this.opcionesj1.getChildren().addAll(espacioV1,campoJugadorRojo,crearJugadorRojo);
+        this.opcionesj1.getChildren().addAll(espacioV1,campoJugadorRojo,botonJugar);
         this.opcionesJ2.getChildren().addAll(espacioV2,campoJugadorAzul);
         campoJugadorRojo.setAlignment(Pos.CENTER_LEFT);
         campoJugadorAzul.setAlignment(Pos.CENTER_LEFT);
         this.getChildren().addAll(espacioH, opcionesj1, opcionesJ2);
-        this.jugadores=new ArrayList<>();
+
         BotonJugar eventoJugar = new BotonJugar(this.ventana, campoJugadorRojo, campoJugadorAzul);
-        crearJugadorRojo.setOnAction(eventoJugar);
-//        BotonCrear eventoCrearRojo = new BotonCrear(campoJugadorRojo, new EquipoRojo(),jugadores);
-//        BotonCrear eventoCrearAzul = new BotonCrear(campoJugadorAzul, new EquipoAzul(),jugadores);
-//
-//        crearJugadorRojo.setOnAction(eventoCrearRojo);
-//        crearJugadorAzul.setOnAction(eventoCrearAzul);
-//
-//        if(jugadores.size()==2){
-//            Button comprar = new Button();
-//            comprar.setMaxSize(200,40);
-//            comprar.setMinSize(200,40);
-//            Image comprarPiezas = new Image("file:src/main/java/vista/imagenes/comprar.png",comprar.getWidth(),comprar.getHeight(),false, true, true);
-//            BackgroundImage bkgImgComprar = new BackgroundImage(comprarPiezas, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(comprar.getWidth(), comprar.getHeight(), true, true, true, false));
-//            Background bkgBotComprar = new Background(bkgImgComprar);
-//            comprar.setBackground(bkgBotComprar);
-//            this.getChildren().add(comprar);
-//        }
+        botonJugar.setOnAction(eventoJugar);
     }
 }
