@@ -28,7 +28,7 @@ public class BotonCrear implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        Jugador jugador = new Jugador(nombre,bando,tablero);
+        Jugador jugador = new Jugador(nombre,bando);
         listaDeJugadores.agregar(jugador);
     }
 

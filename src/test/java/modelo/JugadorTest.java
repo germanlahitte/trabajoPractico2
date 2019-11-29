@@ -14,8 +14,7 @@ class JugadorTest {
     @Test
      void comprarSoldadoSeCompraCorrectamente()  {
         Equipo bando = new EquipoRojo();
-        Tablero tablero = new Tablero();
-        Jugador nuevoJugador = new Jugador("camila",bando,tablero);
+        Jugador nuevoJugador = new Jugador("camila",bando);
         nuevoJugador.comprarSoldado();
         assertEquals(nuevoJugador.getCantidadDePiezas(),1);
     }
@@ -23,8 +22,7 @@ class JugadorTest {
     @Test
      void comprarJineteSeCompraCorrectamente(){
         Equipo bando = new EquipoRojo();
-        Tablero tablero = new Tablero();
-        Jugador nuevoJugador = new Jugador("camila",bando,tablero);
+        Jugador nuevoJugador = new Jugador("camila",bando);
         nuevoJugador.comprarJinete();
         assertEquals(nuevoJugador.getCantidadDePiezas(),1);
 
@@ -32,8 +30,7 @@ class JugadorTest {
     @Test
      void comprarCatapultaSeCompraCorrectamente(){
         Equipo bando = new EquipoRojo();
-        Tablero tablero = new Tablero();
-        Jugador nuevoJugador = new Jugador("camila",bando,tablero);
+        Jugador nuevoJugador = new Jugador("camila",bando);
         nuevoJugador.comprarCatapulta();
         assertEquals(nuevoJugador.getCantidadDePiezas(),1);
 
@@ -42,8 +39,7 @@ class JugadorTest {
     @Test
      void comprarCuranderoSeCompraCorrectamente(){
         Equipo bando = new EquipoRojo();
-        Tablero tablero = new Tablero();
-        Jugador nuevoJugador = new Jugador("camila",bando,tablero);
+        Jugador nuevoJugador = new Jugador("camila",bando);
         nuevoJugador.comprarCurandero();
         assertEquals(nuevoJugador.getCantidadDePiezas(),1);
 
@@ -53,8 +49,7 @@ class JugadorTest {
     @Test
      void testJugadorNoEsPerdedorSiTienePiezasConVida(){
         Equipo bando = new EquipoRojo();
-        Tablero tablero = new Tablero();
-        Jugador jugador = new Jugador("juan",bando,tablero);
+        Jugador jugador = new Jugador("juan",bando);
         Soldado soldado = new Soldado(bando);
         Jinete jinete = new Jinete(bando);
         jugador.agregarPieza(soldado);
@@ -69,8 +64,7 @@ class JugadorTest {
     @Test
      void testJugadorEsPerdedorCuandoTodasSusPiezasSeQuedaronSinVida(){
         Equipo bando = new EquipoRojo();
-        Tablero tablero = new Tablero();
-        Jugador jugador = new Jugador("juan",bando,tablero);
+        Jugador jugador = new Jugador("juan",bando);
         Soldado soldado = new Soldado(bando);
         Catapulta catapulta = new Catapulta(bando);
         jugador.agregarPieza(soldado);
