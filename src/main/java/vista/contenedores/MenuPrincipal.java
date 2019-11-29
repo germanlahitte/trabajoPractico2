@@ -1,30 +1,26 @@
 package vista.contenedores;
 
-import controlador.botones.BotonCrear;
+import controlador.ConstantesDeAplicacion;
 import controlador.botones.BotonJugar;
 import controlador.juego.Juego;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import modelo.Jugador;
-import modelo.equipos.EquipoAzul;
-import modelo.equipos.EquipoRojo;
-
-import java.util.ArrayList;
 
 public class MenuPrincipal extends VBox {
 
-    static int anchoBoton = 200;
-    static int altoBoton = 40;
+    static int BOTON_ANCHO = 200;
+    static int BOTON_ALTO = 40;
 
     Stage ventana;
     ContenedorVertical espacioV1,espacioV2;
     ContenedorHorizontal opcionesj1, opcionesJ2,espacioH;
 
-    public MenuPrincipal (Stage ventana, Juego batalla) {
+    public MenuPrincipal (Stage ventana, Juego batalla, Scene proximaEscena) {
         super();
         this.ventana = ventana;
         this.setSpacing(60);
@@ -49,20 +45,24 @@ public class MenuPrincipal extends VBox {
         campoJugadorAzul.setMaxWidth(400);
 
         Button botonJugar = new Button();
-        botonJugar.setMaxSize(anchoBoton, altoBoton);
-        botonJugar.setMinSize(anchoBoton, altoBoton);
+        botonJugar.setMaxSize(BOTON_ANCHO, BOTON_ALTO);
+        botonJugar.setMinSize(BOTON_ANCHO, BOTON_ALTO);
         Image crearRojo = new Image("file:src/main/java/vista/imagenes/crearRojo.png",botonJugar.getWidth(),botonJugar.getHeight(),false, true, true);
         BackgroundImage bkgImgRojo = new BackgroundImage(crearRojo, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(botonJugar.getWidth(), botonJugar.getHeight(), true, true, true, false));
         Background bkgBotRojo = new Background(bkgImgRojo);
         botonJugar.setBackground(bkgBotRojo);
 
-        this.opcionesj1.getChildren().addAll(espacioV1,campoJugadorRojo,botonJugar);
+        botonJugar.setTranslateX(ConstantesDeAplicacion.getAnchoVentana() - BOTON_ANCHO);
+        botonJugar.setTranslateY(ConstantesDeAplicacion.getAltoVentana() - BOTON_ALTO);
+        this.getChildren().addAll(botonJugar);
+
+        this.opcionesj1.getChildren().addAll(espacioV1,campoJugadorRojo);
         this.opcionesJ2.getChildren().addAll(espacioV2,campoJugadorAzul);
         campoJugadorRojo.setAlignment(Pos.CENTER_LEFT);
         campoJugadorAzul.setAlignment(Pos.CENTER_LEFT);
         this.getChildren().addAll(espacioH, opcionesj1, opcionesJ2);
 
-        BotonJugar eventoJugar = new BotonJugar(this.ventana, campoJugadorRojo, campoJugadorAzul);
+        BotonJugar eventoJugar = new BotonJugar(this.ventana, campoJugadorRojo, campoJugadorAzul, batalla, proximaEscena);
         botonJugar.setOnAction(eventoJugar);
     }
 }

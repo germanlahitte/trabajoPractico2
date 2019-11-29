@@ -19,19 +19,13 @@ public class PantallaDeJuego extends VBox {
     private Tablero tablero;
     private TableroView vistaTablero;
 
-    public PantallaDeJuego(Stage ventana, TextField nombreRojo, TextField nombreAzul) {
+    public PantallaDeJuego(Stage ventana, Juego batalla) {
         super();
 
         this.ventana = ventana;
 
-        this.partida = new Juego();
+        this.partida = batalla;
         this.tablero = this.partida.getTablero();
-
-        this.jugadorRojo = new Jugador(nombreRojo.getText(), new EquipoRojo());
-        this.jugadorAzul = new Jugador(nombreAzul.getText(), new EquipoAzul());
-
-        this.partida.agregar(jugadorRojo);
-        this.partida.agregar(jugadorAzul);
 
         this.vistaTablero = new TableroView(this.tablero);
 

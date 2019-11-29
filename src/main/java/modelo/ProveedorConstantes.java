@@ -2,9 +2,6 @@ package modelo;
 
 public class ProveedorConstantes {
 
-    private static int ANCHO_VENTANA = 800;
-    private static int ALTO_VENTANA = 600;
-
     private static int LADO_DEL_TABLERO = 20;
     private static int DESPLAZAMIENTO_MAXIMO = 1;
 
@@ -24,10 +21,6 @@ public class ProveedorConstantes {
     private static int VIDA_CATAPULTA = 50;
     private static int VIDA_CURANDERO = 75;
     private static int VIDA_ALAMBRADO = 0;
-
-    public static int getAnchoVentana() { return ANCHO_VENTANA; }
-
-    public static int getAltoVentana() { return ALTO_VENTANA; }
 
     public static int ladoDelTablero() { return LADO_DEL_TABLERO; }
     public static int desplazamientoMaximo() { return DESPLAZAMIENTO_MAXIMO; }

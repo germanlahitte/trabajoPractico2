@@ -3,6 +3,7 @@ package controlador;
 import controlador.juego.Juego;
 import modelo.ProveedorConstantes;
 import vista.contenedores.MenuPrincipal;
+import vista.contenedores.PantallaDeJuego;
 import vista.contenedores.PantallaInicial;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -12,7 +13,7 @@ import javafx.stage.Stage;
 public class Aplicacion extends Application {
 
     Stage ventana;
-    Scene inicio,menu;
+    Scene inicioView, menuView, batallaView;
     Juego batalla;
 
     public static void main(String[] args){
@@ -21,18 +22,21 @@ public class Aplicacion extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        ventana = stage;
-        ventana.setTitle("AlgoChess");
+        this.ventana = stage;
+        this.ventana.setTitle("AlgoChess");
 
         this.batalla = new Juego();
 
-        MenuPrincipal menuPrincipal = new MenuPrincipal(ventana,batalla);
-        this.menu = new Scene(menuPrincipal, ProveedorConstantes.getAnchoVentana(), ProveedorConstantes.getAltoVentana());
+        PantallaDeJuego pantalla = new PantallaDeJuego(ventana, batalla);
+        this.batallaView = new Scene(pantalla, ConstantesDeAplicacion.getAnchoVentana(), ConstantesDeAplicacion.getAltoVentana());
 
-        PantallaInicial presentacion = new PantallaInicial(ventana, menu);
-        this.inicio = new Scene(presentacion, ProveedorConstantes.getAnchoVentana(), ProveedorConstantes.getAltoVentana());
+        MenuPrincipal menuPrincipal = new MenuPrincipal(ventana, batalla, batallaView);
+        this.menuView = new Scene(menuPrincipal, ConstantesDeAplicacion.getAnchoVentana(), ConstantesDeAplicacion.getAltoVentana());
 
-        ventana.setScene(inicio);
+        PantallaInicial presentacion = new PantallaInicial(ventana, menuView);
+        this.inicioView = new Scene(presentacion, ConstantesDeAplicacion.getAnchoVentana(), ConstantesDeAplicacion.getAltoVentana());
+
+        ventana.setScene(inicioView);
         ventana.setFullScreen(false);
         ventana.show();
 
