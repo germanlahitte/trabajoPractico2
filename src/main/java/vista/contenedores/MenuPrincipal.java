@@ -9,7 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
+
+import java.nio.file.Paths;
 
 public class MenuPrincipal extends VBox {
 
@@ -17,6 +20,7 @@ public class MenuPrincipal extends VBox {
     static int BOTON_ALTO = 50;
 
     Stage ventana;
+    AudioClip audioMenu;
     ContenedorVertical espacioV1,espacioV2;
     ContenedorHorizontal opcionesj1, opcionesJ2,espacioH;
 
@@ -28,6 +32,9 @@ public class MenuPrincipal extends VBox {
         Image imagen = new Image("file:src/main/java/vista/imagenes/fondoMenu.png",ConstantesDeAplicacion.getAnchoVentana(), ConstantesDeAplicacion.getAltoVentana(), false, true, true);
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
+
+        this.audioMenu = new AudioClip(Paths.get("src/main/java/vista/audio/clashMenuOST1.wav").toUri().toString());
+        /*si hago audioMenu.play() se reproduce desde la creación del objeto. A través de todas las escenas*/
 
         this.espacioV1 = new ContenedorVertical();
         this.espacioV2 = new ContenedorVertical();
@@ -47,10 +54,10 @@ public class MenuPrincipal extends VBox {
         Button botonJugar = new Button();
         botonJugar.setMaxSize(BOTON_ANCHO, BOTON_ALTO);
         botonJugar.setMinSize(BOTON_ANCHO, BOTON_ALTO);
-        Image crearRojo = new Image("file:src/main/java/vista/imagenes/jugar.png",botonJugar.getWidth(),botonJugar.getHeight(),false, true, true);
-        BackgroundImage bkgImgRojo = new BackgroundImage(crearRojo, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(botonJugar.getWidth(), botonJugar.getHeight(), true, true, true, false));
-        Background bkgBotRojo = new Background(bkgImgRojo);
-        botonJugar.setBackground(bkgBotRojo);
+        Image crearJuego = new Image("file:src/main/java/vista/imagenes/jugar.png",botonJugar.getWidth(),botonJugar.getHeight(),false, true, true);
+        BackgroundImage bkgImgJuego = new BackgroundImage(crearJuego, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(botonJugar.getWidth(), botonJugar.getHeight(), true, true, true, false));
+        Background bkgBotJuego = new Background(bkgImgJuego);
+        botonJugar.setBackground(bkgBotJuego);
 
         botonJugar.setTranslateX(ConstantesDeAplicacion.getAnchoVentana() - BOTON_ANCHO);
         botonJugar.setTranslateY(ConstantesDeAplicacion.getAltoVentana() - BOTON_ALTO);
@@ -65,4 +72,9 @@ public class MenuPrincipal extends VBox {
         BotonJugar eventoJugar = new BotonJugar(this.ventana, campoJugadorRojo, campoJugadorAzul, batalla, proximaEscena);
         botonJugar.setOnAction(eventoJugar);
     }
+
+    public void play(){
+        this.audioMenu.play();
+    }
+
 }

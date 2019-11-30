@@ -41,6 +41,7 @@ public class PantallaInicial extends VBox {
 
         BotonAvanzar eventoClickEnComenzar = new BotonAvanzar(ventana, menu);
         botonComenzarElJuego.setOnAction(eventoClickEnComenzar/*e->{ventana.setScene(menu);ventana.show();}*/);
+
     }
 
 }

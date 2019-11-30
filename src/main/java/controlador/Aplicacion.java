@@ -1,6 +1,8 @@
 package controlador;
 
 import controlador.juego.Juego;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import modelo.ProveedorConstantes;
 import vista.contenedores.MenuPrincipal;
 import vista.contenedores.PantallaDeJuego;
