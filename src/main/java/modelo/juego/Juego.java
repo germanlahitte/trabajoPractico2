@@ -1,12 +1,13 @@
-package controlador.juego;
+package modelo.juego;
 
-import modelo.Jugador;
 import modelo.ubicacion.Tablero;
 
 public class Juego {
 
     Tablero campoDeJuego;
+    Tienda tienda;
     Ronda ronda;
+    Jugador jugadorActivo;
 
     public Juego(){
         this.ronda = new Ronda();
@@ -21,8 +22,18 @@ public class Juego {
        return this.ronda.siguienteTurno();
     }
 
+    public void comprar(){
+        Tienda tienda = new Tienda(ronda);
+        while(tienda.estaAbierta()) {
+            this.ronda.avanzar();
+            this.jugadorActivo = this.siguienteTurno();
+            jugadorActivo.comprar(tienda);
+        }
+
+    }
+
     public void jugar(){
-        Jugador deTurno = this.siguienteTurno();
+        Jugador jugadorActual = this.siguienteTurno();
         /*
         Acá pasa algo
          */

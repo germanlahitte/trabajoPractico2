@@ -2,7 +2,7 @@ package vista.contenedores;
 
 import controlador.ConstantesDeAplicacion;
 import controlador.botones.BotonJugar;
-import controlador.juego.Juego;
+import modelo.juego.Juego;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,8 +11,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
-
-import java.nio.file.Paths;
 
 public class MenuPrincipal extends VBox {
 
@@ -72,10 +70,6 @@ public class MenuPrincipal extends VBox {
 
         BotonJugar eventoJugar = new BotonJugar(this.ventana, campoJugadorRojo, campoJugadorAzul, batalla, proximaEscena);
         botonJugar.setOnAction(eventoJugar);
-    }
-
-    public void play(){
-        this.audioMenu.play();
     }
 
 }

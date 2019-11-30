@@ -2,10 +2,10 @@ package modelo;
 
 import modelo.equipos.Equipo;
 import modelo.equipos.EquipoRojo;
+import modelo.juego.Jugador;
 import modelo.piezas.Catapulta;
 import modelo.piezas.Jinete;
 import modelo.piezas.Soldado;
-import modelo.ubicacion.Tablero;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

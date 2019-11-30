@@ -3,6 +3,7 @@ package modelo;
 import modelo.equipos.Equipo;
 import modelo.equipos.EquipoRojo;
 import excepciones.NoAlcanzanLasMonedasException;
+import modelo.juego.Billetera;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

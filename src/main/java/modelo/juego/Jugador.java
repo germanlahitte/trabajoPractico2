@@ -1,8 +1,7 @@
-package modelo;
+package modelo.juego;
 
 import modelo.equipos.Equipo;
 import modelo.piezas.*;
-import modelo.ubicacion.Tablero;
 
 import java.util.ArrayList;
 
@@ -58,5 +57,15 @@ public class Jugador {
     public boolean esPerdedor(){
         piezas.removeIf(pieza -> pieza.vida() == 0);
         return (piezas.size() ==0);
+    }
+
+    public boolean tieneSaldo() {
+       return (this.billetera.tieneSaldo());
+    }
+
+    public void comprar(Tienda tienda) {
+        /*Acá pasa algo*/
+
+        tienda.venta();
     }
 }

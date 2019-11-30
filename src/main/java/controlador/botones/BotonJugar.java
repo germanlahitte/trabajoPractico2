@@ -1,17 +1,15 @@
 package controlador.botones;
 
-import controlador.juego.Juego;
+import modelo.juego.Juego;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
-import modelo.Jugador;
-import modelo.ProveedorConstantes;
+import modelo.juego.Jugador;
 import modelo.equipos.EquipoAzul;
 import modelo.equipos.EquipoRojo;
-import vista.contenedores.PantallaDeJuego;
 
 import java.nio.file.Paths;
 

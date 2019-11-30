@@ -4,9 +4,9 @@ package controlador.botones;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextField;
-import controlador.juego.Ronda;
-import controlador.juego.Juego;
-import modelo.Jugador;
+import modelo.juego.Ronda;
+import modelo.juego.Juego;
+import modelo.juego.Jugador;
 import modelo.equipos.Equipo;
 import modelo.ubicacion.Tablero;
 

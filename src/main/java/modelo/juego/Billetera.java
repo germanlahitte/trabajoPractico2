@@ -1,4 +1,5 @@
-package modelo;
+package modelo.juego;
+import modelo.ProveedorConstantes;
 import modelo.equipos.Equipo;
 import modelo.piezas.*;
 
@@ -10,6 +11,10 @@ public class Billetera {
     public Billetera(int credito) {
 
         this.puntosDisponibles = credito;
+    }
+
+    public boolean tieneSaldo() {
+        return (this.puntosDisponibles>0);
     }
 
     public Soldado comprarSoldado(Equipo bando){
@@ -59,9 +64,6 @@ public class Billetera {
 
         return new Catapulta(bando);
     }
-
-
-
 
 }
 

@@ -1,13 +1,9 @@
 package vista.contenedores;
 
-import controlador.juego.Juego;
-import javafx.scene.Node;
-import javafx.scene.control.TextField;
+import modelo.juego.Juego;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import modelo.Jugador;
-import modelo.equipos.EquipoAzul;
-import modelo.equipos.EquipoRojo;
+import modelo.juego.Jugador;
 import modelo.ubicacion.Tablero;
 
 

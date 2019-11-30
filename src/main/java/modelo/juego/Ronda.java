@@ -1,6 +1,4 @@
-package controlador.juego;
-
-import modelo.Jugador;
+package modelo.juego;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,7 +6,7 @@ import java.util.Iterator;
 public class Ronda {
 
     ArrayList<Jugador> jugadores;
-    Iterator<Jugador> deTurno;
+    Iterator<Jugador> jugadorActual;
 
     public Ronda(){
         this.jugadores = new ArrayList<>();
@@ -20,17 +18,17 @@ public class Ronda {
     }
 
     public Jugador siguienteTurno(){
-        return deTurno.next();
+        return jugadorActual.next();
     }
 
     public void avanzar(){
-        if(!this.deTurno.hasNext()){
+        if(!this.jugadorActual.hasNext()){
             this.iniciarRonda();
         }
     }
 
     private void iniciarRonda(){
-        this.deTurno = new Iterator<Jugador>() {
+        this.jugadorActual = new Iterator<Jugador>() {
             @Override
             public boolean hasNext() {
                 return false;
@@ -41,6 +39,10 @@ public class Ronda {
                 return null;
             }
         };
+    }
+
+    public ArrayList<Jugador> getJugadores(){
+        return jugadores;
     }
 
 }
