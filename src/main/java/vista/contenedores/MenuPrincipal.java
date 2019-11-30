@@ -33,8 +33,9 @@ public class MenuPrincipal extends VBox {
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
 
-        this.audioMenu = new AudioClip(Paths.get("src/main/java/vista/audio/clashMenuOST1.wav").toUri().toString());
+        /*this.audioMenu = new AudioClip(Paths.get("src/main/java/vista/audio/clashMenuOST1.wav").toUri().toString());*/
         /*si hago audioMenu.play() se reproduce desde la creación del objeto. A través de todas las escenas*/
+        /*saco el archivo del paquete porque pesa mucho, lo subo al drive*/
 
         this.espacioV1 = new ContenedorVertical();
         this.espacioV2 = new ContenedorVertical();
