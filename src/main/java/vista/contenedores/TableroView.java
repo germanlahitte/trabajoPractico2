@@ -22,8 +22,8 @@ public class TableroView extends Group {
 
         width = ConstantesDeAplicacion.getAnchoVentana() * 0.75;
         height = width;
-        tileHeigth = width / ConstantesDeAplicacion.ladoDelTablero();
-        tileWidth = height / ConstantesDeAplicacion.ladoDelTablero();
+        tileHeigth = width / tablero.getLado();
+        tileWidth = height / tablero.getLado();
 
         panes = new Pane[(int)width][(int) height];
         Background bi = new Background(new BackgroundImage(new Image("file:src/main/java/vista/imagenes/casillero.png"),
@@ -32,8 +32,8 @@ public class TableroView extends Group {
                 BackgroundPosition.CENTER,
                 new BackgroundSize(tileWidth, tileHeigth, false, false, false, false)));
 
-        for (int i = 0; i < ConstantesDeAplicacion.ladoDelTablero(); i++) {
-            for (int j = 0; j < ConstantesDeAplicacion.ladoDelTablero(); j++) {
+        for (int i = 0; i < tablero.getLado(); i++) {
+            for (int j = 0; j < tablero.getLado(); j++) {
                 Pane v = new Pane();
                 v.setMinHeight(this.tileHeigth);
                 v.setMinWidth(this.tileWidth);

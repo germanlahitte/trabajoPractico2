@@ -86,4 +86,8 @@ public class Tablero {
         posiciones.forEach((posicion,casillero) -> casillero.noQuemado());
         this.limitar();
     }
+
+    public static int getLado() {
+        return lado;
+    }
 }
