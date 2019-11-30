@@ -13,8 +13,8 @@ import javafx.stage.Stage;
 
 public class MenuPrincipal extends VBox {
 
-    static int BOTON_ANCHO = 200;
-    static int BOTON_ALTO = 40;
+    static int BOTON_ANCHO = 250;
+    static int BOTON_ALTO = 50;
 
     Stage ventana;
     ContenedorVertical espacioV1,espacioV2;
@@ -25,7 +25,7 @@ public class MenuPrincipal extends VBox {
         this.ventana = ventana;
         this.setSpacing(60);
 
-        Image imagen = new Image("file:src/main/java/vista/imagenes/fondoMenu.png");
+        Image imagen = new Image("file:src/main/java/vista/imagenes/fondoMenu.png",ConstantesDeAplicacion.getAnchoVentana(), ConstantesDeAplicacion.getAltoVentana(), false, true, true);
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
 
@@ -47,7 +47,7 @@ public class MenuPrincipal extends VBox {
         Button botonJugar = new Button();
         botonJugar.setMaxSize(BOTON_ANCHO, BOTON_ALTO);
         botonJugar.setMinSize(BOTON_ANCHO, BOTON_ALTO);
-        Image crearRojo = new Image("file:src/main/java/vista/imagenes/crearRojo.png",botonJugar.getWidth(),botonJugar.getHeight(),false, true, true);
+        Image crearRojo = new Image("file:src/main/java/vista/imagenes/jugar.png",botonJugar.getWidth(),botonJugar.getHeight(),false, true, true);
         BackgroundImage bkgImgRojo = new BackgroundImage(crearRojo, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(botonJugar.getWidth(), botonJugar.getHeight(), true, true, true, false));
         Background bkgBotRojo = new Background(bkgImgRojo);
         botonJugar.setBackground(bkgBotRojo);

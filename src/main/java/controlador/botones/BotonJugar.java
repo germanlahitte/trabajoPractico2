@@ -5,12 +5,15 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 import modelo.Jugador;
 import modelo.ProveedorConstantes;
 import modelo.equipos.EquipoAzul;
 import modelo.equipos.EquipoRojo;
 import vista.contenedores.PantallaDeJuego;
+
+import java.nio.file.Paths;
 
 
 public class BotonJugar implements EventHandler<ActionEvent> {
@@ -36,5 +39,7 @@ public class BotonJugar implements EventHandler<ActionEvent> {
         ventana.setFullScreen(false);
         this.partida.agregar(new Jugador(this.campoNombreRojo.getText(), new EquipoRojo()));
         this.partida.agregar(new Jugador(this.campoNombreAzul.getText(), new EquipoAzul()));
+        AudioClip jugar = new AudioClip(Paths.get("src/main/java/vista/audio/redoble.wav").toUri().toString());
+        jugar.play();
     }
 }
