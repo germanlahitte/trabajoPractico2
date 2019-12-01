@@ -2,19 +2,21 @@ package vista.contenedores;
 
 import controlador.ConstantesDeAplicacion;
 import controlador.botones.BotonAvanzar;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
+import vista.eventos.OpcionSalirEventHandler;
 
 import java.nio.file.Paths;
 
 public class PantallaInicial extends VBox {
 
-    static int anchoBoton = 287;
-    static int altoBoton = 41;
+    static int desplazamientoXBotonSalir = 1130;
+    static int desplazamientoYBotonSalir = 820;
 
     public PantallaInicial(Stage ventana, Scene menu){
         super();
@@ -27,20 +29,22 @@ public class PantallaInicial extends VBox {
         audioInicio.play();
 
         Button botonComenzarElJuego = new Button();
-        botonComenzarElJuego.setMaxSize(anchoBoton, altoBoton);
-        botonComenzarElJuego.setMinSize(anchoBoton, altoBoton);
-        botonComenzarElJuego.setTranslateX(ConstantesDeAplicacion.getAnchoVentana() - anchoBoton);
-        botonComenzarElJuego.setTranslateY(ConstantesDeAplicacion.getAltoVentana() - altoBoton);
-        Image comenzar = new Image("file:src/main/java/vista/imagenes/comenzar.png",botonComenzarElJuego.getWidth(),botonComenzarElJuego.getHeight(),false, true, true);
-        BackgroundImage bImage = new BackgroundImage(comenzar, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(botonComenzarElJuego.getWidth(), botonComenzarElJuego.getHeight(), true, true, true, false));
-        Background backGround = new Background(bImage);
-        botonComenzarElJuego.setBackground(backGround);
+        BotonComenzarView configurarBotonComenzar = new BotonComenzarView();
+        configurarBotonComenzar.setBotonComenzarView(botonComenzarElJuego);
+
+
+        Button botonSalirDelJuego = new Button();
+        BotonSalirView configurarBotonSalirDelJuego = new BotonSalirView();
+        configurarBotonSalirDelJuego.setBotonSalirView(botonSalirDelJuego,desplazamientoXBotonSalir,desplazamientoYBotonSalir);
+
 
         this.setBackground(new Background(imagenDeFondo));
-        this.getChildren().addAll(botonComenzarElJuego);
+        this.getChildren().addAll(botonComenzarElJuego,botonSalirDelJuego);
 
         BotonAvanzar eventoClickEnComenzar = new BotonAvanzar(ventana, menu);
         botonComenzarElJuego.setOnAction(eventoClickEnComenzar/*e->{ventana.setScene(menu);ventana.show();}*/);
+        OpcionSalirEventHandler opcionSalirHandler = new OpcionSalirEventHandler();
+        botonSalirDelJuego.setOnAction(opcionSalirHandler);
 
     }
 

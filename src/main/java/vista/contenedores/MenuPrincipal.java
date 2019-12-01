@@ -11,11 +11,12 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
+import vista.eventos.OpcionSalirEventHandler;
 
 public class MenuPrincipal extends VBox {
 
-    static int BOTON_ANCHO = 250;
-    static int BOTON_ALTO = 50;
+    static int desplazamientoXBotonSalir = 1130;
+    static int desplazamientoYBotonSalir = 870;
 
     Stage ventana;
     AudioClip audioMenu;
@@ -50,17 +51,18 @@ public class MenuPrincipal extends VBox {
         campoJugadorAzul.setFocusTraversable(false);
         campoJugadorAzul.setMaxWidth(400);
 
+        //creacion de boton Jugar
         Button botonJugar = new Button();
-        botonJugar.setMaxSize(BOTON_ANCHO, BOTON_ALTO);
-        botonJugar.setMinSize(BOTON_ANCHO, BOTON_ALTO);
-        Image crearJuego = new Image("file:src/main/java/vista/imagenes/jugar.png",botonJugar.getWidth(),botonJugar.getHeight(),false, true, true);
-        BackgroundImage bkgImgJuego = new BackgroundImage(crearJuego, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(botonJugar.getWidth(), botonJugar.getHeight(), true, true, true, false));
-        Background bkgBotJuego = new Background(bkgImgJuego);
-        botonJugar.setBackground(bkgBotJuego);
+        BotonJugarView configurarBotonJugar = new BotonJugarView();
+        configurarBotonJugar.setBotonJugarView(botonJugar);
 
-        botonJugar.setTranslateX(ConstantesDeAplicacion.getAnchoVentana() - BOTON_ANCHO);
-        botonJugar.setTranslateY(ConstantesDeAplicacion.getAltoVentana() - BOTON_ALTO);
-        this.getChildren().addAll(botonJugar);
+        //creacion de boton Salir
+        Button botonSalirDelJuego = new Button();
+        BotonSalirView configurarBotonSalir = new BotonSalirView();
+        configurarBotonSalir.setBotonSalirView(botonSalirDelJuego,desplazamientoXBotonSalir,desplazamientoYBotonSalir);
+
+
+        this.getChildren().addAll(botonJugar,botonSalirDelJuego);
 
         this.opcionesj1.getChildren().addAll(espacioV1,campoJugadorRojo);
         this.opcionesJ2.getChildren().addAll(espacioV2,campoJugadorAzul);
@@ -70,6 +72,8 @@ public class MenuPrincipal extends VBox {
 
         BotonJugar eventoJugar = new BotonJugar(this.ventana, campoJugadorRojo, campoJugadorAzul, batalla, proximaEscena);
         botonJugar.setOnAction(eventoJugar);
+        OpcionSalirEventHandler opcionSalirHandler = new OpcionSalirEventHandler();
+        botonSalirDelJuego.setOnAction(opcionSalirHandler);
     }
 
 }
