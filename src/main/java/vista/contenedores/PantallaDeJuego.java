@@ -1,5 +1,6 @@
 package vista.contenedores;
 
+import javafx.scene.control.MenuBar;
 import modelo.juego.Juego;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -14,6 +15,7 @@ public class PantallaDeJuego extends VBox {
     private Stage ventana;
     private Tablero tablero;
     private TableroView vistaTablero;
+    private BarraDeMenu menu;
 
     public PantallaDeJuego(Stage ventana, Juego batalla) {
         super();
@@ -25,7 +27,10 @@ public class PantallaDeJuego extends VBox {
 
         this.vistaTablero = new TableroView(this.tablero);
 
-        this.getChildren().add(this.vistaTablero);
+        this.menu = new BarraDeMenu(ventana);
+
+
+        this.getChildren().addAll(this.vistaTablero, this.menu);
 
     }
 }

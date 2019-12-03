@@ -8,12 +8,12 @@ import javafx.stage.Stage;
 
 import java.nio.file.Paths;
 
-public class HandlerBotonAvanzar implements EventHandler<ActionEvent> {
+public class HandlerBotonComenzar implements EventHandler<ActionEvent> {
 
     Stage ventana;
     Scene proximaEscena;
 
-    public HandlerBotonAvanzar(Stage ventana, Scene proximaEscena){
+    public HandlerBotonComenzar(Stage ventana, Scene proximaEscena){
         this.ventana = ventana;
         this.proximaEscena = proximaEscena;
     }
@@ -21,7 +21,7 @@ public class HandlerBotonAvanzar implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         ventana.setScene(proximaEscena);
-        ventana.setFullScreen(false);
+        //ventana.setFullScreen(false);
         AudioClip jugar = new AudioClip(Paths.get("src/main/java/vista/audio/click.wav").toUri().toString());
         jugar.play();
     }

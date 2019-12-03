@@ -1,6 +1,6 @@
 package vista.contenedores;
 
-import controlador.ConstantesDeAplicacion;
+import vista.ConstantesDeAplicacion;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
@@ -20,8 +20,8 @@ public class TableroView extends Group {
     public TableroView(Tablero tablero){
         table = new GridPane();
 
-        width = ConstantesDeAplicacion.getAnchoVentana() * 0.75;
-        height = width;
+        height = ConstantesDeAplicacion.getAltoVentana();
+        width = height;
         tileHeigth = width / tablero.getLado();
         tileWidth = height / tablero.getLado();
 

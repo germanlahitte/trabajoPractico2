@@ -1,4 +1,4 @@
-package controlador;
+package vista;
 
 public class ConstantesDeAplicacion {
 

@@ -1,6 +1,6 @@
 package vista.contenedores;
 
-import controlador.ConstantesDeAplicacion;
+import vista.ConstantesDeAplicacion;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;

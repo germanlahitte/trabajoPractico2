@@ -1,6 +1,6 @@
 package vista.contenedores;
 
-import controlador.ConstantesDeAplicacion;
+import vista.ConstantesDeAplicacion;
 import controlador.buttonHandlers.HandlerBotonJugar;
 import modelo.juego.Juego;
 import javafx.geometry.Pos;

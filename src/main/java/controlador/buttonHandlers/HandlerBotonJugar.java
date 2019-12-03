@@ -34,7 +34,7 @@ public class HandlerBotonJugar implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         ventana.setScene(proximaEscena);
-        ventana.setFullScreen(false);
+        //ventana.setFullScreen(false);
         this.partida.agregar(new Jugador(this.campoNombreRojo.getText(), new EquipoRojo()));
         this.partida.agregar(new Jugador(this.campoNombreAzul.getText(), new EquipoAzul()));
         AudioClip jugar = new AudioClip(Paths.get("src/main/java/vista/audio/redobleSimple.wav").toUri().toString());
