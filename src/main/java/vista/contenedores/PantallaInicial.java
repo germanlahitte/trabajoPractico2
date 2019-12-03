@@ -29,7 +29,7 @@ public class PantallaInicial extends VBox {
 
         Button botonComenzarElJuego = new Button();
         BotonComenzarView configurarBotonComenzar = new BotonComenzarView();
-        configurarBotonComenzar.setBotonComenzarView(new Button());
+        configurarBotonComenzar.setBotonComenzarView(botonComenzarElJuego);
 
 
         Button botonSalirDelJuego = new Button();

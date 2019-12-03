@@ -1,6 +1,8 @@
 package vista.contenedores;
 
+import javafx.geometry.Orientation;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.Separator;
 import modelo.juego.Juego;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -15,10 +17,11 @@ public class PantallaDeJuego extends VBox {
     private Stage ventana;
     private Tablero tablero;
     private TableroView vistaTablero;
+    private MenuTienda tiendaView;
 
     public PantallaDeJuego(Stage ventana, Juego batalla) {
         super();
-
+        BorderPane border = new BorderPane();
         this.ventana = ventana;
 
         this.partida = batalla;
@@ -26,9 +29,12 @@ public class PantallaDeJuego extends VBox {
 
         this.vistaTablero = new TableroView(this.tablero);
 
+        this.tiendaView = new MenuTienda(this.partida.getRonda());
 
+        border.setLeft(vistaTablero);
+        border.setRight(tiendaView);
 
-        this.getChildren().addAll(this.vistaTablero);
+        this.getChildren().add(border);
 
     }
 }
