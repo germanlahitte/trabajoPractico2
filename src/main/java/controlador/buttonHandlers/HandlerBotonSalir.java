@@ -1,5 +1,6 @@
 package controlador.buttonHandlers;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.media.AudioClip;
@@ -11,7 +12,7 @@ public class HandlerBotonSalir implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         AudioClip salir = new AudioClip(Paths.get("src/main/java/vista/audio/exit.wav").toUri().toString());
-        //salir.play();
-        System.exit(0);
+        salir.play();
+        Platform.exit();
     }
 }
