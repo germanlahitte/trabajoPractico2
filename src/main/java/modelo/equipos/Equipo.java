@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public interface  Equipo {
 
+    String getNombre();
+
     double atacar(Equipo equipo);
 
     double atacar(EquipoRojo equipo);

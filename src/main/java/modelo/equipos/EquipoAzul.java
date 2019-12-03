@@ -7,6 +7,12 @@ import java.util.ArrayList;
 
 public class EquipoAzul implements Equipo {
 
+    private static String nombre = "Equipo Azul";
+
+    public String getNombre() {
+        return nombre;
+    }
+
     public double atacar(Equipo equipo){
         return equipo.atacar(this);
     }
