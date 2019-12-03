@@ -1,7 +1,7 @@
 package vista.contenedores;
 
 import controlador.ConstantesDeAplicacion;
-import controlador.botones.BotonJugar;
+import controlador.buttonHandlers.HandlerBotonJugar;
 import modelo.juego.Juego;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,7 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
-import vista.eventos.OpcionSalirEventHandler;
+import controlador.buttonHandlers.HandlerBotonSalir;
 
 public class MenuPrincipal extends VBox {
 
@@ -70,9 +70,9 @@ public class MenuPrincipal extends VBox {
         campoJugadorAzul.setAlignment(Pos.CENTER_LEFT);
         this.getChildren().addAll(espacioH, opcionesj1, opcionesJ2);
 
-        BotonJugar eventoJugar = new BotonJugar(this.ventana, campoJugadorRojo, campoJugadorAzul, batalla, proximaEscena);
+        HandlerBotonJugar eventoJugar = new HandlerBotonJugar(this.ventana, campoJugadorRojo, campoJugadorAzul, batalla, proximaEscena);
         botonJugar.setOnAction(eventoJugar);
-        OpcionSalirEventHandler opcionSalirHandler = new OpcionSalirEventHandler();
+        HandlerBotonSalir opcionSalirHandler = new HandlerBotonSalir();
         botonSalirDelJuego.setOnAction(opcionSalirHandler);
     }
 

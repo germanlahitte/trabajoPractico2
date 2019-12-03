@@ -1,4 +1,4 @@
-package controlador.botones;
+package controlador.buttonHandlers;
 
 import modelo.juego.Juego;
 import javafx.event.ActionEvent;
@@ -14,14 +14,14 @@ import modelo.equipos.EquipoRojo;
 import java.nio.file.Paths;
 
 
-public class BotonJugar implements EventHandler<ActionEvent> {
+public class HandlerBotonJugar implements EventHandler<ActionEvent> {
 
     Stage ventana;
     Scene proximaEscena;
     Juego partida;
     TextField campoNombreRojo, campoNombreAzul;
 
-    public BotonJugar(Stage ventana, TextField nombreRojo, TextField nombreAzul, Juego partida, Scene proximaEscena){
+    public HandlerBotonJugar(Stage ventana, TextField nombreRojo, TextField nombreAzul, Juego partida, Scene proximaEscena){
         this.ventana = ventana;
         this.proximaEscena = proximaEscena;
 

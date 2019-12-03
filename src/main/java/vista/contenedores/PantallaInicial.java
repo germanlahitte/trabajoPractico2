@@ -1,15 +1,14 @@
 package vista.contenedores;
 
 import controlador.ConstantesDeAplicacion;
-import controlador.botones.BotonAvanzar;
-import javafx.application.Platform;
+import controlador.buttonHandlers.HandlerBotonAvanzar;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
-import vista.eventos.OpcionSalirEventHandler;
+import controlador.buttonHandlers.HandlerBotonSalir;
 
 import java.nio.file.Paths;
 
@@ -41,9 +40,9 @@ public class PantallaInicial extends VBox {
         this.setBackground(new Background(imagenDeFondo));
         this.getChildren().addAll(botonComenzarElJuego,botonSalirDelJuego);
 
-        BotonAvanzar eventoClickEnComenzar = new BotonAvanzar(ventana, menu);
+        HandlerBotonAvanzar eventoClickEnComenzar = new HandlerBotonAvanzar(ventana, menu);
         botonComenzarElJuego.setOnAction(eventoClickEnComenzar/*e->{ventana.setScene(menu);ventana.show();}*/);
-        OpcionSalirEventHandler opcionSalirHandler = new OpcionSalirEventHandler();
+        HandlerBotonSalir opcionSalirHandler = new HandlerBotonSalir();
         botonSalirDelJuego.setOnAction(opcionSalirHandler);
 
     }

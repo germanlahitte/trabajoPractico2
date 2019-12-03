@@ -5,8 +5,8 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.stage.Stage;
-import vista.eventos.OpcionPantallaCompletaEventHandler;
-import vista.eventos.OpcionSalirEventHandler;
+import controlador.buttonHandlers.HandlerBotonPantallaCompleta;
+import controlador.buttonHandlers.HandlerBotonSalir;
 
 public class BarraDeMenu extends MenuBar {
 
@@ -19,10 +19,10 @@ public class BarraDeMenu extends MenuBar {
         MenuItem opcionSalir = new MenuItem("Salir");
         MenuItem opcionAbrir = new MenuItem("Abrir");
 
-        OpcionSalirEventHandler opcionSalirHandler = new OpcionSalirEventHandler();
+        HandlerBotonSalir opcionSalirHandler = new HandlerBotonSalir();
         opcionSalir.setOnAction(opcionSalirHandler);
 
-        OpcionPantallaCompletaEventHandler opcionPantallaCompletaHandler = new OpcionPantallaCompletaEventHandler(escenario, opcionPantallaCompleta);
+        HandlerBotonPantallaCompleta opcionPantallaCompletaHandler = new HandlerBotonPantallaCompleta(escenario, opcionPantallaCompleta);
         opcionPantallaCompleta.setOnAction(opcionPantallaCompletaHandler);
         opcionPantallaCompleta.setDisable(true);
 
