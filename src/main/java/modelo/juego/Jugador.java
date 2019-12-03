@@ -25,6 +25,14 @@ public class Jugador {
         return this.bando;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getCredito() {
+        return this.billetera.getPuntosDisponibles();
+    }
+
     public void agregarPieza(Pieza pieza){
         piezas.add(pieza);
     }

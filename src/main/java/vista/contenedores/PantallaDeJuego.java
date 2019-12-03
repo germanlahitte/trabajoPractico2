@@ -18,6 +18,7 @@ public class PantallaDeJuego extends VBox {
     private Tablero tablero;
     private TableroView vistaTablero;
     private MenuTienda tiendaView;
+    private TurnoView turnoView;
 
     public PantallaDeJuego(Stage ventana, Juego batalla) {
         super();
@@ -31,6 +32,9 @@ public class PantallaDeJuego extends VBox {
 
         this.tiendaView = new MenuTienda(this.partida.getRonda());
 
+        this.turnoView = new TurnoView(this.partida.getRonda());
+
+        border.setLeft(turnoView);
         border.setCenter(vistaTablero);
         border.setRight(tiendaView);
 

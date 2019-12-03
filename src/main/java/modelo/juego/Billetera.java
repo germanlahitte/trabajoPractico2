@@ -13,6 +13,10 @@ public class Billetera {
         this.puntosDisponibles = credito;
     }
 
+    public int getPuntosDisponibles() {
+        return puntosDisponibles;
+    }
+
     public boolean tieneSaldo() {
         return (this.puntosDisponibles>0);
     }

@@ -3,7 +3,7 @@ package modelo.juego;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Ronda {
+public class Ronda extends Observable {
 
     private static int CANTIDAD_DE_JUGADORES = 2;
     private ArrayList<Jugador> jugadores;
@@ -15,6 +15,7 @@ public class Ronda {
 
     public void iniciarRonda(){
         this.setJugadorActual(this.tirarDado());
+        notifyObservers();
     }
 
     private int tirarDado(){
@@ -38,6 +39,7 @@ public class Ronda {
             indiceSiguiente=0;
         }
         this.setJugadorActual(indiceSiguiente);
+        notifyObservers();
     }
 
     private void setJugadorActual(int indiceSiguiente) {
