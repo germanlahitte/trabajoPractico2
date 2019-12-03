@@ -20,7 +20,7 @@ public class TableroView extends Group {
     public TableroView(Tablero tablero){
         table = new GridPane();
 
-        height = ConstantesDeAplicacion.getAltoVentana();
+        height = ConstantesDeAplicacion.getAltoVentana() - 5;
         width = height;
         tileHeigth = width / tablero.getLado();
         tileWidth = height / tablero.getLado();
