@@ -26,7 +26,7 @@ public class Aplicacion extends Application {
         this.ventana = stage;
         this.ventana.setTitle("AlgoChess");
         this.ventana.setFullScreen(false);
-        this.ventana.setResizable(true);
+        this.ventana.setResizable(false);
 
         this.batalla = new Juego();
 

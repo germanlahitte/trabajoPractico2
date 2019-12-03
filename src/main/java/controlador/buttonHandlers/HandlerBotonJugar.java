@@ -34,7 +34,6 @@ public class HandlerBotonJugar implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         ventana.setScene(proximaEscena);
-        //ventana.setFullScreen(false);
         this.partida.agregar(new Jugador(this.campoNombreRojo.getText(), new EquipoRojo()));
         this.partida.agregar(new Jugador(this.campoNombreAzul.getText(), new EquipoAzul()));
         this.partida.getRonda().iniciarRonda();

@@ -21,7 +21,6 @@ public class HandlerBotonComenzar implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         ventana.setScene(proximaEscena);
-        //ventana.setFullScreen(false);
         AudioClip jugar = new AudioClip(Paths.get("src/main/java/vista/audio/click.wav").toUri().toString());
         jugar.play();
     }

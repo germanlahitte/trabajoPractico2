@@ -11,7 +11,6 @@ import modelo.piezas.Pieza;
 public class HandlerBotonComprar implements EventHandler<ActionEvent> {
 
     Ronda ronda;
-    //Jugador jugador;
     int pieza;
 
 
