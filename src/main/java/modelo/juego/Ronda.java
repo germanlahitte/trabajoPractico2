@@ -13,13 +13,13 @@ public class Ronda {
         this.jugadores = new ArrayList<>();
     }
 
-    public Jugador iniciarRonda(){
-        return jugadores.get(tirarDado());
+    public void iniciarRonda(){
+        this.setJugadorActual(this.tirarDado());
     }
 
     private int tirarDado(){
         Random numeroAleatorio = new Random();
-        int indiceAleatorio = numeroAleatorio.nextInt(CANTIDAD_DE_JUGADORES) + 1;
+        int indiceAleatorio = numeroAleatorio.nextInt(CANTIDAD_DE_JUGADORES);
         return indiceAleatorio;
     }
 

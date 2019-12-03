@@ -31,7 +31,7 @@ public class PantallaDeJuego extends VBox {
 
         this.tiendaView = new MenuTienda(this.partida.getRonda());
 
-        border.setLeft(vistaTablero);
+        border.setCenter(vistaTablero);
         border.setRight(tiendaView);
 
         this.getChildren().add(border);
