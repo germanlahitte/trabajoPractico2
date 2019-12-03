@@ -1,5 +1,6 @@
 package vista.contenedores;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.Separator;
@@ -23,6 +24,7 @@ public class PantallaDeJuego extends VBox {
     public PantallaDeJuego(Stage ventana, Juego batalla) {
         super();
         BorderPane border = new BorderPane();
+        border.setPadding(new Insets(10, 20, 10, 20));
         this.ventana = ventana;
 
         this.partida = batalla;
@@ -34,7 +36,7 @@ public class PantallaDeJuego extends VBox {
 
         this.turnoView = new TurnoView(this.partida.getRonda());
 
-        border.setLeft(turnoView);
+        border.setTop(turnoView);
         border.setCenter(vistaTablero);
         border.setRight(tiendaView);
 

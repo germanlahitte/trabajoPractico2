@@ -1,5 +1,6 @@
 package vista.contenedores;
 
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -13,6 +14,7 @@ public class TurnoView extends VBox implements Observer {
     Ronda ronda;
 
     public TurnoView(Ronda ronda) {
+        this.setAlignment(Pos.CENTER);
         this.ronda = ronda;
         this.jugadorText = new Text();
         this.creditosText = new Text();
