@@ -7,15 +7,15 @@ import javafx.scene.layout.*;
 
 public class BotonSalirView {
 
-    static int anchoBotonSalir =300;
-    static int altoBotonSalir = 80;
+    static int BOTON_SALIR_ANCHO =300;
+    static int BOTON_SALIR_ALTO = 80;
 
     public BotonSalirView(){
 
     }
     public void setBotonSalirView(Button botonSalirDelJuego,int desplazamientoXBotonSalir,int desplazamientoYBotonSalir){
-        botonSalirDelJuego.setMaxSize(anchoBotonSalir,altoBotonSalir);
-        botonSalirDelJuego.setMinSize(anchoBotonSalir,altoBotonSalir);
+        botonSalirDelJuego.setMaxSize(BOTON_SALIR_ANCHO, BOTON_SALIR_ALTO);
+        botonSalirDelJuego.setMinSize(BOTON_SALIR_ANCHO, BOTON_SALIR_ALTO);
         botonSalirDelJuego.setTranslateX(ConstantesDeAplicacion.getAnchoVentana() - desplazamientoXBotonSalir);
         botonSalirDelJuego.setTranslateY(ConstantesDeAplicacion.getAltoVentana() - desplazamientoYBotonSalir );
         Image salir = new Image("file:src/main/java/vista/imagenes/exit.png",botonSalirDelJuego.getWidth(),botonSalirDelJuego.getHeight(),false, true, true);
