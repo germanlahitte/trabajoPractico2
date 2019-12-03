@@ -17,7 +17,7 @@ public class PantallaInicial extends VBox {
     static int desplazamientoXBotonSalir = 1130;
     static int desplazamientoYBotonSalir = 820;
 
-    public PantallaInicial(Stage ventana, Scene menu){
+    public PantallaInicial(Stage ventana, Scene menuView){
         super();
         this.setSpacing(20);
 
@@ -40,7 +40,7 @@ public class PantallaInicial extends VBox {
         this.setBackground(new Background(imagenDeFondo));
         this.getChildren().addAll(botonComenzarElJuego,botonSalirDelJuego);
 
-        HandlerBotonComenzar eventoClickEnComenzar = new HandlerBotonComenzar(ventana, menu);
+        HandlerBotonComenzar eventoClickEnComenzar = new HandlerBotonComenzar(ventana, menuView);
         botonComenzarElJuego.setOnAction(eventoClickEnComenzar/*e->{ventana.setScene(menu);ventana.show();}*/);
         HandlerBotonSalir opcionSalirHandler = new HandlerBotonSalir();
         botonSalirDelJuego.setOnAction(opcionSalirHandler);

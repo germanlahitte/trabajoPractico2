@@ -25,22 +25,22 @@ public class Aplicacion extends Application {
     public void start(Stage stage) throws Exception {
         this.ventana = stage;
         this.ventana.setTitle("AlgoChess");
+        this.ventana.setFullScreen(false);
+        this.ventana.setResizable(false);
 
         this.batalla = new Juego();
 
-        PantallaDeJuego pantalla = new PantallaDeJuego(ventana, batalla);
+        PantallaDeJuego pantalla = new PantallaDeJuego(this.ventana, batalla);
         this.batallaView = new Escena(pantalla);
 
-        MenuPrincipal menuPrincipal = new MenuPrincipal(ventana, batalla, batallaView);
+        MenuPrincipal menuPrincipal = new MenuPrincipal(this.ventana, batalla, batallaView);
         this.menuView = new Escena(menuPrincipal);
 
-        PantallaInicial presentacion = new PantallaInicial(ventana, menuView);
+        PantallaInicial presentacion = new PantallaInicial(this.ventana, menuView);
         this.inicioView = new Escena(presentacion);
 
-        ventana.setScene(inicioView);
-        ventana.setFullScreen(true);
-        ventana.setResizable(false);
-        ventana.show();
+        this.ventana.setScene(inicioView);
+        this.ventana.show();
 
     }
 }
