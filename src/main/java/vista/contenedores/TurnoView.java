@@ -4,10 +4,7 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import modelo.equipos.Equipo;
-import modelo.equipos.EquipoAzul;
 import modelo.juego.Observer;
 import modelo.juego.Ronda;
 

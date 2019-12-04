@@ -2,7 +2,7 @@ package modelo.juego;
 
 import java.util.ArrayList;
 
-public class Tienda {
+public class Tienda extends Observable {
 
     private boolean abierta;
     private ArrayList<Jugador> clientes;
@@ -21,6 +21,7 @@ public class Tienda {
         for (Jugador unJugador:clientes){
             abierta = (abierta || unJugador.tieneSaldo());
         }
+        this.notifyObservers();
     }
 
 }

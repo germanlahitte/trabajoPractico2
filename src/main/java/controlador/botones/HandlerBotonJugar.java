@@ -38,6 +38,7 @@ public class HandlerBotonJugar implements EventHandler<ActionEvent> {
         this.partida.agregar(new Jugador(this.campoNombreRojo.getText(), new EquipoRojo()));
         this.partida.agregar(new Jugador(this.campoNombreAzul.getText(), new EquipoAzul()));
         this.partida.getRonda().iniciarRonda();
+        this.partida.abrirTienda(this.partida.getRonda());
         AudioClip audioJugar = new AudioClip(Paths.get("src/main/java/vista/audio/redobleSimple.wav").toUri().toString());
         audioJugar.play();
     }

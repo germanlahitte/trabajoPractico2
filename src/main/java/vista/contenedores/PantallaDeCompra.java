@@ -5,7 +5,6 @@ import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import modelo.juego.Juego;
-import modelo.juego.Ronda;
 
 public class PantallaDeCompra extends VBox {
 
@@ -23,7 +22,7 @@ public class PantallaDeCompra extends VBox {
         BorderPane contenedor = new BorderPane();
         contenedor.setPadding(new Insets(10, 20, 10, 20));
 
-        contenedor.setRight(new MenuTienda(partida.getRonda()));
+        contenedor.setRight(new MenuTienda(partida));
         contenedor.setCenter(new TableroView(partida.getTablero()));
         contenedor.setTop(new TurnoView(partida.getRonda()));
 

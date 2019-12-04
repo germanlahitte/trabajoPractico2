@@ -9,7 +9,7 @@ public class Juego {
     Ronda ronda;
     Jugador jugadorActivo;
 
-    public Juego(){
+    public Juego() {
         this.ronda = new Ronda();
         this.campoDeJuego = new Tablero();
     }
@@ -20,6 +20,10 @@ public class Juego {
 
     public Jugador getJugadorActual(){
         return this.ronda.getJugadorActual();
+    }
+
+    public void abrirTienda(Ronda ronda){
+        this.tienda = new Tienda(ronda);
     }
 
     public void comprar(){
@@ -48,4 +52,5 @@ public class Juego {
         return this.campoDeJuego;
     }
 
+    public Tienda getTienda() { return this.tienda; }
 }
