@@ -1,5 +1,6 @@
 package controlador.botones;
 
+import excepciones.NoAlcanzanLasMonedasException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.media.AudioClip;
@@ -17,9 +18,14 @@ public class HandlerBotonComprarCatapulta implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent evento){
-        this.partida.getTienda().venderCatapulta(this.partida.getRonda().getJugadorActual());
-        this.partida.getRonda().avanzar();
-        AudioClip audioJugar = new AudioClip(Paths.get("src/main/java/vista/audio/catapulta.wav").toUri().toString());
-        audioJugar.play();
+        try{
+            this.partida.getTienda().venderCatapulta(this.partida.getRonda().getJugadorActual());
+            this.partida.getRonda().avanzar();
+            AudioClip audioJugar = new AudioClip(Paths.get("src/main/java/vista/audio/catapulta.wav").toUri().toString());
+            audioJugar.play();
+        } catch (NoAlcanzanLasMonedasException e){
+            //aca iria un sonidito nuevo
+        }
+
     }
 }
