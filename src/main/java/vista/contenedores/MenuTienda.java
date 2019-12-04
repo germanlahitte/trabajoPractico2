@@ -8,19 +8,15 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import modelo.juego.Juego;
 import modelo.juego.Observer;
-import modelo.juego.Ronda;
-import modelo.juego.Tienda;
 import vista.botones.*;
 
 public class MenuTienda extends VBox implements Observer {
 
-        private Ronda ronda;
-        private Tienda tienda;
+        private Juego partida;
 
         public MenuTienda(Juego partida){
 
-            this.ronda=ronda;
-            this.tienda=tienda;
+            this.partida = partida;
 
             this.setSpacing(60);
 
@@ -52,10 +48,8 @@ public class MenuTienda extends VBox implements Observer {
 
         @Override
         public void change(){
-            if(!tienda.estaAbierta()){
-                this.getChildren().removeAll();
+                this.getChildren().clear();
                 this.avanzar();
-            }
         }
 
         private void avanzar(){

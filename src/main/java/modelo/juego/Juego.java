@@ -26,16 +26,6 @@ public class Juego {
         this.tienda = new Tienda(ronda);
     }
 
-    public void comprar(){
-        Tienda tienda = new Tienda(ronda);
-        while(tienda.estaAbierta()) {
-            this.jugadorActivo = this.getJugadorActual();
-            jugadorActivo.comprar(tienda);
-            this.ronda.avanzar();
-        }
-
-    }
-
     public void jugar(){
         Jugador jugadorActual = this.getJugadorActual();
         /*
