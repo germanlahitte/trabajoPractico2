@@ -4,8 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.media.AudioClip;
 import modelo.juego.Juego;
-import modelo.juego.Ronda;
-import modelo.juego.Tienda;
 
 import java.nio.file.Paths;
 
