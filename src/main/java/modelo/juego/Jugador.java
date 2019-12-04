@@ -37,30 +37,26 @@ public class Jugador {
         piezas.add(pieza);
     }
 
-    public Pieza comprarSoldado(Tienda tienda)  {
+    public Pieza comprarSoldado()  {
         Soldado soldadoNuevo = this.billetera.comprarSoldado(this.bando);
         this.agregarPieza(soldadoNuevo);
-        tienda.venta();
         return soldadoNuevo;
     }
 
-    public Pieza comprarJinete(Tienda tienda) {
+    public Pieza comprarJinete() {
         Jinete jineteNuevo = this.billetera.comprarJinete(this.bando);
         this.agregarPieza(jineteNuevo);
-        tienda.venta();
         return jineteNuevo;
     }
 
-    public Pieza comprarCatapulta(Tienda tienda) {
+    public Pieza comprarCatapulta() {
         Catapulta catapultaNueva = this.billetera.comprarCatapulta(this.bando);
         this.agregarPieza(catapultaNueva);
-        tienda.venta();
         return catapultaNueva;
     }
-    public Pieza comprarCurandero(Tienda tienda) {
+    public Pieza comprarCurandero() {
         Curandero curanderoNuevo = this.billetera.comprarCurandero(this.bando);
         this.agregarPieza(curanderoNuevo);
-        tienda.venta();
         return curanderoNuevo;
     }
 
