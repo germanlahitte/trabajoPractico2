@@ -6,8 +6,10 @@ public class Tienda extends Observable {
 
     private ArrayList<Jugador> clientes;
 
-    public Tienda(Ronda clientes){
-        this.clientes = new ArrayList<>(clientes.getJugadores());
+    public Tienda() { }
+
+    public void abrirTienda(Ronda ronda) {
+        this.clientes = new ArrayList<>(ronda.getJugadores());
     }
 
     public boolean estaCerrada(){
@@ -49,13 +51,6 @@ public class Tienda extends Observable {
         if(estaCerrada()) {
             this.notifyObservers();
         }
-//        this.abierta = false;
-//        for (Jugador unJugador:clientes){
-//            abierta = (abierta || unJugador.tieneSaldo());
-//        }
-//        if(!estaAbierta()){
-//            this.notifyObservers();
-//        }
     }
 
 }

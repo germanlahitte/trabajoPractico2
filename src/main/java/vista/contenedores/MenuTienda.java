@@ -17,8 +17,10 @@ public class MenuTienda extends VBox implements Observer {
         public MenuTienda(Juego partida){
 
             this.partida = partida;
-
             this.setSpacing(60);
+
+            Button botonComprar = new Button();
+            VistaBotonComprar vistaBotonComprar = new VistaBotonComprar(botonComprar);
 
             Button botonComprarSoldado = new Button();
             VistaBotonComprarSoldado vistaBotonComprarSoldado = new VistaBotonComprarSoldado(botonComprarSoldado);
@@ -42,19 +44,20 @@ public class MenuTienda extends VBox implements Observer {
 
             VBox contenedorVacio = new VBox();
 
-            this.getChildren().addAll(contenedorVacio,botonComprarSoldado,botonComprarJinete,botonComprarCurandero,botonComprarCatapulta);
+            this.partida.getTienda().addObserver(this);
+            this.getChildren().addAll(botonComprar,botonComprarSoldado,botonComprarJinete,botonComprarCurandero,botonComprarCatapulta);
 
         }
 
         @Override
         public void change(){
-                this.getChildren().clear();
                 this.avanzar();
         }
 
         private void avanzar(){
+            this.getChildren().clear();
             Button botonJugar = new Button();
-            VistaBotonJugar vistaBotonJugar = new VistaBotonJugar(botonJugar);
+            VistaBotonBatalla vistaBotonBatalla = new VistaBotonBatalla(botonJugar);
             //Falta un handler
             this.getChildren().addAll(botonJugar);
         }

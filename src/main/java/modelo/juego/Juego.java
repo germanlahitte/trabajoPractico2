@@ -12,6 +12,7 @@ public class Juego {
     public Juego() {
         this.ronda = new Ronda();
         this.campoDeJuego = new Tablero();
+        this.tienda = new Tienda();
     }
 
     public void agregar(Jugador esteJugador) {
@@ -23,7 +24,7 @@ public class Juego {
     }
 
     public void abrirTienda(Ronda ronda){
-        this.tienda = new Tienda(ronda);
+        this.tienda.abrirTienda(ronda);
     }
 
     public void jugar(){
