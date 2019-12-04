@@ -25,27 +25,39 @@ public class Jugador {
         return this.bando;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getCredito() {
+        return this.billetera.getPuntosDisponibles();
+    }
+
     public void agregarPieza(Pieza pieza){
         piezas.add(pieza);
     }
 
-    public void comprarSoldado()  {
+    public Pieza comprarSoldado()  {
         Soldado soldadoNuevo = this.billetera.comprarSoldado(this.bando);
         this.agregarPieza(soldadoNuevo);
+        return soldadoNuevo;
     }
 
-    public void comprarJinete() {
+    public Pieza comprarJinete() {
         Jinete jineteNuevo = this.billetera.comprarJinete(this.bando);
         this.agregarPieza(jineteNuevo);
+        return jineteNuevo;
     }
 
-    public void comprarCatapulta() {
+    public Pieza comprarCatapulta() {
         Catapulta catapultaNueva = this.billetera.comprarCatapulta(this.bando);
         this.agregarPieza(catapultaNueva);
+        return catapultaNueva;
     }
-    public void comprarCurandero() {
+    public Pieza comprarCurandero() {
         Curandero curanderoNuevo = this.billetera.comprarCurandero(this.bando);
-       this.agregarPieza(curanderoNuevo);
+        this.agregarPieza(curanderoNuevo);
+        return curanderoNuevo;
     }
 
     //metodo usado para test
@@ -60,7 +72,7 @@ public class Jugador {
     }
 
     public boolean tieneSaldo() {
-       return (this.billetera.tieneSaldo());
+        return (this.billetera.tieneSaldo());
     }
 
     public void comprar(Tienda tienda) {

@@ -11,14 +11,14 @@ import modelo.equipos.Equipo;
 import modelo.ubicacion.Tablero;
 
 
-public class BotonCrear implements EventHandler<ActionEvent> {
+public class HandlerBotonCrear implements EventHandler<ActionEvent> {
 
     Equipo bando;
     String nombre;
     Ronda listaDeJugadores;
     Tablero tablero;
     
-    public BotonCrear(TextField nombre, Equipo bando, Juego batalla){
+    public HandlerBotonCrear(TextField nombre, Equipo bando, Juego batalla){
         this.bando = bando;
         this.nombre = nombre.getText();
         this.listaDeJugadores = batalla.getRonda();

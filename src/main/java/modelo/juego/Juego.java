@@ -18,34 +18,34 @@ public class Juego {
         this.ronda.agregar(esteJugador);
     }
 
-    public Jugador siguienteTurno(){
-       return this.ronda.siguienteTurno();
+    public Jugador getJugadorActual(){
+        return this.ronda.getJugadorActual();
     }
 
     public void comprar(){
         Tienda tienda = new Tienda(ronda);
         while(tienda.estaAbierta()) {
-            this.ronda.avanzar();
-            this.jugadorActivo = this.siguienteTurno();
+            this.jugadorActivo = this.getJugadorActual();
             jugadorActivo.comprar(tienda);
+            this.ronda.avanzar();
         }
 
     }
 
     public void jugar(){
-        Jugador jugadorActual = this.siguienteTurno();
+        Jugador jugadorActual = this.getJugadorActual();
         /*
         Acá pasa algo
          */
         this.ronda.avanzar();
     }
-    
+
     public Ronda getRonda(){
         return this.ronda;
     }
-    
+
     public Tablero getTablero(){
         return this.campoDeJuego;
-    }    
+    }
 
 }

@@ -1,7 +1,7 @@
 package vista.contenedores;
 
 import controlador.ConstantesDeAplicacion;
-import controlador.botones.BotonJugar;
+import controlador.botones.HandlerBotonJugar;
 import modelo.juego.Juego;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
+import vista.botones.VistaBotonJugar;
 
 public class MenuPrincipal extends VBox {
 
@@ -51,15 +52,7 @@ public class MenuPrincipal extends VBox {
         campoJugadorAzul.setMaxWidth(400);
 
         Button botonJugar = new Button();
-        botonJugar.setMaxSize(BOTON_ANCHO, BOTON_ALTO);
-        botonJugar.setMinSize(BOTON_ANCHO, BOTON_ALTO);
-        Image crearJuego = new Image("file:src/main/java/vista/imagenes/jugar.png",botonJugar.getWidth(),botonJugar.getHeight(),false, true, true);
-        BackgroundImage bkgImgJuego = new BackgroundImage(crearJuego, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(botonJugar.getWidth(), botonJugar.getHeight(), true, true, true, false));
-        Background bkgBotJuego = new Background(bkgImgJuego);
-        botonJugar.setBackground(bkgBotJuego);
-
-        botonJugar.setTranslateX(ConstantesDeAplicacion.getAnchoVentana() - BOTON_ANCHO);
-        botonJugar.setTranslateY(ConstantesDeAplicacion.getAltoVentana() - BOTON_ALTO);
+        VistaBotonJugar vistaBotonJugar = new VistaBotonJugar(botonJugar);
         this.getChildren().addAll(botonJugar);
 
         this.opcionesj1.getChildren().addAll(espacioV1,campoJugadorRojo);
@@ -68,7 +61,7 @@ public class MenuPrincipal extends VBox {
         campoJugadorAzul.setAlignment(Pos.CENTER_LEFT);
         this.getChildren().addAll(espacioH, opcionesj1, opcionesJ2);
 
-        BotonJugar eventoJugar = new BotonJugar(this.ventana, campoJugadorRojo, campoJugadorAzul, batalla, proximaEscena);
+        HandlerBotonJugar eventoJugar = new HandlerBotonJugar(this.ventana, campoJugadorRojo, campoJugadorAzul, batalla, proximaEscena);
         botonJugar.setOnAction(eventoJugar);
     }
 

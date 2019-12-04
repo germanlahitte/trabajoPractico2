@@ -8,12 +8,12 @@ import javafx.stage.Stage;
 
 import java.nio.file.Paths;
 
-public class BotonAvanzar implements EventHandler<ActionEvent> {
+public class HandlerBotonAvanzar implements EventHandler<ActionEvent> {
 
     Stage ventana;
     Scene proximaEscena;
 
-    public BotonAvanzar(Stage ventana, Scene proximaEscena){
+    public HandlerBotonAvanzar(Stage ventana, Scene proximaEscena){
         this.ventana = ventana;
         this.proximaEscena = proximaEscena;
     }
