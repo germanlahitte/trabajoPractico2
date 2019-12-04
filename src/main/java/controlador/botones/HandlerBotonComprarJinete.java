@@ -18,6 +18,7 @@ public class HandlerBotonComprarJinete implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent evento){
         this.ronda.getJugadorActual().comprarJinete();
+        this.ronda.avanzar();
         AudioClip audioJugar = new AudioClip(Paths.get("src/main/java/vista/audio/crearJinete.wav").toUri().toString());
         audioJugar.play();
     }

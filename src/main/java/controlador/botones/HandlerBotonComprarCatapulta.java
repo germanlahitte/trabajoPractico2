@@ -18,6 +18,7 @@ public class HandlerBotonComprarCatapulta implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent evento){
         this.ronda.getJugadorActual().comprarCatapulta();
+        this.ronda.avanzar();
         AudioClip audioJugar = new AudioClip(Paths.get("src/main/java/vista/audio/catapulta.wav").toUri().toString());
         audioJugar.play();
     }

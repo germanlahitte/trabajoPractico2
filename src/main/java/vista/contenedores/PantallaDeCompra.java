@@ -21,10 +21,11 @@ public class PantallaDeCompra extends VBox {
         this.setBackground(new Background(imagenDeFondo));
 
         BorderPane contenedor = new BorderPane();
-        contenedor.setRight(new MenuTienda(partida.getRonda()));
         contenedor.setPadding(new Insets(10, 20, 10, 20));
 
+        contenedor.setRight(new MenuTienda(partida.getRonda()));
         contenedor.setCenter(new TableroView(partida.getTablero()));
+        contenedor.setTop(new TurnoView(partida.getRonda()));
 
         this.getChildren().add(contenedor);
     }

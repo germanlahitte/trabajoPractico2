@@ -18,6 +18,7 @@ public class HandlerBotonComprarCurandero implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent evento){
         this.ronda.getJugadorActual().comprarCurandero();
+        this.ronda.avanzar();
         AudioClip audioJugar = new AudioClip(Paths.get("src/main/java/vista/audio/crearCurandero.wav").toUri().toString());
         audioJugar.play();
     }

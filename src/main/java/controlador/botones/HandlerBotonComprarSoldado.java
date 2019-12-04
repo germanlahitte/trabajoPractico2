@@ -18,6 +18,7 @@ public class HandlerBotonComprarSoldado implements EventHandler <ActionEvent> {
     @Override
     public void handle(ActionEvent evento){
         this.ronda.getJugadorActual().comprarSoldado();
+        this.ronda.avanzar();
         AudioClip audioJugar = new AudioClip(Paths.get("src/main/java/vista/audio/soldado.wav").toUri().toString());
         audioJugar.play();
     }
