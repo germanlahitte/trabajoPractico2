@@ -27,6 +27,7 @@ public class HandlerBotonUbicar implements EventHandler<ActionEvent> {
             tablero.ubicar(menuTienda.getPiezaParaUbicar(), posicion);
             AudioClip audioJugar = new AudioClip(Paths.get("src/main/java/vista/audio/sePudoUbicar.wav").toUri().toString());
             audioJugar.play();
+            menuTienda.resetPiezaAUbicar();
             menuTienda.getPartida().getRonda().avanzar();
         } catch (RuntimeException rtEx) {
             AudioClip audioJugar = new AudioClip(Paths.get("src/main/java/vista/audio/nonono.wav").toUri().toString());

@@ -76,4 +76,8 @@ public class MenuTienda extends VBox implements Observer {
         public Juego getPartida(){
             return partida;
         }
+
+        public void resetPiezaAUbicar(){
+            this.piezaParaUbicar = null;
+        }
 }
