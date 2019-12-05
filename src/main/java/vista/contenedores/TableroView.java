@@ -85,7 +85,7 @@ public class TableroView extends Group {
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
                 Pieza piezaRecibe = this.casilleroViews[i][j].casilleroModel.getPieza();
-                if (piezaRecibe != null && piezaRecibe.getEquipo()!=piezaAtaca.getEquipo()) {
+                if (piezaRecibe != null) {
                     HandlerRecibirAtaque evento = new HandlerRecibirAtaque(piezaAtaca, piezaRecibe, ronda, this, ventana, batallaView);
                     this.casilleroViews[i][j].setEvent(evento);
                 }

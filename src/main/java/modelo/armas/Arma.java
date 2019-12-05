@@ -13,10 +13,10 @@ public abstract class Arma {
         this.rango = rango;
     }
     public void atacarA(Pieza unaPieza, int distancia) {
-        if(this.rango.enRango(distancia)){
-            unaPieza.quitarVida(this.danio);
+        if(!this.rango.enRango(distancia)){
+            throw new DistanciaArmaInefectiva();
         } else {
-            throw new DistanciaArmaInefectiva("Fuera de rango");
+            unaPieza.quitarVida(this.danio);
         }
     }
 }

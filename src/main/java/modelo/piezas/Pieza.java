@@ -1,5 +1,6 @@
 package modelo.piezas;
 
+import excepciones.PiezaNoPuedeAtacar;
 import modelo.armas.*;
 import modelo.ubicacion.*;
 import modelo.equipos.*;
@@ -40,8 +41,11 @@ public abstract class Pieza {
     }
 
     public void atacar(Pieza pieza) {
-        if (!pieza.soyAliado(this.equipo))
+        if (pieza.soyAliado(this.equipo)) {
+            throw new PiezaNoPuedeAtacar("No puedes atacar aliados");
+        } else {
             pieza.atacadaDesde(this.casillero, this.arma);
+        }
     }
 
     //  Vida
@@ -51,6 +55,9 @@ public abstract class Pieza {
 
     public void quitarVida(double danio) {
         this.hacerseDanio(this.casillero.calcularDanio(equipo) * danio);
+        if (this.getVida()==0) {
+            this.desocuparCasillero();
+        }
     }
 
     public void hacerseDanio(double danio) {

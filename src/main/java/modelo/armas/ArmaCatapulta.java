@@ -16,7 +16,7 @@ public class ArmaCatapulta extends Arma {
             unaPieza.casillero().bombardeo(this.danio);
             unaPieza.casillero().altoElFuego();
         } else {
-            throw new DistanciaArmaInefectiva("Fuera de rango");
+            throw new DistanciaArmaInefectiva();
         }
 
     }

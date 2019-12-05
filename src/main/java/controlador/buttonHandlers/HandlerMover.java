@@ -38,7 +38,7 @@ public class HandlerMover implements EventHandler<ActionEvent> {
             this.ronda.avanzar();
             this.tableroView.prepararElegir(this.ronda.getJugadorActual().getEquipo(), this.ventana, this.ronda);
         } catch (Exception e) {
-
+            System.out.println(e.getMessage());
         }
     }
 }

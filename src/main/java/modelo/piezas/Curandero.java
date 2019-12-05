@@ -1,5 +1,6 @@
 package modelo.piezas;
 
+import excepciones.ArmaNoPuedeAtacarException;
 import modelo.armas.ArmaCurandero;
 import modelo.equipos.Equipo;
 import modelo.ProveedorConstantes;
@@ -22,9 +23,12 @@ public class Curandero extends Pieza implements Movible {
         return "curandero";
     }
 
-    public void atacar(Pieza pieza){
-        if(pieza.soyAliado(this.equipo))
-            pieza.atacadaDesde(this.casillero,this.arma);
+    public void atacar(Pieza pieza) {
+        if (!pieza.soyAliado(this.equipo)) {
+            throw new ArmaNoPuedeAtacarException("No puedes curar al enemigo");
+        } else {
+            pieza.atacadaDesde(this.casillero, this.arma);
+        }
     }
 }
 
