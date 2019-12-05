@@ -13,7 +13,7 @@ public class PantallaDeJuego extends VBox {
     private Jugador jugadorAzul;
     private Stage ventana;
     private Tablero tablero;
-    private TableroView vistaTablero;
+    private TableroComprarView vistaTablero;
 
     public PantallaDeJuego(Stage ventana, Juego batalla) {
         super();
@@ -23,9 +23,9 @@ public class PantallaDeJuego extends VBox {
         this.partida = batalla;
         this.tablero = this.partida.getTablero();
 
-        this.vistaTablero = new TableroView(this.tablero);
+        //this.vistaTablero = new TableroView(this.tablero);
 
-        this.getChildren().add(this.vistaTablero);
+        //this.getChildren().add(this.vistaTablero);
 
     }
 }

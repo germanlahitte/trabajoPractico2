@@ -7,6 +7,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import modelo.juego.Observer;
 import modelo.juego.Ronda;
+import modelo.piezas.Pieza;
 
 public class TurnoView extends VBox implements Observer {
 
@@ -19,11 +20,11 @@ public class TurnoView extends VBox implements Observer {
         this.ronda = ronda;
 
         this.jugadorText = new Text();
-        jugadorText.setFont(Font.loadFont("file:src/main/java/vista/imagenes/fuente.ttf",16));
+        jugadorText.setFont(Font.loadFont("file:src/main/java/vista/imagenes/fuente.ttf", 16));
         jugadorText.setFill(Color.GOLD);
 
         this.creditosText = new Text();
-        creditosText.setFont(Font.loadFont("file:src/main/java/vista/imagenes/fuente.ttf",16));
+        creditosText.setFont(Font.loadFont("file:src/main/java/vista/imagenes/fuente.ttf", 16));
         creditosText.setFill(Color.GOLD);
 
         ronda.addObserver(this);
@@ -34,5 +35,9 @@ public class TurnoView extends VBox implements Observer {
     public void change() {
         this.jugadorText.setText("Turno Jugador:" + this.ronda.getJugadorActual().getNombre());
         this.creditosText.setText("Créditos disponibles:" + this.ronda.getJugadorActual().getCredito());
+    }
+
+    @Override
+    public void change(Pieza unaPieza) {
     }
 }

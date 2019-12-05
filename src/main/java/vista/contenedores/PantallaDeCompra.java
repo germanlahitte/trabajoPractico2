@@ -8,6 +8,8 @@ import modelo.juego.Juego;
 
 public class PantallaDeCompra extends VBox {
 
+    private MenuTienda menuTienda;
+
     public PantallaDeCompra(Juego partida){
         super();
         Image imagen = new Image("file:src/main/java/vista/imagenes/fondoTabla.png",
@@ -22,8 +24,10 @@ public class PantallaDeCompra extends VBox {
         BorderPane contenedor = new BorderPane();
         contenedor.setPadding(new Insets(10, 20, 10, 20));
 
-        contenedor.setRight(new MenuTienda(partida));
-        contenedor.setCenter(new TableroView(partida.getTablero()));
+        this.menuTienda = new MenuTienda(partida);
+
+        contenedor.setRight(this.menuTienda);
+        contenedor.setCenter(new TableroComprarView(partida.getTablero(),this.menuTienda));
         contenedor.setTop(new TurnoView(partida.getRonda()));
 
         this.getChildren().add(contenedor);

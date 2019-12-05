@@ -20,11 +20,12 @@ public class HandlerBotonComprarSoldado implements EventHandler <ActionEvent> {
     public void handle(ActionEvent evento){
         try{
             this.partida.getTienda().venderSoldado(this.partida.getRonda().getJugadorActual());
-            this.partida.getRonda().avanzar();
+            /*Primero ubico*///this.partida.getRonda().avanzar();
             AudioClip audioJugar = new AudioClip(Paths.get("src/main/java/vista/audio/soldado.wav").toUri().toString());
             audioJugar.play();
         }catch (NoAlcanzanLasMonedasException e){
-            //sonidito
+            AudioClip audioJugar = new AudioClip(Paths.get("src/main/java/vista/audio/noMoney.wav").toUri().toString());
+            audioJugar.play();
         }
 
     }

@@ -8,11 +8,13 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import modelo.juego.Juego;
 import modelo.juego.Observer;
+import modelo.piezas.Pieza;
 import vista.botones.*;
 
 public class MenuTienda extends VBox implements Observer {
 
         private Juego partida;
+        private Pieza piezaParaUbicar;
 
         public MenuTienda(Juego partida){
 
@@ -54,11 +56,24 @@ public class MenuTienda extends VBox implements Observer {
                 this.avanzar();
         }
 
+        @Override
+        public void change(Pieza unaPieza){
+            this.piezaParaUbicar = unaPieza;
+        }
+
         private void avanzar(){
             this.getChildren().clear();
             Button botonJugar = new Button();
             VistaBotonBatalla vistaBotonBatalla = new VistaBotonBatalla(botonJugar);
             //Falta un handler
             this.getChildren().addAll(botonJugar);
+        }
+
+        public Pieza getPiezaParaUbicar(){
+            return piezaParaUbicar;
+        }
+
+        public Juego getPartida(){
+            return partida;
         }
 }

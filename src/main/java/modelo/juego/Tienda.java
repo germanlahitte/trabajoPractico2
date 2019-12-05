@@ -18,28 +18,28 @@ public class Tienda extends Observable {
 
     public void venderSoldado(Jugador unJugador){
         if (clientes.contains(unJugador)){
-            unJugador.comprarSoldado();
+            this.notifyObservers(unJugador.comprarSoldado());
         }
         this.venta(unJugador);
     }
 
     public void venderJinete(Jugador unJugador){
         if (clientes.contains(unJugador)){
-            unJugador.comprarJinete();
+            this.notifyObservers(unJugador.comprarJinete());
         }
         this.venta(unJugador);
     }
 
     public void venderCurandero(Jugador unJugador){
         if (clientes.contains(unJugador)){
-            unJugador.comprarCurandero();
+            this.notifyObservers(unJugador.comprarCurandero());
         }
         this.venta(unJugador);
     }
 
     public void venderCatapulta(Jugador unJugador){
         if (clientes.contains(unJugador)){
-            unJugador.comprarCatapulta();
+            this.notifyObservers(unJugador.comprarCatapulta());
         }
         this.venta(unJugador);
     }

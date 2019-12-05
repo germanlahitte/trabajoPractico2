@@ -1,5 +1,7 @@
 package modelo.juego;
 
+import modelo.piezas.Pieza;
+
 import java.util.ArrayList;
 
 public abstract class Observable {
@@ -15,5 +17,9 @@ public abstract class Observable {
 
     public void notifyObservers() {
         observers.stream().forEach(observer -> observer.change());
+    }
+
+    public void notifyObservers(Pieza unaPieza) {
+        observers.stream().forEach(observer -> observer.change(unaPieza));
     }
 }
