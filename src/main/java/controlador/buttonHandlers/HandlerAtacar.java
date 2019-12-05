@@ -5,24 +5,27 @@ import javafx.event.EventHandler;
 import javafx.scene.layout.BorderPane;
 import modelo.juego.Ronda;
 import modelo.piezas.Pieza;
+import vista.contenedores.MenuBatalla;
 import vista.contenedores.TableroView;
 
 public class HandlerAtacar implements EventHandler<ActionEvent> {
 
+    private MenuBatalla batallaView;
     private BorderPane ventana;
     private Ronda ronda;
     private TableroView vistaTablero;
     private Pieza pieza;
 
-    public HandlerAtacar(Pieza pieza, TableroView vistaTablero, Ronda ronda, BorderPane ventana) {
+    public HandlerAtacar(Pieza pieza, TableroView vistaTablero, Ronda ronda, BorderPane ventana, MenuBatalla menuBatalla) {
         this.pieza = pieza;
         this.vistaTablero = vistaTablero;
         this.ronda = ronda;
         this.ventana = ventana;
+        this.batallaView = menuBatalla;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        this.vistaTablero.prepararAtacar(this.pieza, this.ronda, this.ventana);
+        this.vistaTablero.prepararAtacar(this.pieza, this.ronda, this.ventana, this.batallaView);
     }
 }

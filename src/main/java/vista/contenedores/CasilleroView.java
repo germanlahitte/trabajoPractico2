@@ -17,7 +17,7 @@ public class CasilleroView extends Pane implements Observer {
 
 
 
-    public CasilleroView(Casillero casillero, double tileWidth, double tileHeigth, Background bi) {
+    public CasilleroView(Casillero casillero, double tileWidth, double tileHeigth) {
 
         casillero.addObserver(this);
         this.casilleroModel = casillero;
@@ -26,6 +26,14 @@ public class CasilleroView extends Pane implements Observer {
         this.heigth=tileHeigth;
         this.setMinHeight(tileHeigth);
         this.setMinWidth(tileWidth);
+
+
+        Background bi = new Background(new BackgroundImage(new Image("file:src/main/java/vista/imagenes/casillero-" + casillero.getEquipo().getNombre() + ".png"),
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                new BackgroundSize(tileWidth, tileHeigth, false, false, false, false)));
+
         this.setBackground(bi);
         this.boton = new Button();
         this.boton.setMinHeight(tileHeigth);

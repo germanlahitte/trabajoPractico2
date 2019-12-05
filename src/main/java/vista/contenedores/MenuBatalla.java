@@ -51,7 +51,7 @@ public class MenuBatalla extends VBox {
             botonAtacar.setText("Atacar");
         }
         botonAtacar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
-        HandlerAtacar eventoAtacar = new HandlerAtacar(pieza, vistaTablero, ronda, ventana);
+        HandlerAtacar eventoAtacar = new HandlerAtacar(pieza, vistaTablero, ronda, ventana, this);
         botonAtacar.setOnAction(eventoAtacar);
         this.getChildren().add(botonAtacar);
 

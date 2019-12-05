@@ -80,7 +80,13 @@ public class Casillero extends Observable {
     public int distanciaA(Posicion posicion){
         return posicion.distanciaA(this.posicion);
     }
+
     public Posicion getPosicion(){return this.posicion;}
+
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
     public Pieza getPieza() { return this.pieza; }
 
     private ArrayList<Casillero> vecinos(){

@@ -29,44 +29,39 @@ public class TableroView extends Group {
     private Tablero tablero;
 
     public TableroView(Tablero tablero){
-        table = new GridPane();
+        this.table = new GridPane();
         this.tablero = tablero;
 
-        height = ConstantesDeAplicacion.getAltoVentana() - 64;
-        width = height;
-        tileHeigth = width / this.tablero.getLado();
-        tileWidth = height / this.tablero.getLado();
+        this.height = ConstantesDeAplicacion.getAltoVentana() - 64;
+        this.width = height;
+        this.tileHeigth = width / this.tablero.getLado();
+        this.tileWidth = height / this.tablero.getLado();
 
-        panes = new CasilleroView[(int)width][(int) height];
-        Background bi = new Background(new BackgroundImage(new Image("file:src/main/java/vista/imagenes/casillero.png"),
-                BackgroundRepeat.NO_REPEAT,
-                BackgroundRepeat.NO_REPEAT,
-                BackgroundPosition.CENTER,
-                new BackgroundSize(tileWidth, tileHeigth, false, false, false, false)));
+        this.panes = new CasilleroView[(int)width][(int) height];
 
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
-                CasilleroView v = new CasilleroView(this.tablero.casilleroEn(new Posicion(i+1,j+1)),this.tileWidth,this.tileHeigth,bi);
+                CasilleroView v = new CasilleroView(this.tablero.casilleroEn(new Posicion(i+1,j+1)),this.tileWidth,this.tileHeigth);
                 panes[i][j] = v;
 
-                table.add(v , i, j);
+                this.table.add(v , i, j);
 
             }
         }
-        this.addView(table);
+        this.addView(this.table);
 
     }
 
     public Tablero getTablero() {
-        return tablero;
+        return this.tablero;
     }
 
     public void prepararUbicar(Pieza pieza, Ronda ronda){
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
                 HandlerUbicarPieza evento = new HandlerUbicarPieza(pieza, this, ronda);
-                evento.setPosicion(panes[i][j].casilleroModel.getPosicion());
-                panes[i][j].setEvent(evento);
+                evento.setPosicion(this.panes[i][j].casilleroModel.getPosicion());
+                this.panes[i][j].setEvent(evento);
 
 
             }
@@ -77,24 +72,24 @@ public class TableroView extends Group {
         this.removerEvento();
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
-                Pieza pieza = panes[i][j].casilleroModel.getPieza();
+                Pieza pieza = this.panes[i][j].casilleroModel.getPieza();
                 if (pieza != null && pieza.getEquipo()==equipo) {
                     HandlerElegirPieza evento = new HandlerElegirPieza(pieza, ventana, this, ronda);
-                    panes[i][j].setEvent(evento);
+                    this.panes[i][j].setEvent(evento);
                 }
 
             }
         }
     }
 
-    public void prepararAtacar(Pieza piezaAtaca, Ronda ronda, BorderPane ventana) {
+    public void prepararAtacar(Pieza piezaAtaca, Ronda ronda, BorderPane ventana, MenuBatalla batallaView) {
         this.removerEvento();
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
-                Pieza piezaRecibe = panes[i][j].casilleroModel.getPieza();
+                Pieza piezaRecibe = this.panes[i][j].casilleroModel.getPieza();
                 if (piezaRecibe != null && piezaRecibe.getEquipo()!=piezaAtaca.getEquipo()) {
-                    HandlerRecibirAtaque evento = new HandlerRecibirAtaque(piezaAtaca, piezaRecibe, ronda, this, ventana);
-                    panes[i][j].setEvent(evento);
+                    HandlerRecibirAtaque evento = new HandlerRecibirAtaque(piezaAtaca, piezaRecibe, ronda, this, ventana, batallaView);
+                    this.panes[i][j].setEvent(evento);
                 }
 
             }
@@ -105,15 +100,10 @@ public class TableroView extends Group {
         this.getChildren().add(view);
     }
 
-    public void updateView(Node view) {
-        getChildren().remove(view);
-        getChildren().add(view);
-    }
-
     public void removerEvento() {
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
-                panes[i][j].setEvent(null);
+                this.panes[i][j].setEvent(null);
             }
         }
     }

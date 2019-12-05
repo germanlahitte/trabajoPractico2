@@ -37,7 +37,7 @@ public class PantallaDeJuego extends VBox {
         this.turnoView = new TurnoView(this.partida.getRonda());
 
         Button botonPelear = new Button("Comenzar la batalla");
-        HandlerBotonBatalla eventoComenzarBatalla = new HandlerBotonBatalla(border, tiendaView, this.partida.getRonda(), this.vistaTablero, botonPelear);
+        HandlerBotonBatalla eventoComenzarBatalla = new HandlerBotonBatalla(border, tiendaView, this.partida.getRonda(), this.vistaTablero, botonPelear, this.turnoView);
         botonPelear.setOnAction(eventoComenzarBatalla);
         VBox vbox = new VBox(botonPelear);
         vbox.setAlignment(Pos.CENTER_LEFT);

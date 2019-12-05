@@ -11,21 +11,24 @@ import modelo.ubicacion.Tablero;
 import vista.contenedores.MenuBatalla;
 import vista.contenedores.MenuTienda;
 import vista.contenedores.TableroView;
+import vista.contenedores.TurnoView;
 
 public class HandlerBotonBatalla implements EventHandler<ActionEvent> {
 
-    BorderPane ventana;
-    MenuTienda vistaTienda;
-    Ronda ronda;
-    TableroView vistaTablero;
-    Button boton;
+    private TurnoView turnoView;
+    private BorderPane ventana;
+    private MenuTienda vistaTienda;
+    private Ronda ronda;
+    private TableroView vistaTablero;
+    private Button boton;
 
-    public HandlerBotonBatalla(BorderPane ventana, MenuTienda tiendaView, Ronda ronda, TableroView tableroView, Button boton) {
+    public HandlerBotonBatalla(BorderPane ventana, MenuTienda tiendaView, Ronda ronda, TableroView tableroView, Button boton, TurnoView turnoView) {
         this.ventana = ventana;
         this.vistaTienda = tiendaView;
         this.ronda = ronda;
         this.vistaTablero = tableroView;
         this.boton = boton;
+        this.turnoView = turnoView;
     }
 
     @Override
@@ -40,6 +43,7 @@ public class HandlerBotonBatalla implements EventHandler<ActionEvent> {
             this.vistaTienda.setVisible(false);
             this.ronda.iniciarRonda();
             this.boton.setVisible(false);
+            this.turnoView.setDescripcion("Fase de batalla: A pelear!");
             this.vistaTablero.prepararElegir(this.ronda.getJugadorActual().getEquipo(), this.ventana, this.ronda);
         }
 
