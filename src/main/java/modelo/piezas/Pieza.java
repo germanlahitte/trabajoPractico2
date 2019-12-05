@@ -18,6 +18,12 @@ public abstract class Pieza {
         this.equipo = equipo;
     }
 
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public abstract String getNombre();
+
     // Se ubica en el mapa
     public Pieza ubicarCon(Equipo equipo){
         return this.equipo.ubicarCon(equipo,this);

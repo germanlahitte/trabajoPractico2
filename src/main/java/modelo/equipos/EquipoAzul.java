@@ -1,5 +1,6 @@
 package modelo.equipos;
 
+import modelo.ProveedorConstantes;
 import modelo.piezas.Pieza;
 import excepciones.CasilleroEnemigoException;
 
@@ -7,10 +8,8 @@ import java.util.ArrayList;
 
 public class EquipoAzul implements Equipo {
 
-    private static String nombre = "Equipo Azul";
-
     public String getNombre() {
-        return nombre;
+        return ProveedorConstantes.nombreEquipoB();
     }
 
     public double atacar(Equipo equipo){

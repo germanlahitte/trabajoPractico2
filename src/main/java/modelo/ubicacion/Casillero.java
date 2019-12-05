@@ -1,6 +1,7 @@
 package modelo.ubicacion;
 
 import modelo.equipos.Equipo;
+import modelo.juego.Observable;
 import modelo.piezas.Batallon;
 import modelo.piezas.Pieza;
 import modelo.ubicacion.alcanzado.StrategyAlcanzado;
@@ -13,7 +14,7 @@ import excepciones.CasilleroOcupadoException;
 
 import java.util.ArrayList;
 
-public class Casillero {
+public class Casillero extends Observable {
 
     private Posicion posicion;
     private Equipo equipo;
@@ -42,11 +43,13 @@ public class Casillero {
     /// Agrega Pieza delega en strategyDisponibilidad
     public void agregarPieza(Pieza pieza){
         this.disponibilidad.agregarPieza(pieza,this);
+        notifyObservers();
     }
 
     public void agregarPieza(Pieza soldado, Batallon batallon, Direccion direccion) {
         try {
             this.disponibilidad.agregarPieza(soldado, this);
+            notifyObservers();
         } catch (CasilleroOcupadoException ocupado) {
             batallon.moverOtra(this.pieza,soldado,direccion);
         }
@@ -57,11 +60,13 @@ public class Casillero {
         this.pieza = pieza;
         this.disponibilidad = new StrategyOcupado();
         this.pieza.ocuparCasillero(this);
+        notifyObservers();
     }
 
     public void desocupar(){
         this.pieza = null;
         this.disponibilidad = new StrategyLibre();
+        notifyObservers();
     }
 
     ///// Delegacion en posicion y direccion

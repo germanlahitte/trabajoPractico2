@@ -47,6 +47,7 @@ public class PantallaDeJuego extends VBox {
         this.turnoView.setDescripcion("Primera Fase: compren y ubiquen sus piezas.");
 
         border.setTop(turnoView);
+        border.setLeft(new VBox(200));
         border.setCenter(vistaTablero);
         border.setRight(tiendaView);
 

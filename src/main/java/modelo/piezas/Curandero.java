@@ -17,6 +17,11 @@ public class Curandero extends Pieza implements Movible {
         this.casillero.siguiente(direccion).agregarPieza(this);
     }
 
+    @Override
+    public String getNombre() {
+        return "curandero";
+    }
+
     public void atacar(Pieza pieza){
         if(pieza.soyAliado(this.equipo))
             pieza.atacadaDesde(this.casillero,this.arma);

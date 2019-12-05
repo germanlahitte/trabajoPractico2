@@ -41,7 +41,7 @@ public class TableroView extends Group {
 
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
-                CasilleroView v = new CasilleroView(this.tileWidth,this.tileHeigth,bi);
+                CasilleroView v = new CasilleroView(this.tablero.casilleroEn(new Posicion(i+1,j+1)),this.tileWidth,this.tileHeigth,bi);
                 panes[i][j] = v;
 
                 table.add(v , i, j);

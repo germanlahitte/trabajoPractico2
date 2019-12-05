@@ -25,6 +25,11 @@ public class Soldado extends Pieza implements Movible{
         this.batallon = new Batallon(this);
     }
 
+    @Override
+    public String getNombre() {
+        return "soldado";
+    }
+
     public void enlistarse(Equipo equipoDelSoldado, Soldado capitan){
        equipoDelSoldado.enlistarse(this.equipo,capitan,this);
     }

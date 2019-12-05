@@ -11,4 +11,9 @@ public class Alambrado extends Pieza {
         casillero.agregarPieza(this);
         casillero.quemado();
     }
+
+    @Override
+    public String getNombre() {
+        return null;
+    }
 }

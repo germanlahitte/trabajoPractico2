@@ -19,6 +19,11 @@ public class Jinete extends Pieza implements Movible{
         this.casillero.siguiente(direccion).agregarPieza(this);
     }
 
+    @Override
+    public String getNombre() {
+        return "jinete";
+    }
+
     public void atacar(Pieza pieza) {
         this.equiparArma();
         super.atacar(pieza);

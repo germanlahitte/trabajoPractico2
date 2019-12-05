@@ -12,6 +12,11 @@ public class Catapulta extends Pieza {
     }
 
     @Override
+    public String getNombre() {
+        return "catapulta";
+    }
+
+    @Override
     public void curarse(float vida){ }
 
 }
