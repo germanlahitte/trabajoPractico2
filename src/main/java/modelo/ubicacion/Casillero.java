@@ -120,7 +120,7 @@ public class Casillero extends Observable {
         ArrayList<Pieza> piezasVecinas = this.piezasVecinas();
         ArrayList<Casillero> casillerosVecinos = new ArrayList<>();
         for(Pieza pieza:piezasVecinas){
-            casillerosVecinos.add(pieza.casillero());
+            casillerosVecinos.add(pieza.getCasillero());
         }
         return casillerosVecinos;
     }

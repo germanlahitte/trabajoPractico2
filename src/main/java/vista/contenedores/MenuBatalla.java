@@ -3,6 +3,7 @@ package vista.contenedores;
 import controlador.buttonHandlers.HandlerBotonPasar;
 import controlador.buttonHandlers.HandlerPrepararAtacar;
 import controlador.buttonHandlers.HandlerPrepararMover;
+import controlador.buttonHandlers.HandlerPrepararMoverBatallon;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -35,14 +36,16 @@ public class MenuBatalla extends VBox {
         if (pieza.getClass() != Catapulta.class) {
             Button botonMover = new Button("Mover");
             botonMover.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
-            HandlerPrepararMover eventoAtacar = new HandlerPrepararMover(pieza, vistaTablero, ronda, ventana, this);
-            botonMover.setOnAction(eventoAtacar);
+            HandlerPrepararMover eventoMover = new HandlerPrepararMover(pieza, vistaTablero, ronda, ventana, this);
+            botonMover.setOnAction(eventoMover);
             this.getChildren().add(botonMover);
         }
 
         if (pieza.getClass() == Soldado.class) {
             Button botonMoverBatallon = new Button("Mover Batallon");
             botonMoverBatallon.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+            HandlerPrepararMoverBatallon eventoMoverBatallon = new HandlerPrepararMoverBatallon(pieza, vistaTablero, ronda, ventana, this);
+            botonMoverBatallon.setOnAction(eventoMoverBatallon);
             this.getChildren().add(botonMoverBatallon);
         }
 

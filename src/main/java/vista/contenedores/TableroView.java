@@ -1,9 +1,6 @@
 package vista.contenedores;
 
-import controlador.buttonHandlers.HandlerElegirPieza;
-import controlador.buttonHandlers.HandlerMover;
-import controlador.buttonHandlers.HandlerRecibirAtaque;
-import controlador.buttonHandlers.HandlerUbicarPieza;
+import controlador.buttonHandlers.*;
 import modelo.equipos.Equipo;
 import modelo.juego.Ronda;
 import modelo.piezas.Pieza;
@@ -103,6 +100,22 @@ public class TableroView extends Group {
                 if (this.casilleroViews[i][j].casilleroModel.getPieza() == null &&
                         posicionCasillero.distanciaA(posicionPieza) == 1) {
                     HandlerMover evento = new HandlerMover(piezaMueve, posicionCasillero, posicionPieza, ronda, this, ventana, batallaView);
+                    this.casilleroViews[i][j].setEvent(evento);
+                }
+
+            }
+        }
+    }
+
+    public void prepararMoverBatallon(Pieza piezaMueve, Ronda ronda, BorderPane ventana, MenuBatalla batallaView) {
+        this.removerEvento();
+        for (int i = 0; i < this.tablero.getLado(); i++) {
+            for (int j = 0; j < this.tablero.getLado(); j++) {
+                Posicion posicionCasillero = this.casilleroViews[i][j].casilleroModel.getPosicion();
+                Posicion posicionPieza = piezaMueve.getPosicion();
+                if (this.casilleroViews[i][j].casilleroModel.getPieza() == null &&
+                        posicionCasillero.distanciaA(posicionPieza) == 1) {
+                    HandlerMoverBatallon evento = new HandlerMoverBatallon(piezaMueve, posicionCasillero, posicionPieza, ronda, this, ventana, batallaView);
                     this.casilleroViews[i][j].setEvent(evento);
                 }
 

@@ -13,8 +13,8 @@ public class ArmaCatapulta extends Arma {
 
     public void atacarA(Pieza unaPieza, int distancia) {
         if(this.rango.enRango(distancia)){
-            unaPieza.casillero().bombardeo(this.danio);
-            unaPieza.casillero().altoElFuego();
+            unaPieza.getCasillero().bombardeo(this.danio);
+            unaPieza.getCasillero().altoElFuego();
         } else {
             throw new DistanciaArmaInefectiva();
         }

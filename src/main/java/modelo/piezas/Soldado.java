@@ -33,7 +33,7 @@ public class Soldado extends Pieza implements Movible{
     public void enlistarse(Equipo equipoDelSoldado, Soldado capitan){
        equipoDelSoldado.enlistarse(this.equipo,capitan,this);
     }
-    
+
     public void enlistar(Soldado soldado) {
         this.batallon.enlistar(soldado);
     }

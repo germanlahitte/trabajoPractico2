@@ -96,7 +96,7 @@ public abstract class Pieza {
     public void enlistar(Pieza pieza) {
     }
 
-    public Casillero casillero() {
+    public Casillero getCasillero() {
         return this.casillero;
     }
 

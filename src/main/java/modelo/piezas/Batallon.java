@@ -56,7 +56,7 @@ public class Batallon implements Movible {
     }
 
     private boolean enMarcha(){
-        tropa.removeIf(soldado -> capitan.casillero().distanciaA(soldado.casillero()) > 1);
+        tropa.removeIf(soldado -> capitan.getCasillero().distanciaA(soldado.getCasillero()) > 1);
 
         return (tropa.size() > 2);
     }
