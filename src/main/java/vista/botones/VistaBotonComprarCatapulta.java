@@ -1,6 +1,5 @@
 package vista.botones;
 
-import controlador.ConstantesDeAplicacion;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;

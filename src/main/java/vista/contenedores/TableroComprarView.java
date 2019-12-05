@@ -43,7 +43,7 @@ public class TableroComprarView extends Group {
                 v.setBackground(bi);
                 Button b = new Button();
                 b.setStyle("-fx-background-color: Red");
-                HandlerBotonUbicar clickParaUbicar = new HandlerBotonUbicar(new Posicion(i,j),tablero,menuTienda);
+                HandlerBotonUbicar clickParaUbicar = new HandlerBotonUbicar(new Posicion(i,j),tablero,menuTienda,b);
                 b.setOnAction(clickParaUbicar);
                 v.getChildren().add(b);
                 panes[i][j] = v;
@@ -60,7 +60,7 @@ public class TableroComprarView extends Group {
                 v.setBackground(bi);
                 Button b = new Button();
                 b.setStyle("-fx-background-color: Blue");
-                HandlerBotonUbicar clickParaUbicar = new HandlerBotonUbicar(new Posicion(i,j),tablero,menuTienda);
+                HandlerBotonUbicar clickParaUbicar = new HandlerBotonUbicar(new Posicion(i,j),tablero,menuTienda,b);
                 b.setOnAction(clickParaUbicar);
                 v.getChildren().add(b);
                 panes[i][j] = v;

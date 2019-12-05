@@ -20,7 +20,6 @@ public class HandlerBotonComprarCatapulta implements EventHandler<ActionEvent> {
     public void handle(ActionEvent evento){
         try{
             this.partida.getTienda().venderCatapulta(this.partida.getRonda().getJugadorActual());
-            /*Primero ubico*///this.partida.getRonda().avanzar();
             AudioClip audioJugar = new AudioClip(Paths.get("src/main/java/vista/audio/catapulta.wav").toUri().toString());
             audioJugar.play();
         } catch (NoAlcanzanLasMonedasException e){
