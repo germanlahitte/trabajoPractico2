@@ -56,6 +56,8 @@ public class CasilleroView extends Pane implements Observer {
             BackgroundPosition.CENTER,
             new BackgroundSize(this.width, this.heigth, false, false, false, false)));
             this.boton.setBackground(bi);
+        } else {
+            this.boton.setBackground(null);
         }
     }
 }

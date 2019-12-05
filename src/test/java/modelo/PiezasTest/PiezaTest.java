@@ -294,7 +294,7 @@ class PiezaTest {
         tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.norte());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p2,soldado.getPosicion());
     }
 
     @Test
@@ -306,7 +306,7 @@ class PiezaTest {
         tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.sur());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p2,soldado.getPosicion());
     }
     @Test
      void testMovibleSeMueveEnDireccionEste(){
@@ -317,7 +317,7 @@ class PiezaTest {
         tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.este());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p2,soldado.getPosicion());
     }
 
     @Test
@@ -329,7 +329,7 @@ class PiezaTest {
         tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.oeste());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p2,soldado.getPosicion());
     }
 
     @Test
@@ -341,7 +341,7 @@ class PiezaTest {
         tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.norEste());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p2,soldado.getPosicion());
     }
 
     @Test
@@ -353,7 +353,7 @@ class PiezaTest {
         tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.norOeste());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p2,soldado.getPosicion());
     }
 
     @Test
@@ -365,7 +365,7 @@ class PiezaTest {
         tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.surEste());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p2,soldado.getPosicion());
     }
 
     @Test
@@ -377,7 +377,7 @@ class PiezaTest {
         tablero.ubicar(soldado,p1);
         soldado.mover(Direccion.surOeste());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p2,soldado.getPosicion());
     }
 
 

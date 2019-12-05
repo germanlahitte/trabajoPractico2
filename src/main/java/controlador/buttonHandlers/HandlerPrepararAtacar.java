@@ -8,7 +8,7 @@ import modelo.piezas.Pieza;
 import vista.contenedores.MenuBatalla;
 import vista.contenedores.TableroView;
 
-public class HandlerAtacar implements EventHandler<ActionEvent> {
+public class HandlerPrepararAtacar implements EventHandler<ActionEvent> {
 
     private MenuBatalla batallaView;
     private BorderPane ventana;
@@ -16,7 +16,7 @@ public class HandlerAtacar implements EventHandler<ActionEvent> {
     private TableroView vistaTablero;
     private Pieza pieza;
 
-    public HandlerAtacar(Pieza pieza, TableroView vistaTablero, Ronda ronda, BorderPane ventana, MenuBatalla menuBatalla) {
+    public HandlerPrepararAtacar(Pieza pieza, TableroView vistaTablero, Ronda ronda, BorderPane ventana, MenuBatalla menuBatalla) {
         this.pieza = pieza;
         this.vistaTablero = vistaTablero;
         this.ronda = ronda;

@@ -1,5 +1,6 @@
 package modelo.ubicacion;
 
+
 public class Direccion {
     private static Direccion norte;
     private static Direccion sur;
@@ -65,6 +66,11 @@ public class Direccion {
     }
     public static Direccion surOeste() {
         return surOeste;
+    }
+
+    public static Direccion direccionDesdeHasta(Posicion posicionDesde, Posicion posicionHasta) {
+        return new Direccion(posicionHasta.getHorizontal() - posicionDesde.getHorizontal(),
+                posicionHasta.getVertical() - posicionDesde.getVertical());
     }
 
 }

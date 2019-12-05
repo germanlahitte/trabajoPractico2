@@ -1,13 +1,13 @@
 package vista.contenedores;
 
-import controlador.buttonHandlers.HandlerAtacar;
-import controlador.buttonHandlers.HandlerBotonComprar;
+import controlador.buttonHandlers.HandlerBotonPasar;
+import controlador.buttonHandlers.HandlerPrepararAtacar;
+import controlador.buttonHandlers.HandlerPrepararMover;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import modelo.equipos.Equipo;
 import modelo.juego.Ronda;
 import modelo.piezas.Catapulta;
 import modelo.piezas.Curandero;
@@ -35,6 +35,8 @@ public class MenuBatalla extends VBox {
         if (pieza.getClass() != Catapulta.class) {
             Button botonMover = new Button("Mover");
             botonMover.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+            HandlerPrepararMover eventoAtacar = new HandlerPrepararMover(pieza, vistaTablero, ronda, ventana, this);
+            botonMover.setOnAction(eventoAtacar);
             this.getChildren().add(botonMover);
         }
 
@@ -51,13 +53,15 @@ public class MenuBatalla extends VBox {
             botonAtacar.setText("Atacar");
         }
         botonAtacar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
-        HandlerAtacar eventoAtacar = new HandlerAtacar(pieza, vistaTablero, ronda, ventana, this);
+        HandlerPrepararAtacar eventoAtacar = new HandlerPrepararAtacar(pieza, vistaTablero, ronda, ventana, this);
         botonAtacar.setOnAction(eventoAtacar);
         this.getChildren().add(botonAtacar);
 
 
         Button botonPasar = new Button("Pasar");
         botonPasar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+        HandlerBotonPasar eventoPasar = new HandlerBotonPasar(vistaTablero, ronda, ventana, this);
+        botonPasar.setOnAction(eventoPasar);
         this.getChildren().add(botonPasar);
 
     }

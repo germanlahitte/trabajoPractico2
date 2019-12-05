@@ -22,7 +22,7 @@ class TableroTest {
         Pieza pieza = new Soldado(new EquipoRojo());
         tablero.ubicar(pieza, new Posicion (2,2));
 
-        assertEquals(pieza.posicion(),new Posicion (2,2));
+        assertEquals(pieza.getPosicion(),new Posicion (2,2));
     }
 
     @Test
@@ -74,7 +74,7 @@ class TableroTest {
         tablero.ubicar(soldado,p1);
         tablero.mover(soldado, Direccion.norte());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p2,soldado.getPosicion());
     }
 
     @Test
@@ -86,7 +86,7 @@ class TableroTest {
         tablero.ubicar(soldado,p2);
         tablero.mover(soldado, Direccion.sur());
 
-        assertEquals(p1,soldado.posicion());
+        assertEquals(p1,soldado.getPosicion());
     }
     @Test
     void testTableroRecibeSoldadoYLoMueveEnDireccionEste(){
@@ -97,7 +97,7 @@ class TableroTest {
         tablero.ubicar(soldado,p1);
         tablero.mover(soldado, Direccion.este());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p2,soldado.getPosicion());
     }
 
     @Test
@@ -109,7 +109,7 @@ class TableroTest {
         tablero.ubicar(soldado,p1);
         tablero.mover(soldado, Direccion.oeste());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p2,soldado.getPosicion());
     }
 
     @Test
@@ -121,7 +121,7 @@ class TableroTest {
         tablero.ubicar(soldado,p1);
         tablero.mover(soldado, Direccion.norEste());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p2,soldado.getPosicion());
     }
 
     @Test
@@ -133,7 +133,7 @@ class TableroTest {
         tablero.ubicar(soldado,p1);
         tablero.mover(soldado, Direccion.norOeste());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p2,soldado.getPosicion());
     }
 
     @Test
@@ -145,7 +145,7 @@ class TableroTest {
         tablero.ubicar(soldado,p1);
         tablero.mover(soldado, Direccion.surEste());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p2,soldado.getPosicion());
     }
 
     @Test
@@ -157,7 +157,7 @@ class TableroTest {
         tablero.ubicar(soldado,p1);
         tablero.mover(soldado, Direccion.surOeste());
 
-        assertEquals(p2,soldado.posicion());
+        assertEquals(p2,soldado.getPosicion());
     }
 
     @Test
@@ -169,7 +169,7 @@ class TableroTest {
         tablero.ubicar(curandero,p1);
         tablero.mover(curandero, Direccion.surOeste());
 
-        assertEquals(p2,curandero.posicion());
+        assertEquals(p2,curandero.getPosicion());
     }
 
     @Test
@@ -181,7 +181,7 @@ class TableroTest {
         tablero.ubicar(jinete,p1);
         tablero.mover(jinete, Direccion.surOeste());
 
-        assertEquals(p2,jinete.posicion());
+        assertEquals(p2,jinete.getPosicion());
     }
 
     @Test

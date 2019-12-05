@@ -56,8 +56,8 @@ class BatallonTest {
 
         batallon.mover(Direccion.norte());
 
-        assertEquals(posicion1,capitan.posicion());
-        assertEquals(posicion2,soldado.posicion());
+        assertEquals(posicion1,capitan.getPosicion());
+        assertEquals(posicion2,soldado.getPosicion());
         assertFalse(batallon.pertenece(soldado));
     }
 
@@ -72,8 +72,8 @@ class BatallonTest {
 
         batallon.mover(Direccion.norte());
 
-        assertEquals(posicion1,capitan.posicion());
-        assertEquals(posicion2,soldado.posicion());
+        assertEquals(posicion1,capitan.getPosicion());
+        assertEquals(posicion2,soldado.getPosicion());
         assertFalse(batallon.pertenece(soldado));
 
     }
@@ -98,9 +98,9 @@ class BatallonTest {
         batallon.enlistar(soldado3);
         batallon.mover(Direccion.norte());
 
-        assertEquals(posicionFinal1, soldado1.posicion());
-        assertEquals(posicionFinal2, soldado2.posicion());
-        assertEquals(posicionFinal3, soldado3.posicion());
+        assertEquals(posicionFinal1, soldado1.getPosicion());
+        assertEquals(posicionFinal2, soldado2.getPosicion());
+        assertEquals(posicionFinal3, soldado3.getPosicion());
     }
 
     @Test
@@ -122,9 +122,9 @@ class BatallonTest {
         batallon.enlistar(soldado3);
         batallon.mover(Direccion.norte());
 
-        assertEquals(posicionFinal1, soldado1.posicion());
-        assertEquals(posicionFinal2, soldado2.posicion());
-        assertEquals(posicionFinal3, soldado3.posicion());
+        assertEquals(posicionFinal1, soldado1.getPosicion());
+        assertEquals(posicionFinal2, soldado2.getPosicion());
+        assertEquals(posicionFinal3, soldado3.getPosicion());
     }
 
     @Test
@@ -146,9 +146,9 @@ class BatallonTest {
         batallon.enlistar(soldado3);
         batallon.mover(Direccion.este());
 
-        assertEquals(posicionInicial2, soldado1.posicion());
-        assertEquals(posicionInicial3, soldado2.posicion());
-        assertEquals(posicionFinal3, soldado3.posicion());
+        assertEquals(posicionInicial2, soldado1.getPosicion());
+        assertEquals(posicionInicial3, soldado2.getPosicion());
+        assertEquals(posicionFinal3, soldado3.getPosicion());
     }
 
     @Test
@@ -175,9 +175,9 @@ class BatallonTest {
 
         batallon.mover(Direccion.norte());
 
-        assertEquals(posicionFinal1, soldado1.posicion());
-        assertEquals(posicionFinal2, soldado2.posicion());
-        assertEquals(posicionInicial3, soldado3.posicion());
+        assertEquals(posicionFinal1, soldado1.getPosicion());
+        assertEquals(posicionFinal2, soldado2.getPosicion());
+        assertEquals(posicionInicial3, soldado3.getPosicion());
 
     }
 
@@ -204,9 +204,9 @@ class BatallonTest {
 
         batallon.mover(Direccion.norte());
 
-        assertEquals(posicionFinal1, soldado1.posicion());
-        assertEquals(posicionInicial2, soldado2.posicion());
-        assertEquals(posicionInicial3, soldado3.posicion());
+        assertEquals(posicionFinal1, soldado1.getPosicion());
+        assertEquals(posicionInicial2, soldado2.getPosicion());
+        assertEquals(posicionInicial3, soldado3.getPosicion());
 
     }
 
