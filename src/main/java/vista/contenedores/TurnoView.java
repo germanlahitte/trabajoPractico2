@@ -1,6 +1,8 @@
 package vista.contenedores;
 
+import javafx.application.Platform;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import modelo.juego.Jugador;
@@ -28,7 +30,41 @@ public class TurnoView extends VBox implements Observer {
 
     @Override
     public void change() {
+        if (this.juegoTerminado() && !this.ronda.puedenComprar()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Juego Terminado");
+
+            Jugador ganador = this.getGanador();
+            if (ganador != null) {
+                alert.setHeaderText("Victoria!");
+                alert.setContentText( "Ganador: " + ganador.getNombre() + " [" + ganador.getEquipo().getNombre() + "]");
+                alert.showAndWait();
+            } else {
+                alert.setHeaderText("Empate!");
+                alert.setContentText("Los equipos han empatado");
+                alert.showAndWait();
+            }
+            Platform.exit();
+        }
         Jugador jugadorActual = this.ronda.getJugadorActual();
         this.jugadorText.setText("Turno Jugador: " + jugadorActual.getNombre() + " [" + jugadorActual.getEquipo().getNombre() + "]");
+    }
+
+    private Jugador getGanador(){
+        Jugador ganador=null;
+        for (Jugador jugador : this.ronda.getJugadores()) {
+            if (!jugador.esPerdedor()){
+                ganador = jugador;
+            }
+        }
+        return ganador;
+    }
+
+    private boolean juegoTerminado() {
+        boolean hayGanador = false;
+        for (Jugador jugador : this.ronda.getJugadores()) {
+            hayGanador = jugador.esPerdedor();
+        }
+        return hayGanador;
     }
 }
