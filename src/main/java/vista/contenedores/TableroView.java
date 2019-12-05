@@ -74,6 +74,7 @@ public class TableroView extends Group {
     }
 
     public void prepararElegir(Equipo equipo, BorderPane ventana, Ronda ronda){
+        this.removerEvento();
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
                 Pieza pieza = panes[i][j].casilleroModel.getPieza();
@@ -86,12 +87,13 @@ public class TableroView extends Group {
         }
     }
 
-    public void prepararAtacar(Equipo equipo, Ronda ronda) {
+    public void prepararAtacar(Pieza piezaAtaca, Ronda ronda, BorderPane ventana) {
+        this.removerEvento();
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
-                Pieza pieza = panes[i][j].casilleroModel.getPieza();
-                if (pieza != null && pieza.getEquipo()!=equipo) {
-                    HandlerRecibirAtaque evento = new HandlerRecibirAtaque(pieza, this, ronda);
+                Pieza piezaRecibe = panes[i][j].casilleroModel.getPieza();
+                if (piezaRecibe != null && piezaRecibe.getEquipo()!=piezaAtaca.getEquipo()) {
+                    HandlerRecibirAtaque evento = new HandlerRecibirAtaque(piezaAtaca, piezaRecibe, ronda, this, ventana);
                     panes[i][j].setEvent(evento);
                 }
 

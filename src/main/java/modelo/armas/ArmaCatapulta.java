@@ -1,6 +1,7 @@
 package modelo.armas;
 
 
+import excepciones.DistanciaArmaInefectiva;
 import modelo.ProveedorConstantes;
 import modelo.piezas.Pieza;
 
@@ -14,6 +15,9 @@ public class ArmaCatapulta extends Arma {
         if(this.rango.enRango(distancia)){
             unaPieza.casillero().bombardeo(this.danio);
             unaPieza.casillero().altoElFuego();
+        } else {
+            throw new DistanciaArmaInefectiva("Fuera de rango");
         }
+
     }
 }
