@@ -1,5 +1,9 @@
 package vista.contenedores;
 
+import controlador.buttonHandlers.HandlerUbicarPieza;
+import modelo.juego.Ronda;
+import modelo.piezas.Pieza;
+import modelo.ubicacion.Posicion;
 import vista.ConstantesDeAplicacion;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -15,29 +19,29 @@ public class TableroView extends Group {
 
     private GridPane table;
 
-    private Pane[][] panes;
+    private CasilleroView[][] panes;
+
+    private Tablero tablero;
 
     public TableroView(Tablero tablero){
         table = new GridPane();
+        this.tablero = tablero;
 
         height = ConstantesDeAplicacion.getAltoVentana() - 64;
         width = height;
-        tileHeigth = width / tablero.getLado();
-        tileWidth = height / tablero.getLado();
+        tileHeigth = width / this.tablero.getLado();
+        tileWidth = height / this.tablero.getLado();
 
-        panes = new Pane[(int)width][(int) height];
+        panes = new CasilleroView[(int)width][(int) height];
         Background bi = new Background(new BackgroundImage(new Image("file:src/main/java/vista/imagenes/casillero.png"),
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
                 new BackgroundSize(tileWidth, tileHeigth, false, false, false, false)));
 
-        for (int i = 0; i < tablero.getLado(); i++) {
-            for (int j = 0; j < tablero.getLado(); j++) {
-                Pane v = new Pane();
-                v.setMinHeight(this.tileHeigth);
-                v.setMinWidth(this.tileWidth);
-                v.setBackground(bi);
+        for (int i = 0; i < this.tablero.getLado(); i++) {
+            for (int j = 0; j < this.tablero.getLado(); j++) {
+                CasilleroView v = new CasilleroView(this.tileWidth,this.tileHeigth,bi);
                 panes[i][j] = v;
 
                 table.add(v , i, j);
@@ -48,6 +52,22 @@ public class TableroView extends Group {
 
     }
 
+    public Tablero getTablero() {
+        return tablero;
+    }
+
+    public void prepararUbicar(Pieza pieza, Ronda ronda){
+        for (int i = 0; i < this.tablero.getLado(); i++) {
+            for (int j = 0; j < this.tablero.getLado(); j++) {
+                HandlerUbicarPieza evento = new HandlerUbicarPieza(pieza, this, ronda);
+                evento.setPosicion(new Posicion(i+1,j+1));
+                panes[i][j].setEvent(evento);
+
+
+            }
+        }
+    }
+
     public void addView(Node view) {
         this.getChildren().add(view);
     }
@@ -55,5 +75,13 @@ public class TableroView extends Group {
     public void updateView(Node view) {
         getChildren().remove(view);
         getChildren().add(view);
+    }
+
+    public void removerEvento() {
+        for (int i = 0; i < this.tablero.getLado(); i++) {
+            for (int j = 0; j < this.tablero.getLado(); j++) {
+                panes[i][j].setEvent(null);
+            }
+        }
     }
 }

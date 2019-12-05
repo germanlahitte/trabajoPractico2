@@ -2,21 +2,24 @@ package controlador.buttonHandlers;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import modelo.juego.Jugador;
 import modelo.juego.Ronda;
 import modelo.piezas.Pieza;
+import vista.contenedores.MenuTienda;
+import vista.contenedores.TableroView;
 
 public class HandlerBotonComprar implements EventHandler<ActionEvent> {
 
     Ronda ronda;
+    TableroView tableroView;
     int pieza;
+    MenuTienda ventana;
 
 
-    public HandlerBotonComprar(Ronda ronda, int pieza) {
+    public HandlerBotonComprar(MenuTienda menuTienda, Ronda ronda, int pieza, TableroView vistaTablero) {
+        this.ventana = menuTienda;
         this.ronda = ronda;
-        this.pieza= pieza;
+        this.tableroView = vistaTablero;
+        this.pieza = pieza;
     }
 
     @Override
@@ -36,8 +39,12 @@ public class HandlerBotonComprar implements EventHandler<ActionEvent> {
                 case 4:
                     newPieza = this.ronda.getJugadorActual().comprarCatapulta();
                     break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + this.pieza);
             }
-            this.ronda.avanzar();
+            this.tableroView.prepararUbicar(newPieza, this.ronda);
+            this.ventana.setVisible(false);
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
             if (!this.ronda.getJugadorActual().tieneSaldo()) {

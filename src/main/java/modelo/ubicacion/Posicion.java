@@ -12,6 +12,10 @@ public class Posicion {
         this.vertical = vertical;
     }
 
+    public String getValue(){
+        return "(" + this.horizontal + "," + this.vertical + ")";
+    }
+
     public Posicion siguiente(Direccion enDireccion) {
         return (enDireccion.proximaPosicion(this));
     }

@@ -12,7 +12,7 @@ public class Ronda extends Observable {
     public Ronda(){
         this.jugadores = new ArrayList<>();
     }
-
+    
     public void iniciarRonda(){
         this.setJugadorActual(this.tirarDado());
         notifyObservers();
@@ -48,6 +48,14 @@ public class Ronda extends Observable {
 
     public ArrayList<Jugador> getJugadores(){
         return jugadores;
+    }
+
+    public boolean puedenComprar(){
+        boolean tienenSaldo = false;
+        for (Jugador jugador : jugadores) {
+            tienenSaldo = jugador.tieneSaldo();
+        }
+        return tienenSaldo;
     }
 
 }

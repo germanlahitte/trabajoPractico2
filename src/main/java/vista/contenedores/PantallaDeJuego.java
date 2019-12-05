@@ -1,9 +1,8 @@
 package vista.contenedores;
 
+import controlador.buttonHandlers.HandlerBotonBatalla;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.Separator;
+import javafx.scene.control.Button;
 import modelo.juego.Juego;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -20,6 +19,7 @@ public class PantallaDeJuego extends VBox {
     private TableroView vistaTablero;
     private MenuTienda tiendaView;
     private TurnoView turnoView;
+    private MenuBatalla batallaView;
 
     public PantallaDeJuego(Stage ventana, Juego batalla) {
         super();
@@ -32,9 +32,19 @@ public class PantallaDeJuego extends VBox {
 
         this.vistaTablero = new TableroView(this.tablero);
 
-        this.tiendaView = new MenuTienda(this.partida.getRonda());
+        this.batallaView = new MenuBatalla(this.partida.getRonda(), this.vistaTablero);
+
+        this.tiendaView = new MenuTienda(this.partida.getRonda(), this.vistaTablero);
 
         this.turnoView = new TurnoView(this.partida.getRonda());
+
+        Button botonPelear = new Button("Comenzar la batalla");
+        HandlerBotonBatalla eventoComenzarBatalla = new HandlerBotonBatalla(border, batallaView, this.partida.getRonda());
+        botonPelear.setOnAction(eventoComenzarBatalla);
+        botonPelear.setTranslateY(25);
+        this.tiendaView.getChildren().add(botonPelear);
+
+        this.turnoView.setDescripcion("Primera Fase: compren y ubiquen sus piezas.");
 
         border.setTop(turnoView);
         border.setCenter(vistaTablero);

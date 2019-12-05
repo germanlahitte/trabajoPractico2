@@ -87,7 +87,7 @@ public class Tablero {
         this.limitar();
     }
 
-    public static int getLado() {
+    public int getLado() {
         return lado;
     }
 }
