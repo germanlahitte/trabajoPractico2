@@ -1,6 +1,9 @@
 package vista.contenedores;
 
+import controlador.buttonHandlers.HandlerElegirPieza;
 import controlador.buttonHandlers.HandlerUbicarPieza;
+import modelo.equipos.Equipo;
+import modelo.juego.Jugador;
 import modelo.juego.Ronda;
 import modelo.piezas.Pieza;
 import modelo.ubicacion.Posicion;
@@ -63,6 +66,19 @@ public class TableroView extends Group {
                 evento.setPosicion(new Posicion(i+1,j+1));
                 panes[i][j].setEvent(evento);
 
+
+            }
+        }
+    }
+
+    public void prepararElegir(Equipo equipo, BorderPane ventana){
+        for (int i = 0; i < this.tablero.getLado(); i++) {
+            for (int j = 0; j < this.tablero.getLado(); j++) {
+                Pieza pieza = panes[i][j].casilleroModel.getPieza();
+                if (pieza != null && pieza.getEquipo()==equipo) {
+                    HandlerElegirPieza evento = new HandlerElegirPieza(pieza, ventana);
+                    panes[i][j].setEvent(evento);
+                }
 
             }
         }

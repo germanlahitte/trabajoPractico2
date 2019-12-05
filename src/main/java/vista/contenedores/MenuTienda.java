@@ -7,6 +7,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import modelo.juego.Observer;
 import modelo.juego.Ronda;
+import vista.ConstantesDeAplicacion;
 
 
 public class MenuTienda extends VBox implements Observer {
@@ -24,18 +25,22 @@ public class MenuTienda extends VBox implements Observer {
         this.ronda.addObserver(this);
 
         Button botonComprarSoldado = new Button("Comprar Soldado");
+        botonComprarSoldado.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
         HandlerBotonComprar eventoComprarSoldado = new HandlerBotonComprar(this, ronda,1, vistaTablero);
         botonComprarSoldado.setOnAction(eventoComprarSoldado);
 
         Button botonComprarJinete = new Button("Comprar Jinete");
+        botonComprarJinete.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
         HandlerBotonComprar eventoComprarJinete = new HandlerBotonComprar(this, ronda,2, vistaTablero);
         botonComprarJinete.setOnAction(eventoComprarJinete);
 
         Button botonComprarCurandero = new Button("Comprar Curandero");
+        botonComprarCurandero.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
         HandlerBotonComprar eventoComprarCurandero = new HandlerBotonComprar(this, ronda,3, vistaTablero);
         botonComprarCurandero.setOnAction(eventoComprarCurandero);
 
         Button botonComprarCatapulta = new Button("Comprar Catapulta");
+        botonComprarCatapulta.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
         HandlerBotonComprar eventoComprarCatapulta = new HandlerBotonComprar(this, ronda,4, vistaTablero);
         botonComprarCatapulta.setOnAction(eventoComprarCatapulta);
 
@@ -47,7 +52,9 @@ public class MenuTienda extends VBox implements Observer {
 
     @Override
     public void change() {
-        this.setVisible(true);
-        this.creditosText.setText("Créditos disponibles: " + this.ronda.getJugadorActual().getCredito());
+        if (this.ronda.puedenComprar()) {
+            this.setVisible(true);
+            this.creditosText.setText("Créditos disponibles: " + this.ronda.getJugadorActual().getCredito());
+        }
     }
 }
