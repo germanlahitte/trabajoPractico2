@@ -16,7 +16,7 @@ JineteTest {
     @Test
     void testJineteSeCreaConVidaCorrecta() {
         Pieza pieza = new Jinete(new EquipoAzul());
-        assertEquals(100, pieza.vida());
+        assertEquals(100, pieza.getVida());
     }
 
     @Test
@@ -30,7 +30,7 @@ JineteTest {
         tablero.ubicar(pieza2,posicion1);
 
         pieza.atacar(pieza2);
-        assertEquals(85,pieza2.vida());
+        assertEquals(85,pieza2.getVida());
     }
 
     @Test
@@ -44,7 +44,7 @@ JineteTest {
         tablero.ubicar(pieza2,posicion1);
 
         pieza.atacar(pieza2);
-        assertEquals(95,pieza2.vida());
+        assertEquals(95,pieza2.getVida());
     }
 
     @Test
@@ -58,7 +58,7 @@ JineteTest {
         tablero.ubicar(piezaAzul,posicionAzul);
 
         jineteRojo.atacar(piezaAzul);
-        assertEquals(95,piezaAzul.vida());
+        assertEquals(95,piezaAzul.getVida());
     }
 
     @Test //EXPRESAMENTE SOLICITADO PARA LA ENTREGA
@@ -75,7 +75,7 @@ JineteTest {
         tablero.ubicar(piezaAzulLejana,posicionAzulLejana);
 
         jineteRojo.atacar(piezaAzulLejana);
-        assertEquals(100,piezaAzulLejana.vida());
+        assertEquals(100,piezaAzulLejana.getVida());
     }
 
     @Test //EXPRESAMENTE SOLICITADO PARA LA ENTREGA
@@ -92,7 +92,7 @@ JineteTest {
         tablero.ubicar(piezaAzulLejana,posicionAzulLejana);
 
         jineteRojo.atacar(piezaAzulCercana);
-        assertEquals(95,piezaAzulCercana.vida());
+        assertEquals(95,piezaAzulCercana.getVida());
     }
 
     @Test
@@ -112,7 +112,7 @@ JineteTest {
         tablero.ubicar(piezaAzulLejana,posicionAzulLejana);
 
         jineteRojo.atacar(piezaAzulCercana);
-        assertEquals(100,piezaAzulCercana.vida());
+        assertEquals(100,piezaAzulCercana.getVida());
     }
 
     @Test
@@ -132,7 +132,7 @@ JineteTest {
         tablero.ubicar(piezaAzulLejana,posicionAzulLejana);
 
         jineteRojo.atacar(piezaAzulLejana);
-        assertEquals(85,piezaAzulLejana.vida());
+        assertEquals(85,piezaAzulLejana.getVida());
     }
 
 }

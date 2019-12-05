@@ -28,13 +28,13 @@ class ArmaEspadaJineteTest {
     @Test
     void testAtacarAPiezaADistanciaMayorNoDisminuyeVida(){
         arma.atacarA(soldado,3);
-        assertEquals(100,soldado.vida());
+        assertEquals(100,soldado.getVida());
     }
 
     @Test
     void testAtacarAPiezaADistanciaMenorDisminuyeVida(){
         arma.atacarA(soldado,1);
-        assertEquals(95,soldado.vida());
+        assertEquals(95,soldado.getVida());
     }
 
     @Test
@@ -43,6 +43,6 @@ class ArmaEspadaJineteTest {
             arma.atacarA(soldado,1);
         }
 
-        assertEquals(0,soldado.vida());
+        assertEquals(0,soldado.getVida());
     }
 }

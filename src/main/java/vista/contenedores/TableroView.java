@@ -1,6 +1,8 @@
 package vista.contenedores;
 
+import controlador.buttonHandlers.HandlerAtacar;
 import controlador.buttonHandlers.HandlerElegirPieza;
+import controlador.buttonHandlers.HandlerRecibirAtaque;
 import controlador.buttonHandlers.HandlerUbicarPieza;
 import modelo.equipos.Equipo;
 import modelo.juego.Jugador;
@@ -63,7 +65,7 @@ public class TableroView extends Group {
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
                 HandlerUbicarPieza evento = new HandlerUbicarPieza(pieza, this, ronda);
-                evento.setPosicion(new Posicion(i+1,j+1));
+                evento.setPosicion(panes[i][j].casilleroModel.getPosicion());
                 panes[i][j].setEvent(evento);
 
 
@@ -71,12 +73,25 @@ public class TableroView extends Group {
         }
     }
 
-    public void prepararElegir(Equipo equipo, BorderPane ventana){
+    public void prepararElegir(Equipo equipo, BorderPane ventana, Ronda ronda){
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
                 Pieza pieza = panes[i][j].casilleroModel.getPieza();
                 if (pieza != null && pieza.getEquipo()==equipo) {
-                    HandlerElegirPieza evento = new HandlerElegirPieza(pieza, ventana);
+                    HandlerElegirPieza evento = new HandlerElegirPieza(pieza, ventana, this, ronda);
+                    panes[i][j].setEvent(evento);
+                }
+
+            }
+        }
+    }
+
+    public void prepararAtacar(Equipo equipo, Ronda ronda) {
+        for (int i = 0; i < this.tablero.getLado(); i++) {
+            for (int j = 0; j < this.tablero.getLado(); j++) {
+                Pieza pieza = panes[i][j].casilleroModel.getPieza();
+                if (pieza != null && pieza.getEquipo()!=equipo) {
+                    HandlerRecibirAtaque evento = new HandlerRecibirAtaque(pieza, this, ronda);
                     panes[i][j].setEvent(evento);
                 }
 

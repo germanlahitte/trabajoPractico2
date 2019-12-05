@@ -35,7 +35,7 @@ class ArmaArcoJineteTest {
         arma = new ArmaArcoJinete();
         arma.atacarA(soldado,6);
 
-        assertEquals(100,soldado.vida());
+        assertEquals(100,soldado.getVida());
 
     }
 
@@ -44,7 +44,7 @@ class ArmaArcoJineteTest {
         arma = new ArmaArcoJinete();
         arma.atacarA(soldado,1);
 
-        assertEquals(100,soldado.vida());
+        assertEquals(100,soldado.getVida());
     }
 
 
@@ -54,7 +54,7 @@ class ArmaArcoJineteTest {
         arma = new ArmaArcoJinete();
         arma.atacarA(soldado,3);
 
-        assertEquals(85,soldado.vida());
+        assertEquals(85,soldado.getVida());
     }
 
     @Test
@@ -64,6 +64,6 @@ class ArmaArcoJineteTest {
             arma.atacarA(soldado,3);
         }
 
-        assertEquals(0,soldado.vida());
+        assertEquals(0,soldado.getVida());
     }
 }

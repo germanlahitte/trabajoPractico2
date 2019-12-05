@@ -52,7 +52,7 @@ class TableroTest {
         Posicion posicion = new Posicion (3,3);
         Casillero casillero = tablero.casilleroEn(posicion);
 
-        assertEquals(casillero.posicion(),posicion);
+        assertEquals(casillero.getPosicion(),posicion);
     }
 
     @Test

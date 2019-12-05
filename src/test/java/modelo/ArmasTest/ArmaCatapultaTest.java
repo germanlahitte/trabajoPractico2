@@ -33,13 +33,13 @@ class ArmaCatapultaTest {
     @Test
     void testAtacarAPiezaADistanciaMenorNoDisminuyeVida(){
         arma.atacarA(soldado,1);
-        assertEquals(100,soldado.vida());
+        assertEquals(100,soldado.getVida());
     }
 
     @Test
     void testAtacarAPiezaADistanciaMayorDisminuyeVida(){
         arma.atacarA(soldado,6);
-        assertEquals(80,soldado.vida());
+        assertEquals(80,soldado.getVida());
     }
 
     @Test
@@ -47,7 +47,7 @@ class ArmaCatapultaTest {
         for(int i =0;i<=8;i++){
             arma.atacarA(soldado,6);
         }
-        assertEquals(0,soldado.vida());
+        assertEquals(0,soldado.getVida());
     }
 
     @Test
@@ -60,9 +60,9 @@ class ArmaCatapultaTest {
         tablero.ubicar(soldadoAzul,posicionAzul);
         arma.atacarA(soldado,7);
 
-        assertEquals(80,soldado.vida());
-        assertEquals(80,soldadoAzul.vida());
-        assertEquals(80,soldadoRojo.vida());
+        assertEquals(80,soldado.getVida());
+        assertEquals(80,soldadoAzul.getVida());
+        assertEquals(80,soldadoRojo.getVida());
     }
 
     @Test
@@ -87,11 +87,11 @@ class ArmaCatapultaTest {
 
         arma.atacarA(soldadoRojo1,7);
 
-        assertEquals(80,soldadoRojo1.vida());
-        assertEquals(80,soldadoRojo2.vida());
-        assertEquals(80,soldadoRojo3.vida());
-        assertEquals(80,soldadoRojo4.vida());
-        assertEquals(80,soldadoRojo5.vida());
+        assertEquals(80,soldadoRojo1.getVida());
+        assertEquals(80,soldadoRojo2.getVida());
+        assertEquals(80,soldadoRojo3.getVida());
+        assertEquals(80,soldadoRojo4.getVida());
+        assertEquals(80,soldadoRojo5.getVida());
     }
 
 }

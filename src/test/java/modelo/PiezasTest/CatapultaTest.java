@@ -14,7 +14,7 @@ class CatapultaTest {
     @Test
     void testCatapultaSeCreaConVidaCorrecta() {
         Pieza pieza = new Catapulta(new EquipoAzul());
-        assertEquals(50, pieza.vida());
+        assertEquals(50, pieza.getVida());
     }
 
     @Test
@@ -28,6 +28,6 @@ class CatapultaTest {
         tablero.ubicar(catapultaAzul,posicion2);
 
         catapultaAzul.atacar(catapultaRoja);
-        assertEquals(30,catapultaRoja.vida());
+        assertEquals(30,catapultaRoja.getVida());
     }
 }

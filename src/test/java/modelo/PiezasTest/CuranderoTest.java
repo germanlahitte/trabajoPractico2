@@ -13,7 +13,7 @@ class CuranderoTest {
     @Test
     void testCuranderoSeCreaConVidaCorrecta() {
         Pieza pieza = new Curandero(new EquipoAzul());
-        assertEquals(75, pieza.vida());
+        assertEquals(75, pieza.getVida());
     }
 
     @Test
@@ -29,7 +29,7 @@ class CuranderoTest {
         piezaRoja.hacerseDanio(30);
 
         curanderoRojo.atacar(piezaRoja);
-        assertEquals(85,piezaRoja.vida());
+        assertEquals(85,piezaRoja.getVida());
     }
 
     @Test
@@ -44,7 +44,7 @@ class CuranderoTest {
         catapulta.hacerseDanio(20);
 
         curandero.atacar(catapulta);
-        assertEquals(30,catapulta.vida());
+        assertEquals(30,catapulta.getVida());
     }
 
     @Test
@@ -60,6 +60,6 @@ class CuranderoTest {
         piezaAzul.hacerseDanio(70);
 
         curanderoRojo.atacar(piezaAzul);
-        assertEquals(30,piezaAzul.vida());
+        assertEquals(30,piezaAzul.getVida());
     }
 }

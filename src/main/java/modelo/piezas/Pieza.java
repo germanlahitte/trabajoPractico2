@@ -44,7 +44,7 @@ public abstract class Pieza {
     }
 
     //  Vida
-    public float vida(){
+    public float getVida(){
         return this.vida.vida();
     }
     public void quitarVida(double danio){
@@ -73,7 +73,7 @@ public abstract class Pieza {
 
     // Posicion para tests
     public Posicion posicion(){
-        return this.casillero.posicion();
+        return this.casillero.getPosicion();
     }
 
     // Implementar o lanzar NoSoyUnSoldadoExcepcion

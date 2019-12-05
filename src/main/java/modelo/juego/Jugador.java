@@ -67,7 +67,7 @@ public class Jugador {
 
     //Si un jugador se quedo sin piezas es perdedor
     public boolean esPerdedor(){
-        piezas.removeIf(pieza -> pieza.vida() == 0);
+        piezas.removeIf(pieza -> pieza.getVida() == 0);
         return (piezas.size() ==0);
     }
 

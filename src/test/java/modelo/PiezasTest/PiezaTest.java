@@ -43,7 +43,7 @@ class PiezaTest {
         Arma arma = new ArmaSoldado();
 
         pieza.atacadaDesde(casillero2,arma);
-        assertEquals(90,pieza.vida());
+        assertEquals(90,pieza.getVida());
     }
 
     @Test
@@ -58,7 +58,7 @@ class PiezaTest {
         Arma arma = new ArmaSoldado();
 
         pieza.atacadaDesde(casillero2,arma);
-        assertEquals(89.5,pieza.vida());
+        assertEquals(89.5,pieza.getVida());
     }
 
     @Test
@@ -73,7 +73,7 @@ class PiezaTest {
         Arma arma = new ArmaSoldado();
 
         pieza.atacadaDesde(casillero2,arma);
-        assertEquals(100,pieza.vida());
+        assertEquals(100,pieza.getVida());
     }
 
     @Test
@@ -88,7 +88,7 @@ class PiezaTest {
         Arma arma = new ArmaSoldado();
 
         pieza.atacadaDesde(casillero2,arma);
-        assertEquals(100,pieza.vida());
+        assertEquals(100,pieza.getVida());
     }
 
     @Test
@@ -103,7 +103,7 @@ class PiezaTest {
         Arma arma = new ArmaSoldado();
 
         pieza.atacadaDesde(casillero2,arma);
-        assertEquals(90,pieza.vida());
+        assertEquals(90,pieza.getVida());
     }
 
 
@@ -119,7 +119,7 @@ class PiezaTest {
         Arma arma = new ArmaArcoJinete();
 
         pieza.atacadaDesde(casillero2,arma);
-        assertEquals(85,pieza.vida());
+        assertEquals(85,pieza.getVida());
     }
 
     @Test
@@ -134,7 +134,7 @@ class PiezaTest {
         Arma arma = new ArmaArcoJinete();
 
         pieza.atacadaDesde(casillero2,arma);
-        assertEquals(100,pieza.vida());
+        assertEquals(100,pieza.getVida());
     }
 
     @Test
@@ -149,7 +149,7 @@ class PiezaTest {
         Arma arma = new ArmaArcoJinete();
 
         pieza.atacadaDesde(casillero2,arma);
-        assertEquals(100,pieza.vida());
+        assertEquals(100,pieza.getVida());
     }
 
     @Test
@@ -165,7 +165,7 @@ class PiezaTest {
         pieza2.asignarCasillero(casillero2);
 
         pieza.atacar(pieza2);
-        assertEquals(89.5,pieza2.vida());
+        assertEquals(89.5,pieza2.getVida());
     }
 
     @Test
@@ -181,7 +181,7 @@ class PiezaTest {
         pieza2.asignarCasillero(casillero2);
 
         pieza.atacar(pieza2);
-        assertEquals(100,pieza.vida());
+        assertEquals(100,pieza.getVida());
     }
 
     // Quitarse vida (Hacerse daño)
@@ -194,7 +194,7 @@ class PiezaTest {
         soldado.asignarCasillero(casillero);
 
         soldado.quitarVida(30);
-        assertEquals(70,soldado.vida());
+        assertEquals(70,soldado.getVida());
     }
 
     @Test
@@ -209,7 +209,7 @@ class PiezaTest {
         soldado.quitarVida(30);
         soldado.quitarVida(30);
 
-        assertEquals(0,soldado.vida());
+        assertEquals(0,soldado.getVida());
     }
 
     @Test
@@ -224,7 +224,7 @@ class PiezaTest {
         soldado.quitarVida(30);
         soldado.quitarVida(30);
 
-        assertEquals(0,soldado.vida());
+        assertEquals(0,soldado.getVida());
     }
 
     @Test
@@ -236,7 +236,7 @@ class PiezaTest {
         soldado.asignarCasillero(casillero);
         soldado.quitarVida(30);
 
-        assertEquals(68.5,soldado.vida());
+        assertEquals(68.5,soldado.getVida());
     }
 
     @Test
@@ -248,14 +248,14 @@ class PiezaTest {
         soldado.asignarCasillero(casillero);
         soldado.quitarVida(30);
 
-        assertEquals(68.5,soldado.vida());
+        assertEquals(68.5,soldado.getVida());
     }
 
     @Test
      void testPiezaRestaVidaEn40(){
         Soldado soldado1 = new Soldado(new EquipoRojo());
         soldado1.hacerseDanio(40);
-        assertEquals(60,soldado1.vida());
+        assertEquals(60,soldado1.getVida());
     }
 
     @Test
@@ -263,7 +263,7 @@ class PiezaTest {
         Soldado soldado1 = new Soldado(new EquipoRojo());
         soldado1.hacerseDanio(60);
 
-        assertEquals(40,soldado1.vida());
+        assertEquals(40,soldado1.getVida());
     }
 
     @Test
@@ -271,7 +271,7 @@ class PiezaTest {
         Soldado soldado1 = new Soldado(new EquipoRojo());
         soldado1.hacerseDanio(100);
 
-        assertEquals(0,soldado1.vida());
+        assertEquals(0,soldado1.getVida());
     }
 
     @Test
@@ -281,7 +281,7 @@ class PiezaTest {
         soldado1.hacerseDanio(100);
         soldado1.hacerseDanio(100);
 
-        assertEquals(0,soldado1.vida());
+        assertEquals(0,soldado1.getVida());
     }
 
     // Mover

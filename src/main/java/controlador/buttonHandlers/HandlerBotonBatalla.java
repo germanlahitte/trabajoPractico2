@@ -40,7 +40,7 @@ public class HandlerBotonBatalla implements EventHandler<ActionEvent> {
             this.vistaTienda.setVisible(false);
             this.ronda.iniciarRonda();
             this.boton.setVisible(false);
-            this.vistaTablero.prepararElegir(this.ronda.getJugadorActual().getEquipo(), this.ventana);
+            this.vistaTablero.prepararElegir(this.ronda.getJugadorActual().getEquipo(), this.ventana, this.ronda);
         }
 
     }

@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
     @Test
      void testSoldadoSeCreaConVidaCorrecta() {
         Pieza pieza = new Soldado(new EquipoAzul());
-        assertEquals(100, pieza.vida());
+        assertEquals(100, pieza.getVida());
     }
 
     @Test
@@ -31,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
         pieza2.asignarCasillero(casillero2);
         pieza.atacar(pieza2);
 
-        assertEquals(90,pieza2.vida());
+        assertEquals(90,pieza2.getVida());
     }
 
 }

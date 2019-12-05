@@ -29,13 +29,13 @@ class ArmaCuranderoTest {
         soldado.hacerseDanio(30);
 
         armaCurandero.atacarA(soldado,3);
-        assertEquals(70,soldado.vida());
+        assertEquals(70,soldado.getVida());
     }
 
     @Test
     void testAtacarAPiezaADistanciaCorrectaConTodaLaVidaNoAumentaVida(){
         armaCurandero.atacarA(soldado,1);
-        assertEquals(100,soldado.vida());
+        assertEquals(100,soldado.getVida());
     }
 
     @Test
@@ -43,7 +43,7 @@ class ArmaCuranderoTest {
         soldado.hacerseDanio(200);
 
         armaCurandero.atacarA(soldado,1);
-        assertEquals(0,soldado.vida());
+        assertEquals(0,soldado.getVida());
     }
 
     @Test
@@ -51,7 +51,7 @@ class ArmaCuranderoTest {
         soldado.hacerseDanio(70);
 
         armaCurandero.atacarA(soldado,1);
-        assertEquals(45,soldado.vida());
+        assertEquals(45,soldado.getVida());
     }
 
     @Test
@@ -60,6 +60,6 @@ class ArmaCuranderoTest {
 
         armaCurandero.atacarA(soldado,1);
         armaCurandero.atacarA(soldado,1);
-        assertEquals(100,soldado.vida());
+        assertEquals(100,soldado.getVida());
     }
 }

@@ -27,13 +27,13 @@ class ArmaSoldadoTest {
      @Test
      void testAtacarAPiezaADistanciaMayorNoDisminuyeVida(){
          arma.atacarA(soldado,3);
-         assertEquals(100,soldado.vida());
+         assertEquals(100,soldado.getVida());
      }
 
     @Test
     void testAtacarAPiezaADistanciaCorrectaDisminuyeVida(){
         arma.atacarA(soldado,1);
-        assertEquals(90,soldado.vida());
+        assertEquals(90,soldado.getVida());
     }
 
     @Test
@@ -42,6 +42,6 @@ class ArmaSoldadoTest {
             arma.atacarA(soldado,1);
         }
 
-        assertEquals(0,soldado.vida());
+        assertEquals(0,soldado.getVida());
     }
 }

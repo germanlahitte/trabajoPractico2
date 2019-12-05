@@ -32,7 +32,7 @@ class CasilleroTest {
         Casillero casillero = tablero.casilleroEn(new Posicion(1,1)); // Casillero rojo
         casillero.ubicar(pieza);
 
-        assertEquals(pieza.posicion(),casillero.posicion());
+        assertEquals(pieza.posicion(),casillero.getPosicion());
     }
 
     @Test
