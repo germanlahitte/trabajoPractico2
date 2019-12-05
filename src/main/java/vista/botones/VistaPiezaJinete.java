@@ -8,6 +8,7 @@ public class VistaPiezaJinete {
 
     public VistaPiezaJinete(Button boton){
         boton.setStyle("-fx-background-color: transparent;");
+        //Lo que sigue no está funcionando
         Image pieza = new Image("file:src/main/java/vista/imagenes/jineteAzulSaluda.png",
                 boton.getWidth(),boton.getHeight(),
                 false, true, true);
