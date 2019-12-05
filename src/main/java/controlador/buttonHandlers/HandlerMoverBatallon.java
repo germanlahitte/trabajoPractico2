@@ -5,13 +5,11 @@ import javafx.event.EventHandler;
 import javafx.scene.layout.BorderPane;
 import modelo.juego.Ronda;
 import modelo.piezas.Batallon;
-import modelo.piezas.Movible;
 import modelo.piezas.Pieza;
 import modelo.piezas.Soldado;
-import modelo.ubicacion.Casillero;
 import modelo.ubicacion.Direccion;
 import modelo.ubicacion.Posicion;
-import vista.contenedores.MenuBatalla;
+import vista.contenedores.PanelBatalla;
 import vista.contenedores.TableroView;
 
 import java.util.ArrayList;
@@ -22,15 +20,15 @@ public class HandlerMoverBatallon implements EventHandler<ActionEvent> {
     private Ronda ronda;
     private TableroView tableroView;
     private BorderPane ventana;
-    private MenuBatalla menuBatalla;
+    private PanelBatalla panelBatalla;
     private Direccion direccion;
 
-    public HandlerMoverBatallon(Pieza piezaMueve, Posicion posicionCasillero, Posicion posicionPieza, Ronda ronda, TableroView tableroView, BorderPane ventana, MenuBatalla batallaView) {
+    public HandlerMoverBatallon(Pieza piezaMueve, Posicion posicionCasillero, Posicion posicionPieza, Ronda ronda, TableroView tableroView, BorderPane ventana, PanelBatalla batallaView) {
 
         this.ronda = ronda;
         this.tableroView = tableroView;
         this.ventana = ventana;
-        this.menuBatalla = batallaView;
+        this.panelBatalla = batallaView;
         this.pieza = (Soldado) piezaMueve;
         this.direccion = Direccion.direccionDesdeHasta(posicionPieza, posicionCasillero);
     }
@@ -46,7 +44,7 @@ public class HandlerMoverBatallon implements EventHandler<ActionEvent> {
                 }
             }
             batallon.mover(this.direccion);
-            this.menuBatalla.setVisible(false);
+            this.panelBatalla.setVisible(false);
             this.ronda.avanzar();
             this.tableroView.prepararElegir(this.ronda.getJugadorActual().getEquipo(), this.ventana, this.ronda);
         } catch (Exception e) {

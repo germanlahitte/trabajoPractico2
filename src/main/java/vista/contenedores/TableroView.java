@@ -77,7 +77,7 @@ public class TableroView extends Group {
         }
     }
 
-    public void prepararAtacar(Pieza piezaAtaca, Ronda ronda, BorderPane ventana, MenuBatalla batallaView) {
+    public void prepararAtacar(Pieza piezaAtaca, Ronda ronda, BorderPane ventana, PanelBatalla batallaView) {
         this.removerEvento();
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
@@ -91,7 +91,7 @@ public class TableroView extends Group {
         }
     }
 
-    public void prepararMover(Pieza piezaMueve, Ronda ronda, BorderPane ventana, MenuBatalla batallaView) {
+    public void prepararMover(Pieza piezaMueve, Ronda ronda, BorderPane ventana, PanelBatalla batallaView) {
         this.removerEvento();
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
@@ -107,7 +107,7 @@ public class TableroView extends Group {
         }
     }
 
-    public void prepararMoverBatallon(Pieza piezaMueve, Ronda ronda, BorderPane ventana, MenuBatalla batallaView) {
+    public void prepararMoverBatallon(Pieza piezaMueve, Ronda ronda, BorderPane ventana, PanelBatalla batallaView) {
         this.removerEvento();
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {

@@ -51,11 +51,12 @@ public class Ronda extends Observable {
     }
 
     public boolean puedenComprar(){
-        boolean tienenSaldo = false;
         for (Jugador jugador : jugadores) {
-            tienenSaldo = jugador.tieneSaldo();
+            if (jugador.tieneSaldo()) {
+                return true;
+            }
         }
-        return tienenSaldo;
+        return false;
     }
 
 }

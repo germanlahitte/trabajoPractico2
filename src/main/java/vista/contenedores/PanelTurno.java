@@ -9,13 +9,13 @@ import modelo.juego.Jugador;
 import modelo.juego.Observer;
 import modelo.juego.Ronda;
 
-public class TurnoView extends VBox implements Observer {
+public class PanelTurno extends VBox implements Observer {
 
     Text jugadorText;
     Text descripcionText;
     Ronda ronda;
 
-    public TurnoView(Ronda ronda) {
+    public PanelTurno(Ronda ronda) {
         this.setAlignment(Pos.CENTER);
         this.ronda = ronda;
         this.jugadorText = new Text();

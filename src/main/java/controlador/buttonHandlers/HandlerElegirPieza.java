@@ -3,11 +3,9 @@ package controlador.buttonHandlers;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.BorderPane;
-import modelo.equipos.Equipo;
 import modelo.juego.Ronda;
 import modelo.piezas.Pieza;
-import modelo.ubicacion.Posicion;
-import vista.contenedores.MenuBatalla;
+import vista.contenedores.PanelBatalla;
 import vista.contenedores.TableroView;
 
 public class HandlerElegirPieza implements EventHandler<ActionEvent> {
@@ -25,7 +23,7 @@ public class HandlerElegirPieza implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        this.ventana.setRight(new MenuBatalla(this.pieza, this.vistaTablero, this.ronda, this.ventana));
+        this.ventana.setRight(new PanelBatalla(this.pieza, this.vistaTablero, this.ronda, this.ventana));
     }
 
 }

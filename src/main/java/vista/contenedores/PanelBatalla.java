@@ -16,13 +16,13 @@ import modelo.piezas.Pieza;
 import modelo.piezas.Soldado;
 import vista.ConstantesDeAplicacion;
 
-public class MenuBatalla extends VBox {
+public class PanelBatalla extends VBox {
 
     private BorderPane ventana;
     private Ronda ronda;
     private TableroView vistaTablero;
 
-    public MenuBatalla(Pieza pieza, TableroView vistaTablero, Ronda ronda, BorderPane ventana) {
+    public PanelBatalla(Pieza pieza, TableroView vistaTablero, Ronda ronda, BorderPane ventana) {
         this.setAlignment(Pos.CENTER_LEFT);
         this.setWidth(200);
         this.ronda = ronda;

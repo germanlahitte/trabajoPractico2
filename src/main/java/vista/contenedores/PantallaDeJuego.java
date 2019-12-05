@@ -19,7 +19,7 @@ public class PantallaDeJuego extends VBox {
     private Tablero tablero;
     private TableroView vistaTablero;
     private MenuTienda tiendaView;
-    private TurnoView turnoView;
+    private PanelTurno panelTurno;
 
     public PantallaDeJuego(Stage ventana, Juego batalla) {
         super();
@@ -34,17 +34,17 @@ public class PantallaDeJuego extends VBox {
 
         this.tiendaView = new MenuTienda(this.partida.getRonda(), this.vistaTablero);
 
-        this.turnoView = new TurnoView(this.partida.getRonda());
+        this.panelTurno = new PanelTurno(this.partida.getRonda());
 
         Button botonPelear = new Button("Comenzar la batalla");
-        HandlerBotonBatalla eventoComenzarBatalla = new HandlerBotonBatalla(border, tiendaView, this.partida.getRonda(), this.vistaTablero, botonPelear, this.turnoView);
+        HandlerBotonBatalla eventoComenzarBatalla = new HandlerBotonBatalla(border, tiendaView, this.partida.getRonda(), this.vistaTablero, botonPelear, this.panelTurno);
         botonPelear.setOnAction(eventoComenzarBatalla);
         VBox vbox = new VBox(botonPelear);
         vbox.setAlignment(Pos.CENTER_LEFT);
 
-        this.turnoView.setDescripcion("Primera Fase: compren y ubiquen sus piezas.");
+        this.panelTurno.setDescripcion("Primera Fase: compren y ubiquen sus piezas.");
 
-        border.setTop(turnoView);
+        border.setTop(panelTurno);
         border.setLeft(vbox);
         border.setCenter(vistaTablero);
         border.setRight(tiendaView);
