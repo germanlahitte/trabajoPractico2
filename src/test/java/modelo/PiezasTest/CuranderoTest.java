@@ -1,5 +1,7 @@
 package modelo.PiezasTest;
 
+import excepciones.ArmaNoPuedeAtacarException;
+import excepciones.DistanciaArmaInefectiva;
 import modelo.equipos.EquipoAzul;
 import modelo.equipos.EquipoRojo;
 import modelo.piezas.*;
@@ -7,6 +9,7 @@ import modelo.ubicacion.Posicion;
 import modelo.ubicacion.Tablero;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CuranderoTest {
 
@@ -59,7 +62,8 @@ class CuranderoTest {
 
         piezaAzul.hacerseDanio(70);
 
-        curanderoRojo.atacar(piezaAzul);
+
+        assertThrows(ArmaNoPuedeAtacarException.class, ()-> curanderoRojo.atacar(piezaAzul));
         assertEquals(30,piezaAzul.getVida());
     }
 }

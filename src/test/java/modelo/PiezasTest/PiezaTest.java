@@ -1,5 +1,6 @@
 package modelo.PiezasTest;
 
+import excepciones.DistanciaArmaInefectiva;
 import modelo.armas.*;
 import modelo.equipos.EquipoAzul;
 import modelo.equipos.EquipoRojo;
@@ -72,7 +73,7 @@ class PiezaTest {
         pieza.asignarCasillero(casillero1);
         Arma arma = new ArmaSoldado();
 
-        pieza.atacadaDesde(casillero2,arma);
+        assertThrows(DistanciaArmaInefectiva.class, ()-> pieza.atacadaDesde(casillero2,arma));
         assertEquals(100,pieza.getVida());
     }
 
@@ -87,7 +88,8 @@ class PiezaTest {
         pieza.asignarCasillero(casillero1);
         Arma arma = new ArmaSoldado();
 
-        pieza.atacadaDesde(casillero2,arma);
+
+        assertThrows(DistanciaArmaInefectiva.class, ()-> pieza.atacadaDesde(casillero2,arma));
         assertEquals(100,pieza.getVida());
     }
 
@@ -133,7 +135,7 @@ class PiezaTest {
         pieza.asignarCasillero(casillero1);
         Arma arma = new ArmaArcoJinete();
 
-        pieza.atacadaDesde(casillero2,arma);
+        assertThrows(DistanciaArmaInefectiva.class, ()-> pieza.atacadaDesde(casillero2,arma));
         assertEquals(100,pieza.getVida());
     }
 
@@ -148,7 +150,7 @@ class PiezaTest {
         pieza.asignarCasillero(casillero1);
         Arma arma = new ArmaArcoJinete();
 
-        pieza.atacadaDesde(casillero2,arma);
+        assertThrows(DistanciaArmaInefectiva.class, ()-> pieza.atacadaDesde(casillero2,arma));
         assertEquals(100,pieza.getVida());
     }
 
@@ -180,7 +182,8 @@ class PiezaTest {
         pieza.asignarCasillero(casillero1);
         pieza2.asignarCasillero(casillero2);
 
-        pieza.atacar(pieza2);
+
+        assertThrows(DistanciaArmaInefectiva.class, ()-> pieza.atacar(pieza2));
         assertEquals(100,pieza.getVida());
     }
 

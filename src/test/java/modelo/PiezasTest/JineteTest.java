@@ -1,5 +1,6 @@
 package modelo.PiezasTest;
 
+import excepciones.DistanciaArmaInefectiva;
 import modelo.equipos.EquipoAzul;
 import modelo.equipos.EquipoRojo;
 import modelo.piezas.Jinete;
@@ -9,6 +10,7 @@ import modelo.ubicacion.Tablero;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class
 JineteTest {
@@ -74,7 +76,7 @@ JineteTest {
         tablero.ubicar(piezaAzulCercana,posicionAzulCercana);
         tablero.ubicar(piezaAzulLejana,posicionAzulLejana);
 
-        jineteRojo.atacar(piezaAzulLejana);
+        assertThrows(DistanciaArmaInefectiva.class, ()-> jineteRojo.atacar(piezaAzulLejana));
         assertEquals(100,piezaAzulLejana.getVida());
     }
 
@@ -111,7 +113,8 @@ JineteTest {
         tablero.ubicar(piezaAzulCercana,posicionAzulCercana);
         tablero.ubicar(piezaAzulLejana,posicionAzulLejana);
 
-        jineteRojo.atacar(piezaAzulCercana);
+
+        assertThrows(DistanciaArmaInefectiva.class, ()-> jineteRojo.atacar(piezaAzulCercana));
         assertEquals(100,piezaAzulCercana.getVida());
     }
 

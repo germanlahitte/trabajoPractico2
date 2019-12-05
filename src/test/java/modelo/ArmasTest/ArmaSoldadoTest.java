@@ -1,5 +1,6 @@
 package modelo.ArmasTest;
 
+import excepciones.DistanciaArmaInefectiva;
 import modelo.armas.Arma;
 import modelo.armas.ArmaSoldado;
 import modelo.equipos.EquipoRojo;
@@ -10,6 +11,7 @@ import modelo.ubicacion.Tablero;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ArmaSoldadoTest {
     private Pieza soldado;
@@ -26,7 +28,7 @@ class ArmaSoldadoTest {
 
      @Test
      void testAtacarAPiezaADistanciaMayorNoDisminuyeVida(){
-         arma.atacarA(soldado,3);
+         assertThrows(DistanciaArmaInefectiva.class, ()-> arma.atacarA(soldado,3));
          assertEquals(100,soldado.getVida());
      }
 
