@@ -100,7 +100,7 @@ public class TableroView extends Group implements Observer {
 
             }
         }
-        this.panelTurno.setDescripcion("Selecciona una pieza y elige una acción");
+        this.panelTurno.setDescripcion("Fase de batalla: Selecciona una pieza y elige una acción");
     }
 
     public void prepararAtacar(Pieza piezaAtaca, String accion) {

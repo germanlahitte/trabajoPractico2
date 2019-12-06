@@ -2,8 +2,8 @@ package vista;
 
 public class ConstantesDeAplicacion {
 
-    private static int ANCHO_VENTANA = 1300;
-    private static int ALTO_VENTANA = 975;
+    private static int ANCHO_VENTANA = 800;
+    private static int ALTO_VENTANA = 600;
     private static int ANCHO_BOTONES = 120;
 
     public static int getAnchoBotones() {

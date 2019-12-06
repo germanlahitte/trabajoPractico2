@@ -20,6 +20,7 @@ public class MenuTienda extends VBox implements Observer {
     Button botonComprarJinete;
     Button botonComprarCurandero;
     Button botonComprarCatapulta;
+    Button botonPasar;
 
     public MenuTienda(Ronda ronda, TableroView vistaTablero){
 
@@ -55,10 +56,13 @@ public class MenuTienda extends VBox implements Observer {
         botonComprarCatapulta.setOnAction(eventoComprarCatapulta);
         this.getChildren().addAll(botonComprarSoldado,botonComprarJinete,botonComprarCurandero,botonComprarCatapulta);
 
-        Button botonPasar = new Button("Pasar");
-        botonPasar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+        this.botonPasar = new Button("Pasar");
+        this.botonPasar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
         HandlerBotonPasar eventoPasar = new HandlerBotonPasar(ronda);
-        botonPasar.setOnAction(eventoPasar);
+        this.botonPasar.setOnAction(eventoPasar);
+
+
+
         this.getChildren().add(botonPasar);
 
 
@@ -73,6 +77,8 @@ public class MenuTienda extends VBox implements Observer {
             this.botonComprarJinete.setVisible(mostrar);
             this.botonComprarCurandero.setVisible(mostrar);
             this.botonComprarCatapulta.setVisible(mostrar);
+            this.botonPasar.setVisible(!mostrar);
+
             this.setVisible(true);
             this.creditosText.setText("Créditos disponibles: " + this.ronda.getJugadorActual().getCredito());
         }
