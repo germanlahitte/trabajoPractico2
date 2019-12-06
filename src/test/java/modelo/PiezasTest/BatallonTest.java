@@ -1,5 +1,6 @@
 package modelo.PiezasTest;
 
+import excepciones.BatallonSoldadosInsuficientes;
 import modelo.equipos.EquipoRojo;
 import modelo.piezas.Batallon;
 import modelo.piezas.Jinete;
@@ -54,11 +55,11 @@ class BatallonTest {
         Posicion posicion2 = new Posicion(1,2);
         tablero.ubicar(soldado,posicion2);
 
-        batallon.mover(Direccion.norte());
+
+        assertThrows(BatallonSoldadosInsuficientes.class, ()-> batallon.mover(Direccion.norte()));
 
         assertEquals(posicion1,capitan.getPosicion());
         assertEquals(posicion2,soldado.getPosicion());
-        assertFalse(batallon.pertenece(soldado));
     }
 
     @Test
@@ -70,11 +71,10 @@ class BatallonTest {
         Posicion posicion2 = new Posicion(3,5);
         tablero.ubicar(soldado,posicion2);
 
-        batallon.mover(Direccion.norte());
+        assertThrows(BatallonSoldadosInsuficientes.class, ()-> batallon.mover(Direccion.norte()));
 
         assertEquals(posicion1,capitan.getPosicion());
         assertEquals(posicion2,soldado.getPosicion());
-        assertFalse(batallon.pertenece(soldado));
 
     }
 
