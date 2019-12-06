@@ -27,7 +27,7 @@ public class ProveedorConstantes {
     private static String NOMBRE_EQUIPO_A = "Rojo";
     private static String NOMBRE_EQUIPO_B = "Azul";
     private static String ARMA_JINETE_LEJANO = "Arco y flecha";
-    private static String ARMA_JINETE_CERCANO = "Lanza";
+    private static String ARMA_JINETE_CERCANO = "Espada";
     private static String ARMA_SOLDADO = "Espada";
     private static String ARMA_CATAPULTA = "Bola de fuego";
     private static String ARMA_CURANDERO = "Báculo";
