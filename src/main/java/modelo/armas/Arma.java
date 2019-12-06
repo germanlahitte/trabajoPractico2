@@ -8,6 +8,8 @@ public abstract class Arma {
     protected int danio;
     Rango rango;
 
+    public abstract String getNombre();
+
     public Arma(int danio, Rango rango) {
         this.danio = danio;
         this.rango = rango;

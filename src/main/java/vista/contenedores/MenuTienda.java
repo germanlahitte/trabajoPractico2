@@ -1,6 +1,7 @@
 package vista.contenedores;
 
 import controlador.buttonHandlers.HandlerBotonComprar;
+import controlador.buttonHandlers.HandlerBotonPasar;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -15,39 +16,51 @@ public class MenuTienda extends VBox implements Observer {
 
     Text creditosText;
     Ronda ronda;
+    Button botonComprarSoldado;
+    Button botonComprarJinete;
+    Button botonComprarCurandero;
+    Button botonComprarCatapulta;
 
     public MenuTienda(Ronda ronda, TableroView vistaTablero){
 
         this.setAlignment(Pos.CENTER_LEFT);
         this.setWidth(200);
+        this.setSpacing(5);
         this.creditosText = new Text();
         this.creditosText.setStroke(Color.WHITE);
         this.ronda = ronda;
 
         this.ronda.addObserver(this);
 
-        Button botonComprarSoldado = new Button("Comprar Soldado");
+        this.getChildren().add(this.creditosText);
+
+        this.botonComprarSoldado = new Button("Comprar Soldado");
         botonComprarSoldado.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
-        HandlerBotonComprar eventoComprarSoldado = new HandlerBotonComprar(this, ronda,1, vistaTablero);
+        HandlerBotonComprar eventoComprarSoldado = new HandlerBotonComprar(this, ronda, 1, vistaTablero);
         botonComprarSoldado.setOnAction(eventoComprarSoldado);
 
-        Button botonComprarJinete = new Button("Comprar Jinete");
+        this.botonComprarJinete = new Button("Comprar Jinete");
         botonComprarJinete.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
-        HandlerBotonComprar eventoComprarJinete = new HandlerBotonComprar(this, ronda,2, vistaTablero);
+        HandlerBotonComprar eventoComprarJinete = new HandlerBotonComprar(this, ronda, 2, vistaTablero);
         botonComprarJinete.setOnAction(eventoComprarJinete);
 
-        Button botonComprarCurandero = new Button("Comprar Curandero");
+        this.botonComprarCurandero = new Button("Comprar Curandero");
         botonComprarCurandero.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
-        HandlerBotonComprar eventoComprarCurandero = new HandlerBotonComprar(this, ronda,3, vistaTablero);
+        HandlerBotonComprar eventoComprarCurandero = new HandlerBotonComprar(this, ronda, 3, vistaTablero);
         botonComprarCurandero.setOnAction(eventoComprarCurandero);
 
-        Button botonComprarCatapulta = new Button("Comprar Catapulta");
+        this.botonComprarCatapulta = new Button("Comprar Catapulta");
         botonComprarCatapulta.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
-        HandlerBotonComprar eventoComprarCatapulta = new HandlerBotonComprar(this, ronda,4, vistaTablero);
+        HandlerBotonComprar eventoComprarCatapulta = new HandlerBotonComprar(this, ronda, 4, vistaTablero);
         botonComprarCatapulta.setOnAction(eventoComprarCatapulta);
+        this.getChildren().addAll(botonComprarSoldado,botonComprarJinete,botonComprarCurandero,botonComprarCatapulta);
 
-        this.setSpacing(5);
-        this.getChildren().addAll(this.creditosText,botonComprarSoldado,botonComprarJinete,botonComprarCurandero,botonComprarCatapulta);
+        Button botonPasar = new Button("Pasar");
+        botonPasar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+        HandlerBotonPasar eventoPasar = new HandlerBotonPasar(ronda);
+        botonPasar.setOnAction(eventoPasar);
+        this.getChildren().add(botonPasar);
+
 
 
     }
@@ -55,6 +68,11 @@ public class MenuTienda extends VBox implements Observer {
     @Override
     public void change() {
         if (this.ronda.puedenComprar()) {
+            boolean mostrar = this.ronda.getJugadorActual().tieneSaldo();
+            this.botonComprarSoldado.setVisible(mostrar);
+            this.botonComprarJinete.setVisible(mostrar);
+            this.botonComprarCurandero.setVisible(mostrar);
+            this.botonComprarCatapulta.setVisible(mostrar);
             this.setVisible(true);
             this.creditosText.setText("Créditos disponibles: " + this.ronda.getJugadorActual().getCredito());
         }

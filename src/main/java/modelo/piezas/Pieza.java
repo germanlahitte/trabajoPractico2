@@ -100,6 +100,10 @@ public abstract class Pieza {
         return this.casillero;
     }
 
+    public Arma getArma() {
+        return arma;
+    }
+
     void soyAliado(Equipo equipo, ArrayList<Pieza> aliadas, ArrayList<Pieza> enemigas) {
         equipo.soyAliado(this.equipo, aliadas, enemigas, this);
     }

@@ -9,10 +9,10 @@ import vista.contenedores.TableroView;
 
 public class HandlerBotonComprar implements EventHandler<ActionEvent> {
 
-    Ronda ronda;
-    TableroView tableroView;
-    int pieza;
-    MenuTienda ventana;
+    private Ronda ronda;
+    private TableroView tableroView;
+    private int pieza;
+    private MenuTienda ventana;
 
 
     public HandlerBotonComprar(MenuTienda menuTienda, Ronda ronda, int pieza, TableroView vistaTablero) {

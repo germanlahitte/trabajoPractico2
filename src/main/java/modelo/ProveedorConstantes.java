@@ -24,6 +24,13 @@ public class ProveedorConstantes {
 
     private static String NOMBRE_EQUIPO_A = "Rojo";
     private static String NOMBRE_EQUIPO_B = "Azul";
+    private static String ARMA_JINETE_LEJANO = "Arco y flecha";
+    private static String ARMA_JINETE_CERCANO = "Lanza";
+    private static String ARMA_SOLDADO = "Espada";
+    private static String ARMA_CATAPULTA = "Bola de fuego";
+    private static String ARMA_CURANDERO = "Báculo";
+
+
 
     public static int ladoDelTablero() {
         return LADO_DEL_TABLERO;
@@ -95,6 +102,26 @@ public class ProveedorConstantes {
 
     public static String nombreEquipoB() {
         return NOMBRE_EQUIPO_B;
+    }
+
+    public static String nombreArmaJineteLejano() {
+        return ARMA_JINETE_LEJANO;
+    }
+
+    public static String nombreArmaJineteCercano() {
+        return ARMA_JINETE_CERCANO;
+    }
+
+    public static String nombreArmaSoldado() {
+        return ARMA_SOLDADO;
+    }
+
+    public static String nombreArmaCatapulta() {
+        return ARMA_CATAPULTA;
+    }
+
+    public static String nombreArmaCurandero() {
+        return ARMA_CURANDERO;
     }
 }
 

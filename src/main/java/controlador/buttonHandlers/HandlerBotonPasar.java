@@ -8,25 +8,14 @@ import vista.contenedores.PanelBatalla;
 import vista.contenedores.TableroView;
 
 public class HandlerBotonPasar implements EventHandler<ActionEvent> {
-
-    private PanelBatalla panelBatalla;
-    private BorderPane ventana;
-    private TableroView vistaTablero;
     private Ronda ronda;
 
-    public HandlerBotonPasar(TableroView vistaTablero, Ronda ronda, BorderPane ventana, PanelBatalla panelBatalla) {
-
+    public HandlerBotonPasar(Ronda ronda) {
         this.ronda = ronda;
-        this.vistaTablero = vistaTablero;
-        this.ventana = ventana;
-        this.panelBatalla = panelBatalla;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-
-        this.panelBatalla.setVisible(false);
         this.ronda.avanzar();
-        this.vistaTablero.prepararElegir(this.ronda.getJugadorActual().getEquipo(), this.ventana, this.ronda);
     }
 }

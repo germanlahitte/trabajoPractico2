@@ -11,6 +11,11 @@ public class ArmaCatapulta extends Arma {
         super(ProveedorConstantes.armaCatapulta(), Rango.lejano());
     }
 
+    @Override
+    public String getNombre() {
+        return ProveedorConstantes.nombreArmaCatapulta();
+    }
+
     public void atacarA(Pieza unaPieza, int distancia) {
         if(this.rango.enRango(distancia)){
             unaPieza.getCasillero().bombardeo(this.danio);

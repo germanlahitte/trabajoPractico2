@@ -8,6 +8,12 @@ public class ArmaCurandero extends Arma {
     public ArmaCurandero() {
         super(ProveedorConstantes.armaCurandero(), Rango.cercano());
     }
+
+    @Override
+    public String getNombre() {
+        return ProveedorConstantes.nombreArmaCurandero();
+    }
+
     public void atacarA(Pieza pieza, int distancia) {
         if (rango.enRango(distancia)){
             pieza.curarse(this.danio);

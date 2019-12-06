@@ -20,22 +20,20 @@ import vista.ConstantesDeAplicacion;
 
 public class PanelBatalla extends VBox implements Observer {
 
-    private BorderPane ventana;
     private Ronda ronda;
-    private TableroView vistaTablero;
 
     public PanelBatalla(Pieza pieza, TableroView vistaTablero, Ronda ronda, BorderPane ventana) {
         this.setAlignment(Pos.CENTER_LEFT);
         this.setWidth(200);
         this.ronda = ronda;
         this.ronda.addObserver(this);
-        this.ventana = ventana;
-        this.vistaTablero = vistaTablero;
         this.setSpacing(5);
 
         Text vidaText = new Text("Vida " + pieza.getNombre() + ": " + pieza.getVida());
         vidaText.setStroke(Color.WHITE);
-        this.getChildren().add(vidaText);
+        Text armaText = new Text("Arma: " + pieza.getArma().getNombre());
+        armaText.setStroke(Color.WHITE);
+        this.getChildren().addAll(vidaText, armaText);
 
         if (pieza.getClass() != Catapulta.class) {
             Button botonMover = new Button("Mover");
@@ -67,7 +65,7 @@ public class PanelBatalla extends VBox implements Observer {
 
         Button botonPasar = new Button("Pasar");
         botonPasar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
-        HandlerBotonPasar eventoPasar = new HandlerBotonPasar(vistaTablero, ronda, ventana, this);
+        HandlerBotonPasar eventoPasar = new HandlerBotonPasar(ronda);
         botonPasar.setOnAction(eventoPasar);
         this.getChildren().add(botonPasar);
 
