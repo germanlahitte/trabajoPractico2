@@ -1,5 +1,6 @@
 package modelo.piezas;
 
+import modelo.armas.Arma;
 import modelo.armas.ArmaArcoJinete;
 import modelo.armas.ArmaEspadaJinete;
 import modelo.equipos.Equipo;
@@ -22,6 +23,12 @@ public class Jinete extends Pieza implements Movible{
     @Override
     public String getNombre() {
         return "jinete";
+    }
+
+    @Override
+    public Arma getArma() {
+        this.equiparArma();
+        return super.getArma();
     }
 
     public void atacar(Pieza pieza) {
