@@ -15,7 +15,6 @@ public class HandlerUbicarPieza implements EventHandler<ActionEvent> {
 
     Pieza pieza;
     Tablero tablero;
-    TableroView vistaTablero;
     Posicion posicion;
     Ronda ronda;
 

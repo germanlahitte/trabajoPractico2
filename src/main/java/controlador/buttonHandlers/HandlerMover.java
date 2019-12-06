@@ -18,9 +18,6 @@ public class HandlerMover implements EventHandler<ActionEvent> {
 
     private Movible pieza;
     private Ronda ronda;
-    private TableroView tableroView;
-    private BorderPane ventana;
-    private PanelBatalla panelBatalla;
     private Direccion direccion;
 
     public HandlerMover(Pieza piezaMueve, Posicion posicionCasillero, Posicion posicionPieza, Ronda ronda) {

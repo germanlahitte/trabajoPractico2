@@ -40,7 +40,7 @@ public class PanelBatalla extends VBox implements Observer {
         if (pieza.getClass() != Catapulta.class) {
             Button botonMover = new Button("Mover");
             botonMover.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
-            HandlerPrepararMover eventoMover = new HandlerPrepararMover(pieza, vistaTablero, ronda, ventana, this);
+            HandlerPrepararMover eventoMover = new HandlerPrepararMover(pieza, vistaTablero);
             botonMover.setOnAction(eventoMover);
             this.getChildren().add(botonMover);
         }
@@ -48,7 +48,7 @@ public class PanelBatalla extends VBox implements Observer {
         if (pieza.getClass() == Soldado.class) {
             Button botonMoverBatallon = new Button("Mover Batallon");
             botonMoverBatallon.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
-            HandlerPrepararMoverBatallon eventoMoverBatallon = new HandlerPrepararMoverBatallon(pieza, vistaTablero, ronda, ventana, this);
+            HandlerPrepararMoverBatallon eventoMoverBatallon = new HandlerPrepararMoverBatallon(pieza, vistaTablero);
             botonMoverBatallon.setOnAction(eventoMoverBatallon);
             this.getChildren().add(botonMoverBatallon);
         }
@@ -60,7 +60,7 @@ public class PanelBatalla extends VBox implements Observer {
             botonAtacar.setText("Atacar");
         }
         botonAtacar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
-        HandlerPrepararAtacar eventoAtacar = new HandlerPrepararAtacar(pieza, vistaTablero, ronda, ventana, this);
+        HandlerPrepararAtacar eventoAtacar = new HandlerPrepararAtacar(pieza, vistaTablero);
         botonAtacar.setOnAction(eventoAtacar);
         this.getChildren().add(botonAtacar);
 

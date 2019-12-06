@@ -9,23 +9,16 @@ import vista.contenedores.PanelBatalla;
 import vista.contenedores.TableroView;
 
 public class HandlerPrepararAtacar implements EventHandler<ActionEvent> {
-
-    private PanelBatalla panelBatalla;
-    private BorderPane ventana;
-    private Ronda ronda;
     private TableroView vistaTablero;
     private Pieza pieza;
 
-    public HandlerPrepararAtacar(Pieza pieza, TableroView vistaTablero, Ronda ronda, BorderPane ventana, PanelBatalla panelBatalla) {
+    public HandlerPrepararAtacar(Pieza pieza, TableroView vistaTablero) {
         this.pieza = pieza;
         this.vistaTablero = vistaTablero;
-        this.ronda = ronda;
-        this.ventana = ventana;
-        this.panelBatalla = panelBatalla;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        this.vistaTablero.prepararAtacar(this.pieza, this.ronda, this.ventana, this.panelBatalla);
+        this.vistaTablero.prepararAtacar(this.pieza);
     }
 }

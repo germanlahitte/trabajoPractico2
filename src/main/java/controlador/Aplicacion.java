@@ -1,7 +1,6 @@
 package controlador;
 
 import modelo.juego.Juego;
-import vista.ConstantesDeAplicacion;
 import vista.contenedores.Escena;
 import vista.contenedores.MenuPrincipal;
 import vista.contenedores.PantallaDeJuego;
@@ -15,7 +14,7 @@ public class Aplicacion extends Application {
 
     Stage ventana;
     Scene inicioView, menuView, batallaView;
-    Juego batalla;
+    Juego partida;
 
     public static void main(String[] args){
         launch(args);
@@ -28,12 +27,12 @@ public class Aplicacion extends Application {
         this.ventana.setFullScreen(false);
         this.ventana.setResizable(false);
 
-        this.batalla = new Juego();
+        this.partida = new Juego();
 
-        PantallaDeJuego pantalla = new PantallaDeJuego(this.ventana, batalla);
+        PantallaDeJuego pantalla = new PantallaDeJuego(this.ventana, partida);
         this.batallaView = new Escena(pantalla);
 
-        MenuPrincipal menuPrincipal = new MenuPrincipal(this.ventana, batalla, batallaView);
+        MenuPrincipal menuPrincipal = new MenuPrincipal(this.ventana, partida, batallaView);
         this.menuView = new Escena(menuPrincipal);
 
         PantallaInicial presentacion = new PantallaInicial(this.ventana, menuView);

@@ -3,6 +3,7 @@ package vista.contenedores;
 import controlador.buttonHandlers.*;
 import javafx.scene.image.Image;
 import modelo.equipos.Equipo;
+import modelo.juego.Juego;
 import modelo.juego.Observer;
 import modelo.juego.Ronda;
 import modelo.piezas.Pieza;
@@ -24,15 +25,17 @@ public class TableroView extends Group implements Observer {
 
     private CasilleroView[][] casilleroViews;
 
+    private PanelTurno panelTurno;
     private Tablero tablero;
     private Ronda ronda;
 
-    public TableroView(Tablero tablero, Ronda ronda, BorderPane ventana){
+    public TableroView(BorderPane ventana, Juego partida, PanelTurno panelTurno){
 
         this.ventana = ventana;
+        this.panelTurno = panelTurno;
         this.grilla = new GridPane();
-        this.tablero = tablero;
-        this.ronda = ronda;
+        this.tablero = partida.getTablero();
+        this.ronda = partida.getRonda();
         ronda.addObserver(this);
 
         this.height = ConstantesDeAplicacion.getAltoVentana() - 64;
@@ -96,23 +99,25 @@ public class TableroView extends Group implements Observer {
 
             }
         }
+        this.panelTurno.setDescripcion("Elige una pieza");
     }
 
-    public void prepararAtacar(Pieza piezaAtaca, Ronda ronda, BorderPane ventana, PanelBatalla batallaView) {
+    public void prepararAtacar(Pieza piezaAtaca) {
         this.removerEvento();
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
                 Pieza piezaRecibe = this.casilleroViews[i][j].casilleroModel.getPieza();
                 if (piezaRecibe != null) {
-                    HandlerRecibirAtaque evento = new HandlerRecibirAtaque(piezaAtaca, piezaRecibe, ronda);
+                    HandlerRecibirAtaque evento = new HandlerRecibirAtaque(piezaAtaca, piezaRecibe, this.ronda);
                     this.casilleroViews[i][j].setEvent(evento);
                 }
 
             }
         }
+        this.panelTurno.setDescripcion("Elige una pieza a atacar");
     }
 
-    public void prepararMover(Pieza piezaMueve, Ronda ronda, BorderPane ventana, PanelBatalla batallaView) {
+    public void prepararMover(Pieza piezaMueve) {
         this.removerEvento();
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
@@ -120,22 +125,23 @@ public class TableroView extends Group implements Observer {
                 Posicion posicionPieza = piezaMueve.getPosicion();
                 if (this.casilleroViews[i][j].casilleroModel.getPieza() == null &&
                         posicionCasillero.distanciaA(posicionPieza) == 1) {
-                    HandlerMover evento = new HandlerMover(piezaMueve, posicionCasillero, posicionPieza, ronda);
+                    HandlerMover evento = new HandlerMover(piezaMueve, posicionCasillero, posicionPieza, this.ronda);
                     this.casilleroViews[i][j].setEvent(evento);
                 }
 
             }
+            this.panelTurno.setDescripcion("Elige un destino");
         }
     }
 
-    public void prepararMoverBatallon(Pieza piezaMueve, Ronda ronda, BorderPane ventana, PanelBatalla batallaView) {
+    public void prepararMoverBatallon(Pieza piezaMueve) {
         this.removerEvento();
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
                 Posicion posicionCasillero = this.casilleroViews[i][j].casilleroModel.getPosicion();
                 Posicion posicionPieza = piezaMueve.getPosicion();
                 if (posicionCasillero.distanciaA(posicionPieza) == 1) {
-                    HandlerMoverBatallon evento = new HandlerMoverBatallon(piezaMueve, posicionCasillero, posicionPieza, ronda);
+                    HandlerMoverBatallon evento = new HandlerMoverBatallon(piezaMueve, posicionCasillero, posicionPieza, this.ronda);
                     this.casilleroViews[i][j].setEvent(evento);
                 }
 

@@ -20,9 +20,6 @@ public class HandlerMoverBatallon implements EventHandler<ActionEvent> {
 
     private Soldado pieza;
     private Ronda ronda;
-    private TableroView tableroView;
-    private BorderPane ventana;
-    private PanelBatalla panelBatalla;
     private Direccion direccion;
 
     public HandlerMoverBatallon(Pieza piezaMueve, Posicion posicionCasillero, Posicion posicionPieza, Ronda ronda) {

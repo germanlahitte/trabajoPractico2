@@ -15,35 +15,29 @@ import vista.ConstantesDeAplicacion;
 
 public class PantallaDeJuego extends VBox {
     private Juego partida;
-    private Jugador jugadorRojo;
-    private Jugador jugadorAzul;
-    private Stage ventana;
     private Tablero tablero;
     private TableroView vistaTablero;
-    private MenuTienda tiendaView;
+    private MenuTienda menuTienda;
     private PanelTurno panelTurno;
 
-    public PantallaDeJuego(Stage ventana, Juego batalla) {
+    public PantallaDeJuego(Stage ventana, Juego partida) {
         super();
         BorderPane border = new BorderPane();
-        border.setPadding(new Insets(10, 20, 10, 20));
-        this.ventana = ventana;
+        border.setPadding(new Insets(10, 10, 10, 10));
         Image imagen = new Image("file:src/main/java/vista/imagenes/algoChessV3.png", ConstantesDeAplicacion.getAnchoVentana(), ConstantesDeAplicacion.getAltoVentana(), false, true, true);
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
 
-        this.partida = batalla;
-
+        this.partida = partida;
         this.tablero = this.partida.getTablero();
-
-        this.vistaTablero = new TableroView(this.tablero, this.partida.getRonda(), border);
-
-        this.tiendaView = new MenuTienda(this.partida.getRonda(), this.vistaTablero);
-
         this.panelTurno = new PanelTurno(this.partida.getRonda());
 
+        this.vistaTablero = new TableroView(border, this.partida, this.panelTurno);
+        this.menuTienda = new MenuTienda(this.partida.getRonda(), this.vistaTablero);
+
+
         Button botonPelear = new Button("Comenzar la batalla");
-        HandlerBotonBatalla eventoComenzarBatalla = new HandlerBotonBatalla(border, tiendaView, this.partida.getRonda(), this.vistaTablero, botonPelear, this.panelTurno);
+        HandlerBotonBatalla eventoComenzarBatalla = new HandlerBotonBatalla(border, menuTienda, this.partida.getRonda(), this.vistaTablero, botonPelear, this.panelTurno);
         botonPelear.setOnAction(eventoComenzarBatalla);
         VBox vbox = new VBox(botonPelear);
         vbox.setAlignment(Pos.CENTER_LEFT);
@@ -53,7 +47,7 @@ public class PantallaDeJuego extends VBox {
         border.setTop(panelTurno);
         border.setLeft(vbox);
         border.setCenter(vistaTablero);
-        border.setRight(tiendaView);
+        border.setRight(menuTienda);
 
         this.getChildren().add(border);
 

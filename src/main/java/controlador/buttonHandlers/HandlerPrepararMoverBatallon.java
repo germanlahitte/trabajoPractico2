@@ -9,23 +9,16 @@ import vista.contenedores.PanelBatalla;
 import vista.contenedores.TableroView;
 
 public class HandlerPrepararMoverBatallon implements EventHandler<ActionEvent> {
-
-    private PanelBatalla panelBatalla;
-    private BorderPane ventana;
-    private Ronda ronda;
     private TableroView vistaTablero;
     private Pieza pieza;
 
-    public HandlerPrepararMoverBatallon(Pieza pieza, TableroView vistaTablero, Ronda ronda, BorderPane ventana, PanelBatalla panelBatalla) {
+    public HandlerPrepararMoverBatallon(Pieza pieza, TableroView vistaTablero) {
         this.pieza = pieza;
         this.vistaTablero = vistaTablero;
-        this.ronda = ronda;
-        this.ventana = ventana;
-        this.panelBatalla = panelBatalla;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        this.vistaTablero.prepararMoverBatallon(this.pieza, this.ronda, this.ventana, this.panelBatalla);
+        this.vistaTablero.prepararMoverBatallon(this.pieza);
     }
 }
