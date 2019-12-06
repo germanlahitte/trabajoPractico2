@@ -51,6 +51,9 @@ public class PanelTurno extends VBox implements Observer {
         }
         Jugador jugadorActual = this.ronda.getJugadorActual();
         this.jugadorText.setText("Turno Jugador: " + jugadorActual.getNombre() + " [" + jugadorActual.getEquipo().getNombre() + "]");
+        if (this.ronda.puedenComprar()) {
+            this.descripcionText.setText("Primera Fase: Compren y ubiquen sus piezas");
+        }
     }
 
     private Jugador getGanador(){

@@ -85,6 +85,7 @@ public class TableroView extends Group implements Observer {
 
             }
         }
+        this.panelTurno.setDescripcion("Selecciona un casillero donde ubicar la pieza");
     }
 
     public void prepararElegir(Equipo equipo, BorderPane ventana, Ronda ronda){
@@ -99,10 +100,10 @@ public class TableroView extends Group implements Observer {
 
             }
         }
-        this.panelTurno.setDescripcion("Elige una pieza");
+        this.panelTurno.setDescripcion("Selecciona una pieza y elige una acción");
     }
 
-    public void prepararAtacar(Pieza piezaAtaca) {
+    public void prepararAtacar(Pieza piezaAtaca, String accion) {
         this.removerEvento();
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
@@ -114,7 +115,7 @@ public class TableroView extends Group implements Observer {
 
             }
         }
-        this.panelTurno.setDescripcion("Elige una pieza a atacar");
+        this.panelTurno.setDescripcion("Elige una pieza a " + accion);
     }
 
     public void prepararMover(Pieza piezaMueve) {
@@ -130,7 +131,7 @@ public class TableroView extends Group implements Observer {
                 }
 
             }
-            this.panelTurno.setDescripcion("Elige un destino");
+            this.panelTurno.setDescripcion("Selecciona un casillero donde quieres mover");
         }
     }
 

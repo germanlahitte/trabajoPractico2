@@ -35,8 +35,6 @@ public class PantallaDeJuego extends VBox {
         VBox vbox = new VBox();
         vbox.setAlignment(Pos.CENTER_LEFT);
 
-        this.panelTurno.setDescripcion("Primera Fase: compren y ubiquen sus piezas.");
-
         border.setTop(panelTurno);
         border.setLeft(vbox);
         border.setCenter(vistaTablero);

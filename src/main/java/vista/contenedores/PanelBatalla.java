@@ -58,7 +58,7 @@ public class PanelBatalla extends VBox implements Observer {
             botonAtacar.setText("Atacar");
         }
         botonAtacar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
-        HandlerPrepararAtacar eventoAtacar = new HandlerPrepararAtacar(pieza, vistaTablero);
+        HandlerPrepararAtacar eventoAtacar = new HandlerPrepararAtacar(pieza, vistaTablero, botonAtacar.getText());
         botonAtacar.setOnAction(eventoAtacar);
         this.getChildren().add(botonAtacar);
 
