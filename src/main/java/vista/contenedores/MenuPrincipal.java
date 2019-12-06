@@ -11,7 +11,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
-import controlador.buttonHandlers.HandlerBotonSalir;
 
 public class MenuPrincipal extends VBox {
 
@@ -28,10 +27,6 @@ public class MenuPrincipal extends VBox {
         Image imagen = new Image("file:src/main/java/vista/imagenes/fondoMenu.png",ConstantesDeAplicacion.getAnchoVentana(), ConstantesDeAplicacion.getAltoVentana(), false, true, true);
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
-
-        /*this.audioMenu = new AudioClip(Paths.get("src/main/java/vista/audio/clashMenuOST1.wav").toUri().toString());*/
-        /*si hago audioMenu.play() se reproduce desde la creación del objeto. A través de todas las escenas*/
-        /*saco el archivo del paquete porque pesa mucho, lo subo al drive*/
 
         this.espacioV1 = new ContenedorVertical();
         this.espacioV2 = new ContenedorVertical();
@@ -53,11 +48,6 @@ public class MenuPrincipal extends VBox {
         BotonJugarView configurarBotonJugar = new BotonJugarView();
         configurarBotonJugar.setBotonJugarView(botonJugar);
 
-        //creacion de boton Salir
-        Button botonSalirDelJuego = new Button();
-        BotonSalirView configurarBotonSalir = new BotonSalirView();
-        configurarBotonSalir.setBotonSalirView(botonSalirDelJuego);
-
 
         this.getChildren().addAll(botonJugar);
 
@@ -69,8 +59,6 @@ public class MenuPrincipal extends VBox {
 
         HandlerBotonJugar eventoJugar = new HandlerBotonJugar(this.ventana, campoJugadorRojo, campoJugadorAzul, batalla, proximaEscena);
         botonJugar.setOnAction(eventoJugar);
-        HandlerBotonSalir opcionSalirHandler = new HandlerBotonSalir();
-        botonSalirDelJuego.setOnAction(opcionSalirHandler);
     }
 
 }

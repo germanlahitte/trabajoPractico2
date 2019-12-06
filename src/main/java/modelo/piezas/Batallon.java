@@ -1,5 +1,6 @@
 package modelo.piezas;
 
+import excepciones.BatallonSoldadosInsuficientes;
 import modelo.ubicacion.Direccion;
 import excepciones.CasilleroOcupadoException;
 
@@ -26,9 +27,9 @@ public class Batallon implements Movible {
 
     public void mover(Direccion enDireccion){
         if(!enMarcha()) {
-            romperFilas();
+            throw new BatallonSoldadosInsuficientes();
         } else {
-            moverRestantes(enDireccion);
+            this.moverRestantes(enDireccion);
         }
     }
 

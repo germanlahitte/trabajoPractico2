@@ -8,7 +8,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
-import controlador.buttonHandlers.HandlerBotonSalir;
 
 import java.nio.file.Paths;
 
@@ -29,18 +28,11 @@ public class PantallaInicial extends VBox {
         configurarBotonComenzar.setBotonComenzarView(botonComenzarElJuego);
 
 
-        Button botonSalirDelJuego = new Button();
-        BotonSalirView configurarBotonSalirDelJuego = new BotonSalirView();
-        configurarBotonSalirDelJuego.setBotonSalirView(botonSalirDelJuego);
-
-
         this.setBackground(new Background(imagenDeFondo));
         this.getChildren().addAll(botonComenzarElJuego);
 
         HandlerBotonComenzar eventoClickEnComenzar = new HandlerBotonComenzar(ventana, menuView);
         botonComenzarElJuego.setOnAction(eventoClickEnComenzar);
-        HandlerBotonSalir opcionSalirHandler = new HandlerBotonSalir();
-        botonSalirDelJuego.setOnAction(opcionSalirHandler);
 
     }
 

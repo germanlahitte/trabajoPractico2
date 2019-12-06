@@ -23,12 +23,9 @@ public class HandlerMover implements EventHandler<ActionEvent> {
     private PanelBatalla panelBatalla;
     private Direccion direccion;
 
-    public HandlerMover(Pieza piezaMueve, Posicion posicionCasillero, Posicion posicionPieza, Ronda ronda, TableroView tableroView, BorderPane ventana, PanelBatalla batallaView) {
+    public HandlerMover(Pieza piezaMueve, Posicion posicionCasillero, Posicion posicionPieza, Ronda ronda) {
         this.pieza = (Movible) piezaMueve;
         this.ronda = ronda;
-        this.tableroView = tableroView;
-        this.ventana = ventana;
-        this.panelBatalla = batallaView;
         this.direccion = Direccion.direccionDesdeHasta(posicionPieza, posicionCasillero);
 
     }
@@ -37,11 +34,9 @@ public class HandlerMover implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         try {
             this.pieza.mover(this.direccion);
-            this.panelBatalla.setVisible(false);
             AudioClip audioMover = new AudioClip(Paths.get("src/main/java/vista/audio/click.wav").toUri().toString());
             audioMover.play();
             this.ronda.avanzar();
-            this.tableroView.prepararElegir(this.ronda.getJugadorActual().getEquipo(), this.ventana, this.ronda);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

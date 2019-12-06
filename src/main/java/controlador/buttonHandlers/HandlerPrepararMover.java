@@ -10,7 +10,7 @@ import vista.contenedores.TableroView;
 
 public class HandlerPrepararMover implements EventHandler<ActionEvent> {
 
-    private PanelBatalla batallaView;
+    private PanelBatalla panelBatalla;
     private BorderPane ventana;
     private Ronda ronda;
     private TableroView vistaTablero;
@@ -21,11 +21,11 @@ public class HandlerPrepararMover implements EventHandler<ActionEvent> {
         this.vistaTablero = vistaTablero;
         this.ronda = ronda;
         this.ventana = ventana;
-        this.batallaView = panelBatalla;
+        this.panelBatalla = panelBatalla;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        this.vistaTablero.prepararMover(this.pieza, this.ronda, this.ventana, this.batallaView);
+        this.vistaTablero.prepararMover(this.pieza, this.ronda, this.ventana, this.panelBatalla);
     }
 }

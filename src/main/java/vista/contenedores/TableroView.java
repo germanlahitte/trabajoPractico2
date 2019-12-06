@@ -14,6 +14,7 @@ import javafx.scene.layout.*;
 import modelo.ubicacion.Tablero;
 
 public class TableroView extends Group implements Observer {
+    private BorderPane ventana;
     public double width;
     public double height;
     private double tileWidth;
@@ -26,7 +27,9 @@ public class TableroView extends Group implements Observer {
     private Tablero tablero;
     private Ronda ronda;
 
-    public TableroView(Tablero tablero, Ronda ronda){
+    public TableroView(Tablero tablero, Ronda ronda, BorderPane ventana){
+
+        this.ventana = ventana;
         this.grilla = new GridPane();
         this.tablero = tablero;
         this.ronda = ronda;
@@ -101,7 +104,7 @@ public class TableroView extends Group implements Observer {
             for (int j = 0; j < this.tablero.getLado(); j++) {
                 Pieza piezaRecibe = this.casilleroViews[i][j].casilleroModel.getPieza();
                 if (piezaRecibe != null) {
-                    HandlerRecibirAtaque evento = new HandlerRecibirAtaque(piezaAtaca, piezaRecibe, ronda, this, ventana, batallaView);
+                    HandlerRecibirAtaque evento = new HandlerRecibirAtaque(piezaAtaca, piezaRecibe, ronda);
                     this.casilleroViews[i][j].setEvent(evento);
                 }
 
@@ -117,7 +120,7 @@ public class TableroView extends Group implements Observer {
                 Posicion posicionPieza = piezaMueve.getPosicion();
                 if (this.casilleroViews[i][j].casilleroModel.getPieza() == null &&
                         posicionCasillero.distanciaA(posicionPieza) == 1) {
-                    HandlerMover evento = new HandlerMover(piezaMueve, posicionCasillero, posicionPieza, ronda, this, ventana, batallaView);
+                    HandlerMover evento = new HandlerMover(piezaMueve, posicionCasillero, posicionPieza, ronda);
                     this.casilleroViews[i][j].setEvent(evento);
                 }
 
@@ -131,9 +134,8 @@ public class TableroView extends Group implements Observer {
             for (int j = 0; j < this.tablero.getLado(); j++) {
                 Posicion posicionCasillero = this.casilleroViews[i][j].casilleroModel.getPosicion();
                 Posicion posicionPieza = piezaMueve.getPosicion();
-                if (this.casilleroViews[i][j].casilleroModel.getPieza() == null &&
-                        posicionCasillero.distanciaA(posicionPieza) == 1) {
-                    HandlerMoverBatallon evento = new HandlerMoverBatallon(piezaMueve, posicionCasillero, posicionPieza, ronda, this, ventana, batallaView);
+                if (posicionCasillero.distanciaA(posicionPieza) == 1) {
+                    HandlerMoverBatallon evento = new HandlerMoverBatallon(piezaMueve, posicionCasillero, posicionPieza, ronda);
                     this.casilleroViews[i][j].setEvent(evento);
                 }
 
@@ -155,6 +157,10 @@ public class TableroView extends Group implements Observer {
 
     @Override
     public void change() {
-        this.hideSeleccion();
+        if (!this.ronda.puedenComprar()) {
+            this.removerEvento();
+            this.prepararElegir(this.ronda.getJugadorActual().getEquipo(), this.ventana, this.ronda);
+            this.hideSeleccion();
+        }
     }
 }

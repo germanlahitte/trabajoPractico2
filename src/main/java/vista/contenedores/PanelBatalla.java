@@ -10,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import modelo.juego.Observer;
 import modelo.juego.Ronda;
 import modelo.piezas.Catapulta;
 import modelo.piezas.Curandero;
@@ -17,7 +18,7 @@ import modelo.piezas.Pieza;
 import modelo.piezas.Soldado;
 import vista.ConstantesDeAplicacion;
 
-public class PanelBatalla extends VBox {
+public class PanelBatalla extends VBox implements Observer {
 
     private BorderPane ventana;
     private Ronda ronda;
@@ -27,6 +28,7 @@ public class PanelBatalla extends VBox {
         this.setAlignment(Pos.CENTER_LEFT);
         this.setWidth(200);
         this.ronda = ronda;
+        this.ronda.addObserver(this);
         this.ventana = ventana;
         this.vistaTablero = vistaTablero;
         this.setSpacing(5);
@@ -69,5 +71,10 @@ public class PanelBatalla extends VBox {
         botonPasar.setOnAction(eventoPasar);
         this.getChildren().add(botonPasar);
 
+    }
+
+    @Override
+    public void change() {
+        this.setVisible(false);
     }
 }

@@ -21,7 +21,6 @@ public class HandlerUbicarPieza implements EventHandler<ActionEvent> {
 
     public HandlerUbicarPieza(Pieza newPieza, TableroView tableroView, Ronda ronda) {
         this.tablero = tableroView.getTablero();
-        this.vistaTablero = tableroView;
         this.pieza = newPieza;
         this.ronda = ronda;
     }
@@ -31,7 +30,6 @@ public class HandlerUbicarPieza implements EventHandler<ActionEvent> {
         try {
             this.tablero.ubicar(this.pieza, this.posicion);
             this.ronda.avanzar();
-            this.vistaTablero.removerEvento();
         }
         catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
