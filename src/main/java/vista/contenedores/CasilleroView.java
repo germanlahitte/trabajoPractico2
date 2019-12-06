@@ -16,7 +16,7 @@ public class CasilleroView extends Pane implements Observer {
     Casillero casilleroModel;
     double width, heigth;
     Background graficoPasto;
-    Pane casilleroFondo;
+    Pane graficoCasillero;
 
 
 
@@ -35,21 +35,26 @@ public class CasilleroView extends Pane implements Observer {
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
                 new BackgroundSize(tileWidth, tileHeigth, false, false, false, false)));
-        this.casilleroFondo = new Pane();
+        this.setBackground(colorFondo);
 
+        //this.graficoCasillero = new Pane();
         this.graficoPasto = new Background(new BackgroundImage(new Image("file:src/main/java/vista/imagenes/casillero.png"),
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
                 new BackgroundSize(tileWidth, tileHeigth, false, false, false, false)));
+        //this.setBackground(colorFondo);
+        this.graficoCasillero = new Pane();
+        this.graficoCasillero.setMinHeight(tileHeigth);
+        this.graficoCasillero.setMinWidth(tileWidth);
+        this.graficoCasillero.setBackground(this.graficoPasto);
 
-        this.setBackground(colorFondo);
-        this.casilleroFondo.setBackground(this.graficoPasto);
         this.boton = new Button();
         this.boton.setMinHeight(tileHeigth);
         this.boton.setMinWidth(tileWidth);
-        //this.boton.setBackground(this.graficoPasto);
-        this.getChildren().addAll(this.casilleroFondo, this.boton);
+        this.boton.setBackground(this.graficoPasto);
+
+        this.getChildren().addAll(this.graficoCasillero, this.boton);
     }
     public void setEvent(EventHandler<ActionEvent> evento){
         this.boton.setOnAction(evento);
@@ -67,7 +72,7 @@ public class CasilleroView extends Pane implements Observer {
                     new BackgroundSize(this.width, this.heigth, false, false, false, false)));
             this.boton.setBackground(bi);
         } else {
-            //this.boton.setBackground(this.graficoPasto);
+            this.boton.setBackground(this.graficoPasto);
         }
     }
 }

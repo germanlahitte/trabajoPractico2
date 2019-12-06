@@ -8,6 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import modelo.juego.Ronda;
 import modelo.piezas.Catapulta;
@@ -31,6 +32,7 @@ public class PanelBatalla extends VBox {
         this.setSpacing(5);
 
         Text vidaText = new Text("Vida " + pieza.getNombre() + ": " + pieza.getVida());
+        vidaText.setStroke(Color.WHITE);
         this.getChildren().add(vidaText);
 
         if (pieza.getClass() != Catapulta.class) {

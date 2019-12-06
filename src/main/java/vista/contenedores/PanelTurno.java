@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import modelo.juego.Jugador;
 import modelo.juego.Observer;
@@ -19,7 +20,9 @@ public class PanelTurno extends VBox implements Observer {
         this.setAlignment(Pos.CENTER);
         this.ronda = ronda;
         this.jugadorText = new Text();
+        this.jugadorText.setStroke(Color.WHITE);
         this.descripcionText = new Text();
+        this.descripcionText.setStroke(Color.WHITE);
         ronda.addObserver(this);
         this.getChildren().addAll(this.jugadorText, this.descripcionText);
     }
