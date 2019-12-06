@@ -2,7 +2,7 @@ package modelo;
 
 public class ProveedorConstantes {
 
-    private static int LADO_DEL_TABLERO = 10;
+    private static int LADO_DEL_TABLERO = 20;
     private static int DESPLAZAMIENTO_MAXIMO = 1;
 
     private static int COSTO_SOLDADO = 1;

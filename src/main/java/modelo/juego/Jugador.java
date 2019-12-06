@@ -74,10 +74,4 @@ public class Jugador {
     public boolean tieneSaldo() {
        return (this.billetera.tieneSaldo());
     }
-
-    public void comprar(Tienda tienda) {
-        /*Acá pasa algo*/
-
-        tienda.venta();
-    }
 }

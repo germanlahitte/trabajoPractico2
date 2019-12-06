@@ -4,6 +4,7 @@ import controlador.buttonHandlers.HandlerBotonComprar;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import modelo.juego.Observer;
 import modelo.juego.Ronda;
@@ -20,6 +21,7 @@ public class MenuTienda extends VBox implements Observer {
         this.setAlignment(Pos.CENTER_LEFT);
         this.setWidth(200);
         this.creditosText = new Text();
+        this.creditosText.setStroke(Color.WHITE);
         this.ronda = ronda;
 
         this.ronda.addObserver(this);

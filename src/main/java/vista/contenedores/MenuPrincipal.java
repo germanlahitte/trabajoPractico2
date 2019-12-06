@@ -15,9 +15,6 @@ import controlador.buttonHandlers.HandlerBotonSalir;
 
 public class MenuPrincipal extends VBox {
 
-    static int desplazamientoXBotonSalir = 1130;
-    static int desplazamientoYBotonSalir = 870;
-
     Stage ventana;
     AudioClip audioMenu;
     ContenedorVertical espacioV1,espacioV2;
@@ -59,10 +56,10 @@ public class MenuPrincipal extends VBox {
         //creacion de boton Salir
         Button botonSalirDelJuego = new Button();
         BotonSalirView configurarBotonSalir = new BotonSalirView();
-        configurarBotonSalir.setBotonSalirView(botonSalirDelJuego,desplazamientoXBotonSalir,desplazamientoYBotonSalir);
+        configurarBotonSalir.setBotonSalirView(botonSalirDelJuego);
 
 
-        this.getChildren().addAll(botonJugar,botonSalirDelJuego);
+        this.getChildren().addAll(botonJugar);
 
         this.opcionesj1.getChildren().addAll(espacioV1,campoJugadorRojo);
         this.opcionesJ2.getChildren().addAll(espacioV2,campoJugadorAzul);

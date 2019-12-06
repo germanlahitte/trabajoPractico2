@@ -1,7 +1,9 @@
 package vista.contenedores;
 
 import controlador.buttonHandlers.*;
+import javafx.scene.image.Image;
 import modelo.equipos.Equipo;
+import modelo.juego.Observer;
 import modelo.juego.Ronda;
 import modelo.piezas.Pieza;
 import modelo.ubicacion.Posicion;
@@ -11,7 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.*;
 import modelo.ubicacion.Tablero;
 
-public class TableroView extends Group {
+public class TableroView extends Group implements Observer {
     public double width;
     public double height;
     private double tileWidth;
@@ -22,10 +24,13 @@ public class TableroView extends Group {
     private CasilleroView[][] casilleroViews;
 
     private Tablero tablero;
+    private Ronda ronda;
 
-    public TableroView(Tablero tablero){
+    public TableroView(Tablero tablero, Ronda ronda){
         this.grilla = new GridPane();
         this.tablero = tablero;
+        this.ronda = ronda;
+        ronda.addObserver(this);
 
         this.height = ConstantesDeAplicacion.getAltoVentana() - 64;
         this.width = height;
@@ -37,7 +42,7 @@ public class TableroView extends Group {
         for (int i = 0; i < this.tablero.getLado(); i++) {
             for (int j = 0; j < this.tablero.getLado(); j++) {
                 CasilleroView v = new CasilleroView(this.tablero.casilleroEn(new Posicion(i+1,j+1)),this.tileWidth,this.tileHeigth);
-                casilleroViews[i][j] = v;
+                this.casilleroViews[i][j] = v;
 
                 this.grilla.add(v , i, j);
 
@@ -49,6 +54,19 @@ public class TableroView extends Group {
 
     public Tablero getTablero() {
         return this.tablero;
+    }
+
+    public void setSeleccion(Posicion posicion){
+        this.hideSeleccion();
+        this.casilleroViews[posicion.getHorizontal() - 1][posicion.getVertical() - 1].setSeleccion();
+    }
+
+    public void hideSeleccion(){
+        for (int i = 0; i < this.tablero.getLado(); i++) {
+            for (int j = 0; j < this.tablero.getLado(); j++) {
+                this.casilleroViews[i][j].hideSeleccion();
+            }
+        }
     }
 
     public void prepararUbicar(Pieza pieza, Ronda ronda){
@@ -133,5 +151,10 @@ public class TableroView extends Group {
                 this.casilleroViews[i][j].setEvent(null);
             }
         }
+    }
+
+    @Override
+    public void change() {
+        this.hideSeleccion();
     }
 }

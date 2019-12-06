@@ -14,9 +14,6 @@ import java.nio.file.Paths;
 
 public class PantallaInicial extends VBox {
 
-    static int desplazamientoXBotonSalir = 1130;
-    static int desplazamientoYBotonSalir = 820;
-
     public PantallaInicial(Stage ventana, Scene menuView){
         super();
         this.setSpacing(20);
@@ -34,14 +31,14 @@ public class PantallaInicial extends VBox {
 
         Button botonSalirDelJuego = new Button();
         BotonSalirView configurarBotonSalirDelJuego = new BotonSalirView();
-        configurarBotonSalirDelJuego.setBotonSalirView(botonSalirDelJuego,desplazamientoXBotonSalir,desplazamientoYBotonSalir);
+        configurarBotonSalirDelJuego.setBotonSalirView(botonSalirDelJuego);
 
 
         this.setBackground(new Background(imagenDeFondo));
-        this.getChildren().addAll(botonComenzarElJuego,botonSalirDelJuego);
+        this.getChildren().addAll(botonComenzarElJuego);
 
         HandlerBotonComenzar eventoClickEnComenzar = new HandlerBotonComenzar(ventana, menuView);
-        botonComenzarElJuego.setOnAction(eventoClickEnComenzar/*e->{ventana.setScene(menu);ventana.show();}*/);
+        botonComenzarElJuego.setOnAction(eventoClickEnComenzar);
         HandlerBotonSalir opcionSalirHandler = new HandlerBotonSalir();
         botonSalirDelJuego.setOnAction(opcionSalirHandler);
 

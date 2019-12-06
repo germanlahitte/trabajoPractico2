@@ -24,6 +24,7 @@ public class HandlerElegirPieza implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         this.ventana.setRight(new PanelBatalla(this.pieza, this.vistaTablero, this.ronda, this.ventana));
+        this.vistaTablero.setSeleccion(this.pieza.getPosicion());
     }
 
 }

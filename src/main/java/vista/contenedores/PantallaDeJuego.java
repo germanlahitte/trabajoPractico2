@@ -35,7 +35,7 @@ public class PantallaDeJuego extends VBox {
         this.partida = batalla;
         this.tablero = this.partida.getTablero();
 
-        this.vistaTablero = new TableroView(this.tablero);
+        this.vistaTablero = new TableroView(this.tablero, this.partida.getRonda());
 
         this.tiendaView = new MenuTienda(this.partida.getRonda(), this.vistaTablero);
 
