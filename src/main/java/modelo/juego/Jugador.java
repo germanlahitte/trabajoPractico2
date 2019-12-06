@@ -1,12 +1,12 @@
 package modelo.juego;
 
+import modelo.ProveedorConstantes;
 import modelo.equipos.Equipo;
 import modelo.piezas.*;
 
 import java.util.ArrayList;
 
 public class Jugador {
-    private static int credito = 20;
     private String nombre;
     private Equipo bando;
     private Billetera billetera;
@@ -16,7 +16,7 @@ public class Jugador {
     public Jugador(String nombre, Equipo bando) {
         this.nombre = nombre;
         this.bando = bando;
-        this.billetera = new Billetera(credito);
+        this.billetera = new Billetera(ProveedorConstantes.creditoInicial());
         this.piezas = new ArrayList<>();
 
     }

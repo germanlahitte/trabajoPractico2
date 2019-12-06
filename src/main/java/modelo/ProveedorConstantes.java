@@ -5,6 +5,8 @@ public class ProveedorConstantes {
     private static int LADO_DEL_TABLERO = 20;
     private static int DESPLAZAMIENTO_MAXIMO = 1;
 
+    private static int CREDITO_INICIAL = 20;
+
     private static int COSTO_SOLDADO = 1;
     private static int COSTO_JINETE = 3;
     private static int COSTO_CURANDERO = 2;
@@ -122,6 +124,10 @@ public class ProveedorConstantes {
 
     public static String nombreArmaCurandero() {
         return ARMA_CURANDERO;
+    }
+
+    public static int creditoInicial() {
+        return CREDITO_INICIAL;
     }
 }
 
