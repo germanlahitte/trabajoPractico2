@@ -2,21 +2,28 @@ package vista.contenedores;
 
 import javafx.application.Platform;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import modelo.juego.Jugador;
 import modelo.juego.Observer;
 import modelo.juego.Ronda;
+
+import java.nio.file.Paths;
 
 public class PanelTurno extends VBox implements Observer {
 
     Text jugadorText;
     Text descripcionText;
     Ronda ronda;
+    Scene escenaFinal;
+    Stage ventana;
 
-    public PanelTurno(Ronda ronda) {
+    public PanelTurno(Ronda ronda, Stage ventana) {
         this.setAlignment(Pos.CENTER);
         this.ronda = ronda;
         this.jugadorText = new Text();
@@ -25,6 +32,11 @@ public class PanelTurno extends VBox implements Observer {
         this.descripcionText.setStroke(Color.WHITE);
         ronda.addObserver(this);
         this.getChildren().addAll(this.jugadorText, this.descripcionText);
+        this.ventana = ventana;
+    }
+
+    public void setEscenaFinal(Scene escenaFinal) {
+        this.escenaFinal = escenaFinal;
     }
 
     public void setDescripcion(String descripcion) {
@@ -34,6 +46,10 @@ public class PanelTurno extends VBox implements Observer {
     @Override
     public void change() {
         if (this.juegoTerminado() && !this.ronda.puedenComprar()){
+            AudioClip audioInicio = new AudioClip(Paths.get("src/main/java/vista/audio/jingle2.wav").toUri().toString());
+            audioInicio.play();
+            this.ventana.setScene(this.escenaFinal);
+            /*
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Juego Terminado");
 
@@ -48,6 +64,8 @@ public class PanelTurno extends VBox implements Observer {
                 alert.showAndWait();
             }
             Platform.exit();
+
+             */
         }
         Jugador jugadorActual = this.ronda.getJugadorActual();
         this.jugadorText.setText("Turno Jugador: " + jugadorActual.getNombre() + " [" + jugadorActual.getEquipo().getNombre() + "]");
@@ -67,10 +85,11 @@ public class PanelTurno extends VBox implements Observer {
     }
 
     private boolean juegoTerminado() {
-        boolean hayGanador = false;
         for (Jugador jugador : this.ronda.getJugadores()) {
-            hayGanador = jugador.esPerdedor();
+            if (jugador.esPerdedor()) {
+                return true;
+            }
         }
-        return hayGanador;
+        return false;
     }
 }

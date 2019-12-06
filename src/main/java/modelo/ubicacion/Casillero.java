@@ -101,7 +101,10 @@ public class Casillero extends Observable {
         direcciones.add(Direccion.surEste());
         direcciones.add(Direccion.surOeste());
         for(Direccion direccion:direcciones){
-            vecinos.add(this.siguiente(direccion));
+            Casillero casillero = this.siguiente(direccion);
+            if (casillero!=null) {
+                vecinos.add(casillero);
+            }
         }
         return vecinos;
     }

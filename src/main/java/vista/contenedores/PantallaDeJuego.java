@@ -2,6 +2,7 @@ package vista.contenedores;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import modelo.juego.Juego;
 import javafx.scene.layout.*;
@@ -26,8 +27,9 @@ public class PantallaDeJuego extends VBox {
         this.setBackground(new Background(imagenDeFondo));
 
         this.partida = partida;
+
         this.tablero = this.partida.getTablero();
-        this.panelTurno = new PanelTurno(this.partida.getRonda());
+        this.panelTurno = new PanelTurno(this.partida.getRonda(), ventana);
 
         this.vistaTablero = new TableroView(border, this.partida, this.panelTurno);
         this.menuTienda = new MenuTienda(this.partida.getRonda(), this.vistaTablero);
@@ -42,5 +44,9 @@ public class PantallaDeJuego extends VBox {
 
         this.getChildren().add(border);
 
+    }
+
+    public void setEscenaFinal(Scene escenaFinal) {
+        this.panelTurno.setEscenaFinal(escenaFinal);
     }
 }

@@ -29,13 +29,7 @@ public class Aplicacion extends Application {
 
         this.partida = new Juego();
 
-        PantallaDeJuego pantalla = new PantallaDeJuego(this.ventana, this.partida);
-        this.batallaView = new Escena(pantalla);
-
-        MenuPrincipal menuPrincipal = new MenuPrincipal(this.ventana, this.partida, batallaView);
-        this.menuView = new Escena(menuPrincipal);
-
-        PantallaInicial presentacion = new PantallaInicial(this.ventana, this.menuView);
+        PantallaInicial presentacion = new PantallaInicial(this.ventana, this.partida);
         this.inicioView = new Escena(presentacion);
 
         this.ventana.setScene(this.inicioView);

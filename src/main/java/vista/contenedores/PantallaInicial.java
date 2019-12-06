@@ -1,5 +1,6 @@
 package vista.contenedores;
 
+import modelo.juego.Juego;
 import vista.ConstantesDeAplicacion;
 import controlador.buttonHandlers.HandlerBotonComenzar;
 import javafx.scene.Scene;
@@ -13,7 +14,7 @@ import java.nio.file.Paths;
 
 public class PantallaInicial extends VBox {
 
-    public PantallaInicial(Stage ventana, Scene menuView){
+    public PantallaInicial(Stage ventana, Juego partida){
         super();
         this.setSpacing(20);
 
@@ -30,6 +31,17 @@ public class PantallaInicial extends VBox {
 
         this.setBackground(new Background(imagenDeFondo));
         this.getChildren().addAll(botonComenzarElJuego);
+
+
+        PantallaDeJuego pantalla = new PantallaDeJuego(ventana, partida);
+        Scene batallaView = new Escena(pantalla);
+
+        MenuPrincipal menuPrincipal = new MenuPrincipal(ventana, partida, batallaView);
+        Scene menuView = new Escena(menuPrincipal);
+
+        PantallaFinal pantallaFinal = new PantallaFinal(ventana, partida, menuView);
+        Scene finalView = new Escena(pantallaFinal);
+        pantalla.setEscenaFinal(finalView);
 
         HandlerBotonComenzar eventoClickEnComenzar = new HandlerBotonComenzar(ventana, menuView);
         botonComenzarElJuego.setOnAction(eventoClickEnComenzar);

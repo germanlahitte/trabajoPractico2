@@ -12,6 +12,11 @@ public class Juego {
         this.campoDeJuego = new Tablero();
     }
 
+    public void resetear(){
+        this.ronda = new Ronda();
+        this.campoDeJuego = new Tablero();
+    }
+
     public void agregar(Jugador esteJugador) {
         this.ronda.agregar(esteJugador);
     }
