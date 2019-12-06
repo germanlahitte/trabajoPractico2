@@ -11,10 +11,12 @@ import modelo.ubicacion.Casillero;
 
 public class CasilleroView extends Pane implements Observer {
 
+    private Background colorFondo;
     Button boton;
     Casillero casilleroModel;
     double width, heigth;
-    Background grafico;
+    Background graficoPasto;
+    Pane casilleroFondo;
 
 
 
@@ -28,19 +30,26 @@ public class CasilleroView extends Pane implements Observer {
         this.setMinHeight(tileHeigth);
         this.setMinWidth(tileWidth);
 
+        this.colorFondo = new Background(new BackgroundImage(new Image("file:src/main/java/vista/imagenes/fondo-" + this.casilleroModel.getEquipo().getNombre() + ".png"),
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                new BackgroundSize(tileWidth, tileHeigth, false, false, false, false)));
+        this.casilleroFondo = new Pane();
 
-        this.grafico = new Background(new BackgroundImage(new Image("file:src/main/java/vista/imagenes/casillero-" + casillero.getEquipo().getNombre() + ".png"),
+        this.graficoPasto = new Background(new BackgroundImage(new Image("file:src/main/java/vista/imagenes/casillero.png"),
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
                 new BackgroundSize(tileWidth, tileHeigth, false, false, false, false)));
 
-        this.setBackground(this.grafico);
+        this.setBackground(colorFondo);
+        this.casilleroFondo.setBackground(this.graficoPasto);
         this.boton = new Button();
         this.boton.setMinHeight(tileHeigth);
         this.boton.setMinWidth(tileWidth);
-        this.boton.setBackground(this.grafico);
-        this.getChildren().add(this.boton);
+        //this.boton.setBackground(this.graficoPasto);
+        this.getChildren().addAll(this.casilleroFondo, this.boton);
     }
     public void setEvent(EventHandler<ActionEvent> evento){
         this.boton.setOnAction(evento);
@@ -52,13 +61,13 @@ public class CasilleroView extends Pane implements Observer {
             Background bi = new Background(new BackgroundImage(new Image("file:src/main/java/vista/imagenes/piezas-img/" +
                     this.casilleroModel.getPieza().getNombre() + "-" +
                     this.casilleroModel.getPieza().getEquipo().getNombre() + ".png"),
-            BackgroundRepeat.NO_REPEAT,
-            BackgroundRepeat.NO_REPEAT,
-            BackgroundPosition.CENTER,
-            new BackgroundSize(this.width, this.heigth, false, false, false, false)));
+                    BackgroundRepeat.NO_REPEAT,
+                    BackgroundRepeat.NO_REPEAT,
+                    BackgroundPosition.CENTER,
+                    new BackgroundSize(this.width, this.heigth, false, false, false, false)));
             this.boton.setBackground(bi);
         } else {
-            this.boton.setBackground(this.grafico);
+            //this.boton.setBackground(this.graficoPasto);
         }
     }
 }
