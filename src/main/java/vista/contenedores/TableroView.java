@@ -164,8 +164,8 @@ public class TableroView extends Group implements Observer {
 
     @Override
     public void change() {
+        this.removerEvento();
         if (!this.ronda.puedenComprar()) {
-            this.removerEvento();
             this.prepararElegir(this.ronda.getJugadorActual().getEquipo(), this.ventana, this.ronda);
             this.hideSeleccion();
         }

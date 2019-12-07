@@ -72,13 +72,9 @@ public class MenuTienda extends VBox implements Observer {
     @Override
     public void change() {
         if (this.ronda.puedenComprar()) {
-            boolean mostrar = this.ronda.getJugadorActual().tieneSaldo();
-            this.botonComprarSoldado.setVisible(mostrar);
-            this.botonComprarJinete.setVisible(mostrar);
-            this.botonComprarCurandero.setVisible(mostrar);
-            this.botonComprarCatapulta.setVisible(mostrar);
-            this.botonPasar.setVisible(!mostrar);
-
+            if (!this.ronda.getJugadorActual().tieneSaldo()) {
+                this.ronda.avanzar();
+            }
             this.setVisible(true);
             this.creditosText.setText("Créditos disponibles: " + this.ronda.getJugadorActual().getCredito());
         }
