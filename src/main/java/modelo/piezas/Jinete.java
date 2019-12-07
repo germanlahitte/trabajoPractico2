@@ -50,11 +50,15 @@ public class Jinete extends Pieza implements Movible{
         ArrayList<Pieza> piezasVecinasEnemigas = new ArrayList<>();
         this.filtrarVecinos(piezasVecinasAliadas,piezasVecinasEnemigas);
 
-        if ((piezasVecinasAliadas.size() == 0) && (piezasVecinasEnemigas.size() > 0))
-            this.equiparEspada();
-        else {
-            for (Pieza aliada : piezasVecinasAliadas) {
-                aliada.escoltar(this);
+        if ((piezasVecinasAliadas.size() == 0) && (piezasVecinasEnemigas.size() == 0)){
+            this.equiparArco();
+        } else {
+            if ((piezasVecinasAliadas.size() == 0) && (piezasVecinasEnemigas.size() > 0))
+                this.equiparEspada();
+            else {
+                for (Pieza aliada : piezasVecinasAliadas) {
+                    aliada.escoltar(this);
+                }
             }
         }
     }
