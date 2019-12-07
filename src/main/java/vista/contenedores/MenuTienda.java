@@ -20,7 +20,6 @@ public class MenuTienda extends VBox implements Observer {
     Button botonComprarJinete;
     Button botonComprarCurandero;
     Button botonComprarCatapulta;
-    Button botonPasar;
 
     public MenuTienda(Ronda ronda, TableroView vistaTablero){
 
@@ -36,36 +35,25 @@ public class MenuTienda extends VBox implements Observer {
         this.getChildren().add(this.creditosText);
 
         this.botonComprarSoldado = new Button("Comprar Soldado");
-        botonComprarSoldado.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+        this.botonComprarSoldado.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
         HandlerBotonComprar eventoComprarSoldado = new HandlerBotonComprar(this, ronda, 1, vistaTablero);
-        botonComprarSoldado.setOnAction(eventoComprarSoldado);
+        this.botonComprarSoldado.setOnAction(eventoComprarSoldado);
 
         this.botonComprarJinete = new Button("Comprar Jinete");
-        botonComprarJinete.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+        this.botonComprarJinete.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
         HandlerBotonComprar eventoComprarJinete = new HandlerBotonComprar(this, ronda, 2, vistaTablero);
-        botonComprarJinete.setOnAction(eventoComprarJinete);
+        this.botonComprarJinete.setOnAction(eventoComprarJinete);
 
         this.botonComprarCurandero = new Button("Comprar Curandero");
-        botonComprarCurandero.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+        this.botonComprarCurandero.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
         HandlerBotonComprar eventoComprarCurandero = new HandlerBotonComprar(this, ronda, 3, vistaTablero);
-        botonComprarCurandero.setOnAction(eventoComprarCurandero);
+        this.botonComprarCurandero.setOnAction(eventoComprarCurandero);
 
         this.botonComprarCatapulta = new Button("Comprar Catapulta");
-        botonComprarCatapulta.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+        this.botonComprarCatapulta.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
         HandlerBotonComprar eventoComprarCatapulta = new HandlerBotonComprar(this, ronda, 4, vistaTablero);
-        botonComprarCatapulta.setOnAction(eventoComprarCatapulta);
-        this.getChildren().addAll(botonComprarSoldado,botonComprarJinete,botonComprarCurandero,botonComprarCatapulta);
-
-        this.botonPasar = new Button("Pasar");
-        this.botonPasar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
-        HandlerBotonPasar eventoPasar = new HandlerBotonPasar(ronda);
-        this.botonPasar.setOnAction(eventoPasar);
-
-
-
-        this.getChildren().add(botonPasar);
-
-
+        this.botonComprarCatapulta.setOnAction(eventoComprarCatapulta);
+        this.getChildren().addAll(this.botonComprarSoldado,this.botonComprarJinete,this.botonComprarCurandero,this.botonComprarCatapulta);
 
     }
 
