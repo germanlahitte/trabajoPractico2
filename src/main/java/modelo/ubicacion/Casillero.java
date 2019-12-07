@@ -119,6 +119,16 @@ public class Casillero extends Observable {
         return piezasVecinas;
     }
 
+    public ArrayList<Pieza> piezasAliadasVecinas(Equipo equipoAliado){
+        ArrayList<Pieza> piezasVecinas = this.piezasVecinas();
+        ArrayList<Pieza> piezasAliadasVecinas = new ArrayList<>();
+        for(Pieza vecina:piezasVecinas)
+            if(vecina.soyAliado(equipoAliado)){
+                piezasAliadasVecinas.add(vecina);
+            }
+        return piezasAliadasVecinas;
+    }
+
     private ArrayList<Casillero> casillerosVecinosOcupados(){
         ArrayList<Pieza> piezasVecinas = this.piezasVecinas();
         ArrayList<Casillero> casillerosVecinos = new ArrayList<>();

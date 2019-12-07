@@ -108,7 +108,7 @@ public abstract class Pieza {
         equipo.soyAliado(this.equipo, aliadas, enemigas, this);
     }
 
-    boolean soyAliado(Equipo equipo) {
+    public boolean soyAliado(Equipo equipo) {
         return equipo.soyAliado(this.equipo);
     }
 

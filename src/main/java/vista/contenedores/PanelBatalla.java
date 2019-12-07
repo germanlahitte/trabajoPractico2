@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import modelo.juego.Observer;
 import modelo.juego.Ronda;
@@ -30,8 +31,12 @@ public class PanelBatalla extends VBox implements Observer {
         this.setSpacing(5);
 
         Text vidaText = new Text("Vida " + pieza.getNombre() + ": " + pieza.getVida());
+        vidaText.setFont(Font.loadFont("file:src/main/java/vista/imagenes/fuente.ttf", 12) );
+        vidaText.setFill(Color.FIREBRICK);
         vidaText.setStroke(Color.WHITE);
         Text armaText = new Text("Arma: " + pieza.getArma().getNombre());
+        armaText.setFont(Font.loadFont("file:src/main/java/vista/imagenes/fuente.ttf", 12) );
+        armaText.setFill(Color.FIREBRICK);
         armaText.setStroke(Color.WHITE);
         this.getChildren().addAll(vidaText, armaText);
 

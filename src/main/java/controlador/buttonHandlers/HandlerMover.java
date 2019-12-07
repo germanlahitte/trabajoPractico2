@@ -33,7 +33,7 @@ public class HandlerMover implements EventHandler<ActionEvent> {
             this.pieza.mover(this.direccion);
             AudioClip audioMover = new AudioClip(Paths.get("src/main/java/vista/audio/click.wav").toUri().toString());
             audioMover.play();
-            this.ronda.avanzar();
+            /*Se puede mover y atacar*///this.ronda.avanzar();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

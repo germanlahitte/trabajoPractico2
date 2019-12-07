@@ -33,7 +33,7 @@ public class HandlerMoverBatallon implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         try {
             Batallon batallon = new Batallon(this.pieza);
-            ArrayList<Pieza> vecinos = this.pieza.getCasillero().piezasVecinas();
+            ArrayList<Pieza> vecinos = this.pieza.getCasillero().piezasAliadasVecinas(this.pieza.getEquipo());
             for (Pieza pieza: vecinos) {
                 if (pieza.getClass() == Soldado.class){
                     batallon.enlistar((Soldado)pieza);
@@ -42,7 +42,7 @@ public class HandlerMoverBatallon implements EventHandler<ActionEvent> {
             batallon.mover(this.direccion);
             AudioClip audioMover = new AudioClip(Paths.get("src/main/java/vista/audio/click.wav").toUri().toString());
             audioMover.play();
-            this.ronda.avanzar();
+            /*Se puede mover y atacar*///this.ronda.avanzar();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

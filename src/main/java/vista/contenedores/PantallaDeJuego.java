@@ -22,7 +22,7 @@ public class PantallaDeJuego extends VBox {
         super();
         BorderPane border = new BorderPane();
         border.setPadding(new Insets(10, 10, 10, 10));
-        Image imagen = new Image("file:src/main/java/vista/imagenes/algoChessV3.png", ConstantesDeAplicacion.getAnchoVentana(), ConstantesDeAplicacion.getAltoVentana(), false, true, true);
+        Image imagen = new Image("file:src/main/java/vista/imagenes/fondoMadera.png", ConstantesDeAplicacion.getAnchoVentana(), ConstantesDeAplicacion.getAltoVentana(), false, true, true);
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
 
