@@ -12,7 +12,7 @@ public class ProveedorConstantes {
     private static int COSTO_CURANDERO = 2;
     private static int COSTO_CATAPULTA = 5;
 
-    private static int DANIO_ARMA_SOLADO = 10;
+    private static int DANIO_ARMA_SOLDADO = 10;
     private static int DANIO_ARMA_JINETE_ESPADA = 5;
     private static int DANIO_ARMA_JINETE_ARCO = 15;
     private static int DANIO_ARMA_CATAPULTA = 20;
@@ -43,7 +43,7 @@ public class ProveedorConstantes {
     }
 
     public static int armaSoldado() {
-        return DANIO_ARMA_SOLADO;
+        return DANIO_ARMA_SOLDADO;
     }
 
     public static int armaEspadaJinete() {

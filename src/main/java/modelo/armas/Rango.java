@@ -7,7 +7,7 @@ public class Rango {
     private static Rango lejano;
 
     static {
-        cercano = new Rango(1, 2);
+        cercano = new Rango(0, 2);
         mediano = new Rango(3, 5);
         lejano = new Rango(6, 20);
     }
