@@ -150,6 +150,10 @@ public class TableroView extends Group implements Observer {
         }
     }
 
+    public void movimiento(){
+        this.ronda.movimiento();
+    }
+
     public void addView(Node view) {
         this.getChildren().add(view);
     }

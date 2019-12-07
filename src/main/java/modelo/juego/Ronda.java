@@ -8,6 +8,7 @@ public class Ronda extends Observable {
     private static int CANTIDAD_DE_JUGADORES = 2;
     private ArrayList<Jugador> jugadores;
     private Jugador jugadorActual;
+    private boolean movimiento;
 
     public Ronda(){
         this.jugadores = new ArrayList<>();
@@ -44,6 +45,7 @@ public class Ronda extends Observable {
 
     private void setJugadorActual(int indiceSiguiente) {
         jugadorActual = jugadores.get(indiceSiguiente);
+        this.movimiento=true;
     }
 
     public ArrayList<Jugador> getJugadores(){
@@ -59,4 +61,12 @@ public class Ronda extends Observable {
         return false;
     }
 
+    public boolean puedenMover(){
+        return movimiento;
+    }
+
+    public void movimiento() {
+        this.movimiento=false;
+        notifyObservers();
+    }
 }

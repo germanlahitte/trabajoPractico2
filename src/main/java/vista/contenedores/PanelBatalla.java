@@ -15,6 +15,7 @@ import modelo.piezas.Curandero;
 import modelo.piezas.Pieza;
 import modelo.piezas.Soldado;
 import vista.ConstantesDeAplicacion;
+import vista.botones.*;
 
 public class PanelBatalla extends VBox implements Observer {
 
@@ -37,41 +38,49 @@ public class PanelBatalla extends VBox implements Observer {
         armaText.setStroke(Color.WHITE);
         this.getChildren().addAll(vidaText, armaText);
 
-        if (pieza.getClass() != Catapulta.class) {
-            Button botonMover = new Button("Mover");
-            botonMover.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
-            HandlerPrepararMover eventoMover = new HandlerPrepararMover(pieza, vistaTablero);
-            botonMover.setOnAction(eventoMover);
-            this.getChildren().add(botonMover);
-        }
+        if(ronda.puedenMover()) {
+            if (pieza.getClass() != Catapulta.class) {
+                Button botonMover = new Button(/*"Mover"*/);
+                botonMover.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+                VistaBotonMover vistaBotonMover = new VistaBotonMover(botonMover);
+                HandlerPrepararMover eventoMover = new HandlerPrepararMover(pieza, vistaTablero);
+                botonMover.setOnAction(eventoMover);
+                this.getChildren().add(botonMover);
+            }
 
-        if (pieza.getClass() == Soldado.class) {
-            Button botonMoverBatallon = new Button("Mover Batallon");
-            botonMoverBatallon.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
-            HandlerPrepararMoverBatallon eventoMoverBatallon = new HandlerPrepararMoverBatallon(pieza, vistaTablero);
-            botonMoverBatallon.setOnAction(eventoMoverBatallon);
-            this.getChildren().add(botonMoverBatallon);
+            if (pieza.getClass() == Soldado.class) {
+                Button botonMoverBatallon = new Button(/*"Mover Batallon"*/);
+                botonMoverBatallon.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+                VistaBotonMoverBatallon vistaBotonMoverBatallon = new VistaBotonMoverBatallon(botonMoverBatallon);
+                HandlerPrepararMoverBatallon eventoMoverBatallon = new HandlerPrepararMoverBatallon(pieza, vistaTablero);
+                botonMoverBatallon.setOnAction(eventoMoverBatallon);
+                this.getChildren().add(botonMoverBatallon);
+            }
         }
 
         Button botonAtacar = new Button();
         if (pieza.getClass()== Curandero.class){
-            botonAtacar.setText("Curar");
+            /*botonAtacar.setText("Curar");*/
+            VistaBotonCurar vistaBotonCurar = new VistaBotonCurar(botonAtacar);
         } else {
-            botonAtacar.setText("Atacar");
+            /*botonAtacar.setText("Atacar");*/
+            VistaBotonAtacar vistaBotonAtacar = new VistaBotonAtacar(botonAtacar);
         }
         botonAtacar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
         HandlerPrepararAtacar eventoAtacar = new HandlerPrepararAtacar(pieza, vistaTablero, botonAtacar.getText());
         botonAtacar.setOnAction(eventoAtacar);
         this.getChildren().add(botonAtacar);
 
-        Button botonCancelar = new Button("Cancelar");
+        Button botonCancelar = new Button(/*"Cancelar"*/);
         botonCancelar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+        VistaBotonCancelar vistaBotonCancelar = new VistaBotonCancelar(botonCancelar);
         HandlerBotonCancelar eventoCancelar = new HandlerBotonCancelar(vistaTablero);
         botonCancelar.setOnAction(eventoCancelar);
         this.getChildren().add(botonCancelar);
 
-        Button botonPasar = new Button("Pasar");
+        Button botonPasar = new Button(/*"Pasar"*/);
         botonPasar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+        VistaBotonPasar vistaBotonPasar = new VistaBotonPasar(botonPasar);
         HandlerBotonPasar eventoPasar = new HandlerBotonPasar(ronda);
         botonPasar.setOnAction(eventoPasar);
         this.getChildren().add(botonPasar);
