@@ -2,6 +2,7 @@ package controlador.buttonHandlers;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import modelo.juego.Ronda;
 import modelo.piezas.Pieza;

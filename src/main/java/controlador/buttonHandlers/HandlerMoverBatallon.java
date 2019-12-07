@@ -21,12 +21,14 @@ public class HandlerMoverBatallon implements EventHandler<ActionEvent> {
     private Soldado pieza;
     private Ronda ronda;
     private Direccion direccion;
+    private TableroView vistaTablero;
 
-    public HandlerMoverBatallon(Pieza piezaMueve, Posicion posicionCasillero, Posicion posicionPieza, Ronda ronda) {
+    public HandlerMoverBatallon(Pieza piezaMueve, Posicion posicionCasillero, Posicion posicionPieza, Ronda ronda,TableroView vistaTablero) {
 
         this.ronda = ronda;
         this.pieza = (Soldado) piezaMueve;
         this.direccion = Direccion.direccionDesdeHasta(posicionPieza, posicionCasillero);
+        this.vistaTablero = vistaTablero;
     }
 
     @Override
@@ -42,7 +44,7 @@ public class HandlerMoverBatallon implements EventHandler<ActionEvent> {
             batallon.mover(this.direccion);
             AudioClip audioMover = new AudioClip(Paths.get("src/main/java/vista/audio/click.wav").toUri().toString());
             audioMover.play();
-            /*Se puede mover y atacar*///this.ronda.avanzar();
+            /*Se puede mover y atacar*//*this.ronda.avanzar();*/this.vistaTablero.removerEvento();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

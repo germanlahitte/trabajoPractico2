@@ -126,7 +126,7 @@ public class TableroView extends Group implements Observer {
                 Posicion posicionPieza = piezaMueve.getPosicion();
                 if (this.casilleroViews[i][j].casilleroModel.getPieza() == null &&
                         posicionCasillero.distanciaA(posicionPieza) == 1) {
-                    HandlerMover evento = new HandlerMover(piezaMueve, posicionCasillero, posicionPieza, this.ronda);
+                    HandlerMover evento = new HandlerMover(piezaMueve, posicionCasillero, posicionPieza, this.ronda,this);
                     this.casilleroViews[i][j].setEvent(evento);
                 }
 
@@ -142,7 +142,7 @@ public class TableroView extends Group implements Observer {
                 Posicion posicionCasillero = this.casilleroViews[i][j].casilleroModel.getPosicion();
                 Posicion posicionPieza = piezaMueve.getPosicion();
                 if (posicionCasillero.distanciaA(posicionPieza) == 1) {
-                    HandlerMoverBatallon evento = new HandlerMoverBatallon(piezaMueve, posicionCasillero, posicionPieza, this.ronda);
+                    HandlerMoverBatallon evento = new HandlerMoverBatallon(piezaMueve, posicionCasillero, posicionPieza, this.ronda,this);
                     this.casilleroViews[i][j].setEvent(evento);
                 }
 
