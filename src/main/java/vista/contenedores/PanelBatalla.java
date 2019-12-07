@@ -1,9 +1,6 @@
 package vista.contenedores;
 
-import controlador.buttonHandlers.HandlerBotonPasar;
-import controlador.buttonHandlers.HandlerPrepararAtacar;
-import controlador.buttonHandlers.HandlerPrepararMover;
-import controlador.buttonHandlers.HandlerPrepararMoverBatallon;
+import controlador.buttonHandlers.*;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -67,6 +64,11 @@ public class PanelBatalla extends VBox implements Observer {
         botonAtacar.setOnAction(eventoAtacar);
         this.getChildren().add(botonAtacar);
 
+        Button botonCancelar = new Button("Cancelar");
+        botonCancelar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+        HandlerBotonCancelar eventoCancelar = new HandlerBotonCancelar(vistaTablero);
+        botonCancelar.setOnAction(eventoCancelar);
+        this.getChildren().add(botonCancelar);
 
         Button botonPasar = new Button("Pasar");
         botonPasar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
