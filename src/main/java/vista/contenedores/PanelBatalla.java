@@ -31,11 +31,12 @@ public class PanelBatalla extends VBox implements Observer {
         this.setSpacing(5);
 
         Text vidaText = new Text("Vida " + pieza.getNombre() + ": " + pieza.getVida());
-        vidaText.setFont(Font.loadFont("file:src/main/java/vista/imagenes/fuente.ttf", 12) );
+        Font fuenteTexto = Font.loadFont("file:src/main/java/vista/imagenes/fuente.ttf", 12);
+        vidaText.setFont(fuenteTexto);
         Text armaText = new Text("Arma: " + pieza.getArma().getNombre());
         vidaText.setStroke(Color.WHITE);
         armaText.setStroke(Color.WHITE);
-        armaText.setFont(Font.loadFont("file:src/main/java/vista/imagenes/fuente.ttf", 12) );
+        armaText.setFont(fuenteTexto);
         if (ronda.getJugadorActual().getEquipo().getClass() == EquipoAzul.class) {
             vidaText.setFill(Color.DARKBLUE);
             armaText.setFill(Color.DARKBLUE);
@@ -47,8 +48,10 @@ public class PanelBatalla extends VBox implements Observer {
 
         if(ronda.puedenMover()) {
             if (pieza.getClass() != Catapulta.class) {
-                Button botonMover = new Button(/*"Mover"*/);
+                Button botonMover = new Button("Mover");
                 botonMover.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+                botonMover.setFont(fuenteTexto);
+                botonMover.setTextFill(Color.BLACK);
                 VistaBotonMover vistaBotonMover = new VistaBotonMover(botonMover);
                 HandlerPrepararMover eventoMover = new HandlerPrepararMover(pieza, vistaTablero);
                 botonMover.setOnAction(eventoMover);
@@ -56,8 +59,10 @@ public class PanelBatalla extends VBox implements Observer {
             }
 
             if (pieza.getClass() == Soldado.class) {
-                Button botonMoverBatallon = new Button(/*"Mover Batallon"*/);
+                Button botonMoverBatallon = new Button("Mover Batallon");
                 botonMoverBatallon.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
+                botonMoverBatallon.setFont(fuenteTexto);
+                botonMoverBatallon.setTextFill(Color.BLACK);
                 VistaBotonMoverBatallon vistaBotonMoverBatallon = new VistaBotonMoverBatallon(botonMoverBatallon);
                 HandlerPrepararMoverBatallon eventoMoverBatallon = new HandlerPrepararMoverBatallon(pieza, vistaTablero);
                 botonMoverBatallon.setOnAction(eventoMoverBatallon);
@@ -67,25 +72,29 @@ public class PanelBatalla extends VBox implements Observer {
 
         Button botonAtacar = new Button();
         if (pieza.getClass()== Curandero.class){
-            /*botonAtacar.setText("Curar");*/
+            botonAtacar.setText("Curar");
             VistaBotonCurar vistaBotonCurar = new VistaBotonCurar(botonAtacar);
+            botonAtacar.setFont(fuenteTexto);
+            botonAtacar.setTextFill(Color.BLACK);
         } else {
-            /*botonAtacar.setText("Atacar");*/
+            botonAtacar.setText("Atacar");
             VistaBotonAtacar vistaBotonAtacar = new VistaBotonAtacar(botonAtacar);
+            botonAtacar.setFont(fuenteTexto);
+            botonAtacar.setTextFill(Color.BLACK);
         }
         botonAtacar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
         HandlerPrepararAtacar eventoAtacar = new HandlerPrepararAtacar(pieza, vistaTablero, botonAtacar.getText());
         botonAtacar.setOnAction(eventoAtacar);
         this.getChildren().add(botonAtacar);
 
-        Button botonCancelar = new Button(/*"Cancelar"*/);
+        Button botonCancelar = new Button();
         botonCancelar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
         VistaBotonCancelar vistaBotonCancelar = new VistaBotonCancelar(botonCancelar);
         HandlerBotonCancelar eventoCancelar = new HandlerBotonCancelar(vistaTablero);
         botonCancelar.setOnAction(eventoCancelar);
         this.getChildren().add(botonCancelar);
 
-        Button botonPasar = new Button(/*"Pasar"*/);
+        Button botonPasar = new Button();
         botonPasar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
         VistaBotonPasar vistaBotonPasar = new VistaBotonPasar(botonPasar);
         HandlerBotonPasar eventoPasar = new HandlerBotonPasar(ronda);

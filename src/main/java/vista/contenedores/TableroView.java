@@ -115,7 +115,7 @@ public class TableroView extends Group implements Observer {
 
             }
         }
-        this.panelTurno.setDescripcion("Elige una pieza a " + accion);
+        this.panelTurno.setDescripcion(accion + "a: Elige una pieza");
     }
 
     public void prepararMover(Pieza piezaMueve) {
@@ -131,7 +131,7 @@ public class TableroView extends Group implements Observer {
                 }
 
             }
-            this.panelTurno.setDescripcion("Selecciona un casillero donde quieres mover");
+            this.panelTurno.setDescripcion("Mover: Selecciona un casillero donde quieres mover");
         }
     }
 
@@ -147,7 +147,7 @@ public class TableroView extends Group implements Observer {
                 }
 
             }
-            this.panelTurno.setDescripcion("Selecciona un casillero donde quieres mover");
+            this.panelTurno.setDescripcion("Mover batallon: Selecciona un casillero donde quieres mover");
         }
     }
 
