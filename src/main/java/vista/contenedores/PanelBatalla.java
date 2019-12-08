@@ -8,6 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import modelo.equipos.EquipoAzul;
 import modelo.juego.Observer;
 import modelo.juego.Ronda;
 import modelo.piezas.Catapulta;
@@ -23,19 +24,25 @@ public class PanelBatalla extends VBox implements Observer {
 
     public PanelBatalla(Pieza pieza, TableroView vistaTablero, Ronda ronda, BorderPane ventana) {
         this.setAlignment(Pos.CENTER_LEFT);
-        this.setWidth(200);
+        this.setMinWidth(ConstantesDeAplicacion.getAnchoVentana() / 4);
+        this.setMaxWidth(ConstantesDeAplicacion.getAnchoVentana() / 4);
         this.ronda = ronda;
         this.ronda.addObserver(this);
         this.setSpacing(5);
 
         Text vidaText = new Text("Vida " + pieza.getNombre() + ": " + pieza.getVida());
         vidaText.setFont(Font.loadFont("file:src/main/java/vista/imagenes/fuente.ttf", 12) );
-        vidaText.setFill(Color.FIREBRICK);
-        vidaText.setStroke(Color.WHITE);
         Text armaText = new Text("Arma: " + pieza.getArma().getNombre());
-        armaText.setFont(Font.loadFont("file:src/main/java/vista/imagenes/fuente.ttf", 12) );
-        armaText.setFill(Color.FIREBRICK);
+        vidaText.setStroke(Color.WHITE);
         armaText.setStroke(Color.WHITE);
+        armaText.setFont(Font.loadFont("file:src/main/java/vista/imagenes/fuente.ttf", 12) );
+        if (ronda.getJugadorActual().getEquipo().getClass() == EquipoAzul.class) {
+            vidaText.setFill(Color.DARKBLUE);
+            armaText.setFill(Color.DARKBLUE);
+        } else {
+            vidaText.setFill(Color.FIREBRICK);
+            armaText.setFill(Color.FIREBRICK);
+        }
         this.getChildren().addAll(vidaText, armaText);
 
         if(ronda.puedenMover()) {

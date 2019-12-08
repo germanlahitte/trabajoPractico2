@@ -158,7 +158,7 @@ public class Casillero extends Observable {
        this.tablero.altoElFuego();
     }
 
-    public void noQuemado() {
+    void noQuemado() {
         this.alcanzado = new StrategyNoQuemado();
     }
 

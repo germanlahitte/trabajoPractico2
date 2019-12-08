@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import modelo.equipos.EquipoAzul;
 import modelo.juego.Jugador;
 import modelo.juego.Observer;
 import modelo.juego.Ronda;
@@ -29,11 +30,9 @@ public class PanelTurno extends VBox implements Observer {
         this.ronda = ronda;
         this.jugadorText = new Text();
         jugadorText.setFont(Font.loadFont("file:src/main/java/vista/imagenes/fuente.ttf", 16));
-        jugadorText.setFill(Color.FIREBRICK);
         this.jugadorText.setStroke(Color.WHITE);
         this.descripcionText = new Text();
         descripcionText.setFont(Font.loadFont("file:src/main/java/vista/imagenes/fuente.ttf", 16));
-        descripcionText.setFill(Color.FIREBRICK);
         this.descripcionText.setStroke(Color.WHITE);
         ronda.addObserver(this);
         this.getChildren().addAll(this.jugadorText, this.descripcionText);
@@ -54,25 +53,15 @@ public class PanelTurno extends VBox implements Observer {
             AudioClip audioInicio = new AudioClip(Paths.get("src/main/java/vista/audio/jingle2.wav").toUri().toString());
             audioInicio.play();
             this.ventana.setScene(this.escenaFinal);
-            /*
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Juego Terminado");
-
-            Jugador ganador = this.getGanador();
-            if (ganador != null) {
-                alert.setHeaderText("Victoria!");
-                alert.setContentText( "Ganador: " + ganador.getNombre() + " [" + ganador.getEquipo().getNombre() + "]");
-                alert.showAndWait();
-            } else {
-                alert.setHeaderText("Empate!");
-                alert.setContentText("Los equipos han empatado");
-                alert.showAndWait();
-            }
-            Platform.exit();
-
-             */
         }
         Jugador jugadorActual = this.ronda.getJugadorActual();
+        if (jugadorActual.getEquipo().getClass() == EquipoAzul.class) {
+            jugadorText.setFill(Color.DARKBLUE);
+            descripcionText.setFill(Color.DARKBLUE);
+        } else {
+            jugadorText.setFill(Color.FIREBRICK);
+            descripcionText.setFill(Color.FIREBRICK);
+        }
         this.jugadorText.setText("Turno Jugador: " + jugadorActual.getNombre() + " [" + jugadorActual.getEquipo().getNombre() + "]");
         if (this.ronda.puedenComprar()) {
             this.descripcionText.setText("Primera Fase: Compren y ubiquen sus piezas");
