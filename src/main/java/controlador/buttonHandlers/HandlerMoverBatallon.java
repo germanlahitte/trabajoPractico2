@@ -46,6 +46,8 @@ public class HandlerMoverBatallon implements EventHandler<ActionEvent> {
             this.vistaTablero.movimiento();
             this.vistaTablero.change();
         } catch (Exception e) {
+            AudioClip audioJugar = new AudioClip(Paths.get("src/main/java/vista/audio/nonono.wav").toUri().toString());
+            audioJugar.play();
             System.out.println(e.getMessage());
         }
 
