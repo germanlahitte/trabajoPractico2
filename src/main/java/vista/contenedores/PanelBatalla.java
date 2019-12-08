@@ -90,7 +90,7 @@ public class PanelBatalla extends VBox implements Observer {
         Button botonCancelar = new Button();
         botonCancelar.setMinWidth(ConstantesDeAplicacion.getAnchoBotones());
         VistaBotonCancelar vistaBotonCancelar = new VistaBotonCancelar(botonCancelar);
-        HandlerBotonCancelar eventoCancelar = new HandlerBotonCancelar(vistaTablero);
+        HandlerBotonCancelar eventoCancelar = new HandlerBotonCancelar(vistaTablero, this);
         botonCancelar.setOnAction(eventoCancelar);
         this.getChildren().add(botonCancelar);
 
