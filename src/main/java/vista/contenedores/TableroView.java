@@ -147,6 +147,7 @@ public class TableroView extends Group implements Observer {
                 }
 
             }
+            this.panelTurno.setDescripcion("Selecciona un casillero donde quieres mover");
         }
     }
 
