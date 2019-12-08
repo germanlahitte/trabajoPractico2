@@ -31,7 +31,7 @@ public class HandlerUbicarPieza implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         try {
             this.tablero.ubicar(this.pieza, this.posicion);
-            AudioClip audioJugar = new AudioClip(Paths.get("src/main/java/vista/audio/sePudoUbicar.wav").toUri().toString());
+            AudioClip audioJugar = new AudioClip(Paths.get("src/main/java/vista/audio/click.wav").toUri().toString());
             audioJugar.play();
             this.ronda.avanzar();
         }
