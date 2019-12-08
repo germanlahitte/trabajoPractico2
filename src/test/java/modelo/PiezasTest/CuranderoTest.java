@@ -1,8 +1,8 @@
 package modelo.PiezasTest;
 
-import excepciones.ArmaNoPuedeAtacarException;
 import excepciones.CatapultaNoPuedeCurarse;
 import excepciones.DistanciaArmaInefectiva;
+import excepciones.PiezaNoPuedeAtacar;
 import modelo.equipos.EquipoAzul;
 import modelo.equipos.EquipoRojo;
 import modelo.piezas.*;
@@ -64,7 +64,7 @@ class CuranderoTest {
         piezaAzul.hacerseDanio(70);
 
 
-        assertThrows(ArmaNoPuedeAtacarException.class, ()-> curanderoRojo.atacar(piezaAzul));
+        assertThrows(PiezaNoPuedeAtacar.class, ()-> curanderoRojo.atacar(piezaAzul));
         assertEquals(30,piezaAzul.getVida());
     }
 }
