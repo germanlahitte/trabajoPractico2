@@ -29,12 +29,13 @@ public class MenuTienda extends VBox implements Observer {
     public MenuTienda(Ronda ronda, TableroView vistaTablero){
 
         this.setAlignment(Pos.CENTER);
-        this.setWidth(200);
+        this.setMinWidth(ConstantesDeAplicacion.getAnchoVentana() / 4);
+        this.setMaxWidth(ConstantesDeAplicacion.getAnchoVentana() / 4);
         this.setSpacing(5);
         this.creditosText = new Text();
         this.creditosText.setFont(Font.loadFont("file:src/main/java/vista/imagenes/fuente.ttf", 11));
-        this.creditosText.setFill(Color.FIREBRICK);
-        this.creditosText.setStroke(Color.WHITE);
+        this.creditosText.setFill(Color.WHITE);
+        this.creditosText.setStroke(Color.FORESTGREEN);
         this.ronda = ronda;
 
         this.ronda.addObserver(this);
