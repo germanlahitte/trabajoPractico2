@@ -24,6 +24,6 @@ public class HandlerVolverAJugar implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        this.ventana.setScene(menuPricipal);
+        
     }
 }
